@@ -17,6 +17,22 @@
 		98B9762C2AB0501700515EA4 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B9762B2AB0501700515EA4 /* Icon.swift */; };
 		98B976362AB0555900515EA4 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B976352AB0555900515EA4 /* LogInView.swift */; };
 		98B976382AB0556000515EA4 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B976372AB0556000515EA4 /* SignUpView.swift */; };
+		98B976492AB081C800515EA4 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98B976392AB081C700515EA4 /* Nunito-Bold.ttf */; };
+		98B9764A2AB081C800515EA4 /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98B9763A2AB081C700515EA4 /* Nunito-ExtraBold.ttf */; };
+		98B9764B2AB081C800515EA4 /* Nunito-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98B9763B2AB081C700515EA4 /* Nunito-LightItalic.ttf */; };
+		98B9764C2AB081C800515EA4 /* Nunito-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98B9763C2AB081C800515EA4 /* Nunito-BlackItalic.ttf */; };
+		98B9764D2AB081C800515EA4 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98B9763D2AB081C800515EA4 /* Nunito-Light.ttf */; };
+		98B9764E2AB081C800515EA4 /* Nunito-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98B9763E2AB081C800515EA4 /* Nunito-ExtraLight.ttf */; };
+		98B9764F2AB081C800515EA4 /* Nunito-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98B9763F2AB081C800515EA4 /* Nunito-Medium.ttf */; };
+		98B976502AB081C800515EA4 /* Nunito-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98B976402AB081C800515EA4 /* Nunito-Black.ttf */; };
+		98B976512AB081C800515EA4 /* Nunito-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98B976412AB081C800515EA4 /* Nunito-ExtraLightItalic.ttf */; };
+		98B976522AB081C800515EA4 /* Nunito-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98B976422AB081C800515EA4 /* Nunito-Italic.ttf */; };
+		98B976532AB081C800515EA4 /* Nunito-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98B976432AB081C800515EA4 /* Nunito-MediumItalic.ttf */; };
+		98B976542AB081C800515EA4 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98B976442AB081C800515EA4 /* Nunito-SemiBold.ttf */; };
+		98B976552AB081C800515EA4 /* Nunito-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98B976452AB081C800515EA4 /* Nunito-ExtraBoldItalic.ttf */; };
+		98B976562AB081C800515EA4 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98B976462AB081C800515EA4 /* Nunito-Regular.ttf */; };
+		98B976572AB081C800515EA4 /* Nunito-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98B976472AB081C800515EA4 /* Nunito-SemiBoldItalic.ttf */; };
+		98B976582AB081C800515EA4 /* Nunito-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98B976482AB081C800515EA4 /* Nunito-BoldItalic.ttf */; };
 		EA3B46E12AB04A5500BDF587 /* TunexaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */; };
 		EA3B46E32AB04A5500BDF587 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46E22AB04A5500BDF587 /* ContentView.swift */; };
 		EA3B46E52AB04A5700BDF587 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA3B46E42AB04A5700BDF587 /* Assets.xcassets */; };
@@ -54,6 +70,23 @@
 		98B9762B2AB0501700515EA4 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		98B976352AB0555900515EA4 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		98B976372AB0556000515EA4 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		98B976392AB081C700515EA4 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		98B9763A2AB081C700515EA4 /* Nunito-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraBold.ttf"; sourceTree = "<group>"; };
+		98B9763B2AB081C700515EA4 /* Nunito-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-LightItalic.ttf"; sourceTree = "<group>"; };
+		98B9763C2AB081C800515EA4 /* Nunito-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-BlackItalic.ttf"; sourceTree = "<group>"; };
+		98B9763D2AB081C800515EA4 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
+		98B9763E2AB081C800515EA4 /* Nunito-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraLight.ttf"; sourceTree = "<group>"; };
+		98B9763F2AB081C800515EA4 /* Nunito-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Medium.ttf"; sourceTree = "<group>"; };
+		98B976402AB081C800515EA4 /* Nunito-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Black.ttf"; sourceTree = "<group>"; };
+		98B976412AB081C800515EA4 /* Nunito-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		98B976422AB081C800515EA4 /* Nunito-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic.ttf"; sourceTree = "<group>"; };
+		98B976432AB081C800515EA4 /* Nunito-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-MediumItalic.ttf"; sourceTree = "<group>"; };
+		98B976442AB081C800515EA4 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
+		98B976452AB081C800515EA4 /* Nunito-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		98B976462AB081C800515EA4 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		98B976472AB081C800515EA4 /* Nunito-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		98B976482AB081C800515EA4 /* Nunito-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-BoldItalic.ttf"; sourceTree = "<group>"; };
+		98B976592AB081D600515EA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EA3B46DD2AB04A5500BDF587 /* Tunexa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tunexa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaApp.swift; sourceTree = "<group>"; };
 		EA3B46E22AB04A5500BDF587 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -193,6 +226,22 @@
 			children = (
 				98B976302AB0531500515EA4 /* Sounds */,
 				98B9762F2AB052F900515EA4 /* Fonts */,
+				98B976402AB081C800515EA4 /* Nunito-Black.ttf */,
+				98B9763C2AB081C800515EA4 /* Nunito-BlackItalic.ttf */,
+				98B976392AB081C700515EA4 /* Nunito-Bold.ttf */,
+				98B976482AB081C800515EA4 /* Nunito-BoldItalic.ttf */,
+				98B9763A2AB081C700515EA4 /* Nunito-ExtraBold.ttf */,
+				98B976452AB081C800515EA4 /* Nunito-ExtraBoldItalic.ttf */,
+				98B9763E2AB081C800515EA4 /* Nunito-ExtraLight.ttf */,
+				98B976412AB081C800515EA4 /* Nunito-ExtraLightItalic.ttf */,
+				98B976422AB081C800515EA4 /* Nunito-Italic.ttf */,
+				98B9763D2AB081C800515EA4 /* Nunito-Light.ttf */,
+				98B9763B2AB081C700515EA4 /* Nunito-LightItalic.ttf */,
+				98B9763F2AB081C800515EA4 /* Nunito-Medium.ttf */,
+				98B976432AB081C800515EA4 /* Nunito-MediumItalic.ttf */,
+				98B976462AB081C800515EA4 /* Nunito-Regular.ttf */,
+				98B976442AB081C800515EA4 /* Nunito-SemiBold.ttf */,
+				98B976472AB081C800515EA4 /* Nunito-SemiBoldItalic.ttf */,
 				98B976182AB04F5A00515EA4 /* Model */,
 				98B976162AB04F4C00515EA4 /* View */,
 				98B976172AB04F5000515EA4 /* ViewModel */,
@@ -200,6 +249,7 @@
 				98B976192AB04F7200515EA4 /* Helpers */,
 				EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */,
 				EA3B46E42AB04A5700BDF587 /* Assets.xcassets */,
+				98B976592AB081D600515EA4 /* Info.plist */,
 				EA3B46E62AB04A5700BDF587 /* Tunexa.entitlements */,
 				EA3B46E72AB04A5700BDF587 /* Preview Content */,
 			);
@@ -335,8 +385,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98B976572AB081C800515EA4 /* Nunito-SemiBoldItalic.ttf in Resources */,
+				98B976542AB081C800515EA4 /* Nunito-SemiBold.ttf in Resources */,
 				EA3B46E92AB04A5700BDF587 /* Preview Assets.xcassets in Resources */,
+				98B976522AB081C800515EA4 /* Nunito-Italic.ttf in Resources */,
+				98B976502AB081C800515EA4 /* Nunito-Black.ttf in Resources */,
+				98B9764D2AB081C800515EA4 /* Nunito-Light.ttf in Resources */,
+				98B9764C2AB081C800515EA4 /* Nunito-BlackItalic.ttf in Resources */,
+				98B976532AB081C800515EA4 /* Nunito-MediumItalic.ttf in Resources */,
+				98B976492AB081C800515EA4 /* Nunito-Bold.ttf in Resources */,
 				EA3B46E52AB04A5700BDF587 /* Assets.xcassets in Resources */,
+				98B9764B2AB081C800515EA4 /* Nunito-LightItalic.ttf in Resources */,
+				98B976562AB081C800515EA4 /* Nunito-Regular.ttf in Resources */,
+				98B976582AB081C800515EA4 /* Nunito-BoldItalic.ttf in Resources */,
+				98B9764A2AB081C800515EA4 /* Nunito-ExtraBold.ttf in Resources */,
+				98B976552AB081C800515EA4 /* Nunito-ExtraBoldItalic.ttf in Resources */,
+				98B976512AB081C800515EA4 /* Nunito-ExtraLightItalic.ttf in Resources */,
+				98B9764E2AB081C800515EA4 /* Nunito-ExtraLight.ttf in Resources */,
+				98B9764F2AB081C800515EA4 /* Nunito-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +595,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Tunexa/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Tunexa/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -538,7 +605,6 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -565,6 +631,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Tunexa/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Tunexa/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -574,7 +641,6 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
