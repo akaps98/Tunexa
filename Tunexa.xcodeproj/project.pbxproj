@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98B9761B2AB04F8B00515EA4 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B9761A2AB04F8B00515EA4 /* Modifiers.swift */; };
+		98B9761D2AB04F9900515EA4 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B9761C2AB04F9900515EA4 /* PlaySound.swift */; };
+		98B9761F2AB04FA400515EA4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B9761E2AB04FA400515EA4 /* Utilities.swift */; };
+		98B976232AB04FC500515EA4 /* SongRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B976222AB04FC500515EA4 /* SongRow.swift */; };
+		98B976252AB04FCC00515EA4 /* SongCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B976242AB04FCC00515EA4 /* SongCard.swift */; };
+		98B976272AB04FD800515EA4 /* DashBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B976262AB04FD800515EA4 /* DashBoardView.swift */; };
+		98B976292AB04FEE00515EA4 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B976282AB04FEE00515EA4 /* SplashView.swift */; };
+		98B9762C2AB0501700515EA4 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B9762B2AB0501700515EA4 /* Icon.swift */; };
 		EA3B46E12AB04A5500BDF587 /* TunexaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */; };
 		EA3B46E32AB04A5500BDF587 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46E22AB04A5500BDF587 /* ContentView.swift */; };
 		EA3B46E52AB04A5700BDF587 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA3B46E42AB04A5700BDF587 /* Assets.xcassets */; };
@@ -34,6 +42,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		98B9761A2AB04F8B00515EA4 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
+		98B9761C2AB04F9900515EA4 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
+		98B9761E2AB04FA400515EA4 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		98B976222AB04FC500515EA4 /* SongRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRow.swift; sourceTree = "<group>"; };
+		98B976242AB04FCC00515EA4 /* SongCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCard.swift; sourceTree = "<group>"; };
+		98B976262AB04FD800515EA4 /* DashBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardView.swift; sourceTree = "<group>"; };
+		98B976282AB04FEE00515EA4 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		98B9762B2AB0501700515EA4 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		EA3B46DD2AB04A5500BDF587 /* Tunexa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tunexa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaApp.swift; sourceTree = "<group>"; };
 		EA3B46E22AB04A5500BDF587 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -72,6 +88,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		98B976162AB04F4C00515EA4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EA3B46E22AB04A5500BDF587 /* ContentView.swift */,
+				98B976262AB04FD800515EA4 /* DashBoardView.swift */,
+				98B976282AB04FEE00515EA4 /* SplashView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		98B976172AB04F5000515EA4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		98B976182AB04F5A00515EA4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		98B976192AB04F7200515EA4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				98B9761A2AB04F8B00515EA4 /* Modifiers.swift */,
+				98B9761C2AB04F9900515EA4 /* PlaySound.swift */,
+				98B9761E2AB04FA400515EA4 /* Utilities.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		98B976202AB04FAB00515EA4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				98B9762A2AB0500C00515EA4 /* General */,
+				98B976212AB04FB800515EA4 /* DashBoard */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		98B976212AB04FB800515EA4 /* DashBoard */ = {
+			isa = PBXGroup;
+			children = (
+				98B976222AB04FC500515EA4 /* SongRow.swift */,
+				98B976242AB04FCC00515EA4 /* SongCard.swift */,
+			);
+			path = DashBoard;
+			sourceTree = "<group>";
+		};
+		98B9762A2AB0500C00515EA4 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				98B9762B2AB0501700515EA4 /* Icon.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		98B9762F2AB052F900515EA4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		98B976302AB0531500515EA4 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		EA3B46D42AB04A5500BDF587 = {
 			isa = PBXGroup;
 			children = (
@@ -95,8 +185,14 @@
 		EA3B46DF2AB04A5500BDF587 /* Tunexa */ = {
 			isa = PBXGroup;
 			children = (
+				98B976302AB0531500515EA4 /* Sounds */,
+				98B9762F2AB052F900515EA4 /* Fonts */,
+				98B976182AB04F5A00515EA4 /* Model */,
+				98B976162AB04F4C00515EA4 /* View */,
+				98B976172AB04F5000515EA4 /* ViewModel */,
+				98B976202AB04FAB00515EA4 /* Components */,
+				98B976192AB04F7200515EA4 /* Helpers */,
 				EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */,
-				EA3B46E22AB04A5500BDF587 /* ContentView.swift */,
 				EA3B46E42AB04A5700BDF587 /* Assets.xcassets */,
 				EA3B46E62AB04A5700BDF587 /* Tunexa.entitlements */,
 				EA3B46E72AB04A5700BDF587 /* Preview Content */,
@@ -259,7 +355,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98B976292AB04FEE00515EA4 /* SplashView.swift in Sources */,
 				EA3B46E32AB04A5500BDF587 /* ContentView.swift in Sources */,
+				98B976272AB04FD800515EA4 /* DashBoardView.swift in Sources */,
+				98B976232AB04FC500515EA4 /* SongRow.swift in Sources */,
+				98B976252AB04FCC00515EA4 /* SongCard.swift in Sources */,
+				98B9761D2AB04F9900515EA4 /* PlaySound.swift in Sources */,
+				98B9761B2AB04F8B00515EA4 /* Modifiers.swift in Sources */,
+				98B9761F2AB04FA400515EA4 /* Utilities.swift in Sources */,
+				98B9762C2AB0501700515EA4 /* Icon.swift in Sources */,
 				EA3B46E12AB04A5500BDF587 /* TunexaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
