@@ -19,8 +19,7 @@ struct SongTestView: View {
     @State private var imageItem: PhotosPickerItem?
     
     var body: some View {
-        VStack{
-            TextField("Name of the song", text: $name)
+        VStack{ext: $name)
             TextField("Name of the artist", text: $artist)
             TextField("Name of the album", text: $album)
             HStack{
@@ -36,6 +35,7 @@ struct SongTestView: View {
                 Task{
                     if let data = try? await imageItem?.loadTransferable(type: Data.self){
                         if let uiImage = UIImage(data: data){
+            TextField("Name of the song", t
                             image = Image(uiImage: uiImage)
                             return
                         }
@@ -61,6 +61,7 @@ struct SongTestView: View {
                         Text(song.name ?? "")
                         Text(song.artist ?? "")
                         Text(song.album ?? "")
+                        Image(uiImage: UIImage(data: song.albumImage ?? Data()) ?? UIImage())
                     }
                 }
                 .navigationTitle("Song Titles")
