@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3639E7B22AB1B0BA003D766E /* SongCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3639E7B12AB1B0BA003D766E /* SongCardView.swift */; };
 		98B9761B2AB04F8B00515EA4 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B9761A2AB04F8B00515EA4 /* Modifiers.swift */; };
 		98B9761D2AB04F9900515EA4 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B9761C2AB04F9900515EA4 /* PlaySound.swift */; };
 		98B9761F2AB04FA400515EA4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B9761E2AB04FA400515EA4 /* Utilities.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3639E7B12AB1B0BA003D766E /* SongCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCardView.swift; sourceTree = "<group>"; };
 		98B9761A2AB04F8B00515EA4 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		98B9761C2AB04F9900515EA4 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 		98B9761E2AB04FA400515EA4 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				98B976282AB04FEE00515EA4 /* SplashView.swift */,
 				98B976372AB0556000515EA4 /* SignUpView.swift */,
 				98B976352AB0555900515EA4 /* LogInView.swift */,
+				3639E7B12AB1B0BA003D766E /* SongCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3639E7B22AB1B0BA003D766E /* SongCardView.swift in Sources */,
 				98B976292AB04FEE00515EA4 /* SplashView.swift in Sources */,
 				EA3B46E32AB04A5500BDF587 /* ContentView.swift in Sources */,
 				98B976272AB04FD800515EA4 /* DashBoardView.swift in Sources */,
