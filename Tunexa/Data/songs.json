@@ -1,0 +1,37 @@
+[
+    {
+       "name": "Light Switch",
+       "author": "Charlie Puth",
+       "categories": ["pop","rock"],
+       "songURL": "",
+       "avatarName": "song-avatar-1"
+    },
+    {
+       "name": "See You Again",
+       "author": "Charlie Puth",
+       "categories": ["pop","rock"],
+       "songURL": "",
+       "avatarName": "song-avatar-1"
+    },
+    {
+       "name": "We Don't Talk Anymore",
+       "author": "Charlie Puth",
+       "categories": ["pop","rock"],
+       "songURL": "",
+       "avatarName": "song-avatar-1"
+    },
+    {
+       "name": "Attention",
+       "author": "Charlie Puth",
+       "categories": ["pop","rock"],
+       "songURL": "",
+       "avatarName": "song-avatar-1"
+    },
+    {
+       "name": "Stay",
+       "author": "Justin Bieber",
+       "categories": ["pop","rock"],
+       "songURL": "",
+       "avatarName": "song-avatar-1"
+    }
+]
