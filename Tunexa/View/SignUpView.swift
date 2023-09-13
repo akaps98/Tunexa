@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: - VALIDATION STATUS
 enum RegisterStatus {
     case blankInfo, wrongFormat, duplicatedEmail, passwordLength, doublecheck, registerSuccess
 }
