@@ -8,12 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isDark: Bool = false
     var body: some View {
         TabView {
-            DashBoardView()
+            DashBoardView(isDark: $isDark)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
+            
+            SearchView(isDark: $isDark)
+                .tabItem {
+                    Label("Search", systemImage: "magnifyingglass")
+                }
+            
+            LibraryView()
+                .tabItem {
+                    Label("Library", systemImage: "music.note.list")
+                }
+            AccountView()
+                .tabItem {
+                    Label("Account", systemImage: "person")
+                }
+            
         }
         
     }

@@ -22,7 +22,7 @@ struct SongRow: View {
                 VStack(alignment: .listRowSeparatorLeading) {
                     Text("See You Again")
                         .font(.custom("Nunito-Bold", size: 18))
-                    Text("Andy Angel")
+                    Text("Charlie Puth")
                         .font(.custom("Nunito-Regular", size: 16))
                 }
                 // MARK: SONG CATEGORIES
