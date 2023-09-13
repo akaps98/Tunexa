@@ -8,12 +8,25 @@
 import SwiftUI
 
 struct AccountView: View {
+    @State var isLoggedIn = true // check the user is logged in
+    
+    @State var email = "tony@gmail.com"
+    @State var desc = ""
+    
     var body: some View {
-        VStack {
-            Text("Account View")
-                .font(.title)
-                .bold()
-            Text("User view and edit account detail here")
+        if (isLoggedIn) {
+            ZStack {
+                Color("bg-color")
+                    .edgesIgnoringSafeArea(.all)
+                VStack {
+                    Text("Account View")
+                        .font(.title)
+                        .bold()
+                    Text("User view and edit account detail here")
+                }
+            }
+        } else {
+            LogInView()
         }
     }
 }
