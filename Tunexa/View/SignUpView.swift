@@ -12,7 +12,10 @@ enum RegisterStatus {
 }
 
 struct SignUpView: View {
+    // MARK: - VARIABLES
     @Environment(\.presentationMode) var presentationMode
+    
+    @Binding var isDark: Bool
     
     @State private var showingAlert = false
     @State private var status: RegisterStatus = .blankInfo
@@ -21,6 +24,7 @@ struct SignUpView: View {
     @State var password = ""
     @State var checkPassword = ""
     
+    // MARK: - FUNCTION; REGISTRATION
     func registration(email: String, password: String, checkPassword: String) {
         if(email == "" || password == "" || checkPassword == "") {
             status = .blankInfo
@@ -48,9 +52,11 @@ struct SignUpView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                // MARK: - BACKGROUND COLOR
                 Color("bg-color")
                     .edgesIgnoringSafeArea(.all)
                 VStack {
+                    // MARK: - APP LOGO
                     Image("logo-icon-transparent")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -59,36 +65,41 @@ struct SignUpView: View {
                         .padding()
                         .offset(y:-80)
                     Group {
-                        Text("Sign in")
+                        // MARK: - REGISTER TEXT
+                        Text("Register")
                             .font(.custom("Nunito-Bold", size: 37))
-                        TextField("email", text: $email)
+                        // MARK: - EMAIL TEXTFIELD
+                        TextField("\(Image(systemName: "envelope")) Email", text: $email)
                             .padding()
                             .frame(width: 300, height: 50)
                             .background(Color.black.opacity(0.07))
                             .cornerRadius(10)
-                            .font(.custom("Nunito-Bold", size: 20))
-                        SecureField("password", text: $password)
+                            .font(.custom("Nunito-Bold", size: 22))
+                        // MARK: - PASSWORD TEXTFIELD
+                        SecureField("\(Image(systemName: "lock"))  Password", text: $password)
                             .padding()
                             .frame(width: 300, height: 50)
                             .background(Color.black.opacity(0.07))
                             .cornerRadius(10)
-                            .font(.custom("Nunito-Bold", size: 20))
-                        SecureField("Type your password again...", text: $checkPassword)
+                            .font(.custom("Nunito-Bold", size: 22))
+                        // MARK: - CONFIRMATION TEXTFIELD
+                        SecureField("\(Image(systemName: "checkmark"))  Confirm", text: $checkPassword)
                             .padding()
                             .frame(width: 300, height: 50)
                             .background(Color.black.opacity(0.07))
                             .cornerRadius(10)
-                            .font(.custom("Nunito-Bold", size: 20))
+                            .font(.custom("Nunito-Bold", size: 22))
+                        // MARK: - LINK TO LOGIN VIEW
                         Button {
                             presentationMode.wrappedValue.dismiss()
                         } label: {
                             Text("I have an account!")
                         }
+                        // MARK: - REGISTER BUTTON
                         Button {
-                            print($email, $password, $checkPassword)
                             registration(email: email, password: password, checkPassword: checkPassword)
                             self.showingAlert.toggle()
-                            if(status == .registerSuccess) {
+                            if(status == .registerSuccess) {                            print($email, $password)
                                 presentationMode.wrappedValue.dismiss()
                             }
                         } label: {
@@ -102,31 +113,33 @@ struct SignUpView: View {
                                 )
                                 .padding()
                                 .alert(isPresented: $showingAlert) {
+                                    // MARK: - VALIDATION
                                     switch status {
                                     case .blankInfo:
-                                        return               Alert(title: Text("Wrong"), message: Text("Please fill in the information!"))
+                                        return Alert(title: Text("Wrong"), message: Text("Please fill in the blank!"))
                                     case .wrongFormat:
-                                        return               Alert(title: Text("Wrong"), message: Text("Wrong email format!"))
+                                        return Alert(title: Text("Wrong"), message: Text("Wrong email format!"))
                                     case .duplicatedEmail:
-                                        return               Alert(title: Text("Wrong"), message: Text("This email address is already exists!"))
+                                        return Alert(title: Text("Wrong"), message: Text("This email address is already exists!"))
                                     case .passwordLength:
-                                        return               Alert(title: Text("Wrong"), message: Text("Password must be at least 8 characters long!"))
+                                        return Alert(title: Text("Wrong"), message: Text("Password must be at least 8 characters long!"))
                                     case .doublecheck:
-                                        return               Alert(title: Text("Wrong"), message: Text("Double-check the password!"))
+                                        return Alert(title: Text("Wrong"), message: Text("Double-check the password!"))
                                     case .registerSuccess:
-                                        return               Alert(title: Text("Success"), message: Text("Successfully registered!"))
+                                        return Alert(title: Text("Success"), message: Text("Successfully registered!"))
                                     }
                                 }
                         }.offset(y: 10)
                     }.offset(y: -60)
                 }
-            }.navigationBarBackButtonHidden(true)
-        }
+            }
+        }.navigationBarBackButtonHidden(true)
+         .environment(\.colorScheme, isDark ? .dark : .light) // modify the color sheme based on the state variable
     }
 }
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView()
+        SignUpView(isDark: .constant(false))
     }
 }

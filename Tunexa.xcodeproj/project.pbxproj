@@ -53,6 +53,7 @@
 		EA3B46FD2AB04A5700BDF587 /* TunexaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46FC2AB04A5700BDF587 /* TunexaUITests.swift */; };
 		EA3B46FF2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46FE2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift */; };
 		EA3B47102AB1EDF200BDF587 /* AccountEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B470F2AB1EDF200BDF587 /* AccountEditView.swift */; };
+		EA3B47122AB2129C00BDF587 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B47112AB2129C00BDF587 /* PhotoPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,7 @@
 		EA3B46FC2AB04A5700BDF587 /* TunexaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaUITests.swift; sourceTree = "<group>"; };
 		EA3B46FE2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EA3B470F2AB1EDF200BDF587 /* AccountEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditView.swift; sourceTree = "<group>"; };
+		EA3B47112AB2129C00BDF587 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 				98B9761C2AB04F9900515EA4 /* PlaySound.swift */,
 				98B9761E2AB04FA400515EA4 /* Utilities.swift */,
 				984388F42AB1A70E0059D3C8 /* ModelData.swift */,
+				EA3B47112AB2129C00BDF587 /* PhotoPicker.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				984388EF2AB1A4620059D3C8 /* Artist.swift in Sources */,
 				EA3B46E12AB04A5500BDF587 /* TunexaApp.swift in Sources */,
 				EA3B47102AB1EDF200BDF587 /* AccountEditView.swift in Sources */,
+				EA3B47122AB2129C00BDF587 /* PhotoPicker.swift in Sources */,
 				984388F32AB1A4730059D3C8 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

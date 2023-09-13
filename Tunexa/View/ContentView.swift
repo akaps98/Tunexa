@@ -25,7 +25,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Library", systemImage: "music.note.list")
                 }
-            AccountView()
+            AccountView(isDark: $isDark)
                 .tabItem {
                     Label("Account", systemImage: "person")
                 }
