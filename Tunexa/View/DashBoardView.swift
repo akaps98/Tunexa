@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct DashBoardView: View {
+    let colors : [Color] = [.red, .orange, .blue, .green, .cyan, .indigo, .pink, .yellow, .brown, .teal]
     let columns = 2
     @Binding var isDark: Bool
     
@@ -99,12 +100,12 @@ struct DashBoardView: View {
                         }
                         ScrollView(.horizontal) {
                             HStack(spacing: 15) {
-                                ForEach(0..<10) {_ in
-                                    SongColumn()
+                                ForEach(songs, id: \.self) {song in
+                                    SongColumn(song: song)
                                 }
                             }
-                            
                         }
+                        .scrollIndicators(.hidden)
                         
                         // MARK: ALL ARTISTS
                         HStack {
@@ -120,6 +121,7 @@ struct DashBoardView: View {
                             }
                             
                         }
+                        .scrollIndicators(.hidden)
                         
                         // MARK: ALL CATEGORIES
                         HStack {
@@ -128,8 +130,8 @@ struct DashBoardView: View {
                             Spacer()
                         }
                         LazyVGrid(columns: Array(repeating: GridItem(), count: columns)) {
-                            ForEach(0..<15) {_ in
-                                CategoryRow()
+                            ForEach(0..<10) {i in
+                                CategoryRow(bgColor: colors[i])
                             }
                         }
                     } // VStack

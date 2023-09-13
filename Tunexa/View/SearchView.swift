@@ -22,7 +22,9 @@ struct SearchView: View {
                 ScrollView {
                     // MARK: BODY
                     VStack {
-                        
+                        ForEach(songs, id: \.self) {song in
+                            SongRow(song: song)
+                        }
                     }
                 }
             }

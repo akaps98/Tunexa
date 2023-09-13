@@ -8,42 +8,37 @@
 import SwiftUI
 
 struct SongRow: View {
+    let song: Song
+    
     var body: some View {
         HStack(alignment: .center) {
             // MARK: SONG IMAGE
-            Image("song-avatar-1")
+            song.avatar
                 .resizable()
                 .scaledToFit()
                 .frame(width: 80)
-                .padding(.trailing, 15)
-            VStack(alignment: .listRowSeparatorLeading) {
+                .padding(.trailing, 10)
+            VStack(alignment: .leading) {
                 // MARK: SONG INFO
                 VStack(alignment: .listRowSeparatorLeading) {
-                    Text("See You Again")
+                    Text(song.name)
                         .font(.custom("Nunito-Bold", size: 18))
-                    Text("Charlie Puth")
-                        .font(.custom("Nunito-Regular", size: 16))
+                        .lineLimit(1)
+                    Text(song.author)
+                        .font(.custom("Nunito-Regular", size: 14))
                 }
                 // MARK: SONG CATEGORIES
                 HStack {
-                    Capsule()
-                        .frame(width: 100, height: 25)
-                        .foregroundColor(Color("secondary-color"))
-                        .overlay(
-                            Text("Pop")
-                                .foregroundColor(.white)
-                                .font(.custom("Nunito-Medium", size: 16))
-                        )
-                    Capsule()
-                        .frame(width: 100, height: 25)
-                        .foregroundColor(Color("secondary-color"))
-                        .overlay(
-                            Text("Chill")
-                                .foregroundColor(.white)
-                                .font(.custom("Nunito-Medium", size: 16))
-                        )
+                    ForEach(song.categories, id: \.self) {category in
+                        Text(category).textCase(.uppercase)
+                            .foregroundColor(.white)
+                            .font(.custom("Nunito-Medium", size: 12))
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 2)
+                            .background(Color("secondary-color"), in: Capsule())
+                    }
+                    Spacer()
                 }
-                .offset(y: -2)
             }
             Spacer()
             
@@ -59,6 +54,6 @@ struct SongRow: View {
 
 struct SongRow_Previews: PreviewProvider {
     static var previews: some View {
-        SongRow()
+        SongRow(song: songs[1])
     }
 }

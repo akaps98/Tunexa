@@ -12,8 +12,8 @@
 		984388F32AB1A4730059D3C8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984388F22AB1A4730059D3C8 /* Category.swift */; };
 		984388F52AB1A70E0059D3C8 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984388F42AB1A70E0059D3C8 /* ModelData.swift */; };
 		984388F82AB1A7720059D3C8 /* songs.json in Resources */ = {isa = PBXBuildFile; fileRef = 984388F72AB1A7720059D3C8 /* songs.json */; };
-		9843891B2AB1B57B0059D3C8 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 9843891A2AB1B57B0059D3C8 /* categories.json */; };
-		9843891D2AB1B5890059D3C8 /* artists.json in Resources */ = {isa = PBXBuildFile; fileRef = 9843891C2AB1B5890059D3C8 /* artists.json */; };
+		9843891B2AB1B57B0059D3C8 /* category.json in Resources */ = {isa = PBXBuildFile; fileRef = 9843891A2AB1B57B0059D3C8 /* category.json */; };
+		9843891D2AB1B5890059D3C8 /* artist.json in Resources */ = {isa = PBXBuildFile; fileRef = 9843891C2AB1B5890059D3C8 /* artist.json */; };
 		98B9761B2AB04F8B00515EA4 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B9761A2AB04F8B00515EA4 /* Modifiers.swift */; };
 		98B9761D2AB04F9900515EA4 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B9761C2AB04F9900515EA4 /* PlaySound.swift */; };
 		98B9761F2AB04FA400515EA4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B9761E2AB04FA400515EA4 /* Utilities.swift */; };
@@ -79,8 +79,8 @@
 		984388F22AB1A4730059D3C8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		984388F42AB1A70E0059D3C8 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		984388F72AB1A7720059D3C8 /* songs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = songs.json; sourceTree = "<group>"; };
-		9843891A2AB1B57B0059D3C8 /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
-		9843891C2AB1B5890059D3C8 /* artists.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artists.json; sourceTree = "<group>"; };
+		9843891A2AB1B57B0059D3C8 /* category.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = category.json; sourceTree = "<group>"; };
+		9843891C2AB1B5890059D3C8 /* artist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artist.json; sourceTree = "<group>"; };
 		98B9761A2AB04F8B00515EA4 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		98B9761C2AB04F9900515EA4 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 		98B9761E2AB04FA400515EA4 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -156,8 +156,8 @@
 		984388F62AB1A7650059D3C8 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				9843891C2AB1B5890059D3C8 /* artists.json */,
-				9843891A2AB1B57B0059D3C8 /* categories.json */,
+				9843891C2AB1B5890059D3C8 /* artist.json */,
+				9843891A2AB1B57B0059D3C8 /* category.json */,
 				984388F72AB1A7720059D3C8 /* songs.json */,
 			);
 			path = Data;
@@ -439,7 +439,7 @@
 				98B976542AB081C800515EA4 /* Nunito-SemiBold.ttf in Resources */,
 				EA3B46E92AB04A5700BDF587 /* Preview Assets.xcassets in Resources */,
 				98B976522AB081C800515EA4 /* Nunito-Italic.ttf in Resources */,
-				9843891D2AB1B5890059D3C8 /* artists.json in Resources */,
+				9843891D2AB1B5890059D3C8 /* artist.json in Resources */,
 				98B976502AB081C800515EA4 /* Nunito-Black.ttf in Resources */,
 				98B9764D2AB081C800515EA4 /* Nunito-Light.ttf in Resources */,
 				98B9764C2AB081C800515EA4 /* Nunito-BlackItalic.ttf in Resources */,
@@ -454,7 +454,7 @@
 				98B976552AB081C800515EA4 /* Nunito-ExtraBoldItalic.ttf in Resources */,
 				98B976512AB081C800515EA4 /* Nunito-ExtraLightItalic.ttf in Resources */,
 				98B9764E2AB081C800515EA4 /* Nunito-ExtraLight.ttf in Resources */,
-				9843891B2AB1B57B0059D3C8 /* categories.json in Resources */,
+				9843891B2AB1B57B0059D3C8 /* category.json in Resources */,
 				98B9764F2AB081C800515EA4 /* Nunito-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

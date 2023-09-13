@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Song: Identifiable, Codable, Hashable {
-    var id: UUID = UUID()
+    var id: Int
     var name: String
     var author: String
     var categories: [String]
