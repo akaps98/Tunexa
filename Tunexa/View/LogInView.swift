@@ -76,9 +76,11 @@ struct LogInView: View {
                         NavigationLink(destination: SignUpView(isDark: $isDark)) { Text("Don't have account?") }
                         // MARK: - LOG IN BUTTON
                         Button {
-                            print($email, $password)
                             authentication(email: email, password: password)
                             self.showingAlert = true
+                            if(status == .logInSuccess) {
+                                print($email, $password)
+                            }
                         } label: {
                             Text("Log in")
                                 .foregroundColor(.white)
