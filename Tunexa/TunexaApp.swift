@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
-
 @main
 struct TunexaApp: App {
+    let dataController = SongViewModel.shared
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SongTestView()
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }
