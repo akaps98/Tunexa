@@ -31,3 +31,5 @@ func decodeJsonFromJsonFile<T: Codable>(jsonFileName: String) -> [T] {
 }
 
 var songs: [Song] = decodeJsonFromJsonFile(jsonFileName: "songs.json")
+// var categories: [Category] = decodeJsonFromJsonFile(jsonFileName: "categories.json")
+// var artists: [Artist] = decodeJsonFromJsonFile(jsonFileName: "artists.json")

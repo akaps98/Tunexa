@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 
-struct Song: Identifiable, Codable {
-    var id: UUID = UUID()
+struct Song: Identifiable, Codable, Hashable {
+    var id: Int
     var name: String
     var author: String
     var categories: [String]

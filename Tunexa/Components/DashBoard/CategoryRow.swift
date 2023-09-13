@@ -13,10 +13,12 @@
 import SwiftUI
 
 struct CategoryRow: View {
+    let bgColor: Color
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 5)
-                .foregroundColor(.orange)
+                .foregroundColor(bgColor)
                 .frame(height: 100)
             
             HStack {
@@ -24,9 +26,9 @@ struct CategoryRow: View {
                 Image("song-avatar-1")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 70, alignment: .leading)
+                    .frame(width: 60, alignment: .leading)
                     .rotationEffect(Angle(degrees: 10))
-                    .offset(x: 22, y: 10)
+                    .offset(x: 22, y: 15)
             }
             .padding(.trailing)
             
@@ -48,6 +50,6 @@ struct CategoryRow: View {
 
 struct CategoryRow_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryRow()
+        CategoryRow(bgColor: .orange)
     }
 }
