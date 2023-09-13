@@ -17,6 +17,7 @@ struct AccountView: View {
     
     @State private var showingImagePicker = false
     @State var pickedImage = Image("testPic") // profile pic
+    @State var showingAlert = false
     
     @State var email = "tony@gmail.com"
     @State var desc = "I love rock music."
@@ -60,6 +61,20 @@ struct AccountView: View {
                                     }
                                     .frame(height: 140)
                                 }
+                                // MARK: - LOGOUT BUTTON
+                                Button {
+                                    isLoggedIn.toggle();
+                                } label: {
+                                    Text("Log out")
+                                        .foregroundColor(.white)
+                                        .font(.custom("Nunito-Bold", size: 22))
+                                        .frame(width: 100, height: 20)
+                                        .padding()
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 10)
+                                        )
+                                        .padding()
+                                }.offset(y: 10)
                             }.offset(y:-90)
                         }
                     }
