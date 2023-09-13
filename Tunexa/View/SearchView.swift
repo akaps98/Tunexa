@@ -22,9 +22,7 @@ struct SearchView: View {
                 ScrollView {
                     // MARK: BODY
                     VStack {
-                        ForEach(0..<15) {_ in
-                            SongRow()
-                        }
+                        
                     }
                 }
             }

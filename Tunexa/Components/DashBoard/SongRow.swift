@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SongRow: View {
     var body: some View {
-        
         HStack(alignment: .center) {
             // MARK: SONG IMAGE
             Image("song-avatar-1")
