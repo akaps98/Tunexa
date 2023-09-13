@@ -62,5 +62,142 @@
         "categories": ["pop"],
         "songURL": "",
         "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 9,
+        "name": "Mơ",
+        "author": "Đen Vâu",
+        "categories": ["Hiphop"],
+        "songURL": "",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 10,
+        "name": "Cô Gái Bàn Bên",
+        "author": "Đen Vâu",
+        "categories": ["pop"],
+        "songURL": "",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 11,
+        "name": "Mưa Trên Những Mái Tôn",
+        "author": "Đen Vâu",
+        "categories": ["hiphop"],
+        "songURL": "",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 12,
+        "name": "Ghé Thăm",
+        "author": "Đen Vâu",
+        "categories": ["hiphop"],
+        "songURL": "",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 13,
+        "name": "Mockingbird",
+        "author": "Eminem",
+        "categories": ["hiphop"],
+        "songURL": "",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 14,
+        "name": "Without Me",
+        "author": "Đen Vâu",
+        "categories": ["hiphop"],
+        "songURL": "",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 15,
+        "name": "The Real Slim Shady",
+        "author": "Eminem",
+        "categories": ["hiphop"],
+        "songURL": "",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 16,
+        "name": "Lose Yourself",
+        "author": "Eminem",
+        "categories": ["hiphop"],
+        "songURL": "",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 17,
+        "name": "Leave the Door Open",
+        "author": "Bruno Mars",
+        "categories": ["pop", "jazz", "chill"],
+        "songURL": "",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 18,
+        "name": "24K Magic",
+        "author": "Bruno Mars",
+        "categories": ["pop"],
+        "songURL": "",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 19,
+        "name": "WANNABE",
+        "author": "ITZY",
+        "categories": ["kpop", "edm", "dance"],
+        "songURL": "",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 20,
+        "name": "LATATA",
+        "author": "(G)-IDLE",
+        "categories": ["kpop"],
+        "songURL": "",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 21,
+        "name": "Last Dance",
+        "author": "(G)-IDLE",
+        "categories": ["kpop"],
+        "songURL": "",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 22,
+        "name": "Oh my god",
+        "author": "(G)-IDLE",
+        "categories": ["kpop"],
+        "songURL": "",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 23,
+        "name": "Vẽ Khói",
+        "author": "Rhymastic",
+        "categories": ["hiphop"],
+        "songURL": "",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 24,
+        "name": "Closer",
+        "author": "The Chainsmokers",
+        "categories": ["pop", "edm", "dance"],
+        "songURL": "",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 25,
+        "name": "Roses",
+        "author": "The Chainsmokers",
+        "categories": ["pop", "edm", "dance"],
+        "songURL": "",
+        "avatarName": "song-avatar-1"
     }
+    
 ]
