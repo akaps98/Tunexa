@@ -25,8 +25,9 @@
 		A73690012AB1701B0064C531 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A73690002AB1701B0064C531 /* FirebaseStorage */; };
 		A73690032AB1701B0064C531 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = A73690022AB1701B0064C531 /* FirebaseStorageCombine-Community */; };
 		A77D88EE2AB17E800028475C /* SongTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77D88ED2AB17E800028475C /* SongTestView.swift */; };
-		A77D88F42AB186330028475C /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A77D88F22AB186330028475C /* DataModel.xcdatamodeld */; };
 		A77D88F82AB18EB30028475C /* SongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77D88F72AB18EB30028475C /* SongViewModel.swift */; };
+		A78EA2452AB300CC00CE227D /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EA2442AB300CC00CE227D /* Song.swift */; };
+		A78EA2492AB3255200CE227D /* SongUpdateTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EA2482AB3255200CE227D /* SongUpdateTestView.swift */; };
 		EA3B46E12AB04A5500BDF587 /* TunexaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */; };
 		EA3B46E32AB04A5500BDF587 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46E22AB04A5500BDF587 /* ContentView.swift */; };
 		EA3B46E52AB04A5700BDF587 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA3B46E42AB04A5700BDF587 /* Assets.xcassets */; };
@@ -66,8 +67,9 @@
 		98B976372AB0556000515EA4 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		A7368FF52AB16EF90064C531 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A77D88ED2AB17E800028475C /* SongTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTestView.swift; sourceTree = "<group>"; };
-		A77D88F32AB186330028475C /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		A77D88F72AB18EB30028475C /* SongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewModel.swift; sourceTree = "<group>"; };
+		A78EA2442AB300CC00CE227D /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Song.swift; path = ../../../Song.swift; sourceTree = "<group>"; };
+		A78EA2482AB3255200CE227D /* SongUpdateTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongUpdateTestView.swift; sourceTree = "<group>"; };
 		EA3B46DD2AB04A5500BDF587 /* Tunexa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tunexa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaApp.swift; sourceTree = "<group>"; };
 		EA3B46E22AB04A5500BDF587 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				98B976372AB0556000515EA4 /* SignUpView.swift */,
 				98B976352AB0555900515EA4 /* LogInView.swift */,
 				A77D88ED2AB17E800028475C /* SongTestView.swift */,
+				A78EA2482AB3255200CE227D /* SongUpdateTestView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -130,13 +133,6 @@
 			children = (
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		98B976182AB04F5A00515EA4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		98B976192AB04F7200515EA4 /* Helpers */ = {
@@ -189,19 +185,20 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
-		A73690062AB17A510064C531 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		A77D88E82AB17B280028475C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				A77D88F72AB18EB30028475C /* SongViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A78EA2422AB300AB00CE227D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A78EA2442AB300CC00CE227D /* Song.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		EA3B46D42AB04A5500BDF587 = {
@@ -227,13 +224,11 @@
 		EA3B46DF2AB04A5500BDF587 /* Tunexa */ = {
 			isa = PBXGroup;
 			children = (
-				A77D88F22AB186330028475C /* DataModel.xcdatamodeld */,
+				A78EA2422AB300AB00CE227D /* Model */,
 				A77D88E82AB17B280028475C /* ViewModel */,
-				A73690062AB17A510064C531 /* Model */,
 				A7368FF52AB16EF90064C531 /* GoogleService-Info.plist */,
 				98B976302AB0531500515EA4 /* Sounds */,
 				98B9762F2AB052F900515EA4 /* Fonts */,
-				98B976182AB04F5A00515EA4 /* Model */,
 				98B976162AB04F4C00515EA4 /* View */,
 				98B976172AB04F5000515EA4 /* ViewModel */,
 				98B976202AB04FAB00515EA4 /* Components */,
@@ -421,10 +416,11 @@
 				98B976382AB0556000515EA4 /* SignUpView.swift in Sources */,
 				98B976252AB04FCC00515EA4 /* SongCard.swift in Sources */,
 				98B9761D2AB04F9900515EA4 /* PlaySound.swift in Sources */,
-				A77D88F42AB186330028475C /* DataModel.xcdatamodeld in Sources */,
+				A78EA2492AB3255200CE227D /* SongUpdateTestView.swift in Sources */,
 				98B9761B2AB04F8B00515EA4 /* Modifiers.swift in Sources */,
 				A77D88EE2AB17E800028475C /* SongTestView.swift in Sources */,
 				98B9761F2AB04FA400515EA4 /* Utilities.swift in Sources */,
+				A78EA2452AB300CC00CE227D /* Song.swift in Sources */,
 				98B976362AB0555900515EA4 /* LogInView.swift in Sources */,
 				98B9762C2AB0501700515EA4 /* Icon.swift in Sources */,
 				EA3B46E12AB04A5500BDF587 /* TunexaApp.swift in Sources */,
@@ -815,19 +811,6 @@
 			productName = "FirebaseStorageCombine-Community";
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		A77D88F22AB186330028475C /* DataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				A77D88F32AB186330028475C /* DataModel.xcdatamodel */,
-			);
-			currentVersion = A77D88F32AB186330028475C /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = EA3B46D52AB04A5500BDF587 /* Project object */;
 }

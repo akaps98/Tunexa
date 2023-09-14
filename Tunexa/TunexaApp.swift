@@ -6,14 +6,16 @@
 //
 
 import SwiftUI
+import Firebase
+
 @main
 struct TunexaApp: App {
-    let dataController = SongViewModel.shared
-    
+    init(){
+        FirebaseApp.configure()
+    }
     var body: some Scene {
         WindowGroup {
             SongTestView()
-                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }

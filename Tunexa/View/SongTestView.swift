@@ -5,63 +5,123 @@
 //  Created by SeongJoon, Hong  on 13/09/2023.
 //
 
+
 import SwiftUI
 import PhotosUI
 
 struct SongTestView: View {
-    @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var songs: FetchedResults<Song>
+    @StateObject private var songViewModel = SongViewModel()
     @State private var name = ""
     @State private var artist = ""
-    @State private var album = ""
     @State private var albumImage: UIImage?
     @State private var image: Image?
     @State private var imageItem: PhotosPickerItem?
-    
+    @State private var firstCategory = ""
+    @State private var secondCategory = ""
+    @State private var thirdCategory = ""
+    let categories = ["Kpop", "Pop", "Jazz", "Hiphop", "Rock", "R&B", "Dance", "Soul", "Indie", "Punk", "Blues", "Reggae", "EDM", "Country", "Classical", "Latin"]
+    @State private var songCategories: [String] = []
     var body: some View {
         VStack{
             TextField("Name of the song", text: $name)
             TextField("Name of the artist", text: $artist)
-            TextField("Name of the album", text: $album)
+            HStack{
+                Picker(selection: $firstCategory, label: Text("Select a Category")) {
+                    if(firstCategory == ""){
+                        Text("Select Category").tag("Placeholder")
+                    }
+                    ForEach(categories, id: \.self) {
+                        Text($0).tag($0)
+                    }
+                }
+                if firstCategory != ""{
+                    Picker(selection: $secondCategory, label: Text("Select a Category")) {
+                        if(secondCategory == ""){
+                            Text("Select Category").tag("Placeholder")
+                        }
+                        ForEach(categories, id: \.self) { category in
+                            if category != firstCategory{
+                                Text(category).tag(category)
+                            }
+                        }
+                    }
+                }
+                if secondCategory != ""{
+                    Picker(selection: $thirdCategory, label: Text("Select a Category")) {
+                        if(thirdCategory == ""){
+                            Text("Select Category").tag("Placeholder")
+                        }
+                        ForEach(categories, id: \.self) { category in
+                            if category != firstCategory && category != secondCategory{
+                                Text(category).tag(category)
+                            }
+                        }
+                    }
+                }
+            }
             HStack{
                 PhotosPicker("Select Album Image", selection: $imageItem, matching: .images)
                 if let image{
                     image
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 250, height: 250)
+                        .frame(width: 150, height: 150)
                 }
             }
             .onChange(of: imageItem){ _ in
                 Task{
                     if let data = try? await imageItem?.loadTransferable(type: Data.self){
                         if let uiImage = UIImage(data: data){
-                            image = Image(uiImage: uiImage)
+                            albumImage = uiImage
+                            image = Image(uiImage: albumImage!)
                             return
                         }
                     }
                 }
             }
             Button{
-                let newSong = Song(context: moc)
-                newSong.id = UUID()
-                newSong.name = name
-                newSong.artist = artist
-                newSong.album = album
-                if let albumImage{
-                    let imageData = albumImage.pngData()! as Data?
-                    newSong.albumImage = imageData
+                if albumImage != nil {
+                    if firstCategory != "" && name != "" && artist != ""{
+                        songCategories.append(firstCategory)
+                        if secondCategory != ""{
+                            songCategories.append(secondCategory)
+                            if thirdCategory != ""{
+                                songCategories.append(thirdCategory)
+                            }
+                        }
+                        let avatar = albumImage!.pngData()!
+                        songViewModel.addNewSongData(author: artist, name: name, songURL: "", avatar: avatar, categories: songCategories)
+                    }
                 }
             } label: {
                Text("add")
             }
             NavigationView{
                 List{
-                    ForEach(songs){ song in
-                        Text(song.name ?? "")
-                        Text(song.artist ?? "")
-                        Text(song.album ?? "")
-                        Image(uiImage: UIImage(data: song.albumImage ?? Data()) ?? UIImage())
+                    ForEach(songViewModel.songs, id: \.id){ song in
+                        NavigationLink(destination: SongUpdateTestView(song: song)){
+                            HStack{
+                                Text(song.name ?? "")
+                                Text(song.author ?? "")
+                                AsyncImage(url: URL(string: song.avatarName ?? "")){ phase in
+                                    if let i = phase.image{
+                                        i
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 100, height: 100)
+                                    }else if phase.error != nil{
+                                        Rectangle()
+                                            .frame(width: 100, height: 100)
+                                    }else{
+                                        Rectangle()
+                                            .frame(width: 100, height: 100)
+                                    }
+                                }
+                            }
+                            .onLongPressGesture{
+                                songViewModel.deleteSongData(id: song.id!, name: song.name!)
+                            }
+                        }
                     }
                 }
                 .navigationTitle("Song Titles")
@@ -73,6 +133,5 @@ struct SongTestView: View {
 struct SongTestView_Previews: PreviewProvider {
     static var previews: some View {
         SongTestView()
-            .environment(\.managedObjectContext, SongViewModel.shared.container.viewContext)
     }
 }
