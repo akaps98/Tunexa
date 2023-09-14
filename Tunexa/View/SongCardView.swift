@@ -25,7 +25,7 @@ struct SongCardView: View {
         playSound = PlaySound(fileName: songs[0].name, fileType: "mp3")
     }
     
-    func switchSong(to index: Int) {
+    private func switchSong(to index: Int) {
         guard index >= 0 && index < songs.count else { return }
 
         // Stop the current song
@@ -35,7 +35,7 @@ struct SongCardView: View {
         currentSongIndex = index
 
         // Initialize the player with the new song
-        playSound = PlaySound(fileName: currentSong.name, fileType: "mp3")
+        playSound.changeSong(fileName: currentSong.name, fileType: "mp3")
         playSound.play()
     }
     

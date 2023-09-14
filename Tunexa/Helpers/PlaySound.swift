@@ -66,5 +66,14 @@ class PlaySound: ObservableObject {
         timer?.invalidate()
         timer = nil
     }
+    
+    func changeSong(fileName: String, fileType: String) {
+        // Load the new song and initialize player
+        // E.g.
+        if let path = Bundle.main.path(forResource: fileName, ofType: fileType) {
+            let url = URL(fileURLWithPath: path)
+            audioPlayer = try? AVAudioPlayer(contentsOf: url)
+        }
+    }
 }
 
