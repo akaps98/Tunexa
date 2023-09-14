@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3639E7B22AB1B0BA003D766E /* SongCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3639E7B12AB1B0BA003D766E /* SongCardView.swift */; };
+		3691B3E02AB2FA7B0090776A /* Cho Tôi Lang Thang.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3691B3DF2AB2FA7B0090776A /* Cho Tôi Lang Thang.mp3 */; };
+		3691B3E22AB306230090776A /* Cô Gái Bàn Bên.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3691B3E12AB306230090776A /* Cô Gái Bàn Bên.mp3 */; };
 		984388EF2AB1A4620059D3C8 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984388EE2AB1A4620059D3C8 /* Artist.swift */; };
 		984388F12AB1A46C0059D3C8 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984388F02AB1A46C0059D3C8 /* Song.swift */; };
 		984388F32AB1A4730059D3C8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984388F22AB1A4730059D3C8 /* Category.swift */; };
@@ -76,6 +78,8 @@
 
 /* Begin PBXFileReference section */
 		3639E7B12AB1B0BA003D766E /* SongCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCardView.swift; sourceTree = "<group>"; };
+		3691B3DF2AB2FA7B0090776A /* Cho Tôi Lang Thang.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Cho Tôi Lang Thang.mp3"; sourceTree = "<group>"; };
+		3691B3E12AB306230090776A /* Cô Gái Bàn Bên.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Cô Gái Bàn Bên.mp3"; sourceTree = "<group>"; };
 		984388EE2AB1A4620059D3C8 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		984388F02AB1A46C0059D3C8 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		984388F22AB1A4730059D3C8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -265,6 +269,8 @@
 		98B976302AB0531500515EA4 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				3691B3E12AB306230090776A /* Cô Gái Bàn Bên.mp3 */,
+				3691B3DF2AB2FA7B0090776A /* Cho Tôi Lang Thang.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -443,6 +449,7 @@
 				EA3B46E92AB04A5700BDF587 /* Preview Assets.xcassets in Resources */,
 				98B976522AB081C800515EA4 /* Nunito-Italic.ttf in Resources */,
 				9843891D2AB1B5890059D3C8 /* artist.json in Resources */,
+				3691B3E02AB2FA7B0090776A /* Cho Tôi Lang Thang.mp3 in Resources */,
 				98B976502AB081C800515EA4 /* Nunito-Black.ttf in Resources */,
 				98B9764D2AB081C800515EA4 /* Nunito-Light.ttf in Resources */,
 				98B9764C2AB081C800515EA4 /* Nunito-BlackItalic.ttf in Resources */,
@@ -453,6 +460,7 @@
 				98B976562AB081C800515EA4 /* Nunito-Regular.ttf in Resources */,
 				98B976582AB081C800515EA4 /* Nunito-BoldItalic.ttf in Resources */,
 				984388F82AB1A7720059D3C8 /* songs.json in Resources */,
+				3691B3E22AB306230090776A /* Cô Gái Bàn Bên.mp3 in Resources */,
 				98B9764A2AB081C800515EA4 /* Nunito-ExtraBold.ttf in Resources */,
 				98B976552AB081C800515EA4 /* Nunito-ExtraBoldItalic.ttf in Resources */,
 				98B976512AB081C800515EA4 /* Nunito-ExtraLightItalic.ttf in Resources */,

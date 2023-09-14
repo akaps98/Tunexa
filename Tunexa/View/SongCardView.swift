@@ -6,18 +6,51 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct SongCardView: View {
-    @State private var currentSongPosition: Double = 0.0
-    let totalSongDuration: Double = 210.0  // for a 4-minute song, for instance
+    
+    @State private var currentSongIndex: Int = 11
+    // Since songs are loaded from the JSON file
+    var songs: [Song] = decodeJsonFromJsonFile(jsonFileName: "songs.json")
+
+    // Computed property to get the current song
+    var currentSong: Song {
+        return songs[currentSongIndex]
+    }
+    
+    @ObservedObject var playSound: PlaySound
+    
+    init() {
+        playSound = PlaySound(fileName: songs[0].name, fileType: "mp3")
+    }
+    
+    func switchSong(to index: Int) {
+        guard index >= 0 && index < songs.count else { return }
+
+        // Stop the current song
+        playSound.stop()
+
+        // Update the currentSongIndex
+        currentSongIndex = index
+
+        // Initialize the player with the new song
+        playSound = PlaySound(fileName: currentSong.name, fileType: "mp3")
+        playSound.play()
+    }
+    
+    var totalSongDuration: Double {
+        return playSound.duration
+    }
+    
     var formattedTotalDuration: String {
         let minutes = Int(totalSongDuration) / 60
         let seconds = Int(totalSongDuration) % 60
         return String(format: "%02d:%02d", minutes, seconds)
     }
     var currentTime: String {
-        let minutes = Int(currentSongPosition) / 60
-        let seconds = Int(currentSongPosition) % 60
+        let minutes = Int(playSound.currentTime) / 60
+        let seconds = Int(playSound.currentTime) % 60
         return String(format: "%02d:%02d", minutes, seconds)
     }
     
@@ -45,7 +78,7 @@ struct SongCardView: View {
                     
                     HStack(spacing: 10) {
                         Button {
-                            print("Setting View")
+                            print("Settings View")
                         } label: {
                             Image(systemName: "gearshape")
                                 .font(.system(size: 25))
@@ -68,9 +101,9 @@ struct SongCardView: View {
                 
                 // MARK: SONG TITLE AND ARTIST
                 VStack {
-                    Text("See you again")
+                    Text(currentSong.name)
                         .font(.custom("Nunito-Bold", size: 22))
-                    Text("Charlie Puth")
+                    Text(currentSong.author)
                         .font(.custom("Nunito-Light", size: 16))
                 }
                 
@@ -78,23 +111,19 @@ struct SongCardView: View {
                 
                 // MARK: SONG PROGRESS SLIDER
                 HStack {
-                    // Text representing current time in the song
                     Text(currentTime)
-                        .font(.caption)
+                        .font(.custom("Nunito-Light", size: 12))
                         .padding(.leading)
 
-                    // The progress slider itself
-                    Slider(value: $currentSongPosition, in: 0.0...totalSongDuration, onEditingChanged: { isEditing in
+                    Slider(value: $playSound.currentTime, in: 0.0...totalSongDuration, onEditingChanged: { isEditing in
                         if !isEditing {
-                            // Handle the change in song position here when the user finishes dragging the slider.
-                            // This might involve seeking the audio to the correct position.
+                            playSound.setProgress(to: playSound.currentTime)
                         }
                     })
                     .padding(.horizontal)
 
-                    // Text representing total duration of the song
                     Text(formattedTotalDuration)
-                        .font(.caption)
+                        .font(.custom("Nunito-Light", size: 12))
                         .padding(.trailing)
                 }
 
@@ -113,7 +142,7 @@ struct SongCardView: View {
                                 .foregroundColor(Color("text-color"))
                         }
                         Button {
-                            print("Backward")
+                            switchSong(to: currentSongIndex - 1)
                         } label: {
                             Image(systemName: "backward.end.fill")
                                 .font(.system(size: 22))
@@ -124,19 +153,22 @@ struct SongCardView: View {
                     Spacer()
                     
                     Button {
-                        print("Play")
+                        if playSound.isPlaying {
+                            playSound.pause()
+                        } else {
+                            playSound.play()
+                        }
                     } label: {
-                        Image(systemName: "play.circle.fill")
+                        Image(systemName: playSound.isPlaying ? "pause.circle.fill" : "play.circle.fill")
                             .font(.system(size: 50))
                             .foregroundColor(Color("text-color"))
-                        
                     }
                     
                     Spacer()
                     
                     HStack(spacing: 30) {
                         Button {
-                            print("Forward")
+                            switchSong(to: currentSongIndex + 1)
                         } label: {
                             Image(systemName: "forward.end.fill")
                                 .font(.system(size: 22))
