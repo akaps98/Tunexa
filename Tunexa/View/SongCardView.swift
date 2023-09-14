@@ -7,10 +7,11 @@
 
 import SwiftUI
 import AVFoundation
+import Combine
 
 struct SongCardView: View {
-    
-    @State private var currentSongIndex: Int = 11
+    var cancellables: Set<AnyCancellable> = []
+    @State private var currentSongIndex: Int = 9
     // Since songs are loaded from the JSON file
     var songs: [Song] = decodeJsonFromJsonFile(jsonFileName: "songs.json")
 
@@ -21,17 +22,25 @@ struct SongCardView: View {
     
     @ObservedObject var playSound: PlaySound
     
+    
     init() {
         playSound = PlaySound(fileName: songs[0].name, fileType: "mp3")
+        NotificationCenter.default.publisher(for: .songDidFinishPlaying)
+            .sink { [self] _ in
+                print("Received songDidFinishPlaying notification")
+                switchSong(to: currentSongIndex + 1)
+            }
+            .store(in: &cancellables)
     }
     
     private func switchSong(to index: Int) {
         guard index >= 0 && index < songs.count else { return }
-
+        print("Switching song to index:", index)
         // Stop the current song
         playSound.stop()
 
         // Update the currentSongIndex
+        
         currentSongIndex = index
 
         // Initialize the player with the new song
