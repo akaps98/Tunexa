@@ -54,6 +54,8 @@
 		EA3B46F32AB04A5700BDF587 /* TunexaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46F22AB04A5700BDF587 /* TunexaTests.swift */; };
 		EA3B46FD2AB04A5700BDF587 /* TunexaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46FC2AB04A5700BDF587 /* TunexaUITests.swift */; };
 		EA3B46FF2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46FE2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift */; };
+		EA3B47102AB1EDF200BDF587 /* AccountEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B470F2AB1EDF200BDF587 /* AccountEditView.swift */; };
+		EA3B47122AB2129C00BDF587 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B47112AB2129C00BDF587 /* PhotoPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +128,8 @@
 		EA3B46F82AB04A5700BDF587 /* TunexaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TunexaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA3B46FC2AB04A5700BDF587 /* TunexaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaUITests.swift; sourceTree = "<group>"; };
 		EA3B46FE2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EA3B470F2AB1EDF200BDF587 /* AccountEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditView.swift; sourceTree = "<group>"; };
+		EA3B47112AB2129C00BDF587 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +178,7 @@
 				98B9765A2AB180D100515EA4 /* SearchView.swift */,
 				98B976642AB1955100515EA4 /* LibraryView.swift */,
 				98B976662AB1955900515EA4 /* AccountView.swift */,
+				EA3B470F2AB1EDF200BDF587 /* AccountEditView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 				98B9761C2AB04F9900515EA4 /* PlaySound.swift */,
 				98B9761E2AB04FA400515EA4 /* Utilities.swift */,
 				984388F42AB1A70E0059D3C8 /* ModelData.swift */,
+				EA3B47112AB2129C00BDF587 /* PhotoPicker.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -209,6 +215,7 @@
 		98B976202AB04FAB00515EA4 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EA3B470E2AB1BFA200BDF587 /* LogIn */,
 				98B9762A2AB0500C00515EA4 /* General */,
 				98B976212AB04FB800515EA4 /* DashBoard */,
 			);
@@ -329,6 +336,13 @@
 				EA3B46FE2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift */,
 			);
 			path = TunexaUITests;
+			sourceTree = "<group>";
+		};
+		EA3B470E2AB1BFA200BDF587 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LogIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,6 +516,8 @@
 				98B976632AB1947700515EA4 /* PlayListRow.swift in Sources */,
 				984388EF2AB1A4620059D3C8 /* Artist.swift in Sources */,
 				EA3B46E12AB04A5500BDF587 /* TunexaApp.swift in Sources */,
+				EA3B47102AB1EDF200BDF587 /* AccountEditView.swift in Sources */,
+				EA3B47122AB2129C00BDF587 /* PhotoPicker.swift in Sources */,
 				984388F32AB1A4730059D3C8 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
