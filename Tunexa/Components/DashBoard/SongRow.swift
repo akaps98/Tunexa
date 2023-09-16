@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SongRow: View {
     let song: Song
+    @State var isFavourite = false
     
     var body: some View {
         HStack(alignment: .center) {
@@ -42,6 +43,23 @@ struct SongRow: View {
             }
             Spacer()
             
+            // MARK: HEART BUTTON
+            Button {
+                isFavourite.toggle()
+            } label: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .frame(width: 35, height: 35)
+                        .foregroundColor(.white)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8).stroke(Color("primary-color"), lineWidth: 1)
+                        )
+                    Image(systemName: isFavourite ? "heart.fill" : "heart")
+                }
+            }
+            .padding(.trailing, 5)
+            
+            // MARK: OPTION BUTTON
             Image(systemName: "ellipsis")
                 .font(.system(size: 25))
                 .foregroundColor(Color("text-color"))
