@@ -19,12 +19,20 @@ struct SongTestView: View {
     @State private var firstCategory = ""
     @State private var secondCategory = ""
     @State private var thirdCategory = ""
+    @State private var songFile = ""
+    @State private var isOpenDocumentPicker = false
     let categories = ["Kpop", "Pop", "Jazz", "Hiphop", "Rock", "R&B", "Dance", "Soul", "Indie", "Punk", "Blues", "Reggae", "EDM", "Country", "Classical", "Latin"]
     @State private var songCategories: [String] = []
     var body: some View {
         VStack{
+            // MARK: CREATE NEW SONG
             TextField("Name of the song", text: $name)
             TextField("Name of the artist", text: $artist)
+            Button{
+                isOpenDocumentPicker = true
+            }label: {
+                Text("File")
+            }
             HStack{
                 Picker(selection: $firstCategory, label: Text("Select a Category")) {
                     if(firstCategory == ""){
@@ -59,6 +67,12 @@ struct SongTestView: View {
                     }
                 }
             }
+            .sheet(isPresented: $isOpenDocumentPicker, onDismiss: {
+                self.isOpenDocumentPicker = false
+            }, content: {
+                DocumentPicker(fileContent: $songFile)
+            })
+            // MARK: IMAGE PICKER
             HStack{
                 PhotosPicker("Select Album Image", selection: $imageItem, matching: .images)
                 if let image{
@@ -96,13 +110,16 @@ struct SongTestView: View {
             } label: {
                Text("add")
             }
+            // MARK: GET SONGS
             NavigationView{
                 List{
                     ForEach(songViewModel.songs, id: \.id){ song in
-                        NavigationLink(destination: SongUpdateTestView(song: song)){
+                        NavigationLink(destination: SongCardTestView(song: song)){
                             HStack{
                                 Text(song.name ?? "")
                                 Text(song.author ?? "")
+                                
+                                // MARK: SONG AVATAR DISPLAY
                                 AsyncImage(url: URL(string: song.avatarName ?? "")){ phase in
                                     if let i = phase.image{
                                         i

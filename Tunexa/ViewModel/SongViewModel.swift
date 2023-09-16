@@ -22,30 +22,32 @@ class SongViewModel: ObservableObject{
                 getAllSongData()
         }
         
-        func getAllSongData() {
-            
-            db.collection("songs").addSnapshotListener { (querySnapshot, error) in
-                guard let documents = querySnapshot?.documents else {
-                    print("No documents")
-                    return
-                }
+    // Fetch all Songs in the database
+    func getAllSongData() {
+        db.collection("songs").addSnapshotListener { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else {
+                print("No documents")
+                return
+            }
                 
-                self.songs = documents.map { (queryDocumentSnapshot) -> Song in
-                    let data = queryDocumentSnapshot.data()
-                    let id = queryDocumentSnapshot.documentID
-                    let author = data["author"] as? String ?? ""
-                    let name = data["name"] as? String ?? ""
-                    let avatarName = data["avatarName"] as? String ?? ""
-                    let songURL = data["songURL"] as? String ?? ""
-                    let categories = data["categories"] as? [String] ?? [""]
-                    return Song(id: id, author: author, name: name, songURL: songURL, avatarName: avatarName, categories: categories)
-                }
+            self.songs = documents.map { (queryDocumentSnapshot) -> Song in
+                let data = queryDocumentSnapshot.data()
+                let id = queryDocumentSnapshot.documentID
+                let author = data["author"] as? String ?? ""
+                let name = data["name"] as? String ?? ""
+                let avatarName = data["avatarName"] as? String ?? ""
+                let songURL = data["songURL"] as? String ?? ""
+                let categories = data["categories"] as? [String] ?? [""]
+                return Song(id: id, author: author, name: name, songURL: songURL, avatarName: avatarName, categories: categories)
             }
         }
+    }
 
+    // Add new song to the database
     func addNewSongData(author: String, name: String, songURL: String, avatar: Data, categories: [String]) {
         let data = avatar
         let storageRef = Storage.storage().reference()
+        let songRef = storageRef.child("songs/\(name).mp3")
         let avatarRef = storageRef.child("album_covers/\(name).png")
         
         _ = avatarRef.putData(data, metadata: nil) { (metadata, error) in
@@ -62,6 +64,7 @@ class SongViewModel: ObservableObject{
         }
     }
     
+    // Delete a song
     func deleteSongData(id: String, name: String){
         let storageRef = Storage.storage().reference()
         let avatarRef = storageRef.child("album_covers/\(name).png")
@@ -81,20 +84,15 @@ class SongViewModel: ObservableObject{
         }
     }
     
+    // Update attributes of a song document except image
     func updateSongData(id: String, author: String, name: String, songURL: String, categories: [String]){
         db.collection("songs").document(id).updateData(["author": author, "name": name, "songURL": songURL, "categories": categories])
     }
     
+    // Update image of a song
     func updateImage(id: String, name: String, avatar: Data){
         let storageRef = Storage.storage().reference()
         let avatarRef = storageRef.child("album_covers/\(name).png")
-//        avatarRef.delete{ err in
-//            if let err = err {
-//                print("Error \(err)")
-//            }else{
-//                print("Deleted Successfully")
-//            }
-//        }
         _ = avatarRef.putData(avatar, metadata: nil) { (metadata, error) in
             guard metadata != nil else {
             return
