@@ -8,10 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isDark: Bool = false
     var body: some View {
-        VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView {
+            DashBoardView(isDark: $isDark)
+                .tabItem {
+                    Label("Home", systemImage: "house")
+                }
+            
+            SearchView(isDark: $isDark)
+                .tabItem {
+                    Label("Search", systemImage: "magnifyingglass")
+                }
+            
+            LibraryView()
+                .tabItem {
+                    Label("Library", systemImage: "music.note.list")
+                }
+            AccountView(isDark: $isDark)
+                .tabItem {
+                    Label("Account", systemImage: "person")
+                }
+            
         }
+        
     }
 }
 

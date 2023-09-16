@@ -23,6 +23,22 @@
 		984389162AB1B02F0059D3C8 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 984389062AB1B02F0059D3C8 /* Nunito-Regular.ttf */; };
 		984389172AB1B02F0059D3C8 /* Nunito-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 984389072AB1B02F0059D3C8 /* Nunito-BoldItalic.ttf */; };
 		984389182AB1B02F0059D3C8 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 984389082AB1B02F0059D3C8 /* Nunito-SemiBold.ttf */; };
+		984389262AB5869D0059D3C8 /* ArtistColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984389252AB5869D0059D3C8 /* ArtistColumn.swift */; };
+		984389282AB586AA0059D3C8 /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984389272AB586AA0059D3C8 /* CategoryRow.swift */; };
+		9843892B2AB586BB0059D3C8 /* PlayListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843892A2AB586BB0059D3C8 /* PlayListRow.swift */; };
+		9843892D2AB586CC0059D3C8 /* SongColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843892C2AB586CC0059D3C8 /* SongColumn.swift */; };
+		9843892F2AB586E60059D3C8 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843892E2AB586E60059D3C8 /* ModelData.swift */; };
+		984389312AB586F00059D3C8 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984389302AB586F00059D3C8 /* PhotoPicker.swift */; };
+		984389332AB587010059D3C8 /* AccountEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984389322AB587010059D3C8 /* AccountEditView.swift */; };
+		984389352AB5870B0059D3C8 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984389342AB5870B0059D3C8 /* AccountView.swift */; };
+		984389372AB587190059D3C8 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984389362AB587190059D3C8 /* LibraryView.swift */; };
+		984389392AB587230059D3C8 /* SeachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984389382AB587230059D3C8 /* SeachView.swift */; };
+		9843893B2AB587460059D3C8 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843893A2AB587460059D3C8 /* Artist.swift */; };
+		9843893D2AB5874B0059D3C8 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843893C2AB5874B0059D3C8 /* Song.swift */; };
+		9843893F2AB587580059D3C8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843893E2AB587580059D3C8 /* Category.swift */; };
+		984389442AB587AE0059D3C8 /* category.json in Resources */ = {isa = PBXBuildFile; fileRef = 984389412AB587AE0059D3C8 /* category.json */; };
+		984389452AB587AE0059D3C8 /* songs.json in Resources */ = {isa = PBXBuildFile; fileRef = 984389422AB587AE0059D3C8 /* songs.json */; };
+		984389462AB587AE0059D3C8 /* artist.json in Resources */ = {isa = PBXBuildFile; fileRef = 984389432AB587AE0059D3C8 /* artist.json */; };
 		98B9761B2AB04F8B00515EA4 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B9761A2AB04F8B00515EA4 /* Modifiers.swift */; };
 		98B9761D2AB04F9900515EA4 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B9761C2AB04F9900515EA4 /* PlaySound.swift */; };
 		98B9761F2AB04FA400515EA4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B9761E2AB04FA400515EA4 /* Utilities.swift */; };
@@ -84,6 +100,22 @@
 		984389072AB1B02F0059D3C8 /* Nunito-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-BoldItalic.ttf"; sourceTree = "<group>"; };
 		984389082AB1B02F0059D3C8 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
 		984389192AB1B0370059D3C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		984389252AB5869D0059D3C8 /* ArtistColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistColumn.swift; sourceTree = "<group>"; };
+		984389272AB586AA0059D3C8 /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
+		9843892A2AB586BB0059D3C8 /* PlayListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListRow.swift; sourceTree = "<group>"; };
+		9843892C2AB586CC0059D3C8 /* SongColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongColumn.swift; sourceTree = "<group>"; };
+		9843892E2AB586E60059D3C8 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		984389302AB586F00059D3C8 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		984389322AB587010059D3C8 /* AccountEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditView.swift; sourceTree = "<group>"; };
+		984389342AB5870B0059D3C8 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		984389362AB587190059D3C8 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		984389382AB587230059D3C8 /* SeachView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeachView.swift; sourceTree = "<group>"; };
+		9843893A2AB587460059D3C8 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Artist.swift; path = Tunexa/View/Artist.swift; sourceTree = SOURCE_ROOT; };
+		9843893C2AB5874B0059D3C8 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Song.swift; path = Tunexa/View/Song.swift; sourceTree = SOURCE_ROOT; };
+		9843893E2AB587580059D3C8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Tunexa/View/Category.swift; sourceTree = SOURCE_ROOT; };
+		984389412AB587AE0059D3C8 /* category.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = category.json; sourceTree = "<group>"; };
+		984389422AB587AE0059D3C8 /* songs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = songs.json; sourceTree = "<group>"; };
+		984389432AB587AE0059D3C8 /* artist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artist.json; sourceTree = "<group>"; };
 		98B9761A2AB04F8B00515EA4 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		98B9761C2AB04F9900515EA4 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 		98B9761E2AB04FA400515EA4 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -139,14 +171,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		984389402AB587920059D3C8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				984389432AB587AE0059D3C8 /* artist.json */,
+				984389412AB587AE0059D3C8 /* category.json */,
+				984389422AB587AE0059D3C8 /* songs.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		98B976162AB04F4C00515EA4 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				EA3B46E22AB04A5500BDF587 /* ContentView.swift */,
 				98B976262AB04FD800515EA4 /* DashBoardView.swift */,
+				984389362AB587190059D3C8 /* LibraryView.swift */,
 				98B976282AB04FEE00515EA4 /* SplashView.swift */,
+				984389382AB587230059D3C8 /* SeachView.swift */,
 				98B976372AB0556000515EA4 /* SignUpView.swift */,
 				98B976352AB0555900515EA4 /* LogInView.swift */,
+				984389322AB587010059D3C8 /* AccountEditView.swift */,
+				984389342AB5870B0059D3C8 /* AccountView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,6 +207,9 @@
 		98B976182AB04F5A00515EA4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9843893A2AB587460059D3C8 /* Artist.swift */,
+				9843893C2AB5874B0059D3C8 /* Song.swift */,
+				9843893E2AB587580059D3C8 /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,6 +220,8 @@
 				98B9761A2AB04F8B00515EA4 /* Modifiers.swift */,
 				98B9761C2AB04F9900515EA4 /* PlaySound.swift */,
 				98B9761E2AB04FA400515EA4 /* Utilities.swift */,
+				9843892E2AB586E60059D3C8 /* ModelData.swift */,
+				984389302AB586F00059D3C8 /* PhotoPicker.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -189,6 +240,10 @@
 			children = (
 				98B976222AB04FC500515EA4 /* SongRow.swift */,
 				98B976242AB04FCC00515EA4 /* SongCard.swift */,
+				984389252AB5869D0059D3C8 /* ArtistColumn.swift */,
+				984389272AB586AA0059D3C8 /* CategoryRow.swift */,
+				9843892A2AB586BB0059D3C8 /* PlayListRow.swift */,
+				9843892C2AB586CC0059D3C8 /* SongColumn.swift */,
 			);
 			path = DashBoard;
 			sourceTree = "<group>";
@@ -254,9 +309,9 @@
 		EA3B46DF2AB04A5500BDF587 /* Tunexa */ = {
 			isa = PBXGroup;
 			children = (
-				F3E8C7632AB1BFF100B99415 /* GoogleService-Info.plist */,
 				98B976302AB0531500515EA4 /* Sounds */,
 				98B9762F2AB052F900515EA4 /* Fonts */,
+				984389402AB587920059D3C8 /* Data */,
 				98B976182AB04F5A00515EA4 /* Model */,
 				98B976162AB04F4C00515EA4 /* View */,
 				98B976172AB04F5000515EA4 /* ViewModel */,
@@ -265,6 +320,7 @@
 				EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */,
 				EA3B46E42AB04A5700BDF587 /* Assets.xcassets */,
 				984389192AB1B0370059D3C8 /* Info.plist */,
+				F3E8C7632AB1BFF100B99415 /* GoogleService-Info.plist */,
 				EA3B46E62AB04A5700BDF587 /* Tunexa.entitlements */,
 				EA3B46E72AB04A5700BDF587 /* Preview Content */,
 			);
@@ -414,10 +470,13 @@
 				984389132AB1B02F0059D3C8 /* Nunito-ExtraLightItalic.ttf in Resources */,
 				984389152AB1B02F0059D3C8 /* Nunito-Italic.ttf in Resources */,
 				984389122AB1B02F0059D3C8 /* Nunito-SemiBoldItalic.ttf in Resources */,
+				984389452AB587AE0059D3C8 /* songs.json in Resources */,
 				9843890E2AB1B02F0059D3C8 /* Nunito-Medium.ttf in Resources */,
 				9843890D2AB1B02F0059D3C8 /* Nunito-Bold.ttf in Resources */,
 				984389142AB1B02F0059D3C8 /* Nunito-LightItalic.ttf in Resources */,
 				EA3B46E92AB04A5700BDF587 /* Preview Assets.xcassets in Resources */,
+				984389462AB587AE0059D3C8 /* artist.json in Resources */,
+				984389442AB587AE0059D3C8 /* category.json in Resources */,
 				984389172AB1B02F0059D3C8 /* Nunito-BoldItalic.ttf in Resources */,
 				9843890F2AB1B02F0059D3C8 /* Nunito-ExtraLight.ttf in Resources */,
 				EA3B46E52AB04A5700BDF587 /* Assets.xcassets in Resources */,
@@ -454,10 +513,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9843892F2AB586E60059D3C8 /* ModelData.swift in Sources */,
+				984389332AB587010059D3C8 /* AccountEditView.swift in Sources */,
+				9843892D2AB586CC0059D3C8 /* SongColumn.swift in Sources */,
+				984389392AB587230059D3C8 /* SeachView.swift in Sources */,
+				984389312AB586F00059D3C8 /* PhotoPicker.swift in Sources */,
+				984389352AB5870B0059D3C8 /* AccountView.swift in Sources */,
+				984389262AB5869D0059D3C8 /* ArtistColumn.swift in Sources */,
 				98B976292AB04FEE00515EA4 /* SplashView.swift in Sources */,
+				984389372AB587190059D3C8 /* LibraryView.swift in Sources */,
 				EA3B46E32AB04A5500BDF587 /* ContentView.swift in Sources */,
+				9843892B2AB586BB0059D3C8 /* PlayListRow.swift in Sources */,
 				98B976272AB04FD800515EA4 /* DashBoardView.swift in Sources */,
+				9843893D2AB5874B0059D3C8 /* Song.swift in Sources */,
+				984389282AB586AA0059D3C8 /* CategoryRow.swift in Sources */,
+				9843893B2AB587460059D3C8 /* Artist.swift in Sources */,
 				98B976232AB04FC500515EA4 /* SongRow.swift in Sources */,
+				9843893F2AB587580059D3C8 /* Category.swift in Sources */,
 				98B976382AB0556000515EA4 /* SignUpView.swift in Sources */,
 				98B976252AB04FCC00515EA4 /* SongCard.swift in Sources */,
 				98B9761D2AB04F9900515EA4 /* PlaySound.swift in Sources */,

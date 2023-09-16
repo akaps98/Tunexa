@@ -16,7 +16,7 @@ struct TunexaApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashView()
         }
     }
 }
