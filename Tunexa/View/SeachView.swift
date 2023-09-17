@@ -10,16 +10,24 @@ import SwiftUI
 struct SearchView: View {
     @Binding var isDark: Bool
     @State private var name: String = ""
-    
+    @State private var ratingValue = 1.0
+    var minimumValue = 1.0
+    var maximumValue = 5.0
+        
     var body: some View {
         NavigationStack {
             ZStack {
                 // MARK: -----BACKGROUND-----
                 Color("bg-color")
                     .edgesIgnoringSafeArea(.all)
-                
                 // MARK: -----CONTENT-----
                 ScrollView {
+                    // MARK: -----STAR RATING SLIDER-----
+                    Slider(value: $ratingValue, in: minimumValue...maximumValue)
+                        .frame(width: 250)
+                    Text("Rating: \(Int(ratingValue))")
+                        .font(.custom("Nunito-Medium", size: 16))
+                        .offset(y: -10)
                     // MARK: BODY
                     VStack {
                         ForEach(songs, id: \.self) {song in

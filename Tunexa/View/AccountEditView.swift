@@ -54,21 +54,18 @@ struct AccountEditView: View {
                 .edgesIgnoringSafeArea(.all)
             ScrollView {
                 VStack {
-                    // MARK: - EDIT MY ACCOUNT TEXT
-                    Text("Edit my account")
-                        .font(.custom("Nunito-Bold", size: 37))
                     // MARK: - EDIT PROFILE PIC
                     pickedImage
                         .resizable()
                         .scaledToFit()
-                        .clipShape(Circle().inset(by: 50))
-                        .offset(y:-60)
+                        .clipShape(Circle().inset(by: 80))
+                        .offset(y:-40)
                     // MARK: - ALLOW TO SELECT IMAGE FROM LOCAL DEVICE
                     Button(action: {
                         self.showingImagePicker.toggle()
                     }, label: {
                         Text("Select image...")
-                    }).offset(y:-105)
+                    }).offset(y:-100)
                     Group {
                     Image(systemName: "info.circle")
                         .resizable()

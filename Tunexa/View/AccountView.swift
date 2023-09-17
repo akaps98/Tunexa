@@ -20,6 +20,7 @@ struct AccountView: View {
     @State var showingAlert = false
     
     @State var email = "tony@gmail.com"
+    @State var username = "Tony Kang"
     @State var desc = "I love rock music."
     
     var body: some View { // MARK: - WHEN THE USER IS LOGGED IN
@@ -31,25 +32,31 @@ struct AccountView: View {
                         .edgesIgnoringSafeArea(.all)
                     ScrollView {
                         VStack {
-                            // MARK: - MY ACCOUNT TEXT
-                            Text("My account")
-                                .font(.custom("Nunito-Bold", size: 37))
                             // MARK: - PROFILE PIC
                             pickedImage
                                 .resizable()
                                 .scaledToFit()
-                                .clipShape(Circle().inset(by: 50))
-                                .offset(y:-70)
+                                .clipShape(Circle().inset(by:80))
+                                .offset(y:-40)
+                            if(username == "") {
+                                // MARK: - USERNAME
+                                Text("\(email)")
+                                    .font(.custom("Nunito-Bold", size: 22))
+                                    .offset(y:-110)
+                            } else {
+                                // MARK: - EMAIL
+                                Text("\(username)")
+                                    .font(.custom("Nunito-Bold", size: 22))
+                                    .offset(y:-110)
+                            }
                             // MARK: - LINK TO ACCOUNTEDIT VIEW
-                            NavigationLink(destination: AccountEditView(isDark: $isDark)) { Text("Edit profile...") }.offset(y:-115)
+                            NavigationLink(destination: AccountEditView(isDark: $isDark)) { Text("Edit profile...")}.offset(y: -95)
                             Group {
                                 Image(systemName: "person.crop.circle")
                                     .resizable()
                                     .frame(width: 40, height: 40)
-                                // MARK: - EMAIL
-                                Text("User: \(email)")
-                                    .font(.custom("Nunito-Light", size: 30))
                                 // MARK: - INTRODUCTION
+
                                 GroupBox(label:
                                             Label("\(Image(systemName: "pencil.line"))  Introduction", systemImage: "")
                                     .font(.custom("Nunito-SemiBold", size: 26))
@@ -75,7 +82,7 @@ struct AccountView: View {
                                         )
                                         .padding()
                                 }.offset(y: 10)
-                            }.offset(y:-90)
+                            }.offset(y: -80)
                         }
                     }
                 }

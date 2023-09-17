@@ -56,6 +56,7 @@
 		EA3B46F32AB04A5700BDF587 /* TunexaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46F22AB04A5700BDF587 /* TunexaTests.swift */; };
 		EA3B46FD2AB04A5700BDF587 /* TunexaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46FC2AB04A5700BDF587 /* TunexaUITests.swift */; };
 		EA3B46FF2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46FE2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift */; };
+		EA3B47142AB716CD00BDF587 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B47132AB716CD00BDF587 /* Rating.swift */; };
 		F3E8C7642AB1BFF100B99415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3E8C7632AB1BFF100B99415 /* GoogleService-Info.plist */; };
 		F3E8C7672AB1C1F400B99415 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F3E8C7662AB1C1F400B99415 /* FirebaseAuth */; };
 		F3E8C7692AB1C1F400B99415 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F3E8C7682AB1C1F400B99415 /* FirebaseFirestore */; };
@@ -137,6 +138,7 @@
 		EA3B46F82AB04A5700BDF587 /* TunexaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TunexaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA3B46FC2AB04A5700BDF587 /* TunexaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaUITests.swift; sourceTree = "<group>"; };
 		EA3B46FE2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EA3B47132AB716CD00BDF587 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		F3E8C7632AB1BFF100B99415 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -252,6 +254,7 @@
 				984389272AB586AA0059D3C8 /* CategoryRow.swift */,
 				9843892A2AB586BB0059D3C8 /* PlayListRow.swift */,
 				9843892C2AB586CC0059D3C8 /* SongColumn.swift */,
+				EA3B47132AB716CD00BDF587 /* Rating.swift */,
 			);
 			path = DashBoard;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				EA3B46E32AB04A5500BDF587 /* ContentView.swift in Sources */,
 				9843892B2AB586BB0059D3C8 /* PlayListRow.swift in Sources */,
 				98B976272AB04FD800515EA4 /* DashBoardView.swift in Sources */,
+				EA3B47142AB716CD00BDF587 /* Rating.swift in Sources */,
 				9843893D2AB5874B0059D3C8 /* Song.swift in Sources */,
 				984389282AB586AA0059D3C8 /* CategoryRow.swift in Sources */,
 				9843893B2AB587460059D3C8 /* Artist.swift in Sources */,
