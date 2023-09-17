@@ -1,0 +1,86 @@
+[
+    {
+        "id": 1,
+        "name": "Charlie Puth",
+        "job": "Singer & Song Writer",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 2,
+        "name": "Justin Bieber",
+        "job": "Singer & Song Writer",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 3,
+        "name": "Billie Eilish",
+        "job": "Singer & Song Writer",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 4,
+        "name": "Taylor Swift",
+        "job": "Singer",
+        "avatarName": "song-avatar-1"
+    },
+    {
+       "id": 5,
+       "name": "Ed Sheeran",
+       "job": "Singer",
+       "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 6,
+        "name": "The Chainsmokers",
+        "job": "Song Writer",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 7,
+        "name": "Bruno Mars",
+        "job": "Song Writer",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 8,
+        "name": "Eminem",
+        "job": "Rapper",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 7,
+        "name": "Đen Vâu",
+        "job": "Rapper",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 8,
+        "name": "Rhymastic",
+        "job": "Rapper",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 9,
+        "name": "ITZY",
+        "job": "Kpop Idol Group",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 10,
+        "name": "(G)-IDLE",
+        "job": "Kpop Idol Group",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 11,
+        "name": "EXO",
+        "job": "Kpop Idol Group",
+        "avatarName": "song-avatar-1"
+    },
+    {
+        "id": 12,
+        "name": "Masew",
+        "job": "Producer",
+        "avatarName": "song-avatar-1"
+    }
+]

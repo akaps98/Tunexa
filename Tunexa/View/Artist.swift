@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Artist: Identifiable, Codable, Hashable {
-    var id: UUID = UUID()
+    var id: Int
     var name: String
     var job: String
     var avatarName: String

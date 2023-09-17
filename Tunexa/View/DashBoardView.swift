@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct DashBoardView: View {
+    // MARK: ***** PROPERTIES *****
     let colors : [Color] = [.red, .orange, .blue, .green, .cyan, .indigo, .pink, .yellow, .brown, .teal]
     let columns = 2
     @Binding var isDark: Bool
@@ -85,13 +86,6 @@ struct DashBoardView: View {
                             
                         }
                         
-                        // MARK: PLAYLISTS
-                        LazyVGrid(columns: Array(repeating: GridItem(), count: columns)) {
-                            ForEach(0..<6) {_ in
-                                
-                            }
-                        }
-                        
                         // MARK: ALL SONGS
                         HStack {
                             Text("All Songs")
@@ -101,7 +95,13 @@ struct DashBoardView: View {
                         ScrollView(.horizontal) {
                             HStack(spacing: 15) {
                                 ForEach(songs, id: \.self) {song in
-                                    SongColumn(song: song)
+                                    NavigationLink {
+                                        SongCard()
+                                    } label: {
+                                        SongColumn(song: song)
+                                            .foregroundColor(Color("text-color"))
+                                    }
+                                    
                                 }
                             }
                         }
@@ -115,8 +115,13 @@ struct DashBoardView: View {
                         }
                         ScrollView(.horizontal) {
                             HStack(spacing: 15) {
-                                ForEach(0..<15) {_ in
-                                    ArtistColumn()
+                                ForEach(artists, id: \.self) {artist in
+                                    NavigationLink {
+                                        ArtistCard(artist: artist)
+                                    } label: {
+                                        ArtistColumn(artist: artist)
+                                            .foregroundColor(Color("text-color"))
+                                    }
                                 }
                             }
                             
@@ -130,8 +135,14 @@ struct DashBoardView: View {
                             Spacer()
                         }
                         LazyVGrid(columns: Array(repeating: GridItem(), count: columns)) {
-                            ForEach(0..<10) {i in
-                                CategoryRow(bgColor: colors[i])
+                            ForEach(categories, id: \.self) {category in
+                                NavigationLink {
+                                    CategoryCard(category: category, bgColor: colors[category.id-1])
+                                } label: {
+                                    CategoryRow(category: category, bgColor: colors[category.id-1])
+                                        .foregroundColor(Color("text-color"))
+                                }
+                                
                             }
                         }
                     } // VStack

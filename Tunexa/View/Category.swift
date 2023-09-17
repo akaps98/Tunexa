@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Category: Identifiable, Codable, Hashable {
-    var id: UUID = UUID()
+    var id: Int
     var name: String
     var imageName: String
     var image: Image {
