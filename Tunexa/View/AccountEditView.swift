@@ -28,6 +28,7 @@ struct AccountEditView: View {
     
     @State var newPassword = ""
     @State var checkPassword = ""
+    @State var newUsername = ""
     @State var newDesc = ""
     
     // MARK: - FUNCTION; EDITION
@@ -87,6 +88,16 @@ struct AccountEditView: View {
                         .background(Color.black.opacity(0.07))
                         .cornerRadius(10)
                         .font(.custom("Nunito-Bold", size: 22))
+                        Text("New Username")
+                            .font(.custom("Nunito-Bold", size: 26))
+                            .offset(x: -53)
+                        // MARK: - NEW PASSWORD TEXTFIELD
+                        TextField("\(Image(systemName: "person"))  Username", text: $newUsername)
+                            .padding()
+                            .frame(width: 300, height: 50)
+                            .background(Color.black.opacity(0.07))
+                            .cornerRadius(10)
+                            .font(.custom("Nunito-Bold", size: 22))
                     Text("New Introduction")
                         .font(.custom("Nunito-Bold", size: 26))
                         .offset(x: -38)
@@ -108,7 +119,7 @@ struct AccountEditView: View {
                                     if(newDesc == "") { // there is any new introduction
                                         print($newPassword)
                                     } else {
-                                        print($newPassword, $newDesc)
+                                        print($newPassword, $newUsername, $newDesc)
                                     }
                                     presentationMode.wrappedValue.dismiss()
                                 }
