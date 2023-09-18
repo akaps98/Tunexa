@@ -136,7 +136,7 @@ struct SongTestView: View {
                                 }
                             }
                             .onLongPressGesture{
-                                songViewModel.deleteSongData(id: song.id!, name: song.name!)
+                                songViewModel.deleteSongData(id: song.id!, name: song.name!, author: song.author!)
                             }
                         }
                     }
