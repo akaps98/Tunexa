@@ -15,7 +15,7 @@ class PlaySound: NSObject, ObservableObject {
     private var audioPlayer: AVAudioPlayer?
     private var timer: Timer?
     
-    init(fileName: String, fileType: String) {
+    init(fileName: String = "", fileType: String = "") {
         super.init() // Add this line because we are now subclassing from NSObject
 
         if let path = Bundle.main.path(forResource: fileName, ofType: fileType) {
@@ -36,7 +36,6 @@ class PlaySound: NSObject, ObservableObject {
         audioPlayer?.play()
         isPlaying = true
         startTimer()
-        audioPlayer?.delegate = self
     }
 
     func pause() {
@@ -48,7 +47,7 @@ class PlaySound: NSObject, ObservableObject {
     func stop() {
         audioPlayer?.stop()
         isPlaying = false
-        audioPlayer?.currentTime = 0 // Reset playback to start
+        currentTime = 0 // Reset playback to start
         stopTimer()
     }
     
@@ -87,6 +86,7 @@ class PlaySound: NSObject, ObservableObject {
 
 extension PlaySound: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        print("Audio player finished playing")
         if flag {
             NotificationCenter.default.post(name: .songDidFinishPlaying, object: nil)
         }

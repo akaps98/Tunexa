@@ -10,42 +10,59 @@ import AVFoundation
 import Combine
 
 struct SongCard: View {
-    var cancellables: Set<AnyCancellable> = []
-    @State private var currentSongIndex: Int = 10
+    @StateObject private var cancellables = CancellableManager()
+    @StateObject var playSound = PlaySound()
+    
+    @State private var currentSongIndex: Int = 0
+    @State private var isShuffling = false
+    @State private var isRepeating = false
+    
+    class CancellableManager: ObservableObject {
+        var cancellables: Set<AnyCancellable> = []
+    }
+    
+    // This initializes the player and sets up the notification listener
+    func setupPlayer() {
+        playSound.changeSong(fileName: currentSong.name, fileType: "mp3")
+        playSound.play()
+
+        NotificationCenter.default.publisher(for: .songDidFinishPlaying)
+            .sink { [self] _ in
+                print("Received songDidFinishPlaying notification")
+                switchSong(to: currentSongIndex + 1)
+            }
+            .store(in: &cancellables.cancellables)
+    }
+    
+    private func switchSong(to index: Int) {
+        var newIndex = index
+
+        if isShuffling {
+            newIndex = Int.random(in: 0..<songs.count)
+        } else if isRepeating && index == songs.count {
+            newIndex = 0
+        }
+        
+        guard newIndex >= 0 && newIndex < songs.count else { return }
+        print("Switching song to index:", newIndex)
+        // Stop the current song
+        playSound.stop()
+
+        // Update the currentSongIndex
+        
+        currentSongIndex = newIndex
+
+        // Initialize the player with the new song
+        playSound.changeSong(fileName: currentSong.name, fileType: "mp3")
+        playSound.play()
+    }
+    
     // Since songs are loaded from the JSON file
     var songs: [Song] = decodeJsonFromJsonFile(jsonFileName: "songs.json")
 
     // Computed property to get the current song
     var currentSong: Song {
         return songs[currentSongIndex]
-    }
-    
-    @ObservedObject var playSound: PlaySound
-    
-    
-    init() {
-        playSound = PlaySound(fileName: songs[0].name, fileType: "mp3")
-        NotificationCenter.default.publisher(for: .songDidFinishPlaying)
-            .sink { [self] _ in
-                print("Received songDidFinishPlaying notification")
-                switchSong(to: currentSongIndex + 1)
-            }
-            .store(in: &cancellables)
-    }
-    
-    private func switchSong(to index: Int) {
-        guard index >= 0 && index < songs.count else { return }
-        print("Switching song to index:", index)
-        // Stop the current song
-        playSound.stop()
-
-        // Update the currentSongIndex
-        
-        currentSongIndex = index
-
-        // Initialize the player with the new song
-        playSound.changeSong(fileName: currentSong.name, fileType: "mp3")
-        playSound.play()
     }
     
     var totalSongDuration: Double {
@@ -102,7 +119,7 @@ struct SongCard: View {
                 Spacer()
                 
                 // MARK: SONG COVER
-                Image("song-avatar-1")
+                Image(currentSong.avatarName)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 250, height: 250)
@@ -144,11 +161,12 @@ struct SongCard: View {
                     
                     HStack(spacing: 30) {
                         Button {
-                            print("Repeat")
+                            print("Repeat tapped")
+                            isRepeating.toggle()
                         } label: {
-                            Image(systemName: "repeat")
+                            Image(systemName: isRepeating ? "repeat.1" : "repeat")
                                 .font(.system(size: 22))
-                                .foregroundColor(Color("text-color"))
+                                .foregroundColor(isRepeating ? .blue : Color("text-color"))
                         }
                         Button {
                             switchSong(to: currentSongIndex - 1)
@@ -184,11 +202,12 @@ struct SongCard: View {
                                 .foregroundColor(Color("text-color"))
                         }
                         Button {
-                            print("Shuffle")
+                            print("Shuffle tapped")
+                            isShuffling.toggle()
                         } label: {
                             Image(systemName: "shuffle")
                                 .font(.system(size: 22))
-                                .foregroundColor(Color("text-color"))
+                                .foregroundColor(isShuffling ? .blue : Color("text-color"))
                         }
                     }
                     
@@ -199,6 +218,9 @@ struct SongCard: View {
                 
                 Spacer()
             }
+        }
+        .onAppear {
+            setupPlayer()
         }
     }
 }

@@ -8,6 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		36E72DAA2AB833BB00CA1A87 /* 24K Magic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DA92AB833BB00CA1A87 /* 24K Magic.mp3 */; };
+		36E72DC22AB83E9700CA1A87 /* Attention.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DAB2AB83E9700CA1A87 /* Attention.mp3 */; };
+		36E72DC32AB83E9700CA1A87 /* Oh my god.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DAC2AB83E9700CA1A87 /* Oh my god.mp3 */; };
+		36E72DC42AB83E9700CA1A87 /* WANNABE.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DAD2AB83E9700CA1A87 /* WANNABE.mp3 */; };
+		36E72DC52AB83E9700CA1A87 /* Roses.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DAE2AB83E9700CA1A87 /* Roses.mp3 */; };
+		36E72DC62AB83E9700CA1A87 /* We Don't Talk Anymore.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DAF2AB83E9700CA1A87 /* We Don't Talk Anymore.mp3 */; };
+		36E72DC72AB83E9700CA1A87 /* Without Me.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DB02AB83E9700CA1A87 /* Without Me.mp3 */; };
+		36E72DC82AB83E9700CA1A87 /* Mơ.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DB12AB83E9700CA1A87 /* Mơ.mp3 */; };
+		36E72DC92AB83E9700CA1A87 /* See You Again.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DB22AB83E9700CA1A87 /* See You Again.mp3 */; };
+		36E72DCA2AB83E9700CA1A87 /* Light Switch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DB32AB83E9700CA1A87 /* Light Switch.mp3 */; };
+		36E72DCB2AB83E9700CA1A87 /* Lose Yourself.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DB42AB83E9700CA1A87 /* Lose Yourself.mp3 */; };
+		36E72DCC2AB83E9700CA1A87 /* Cho Tôi Lang Thang.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DB52AB83E9700CA1A87 /* Cho Tôi Lang Thang.mp3 */; };
+		36E72DCD2AB83E9700CA1A87 /* Sorry.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DB62AB83E9700CA1A87 /* Sorry.mp3 */; };
+		36E72DCE2AB83E9700CA1A87 /* Bad Guy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DB72AB83E9700CA1A87 /* Bad Guy.mp3 */; };
+		36E72DCF2AB83E9700CA1A87 /* Ghé Thăm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DB82AB83E9700CA1A87 /* Ghé Thăm.mp3 */; };
+		36E72DD02AB83E9700CA1A87 /* Love Yourself.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DB92AB83E9700CA1A87 /* Love Yourself.mp3 */; };
+		36E72DD12AB83E9700CA1A87 /* LATATA.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DBA2AB83E9700CA1A87 /* LATATA.mp3 */; };
+		36E72DD22AB83E9700CA1A87 /* Last Dance.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DBB2AB83E9700CA1A87 /* Last Dance.mp3 */; };
+		36E72DD32AB83E9700CA1A87 /* Leave the Door Open.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DBC2AB83E9700CA1A87 /* Leave the Door Open.mp3 */; };
+		36E72DD42AB83E9700CA1A87 /* Mockingbird.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DBD2AB83E9700CA1A87 /* Mockingbird.mp3 */; };
+		36E72DD52AB83E9700CA1A87 /* Stay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DBE2AB83E9700CA1A87 /* Stay.mp3 */; };
+		36E72DD62AB83E9700CA1A87 /* Closer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DBF2AB83E9700CA1A87 /* Closer.mp3 */; };
+		36E72DD72AB83E9700CA1A87 /* The Real Slim Shady.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DC02AB83E9700CA1A87 /* The Real Slim Shady.mp3 */; };
+		36E72DD82AB83E9700CA1A87 /* Vẽ Khói.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DC12AB83E9700CA1A87 /* Vẽ Khói.mp3 */; };
+		36E72DDA2AB8436D00CA1A87 /* Cô Gái Bàn Bên.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DD92AB8436D00CA1A87 /* Cô Gái Bàn Bên.mp3 */; };
 		984389092AB1B02F0059D3C8 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 984388F92AB1B02E0059D3C8 /* Nunito-Light.ttf */; };
 		9843890A2AB1B02F0059D3C8 /* Nunito-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 984388FA2AB1B02E0059D3C8 /* Nunito-BlackItalic.ttf */; };
 		9843890B2AB1B02F0059D3C8 /* Nunito-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 984388FB2AB1B02E0059D3C8 /* Nunito-MediumItalic.ttf */; };
@@ -86,6 +110,30 @@
 
 /* Begin PBXFileReference section */
 		36E72DA92AB833BB00CA1A87 /* 24K Magic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "24K Magic.mp3"; sourceTree = "<group>"; };
+		36E72DAB2AB83E9700CA1A87 /* Attention.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Attention.mp3; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/Attention.mp3"; sourceTree = "<group>"; };
+		36E72DAC2AB83E9700CA1A87 /* Oh my god.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Oh my god.mp3"; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/Oh my god.mp3"; sourceTree = "<group>"; };
+		36E72DAD2AB83E9700CA1A87 /* WANNABE.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = WANNABE.mp3; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/WANNABE.mp3"; sourceTree = "<group>"; };
+		36E72DAE2AB83E9700CA1A87 /* Roses.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Roses.mp3; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/Roses.mp3"; sourceTree = "<group>"; };
+		36E72DAF2AB83E9700CA1A87 /* We Don't Talk Anymore.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "We Don't Talk Anymore.mp3"; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/We Don't Talk Anymore.mp3"; sourceTree = "<group>"; };
+		36E72DB02AB83E9700CA1A87 /* Without Me.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Without Me.mp3"; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/Without Me.mp3"; sourceTree = "<group>"; };
+		36E72DB12AB83E9700CA1A87 /* Mơ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Mơ.mp3"; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/Mơ.mp3"; sourceTree = "<group>"; };
+		36E72DB22AB83E9700CA1A87 /* See You Again.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "See You Again.mp3"; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/See You Again.mp3"; sourceTree = "<group>"; };
+		36E72DB32AB83E9700CA1A87 /* Light Switch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Light Switch.mp3"; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/Light Switch.mp3"; sourceTree = "<group>"; };
+		36E72DB42AB83E9700CA1A87 /* Lose Yourself.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Lose Yourself.mp3"; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/Lose Yourself.mp3"; sourceTree = "<group>"; };
+		36E72DB52AB83E9700CA1A87 /* Cho Tôi Lang Thang.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Cho Tôi Lang Thang.mp3"; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/Cho Tôi Lang Thang.mp3"; sourceTree = "<group>"; };
+		36E72DB62AB83E9700CA1A87 /* Sorry.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Sorry.mp3; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/Sorry.mp3"; sourceTree = "<group>"; };
+		36E72DB72AB83E9700CA1A87 /* Bad Guy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Bad Guy.mp3"; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/Bad Guy.mp3"; sourceTree = "<group>"; };
+		36E72DB82AB83E9700CA1A87 /* Ghé Thăm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Ghé Thăm.mp3"; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/Ghé Thăm.mp3"; sourceTree = "<group>"; };
+		36E72DB92AB83E9700CA1A87 /* Love Yourself.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Love Yourself.mp3"; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/Love Yourself.mp3"; sourceTree = "<group>"; };
+		36E72DBA2AB83E9700CA1A87 /* LATATA.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = LATATA.mp3; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/LATATA.mp3"; sourceTree = "<group>"; };
+		36E72DBB2AB83E9700CA1A87 /* Last Dance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Last Dance.mp3"; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/Last Dance.mp3"; sourceTree = "<group>"; };
+		36E72DBC2AB83E9700CA1A87 /* Leave the Door Open.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Leave the Door Open.mp3"; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/Leave the Door Open.mp3"; sourceTree = "<group>"; };
+		36E72DBD2AB83E9700CA1A87 /* Mockingbird.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Mockingbird.mp3; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/Mockingbird.mp3"; sourceTree = "<group>"; };
+		36E72DBE2AB83E9700CA1A87 /* Stay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Stay.mp3; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/Stay.mp3"; sourceTree = "<group>"; };
+		36E72DBF2AB83E9700CA1A87 /* Closer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Closer.mp3; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/Closer.mp3"; sourceTree = "<group>"; };
+		36E72DC02AB83E9700CA1A87 /* The Real Slim Shady.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "The Real Slim Shady.mp3"; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/The Real Slim Shady.mp3"; sourceTree = "<group>"; };
+		36E72DC12AB83E9700CA1A87 /* Vẽ Khói.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Vẽ Khói.mp3"; path = "../../../../Downloads/Tunexa-viet-frontend/Tunexa/Sounds/Vẽ Khói.mp3"; sourceTree = "<group>"; };
+		36E72DD92AB8436D00CA1A87 /* Cô Gái Bàn Bên.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Cô Gái Bàn Bên.mp3"; sourceTree = "<group>"; };
 		984388F92AB1B02E0059D3C8 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
 		984388FA2AB1B02E0059D3C8 /* Nunito-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-BlackItalic.ttf"; sourceTree = "<group>"; };
 		984388FB2AB1B02E0059D3C8 /* Nunito-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -295,6 +343,30 @@
 		98B976302AB0531500515EA4 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				36E72DAB2AB83E9700CA1A87 /* Attention.mp3 */,
+				36E72DB72AB83E9700CA1A87 /* Bad Guy.mp3 */,
+				36E72DB52AB83E9700CA1A87 /* Cho Tôi Lang Thang.mp3 */,
+				36E72DBF2AB83E9700CA1A87 /* Closer.mp3 */,
+				36E72DB82AB83E9700CA1A87 /* Ghé Thăm.mp3 */,
+				36E72DBB2AB83E9700CA1A87 /* Last Dance.mp3 */,
+				36E72DD92AB8436D00CA1A87 /* Cô Gái Bàn Bên.mp3 */,
+				36E72DBA2AB83E9700CA1A87 /* LATATA.mp3 */,
+				36E72DBC2AB83E9700CA1A87 /* Leave the Door Open.mp3 */,
+				36E72DB32AB83E9700CA1A87 /* Light Switch.mp3 */,
+				36E72DB42AB83E9700CA1A87 /* Lose Yourself.mp3 */,
+				36E72DB92AB83E9700CA1A87 /* Love Yourself.mp3 */,
+				36E72DB12AB83E9700CA1A87 /* Mơ.mp3 */,
+				36E72DBD2AB83E9700CA1A87 /* Mockingbird.mp3 */,
+				36E72DAC2AB83E9700CA1A87 /* Oh my god.mp3 */,
+				36E72DAE2AB83E9700CA1A87 /* Roses.mp3 */,
+				36E72DB22AB83E9700CA1A87 /* See You Again.mp3 */,
+				36E72DB62AB83E9700CA1A87 /* Sorry.mp3 */,
+				36E72DBE2AB83E9700CA1A87 /* Stay.mp3 */,
+				36E72DC02AB83E9700CA1A87 /* The Real Slim Shady.mp3 */,
+				36E72DC12AB83E9700CA1A87 /* Vẽ Khói.mp3 */,
+				36E72DAD2AB83E9700CA1A87 /* WANNABE.mp3 */,
+				36E72DAF2AB83E9700CA1A87 /* We Don't Talk Anymore.mp3 */,
+				36E72DB02AB83E9700CA1A87 /* Without Me.mp3 */,
 				36E72DA92AB833BB00CA1A87 /* 24K Magic.mp3 */,
 			);
 			path = Sounds;
@@ -482,26 +554,50 @@
 			buildActionMask = 2147483647;
 			files = (
 				984389132AB1B02F0059D3C8 /* Nunito-ExtraLightItalic.ttf in Resources */,
+				36E72DD52AB83E9700CA1A87 /* Stay.mp3 in Resources */,
 				984389152AB1B02F0059D3C8 /* Nunito-Italic.ttf in Resources */,
+				36E72DC32AB83E9700CA1A87 /* Oh my god.mp3 in Resources */,
 				984389122AB1B02F0059D3C8 /* Nunito-SemiBoldItalic.ttf in Resources */,
+				36E72DD42AB83E9700CA1A87 /* Mockingbird.mp3 in Resources */,
 				984389452AB587AE0059D3C8 /* songs.json in Resources */,
+				36E72DCE2AB83E9700CA1A87 /* Bad Guy.mp3 in Resources */,
 				9843890E2AB1B02F0059D3C8 /* Nunito-Medium.ttf in Resources */,
+				36E72DC82AB83E9700CA1A87 /* Mơ.mp3 in Resources */,
+				36E72DC72AB83E9700CA1A87 /* Without Me.mp3 in Resources */,
 				9843890D2AB1B02F0059D3C8 /* Nunito-Bold.ttf in Resources */,
 				984389142AB1B02F0059D3C8 /* Nunito-LightItalic.ttf in Resources */,
 				EA3B46E92AB04A5700BDF587 /* Preview Assets.xcassets in Resources */,
 				984389462AB587AE0059D3C8 /* artist.json in Resources */,
+				36E72DC62AB83E9700CA1A87 /* We Don't Talk Anymore.mp3 in Resources */,
+				36E72DD62AB83E9700CA1A87 /* Closer.mp3 in Resources */,
+				36E72DD82AB83E9700CA1A87 /* Vẽ Khói.mp3 in Resources */,
 				984389442AB587AE0059D3C8 /* category.json in Resources */,
+				36E72DCD2AB83E9700CA1A87 /* Sorry.mp3 in Resources */,
 				984389172AB1B02F0059D3C8 /* Nunito-BoldItalic.ttf in Resources */,
 				9843890F2AB1B02F0059D3C8 /* Nunito-ExtraLight.ttf in Resources */,
+				36E72DD02AB83E9700CA1A87 /* Love Yourself.mp3 in Resources */,
 				EA3B46E52AB04A5700BDF587 /* Assets.xcassets in Resources */,
 				984389092AB1B02F0059D3C8 /* Nunito-Light.ttf in Resources */,
+				36E72DCB2AB83E9700CA1A87 /* Lose Yourself.mp3 in Resources */,
+				36E72DC42AB83E9700CA1A87 /* WANNABE.mp3 in Resources */,
 				F3E8C7642AB1BFF100B99415 /* GoogleService-Info.plist in Resources */,
 				984389162AB1B02F0059D3C8 /* Nunito-Regular.ttf in Resources */,
+				36E72DD72AB83E9700CA1A87 /* The Real Slim Shady.mp3 in Resources */,
 				984389182AB1B02F0059D3C8 /* Nunito-SemiBold.ttf in Resources */,
+				36E72DDA2AB8436D00CA1A87 /* Cô Gái Bàn Bên.mp3 in Resources */,
+				36E72DC52AB83E9700CA1A87 /* Roses.mp3 in Resources */,
+				36E72DC22AB83E9700CA1A87 /* Attention.mp3 in Resources */,
+				36E72DCC2AB83E9700CA1A87 /* Cho Tôi Lang Thang.mp3 in Resources */,
+				36E72DCA2AB83E9700CA1A87 /* Light Switch.mp3 in Resources */,
 				984389112AB1B02F0059D3C8 /* Nunito-Black.ttf in Resources */,
+				36E72DCF2AB83E9700CA1A87 /* Ghé Thăm.mp3 in Resources */,
 				9843890B2AB1B02F0059D3C8 /* Nunito-MediumItalic.ttf in Resources */,
 				984389102AB1B02F0059D3C8 /* Nunito-ExtraBold.ttf in Resources */,
+				36E72DD32AB83E9700CA1A87 /* Leave the Door Open.mp3 in Resources */,
+				36E72DD12AB83E9700CA1A87 /* LATATA.mp3 in Resources */,
+				36E72DD22AB83E9700CA1A87 /* Last Dance.mp3 in Resources */,
 				36E72DAA2AB833BB00CA1A87 /* 24K Magic.mp3 in Resources */,
+				36E72DC92AB83E9700CA1A87 /* See You Again.mp3 in Resources */,
 				9843890A2AB1B02F0059D3C8 /* Nunito-BlackItalic.ttf in Resources */,
 				9843890C2AB1B02F0059D3C8 /* Nunito-ExtraBoldItalic.ttf in Resources */,
 			);
