@@ -29,7 +29,7 @@ class SongViewModel: ObservableObject{
         private var db = Firestore.firestore()
         
         init() {
-                getAllSongData()
+            getAllSongData()
         }
         
     // Fetch all Songs in the database
