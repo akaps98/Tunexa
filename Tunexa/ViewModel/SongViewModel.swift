@@ -57,8 +57,8 @@ class SongViewModel: ObservableObject{
     func addNewSongData(author: String, name: String, avatar: Data, categories: [String]) {
         let data = avatar
         let storageRef = Storage.storage().reference()
-        let songRef = storageRef.child("songs/\(name).mp3")
-        let avatarRef = storageRef.child("album_covers/\(name).png")
+        let songRef = storageRef.child("songs/\(name)-\(author).mp3")
+        let avatarRef = storageRef.child("album_covers/\(name)-\(author).png")
         var songUrl = ""
         if let path = Bundle.main.url(forResource: name, withExtension: "mp3"){
             _ = songRef.putFile(from: path, metadata: nil){ (metadata, error) in
@@ -89,10 +89,10 @@ class SongViewModel: ObservableObject{
     }
     
     // Delete a song
-    func deleteSongData(id: String, name: String){
+    func deleteSongData(id: String, name: String, author: String){
         let storageRef = Storage.storage().reference()
-        let avatarRef = storageRef.child("album_covers/\(name).png")
-        let songRef = storageRef.child("songs/\(name).mp3")
+        let avatarRef = storageRef.child("album_covers/\(name)-\(author).png")
+        let songRef = storageRef.child("songs/\(name)-\(author).mp3")
         songRef.delete{ err in
             if let err = err {
                 print("Error \(err)")

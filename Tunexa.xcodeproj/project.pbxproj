@@ -29,6 +29,7 @@
 		A77D88EE2AB17E800028475C /* SongTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77D88ED2AB17E800028475C /* SongTestView.swift */; };
 		A77D88F82AB18EB30028475C /* SongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77D88F72AB18EB30028475C /* SongViewModel.swift */; };
 		A78EA2492AB3255200CE227D /* SongUpdateTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EA2482AB3255200CE227D /* SongUpdateTestView.swift */; };
+		A78F4D912AB85D0500AB010B /* Stay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4D902AB85D0500AB010B /* Stay.mp3 */; };
 		A7C396C62AB828D40050EB8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7C396C52AB828D40050EB8F /* GoogleService-Info.plist */; };
 		EA3B46E12AB04A5500BDF587 /* TunexaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */; };
 		EA3B46E32AB04A5500BDF587 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46E22AB04A5500BDF587 /* ContentView.swift */; };
@@ -73,6 +74,7 @@
 		A77D88ED2AB17E800028475C /* SongTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTestView.swift; sourceTree = "<group>"; };
 		A77D88F72AB18EB30028475C /* SongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewModel.swift; sourceTree = "<group>"; };
 		A78EA2482AB3255200CE227D /* SongUpdateTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongUpdateTestView.swift; sourceTree = "<group>"; };
+		A78F4D902AB85D0500AB010B /* Stay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Stay.mp3; sourceTree = "<group>"; };
 		A7C396C52AB828D40050EB8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA3B46DD2AB04A5500BDF587 /* Tunexa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tunexa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaApp.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				A72B64E52AB5A6E700A2A16A /* Cô Gái Bàn Bên.mp3 */,
+				A78F4D902AB85D0500AB010B /* Stay.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 			files = (
 				EA3B46E92AB04A5700BDF587 /* Preview Assets.xcassets in Resources */,
 				A7C396C62AB828D40050EB8F /* GoogleService-Info.plist in Resources */,
+				A78F4D912AB85D0500AB010B /* Stay.mp3 in Resources */,
 				A72B64E62AB5A6E700A2A16A /* Cô Gái Bàn Bên.mp3 in Resources */,
 				EA3B46E52AB04A5700BDF587 /* Assets.xcassets in Resources */,
 			);
