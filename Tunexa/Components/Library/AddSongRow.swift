@@ -59,7 +59,15 @@ struct AddSongRow: View {
             
             // MARK: ADD BUTTON
             Button {
-                print("add")
+                if let songId = song.id {
+                    User.addToPlaylist(songID: songId) { error in
+                        if let error = error {
+                            print("Error adding to playlist: \(error.localizedDescription)")
+                        } else {
+                            print("Added to playlist successfully.")
+                        }
+                    }
+                }
             } label: {
                 Image(systemName: "plus.circle")
                     .font(.system(size: 25))

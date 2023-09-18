@@ -9,9 +9,35 @@ import SwiftUI
 
 struct LibraryView: View {
     @ObservedObject var songViewModel: SongViewModel
-    @State var isPlaylistEmpty = true
     @State var showAddSongSheet = false
-    @State var playlist: [Song] = []
+    
+    @State var playlistSongs: [Song] = []
+    
+    @State var pictureName = ""
+    
+    func getSongs() {
+        User.fetch { result in
+            switch result {
+            case .success(let fetchedUser):
+                let playlist = fetchedUser.playlist
+                playlistSongs = songViewModel.songs.filter { song in
+                    return playlist.contains(song.id ?? "")
+                }
+            case .failure(let error):
+                print("Error fetching user data: \(error)")
+            }
+        }
+    }
+    func getImage() {
+        User.fetch { result in
+            switch result {
+            case .success(let fetchedUser):
+                pictureName = fetchedUser.pictureName
+            case .failure(let error):
+                print("Error fetching user data: \(error)")
+            }
+        }
+    }
     
     var body: some View {
         ZStack {
@@ -23,11 +49,33 @@ struct LibraryView: View {
             VStack {
                 HStack {
                     HStack {
-                        Image("testPic")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 50)
-                            .clipShape(Circle())
+//                        Image("testPic")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(width: 50)
+//                            .clipShape(Circle())
+                        if pictureName == "" {
+                            Image(systemName: "person.circle.fill").font(.system(size: 50))
+                        } else {
+                            AsyncImage(url: URL(string: pictureName)){ phase in
+                                if let i = phase.image{
+                                    i
+                                        .resizable()
+                                        .scaledToFit()
+                                        .clipShape(Circle())
+                                        .frame(width:75)
+                                        .padding(-7)
+                                        .padding(.top,23)
+                                        .offset(y:-10)
+                                } else if phase.error != nil{
+                                    Image(systemName: "person.circle.fill").font(.system(size: 50))
+                                } else {
+                                    ProgressView()
+                                        .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                                        .frame(width: 60, height: 60)
+                                }
+                            }
+                        }
                         Text("Your Library")
                             .font(.custom("Nunito-ExtraBold", size: 30))
                             .foregroundColor(Color("text-color"))
@@ -122,7 +170,7 @@ struct LibraryView: View {
                     }
                     .padding([.horizontal,.bottom])
                     
-                    if isPlaylistEmpty {
+                    if playlistSongs.isEmpty {
                         Text("There is nothing in your playlist yet! Ready to customize your own songs?")
                             .font(.custom("Nunito-Regular", size: 18))
                         Button {
@@ -137,13 +185,13 @@ struct LibraryView: View {
                                         .foregroundColor(Color("text-color"))
                                 }
                         }
-                        .sheet(isPresented: $showAddSongSheet) {
+                        .sheet(isPresented: $showAddSongSheet, onDismiss: { getSongs() }) {
                             AddSongView(songViewModel: songViewModel)
                                 .presentationDetents([.large])
                                 .presentationDragIndicator(.visible)
                         }
                     } else {
-                        ForEach(playlist, id: \.id) { song in
+                        ForEach(playlistSongs, id: \.id) { song in
                             SongRow(song: song)
                         }
                     }
@@ -152,11 +200,8 @@ struct LibraryView: View {
             }
         }
         .onAppear {
-            if playlist.isEmpty {
-                isPlaylistEmpty = true
-            } else {
-                isPlaylistEmpty = false
-            }
+            getImage()
+            getSongs()
         }
         
     }
