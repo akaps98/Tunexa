@@ -34,7 +34,7 @@ struct AddSongView: View {
                         .padding(.horizontal)
                         
                         ForEach(songs, id: \.self) {song in
-                            AddSongRow(song: song)
+                            AddSongRow(song: song, isAdded: false)
                         }
                     }
                     

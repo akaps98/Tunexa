@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddSongRow: View {
     let song: Song
+    let isAdded : Bool
     @State var isFavourite = false
     
     var body: some View {
@@ -44,14 +45,26 @@ struct AddSongRow: View {
             Spacer()
             
             // MARK: ADD BUTTON
-            Button {
-                print("add")
-            } label: {
-                Image(systemName: "plus.circle")
-                    .font(.system(size: 25))
-                    .foregroundColor(Color("primary-color"))
+            if !isAdded {
+                Button {
+                    print("add")
+                } label: {
+                    Image(systemName: "plus.circle")
+                        .font(.system(size: 25))
+                        .foregroundColor(Color("primary-color"))
+                }
+                .padding(.trailing, 5)
+            } else {
+                // MARK: DELETE BUTTON
+                Button {
+                    print("delete")
+                } label: {
+                    Image(systemName: "minus.circle")
+                        .font(.system(size: 25))
+                        .foregroundColor(Color("primary-color"))
+                }
+                .padding(.trailing, 5)
             }
-            .padding(.trailing, 5)
         }
         .padding(.horizontal)
         
@@ -61,6 +74,6 @@ struct AddSongRow: View {
 
 struct AddSongRow_Previews: PreviewProvider {
     static var previews: some View {
-        AddSongRow(song: songs[2])
+        AddSongRow(song: songs[2], isAdded: false)
     }
 }
