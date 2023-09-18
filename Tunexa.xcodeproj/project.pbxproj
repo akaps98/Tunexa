@@ -54,6 +54,8 @@
 		98D447882AB73BD600C6BF77 /* EditRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D447872AB73BD600C6BF77 /* EditRow.swift */; };
 		98D4478A2AB73BF400C6BF77 /* AddSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D447892AB73BF400C6BF77 /* AddSongView.swift */; };
 		98D4478C2AB73BFF00C6BF77 /* AddSongRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D4478B2AB73BFF00C6BF77 /* AddSongRow.swift */; };
+		A7C396C82AB82B150050EB8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7C396C72AB82B150050EB8F /* GoogleService-Info.plist */; };
+		A7C396CB2AB82CA10050EB8F /* SongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C396CA2AB82CA10050EB8F /* SongViewModel.swift */; };
 		EA3B46E12AB04A5500BDF587 /* TunexaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */; };
 		EA3B46E32AB04A5500BDF587 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46E22AB04A5500BDF587 /* ContentView.swift */; };
 		EA3B46E52AB04A5700BDF587 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA3B46E42AB04A5700BDF587 /* Assets.xcassets */; };
@@ -61,7 +63,6 @@
 		EA3B46F32AB04A5700BDF587 /* TunexaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46F22AB04A5700BDF587 /* TunexaTests.swift */; };
 		EA3B46FD2AB04A5700BDF587 /* TunexaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46FC2AB04A5700BDF587 /* TunexaUITests.swift */; };
 		EA3B46FF2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46FE2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift */; };
-		F3E8C7642AB1BFF100B99415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3E8C7632AB1BFF100B99415 /* GoogleService-Info.plist */; };
 		F3E8C7672AB1C1F400B99415 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F3E8C7662AB1C1F400B99415 /* FirebaseAuth */; };
 		F3E8C7692AB1C1F400B99415 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F3E8C7682AB1C1F400B99415 /* FirebaseFirestore */; };
 		F3E8C76B2AB1C1F400B99415 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F3E8C76A2AB1C1F400B99415 /* FirebaseFirestoreCombine-Community */; };
@@ -136,6 +137,8 @@
 		98D447872AB73BD600C6BF77 /* EditRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRow.swift; sourceTree = "<group>"; };
 		98D447892AB73BF400C6BF77 /* AddSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSongView.swift; sourceTree = "<group>"; };
 		98D4478B2AB73BFF00C6BF77 /* AddSongRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSongRow.swift; sourceTree = "<group>"; };
+		A7C396C72AB82B150050EB8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A7C396CA2AB82CA10050EB8F /* SongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewModel.swift; sourceTree = "<group>"; };
 		EA3B46DD2AB04A5500BDF587 /* Tunexa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tunexa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaApp.swift; sourceTree = "<group>"; };
 		EA3B46E22AB04A5500BDF587 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -147,7 +150,6 @@
 		EA3B46F82AB04A5700BDF587 /* TunexaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TunexaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA3B46FC2AB04A5700BDF587 /* TunexaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaUITests.swift; sourceTree = "<group>"; };
 		EA3B46FE2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F3E8C7632AB1BFF100B99415 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 		98B976172AB04F5000515EA4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A7C396CA2AB82CA10050EB8F /* SongViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -375,7 +378,7 @@
 				EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */,
 				EA3B46E42AB04A5700BDF587 /* Assets.xcassets */,
 				984389192AB1B0370059D3C8 /* Info.plist */,
-				F3E8C7632AB1BFF100B99415 /* GoogleService-Info.plist */,
+				A7C396C72AB82B150050EB8F /* GoogleService-Info.plist */,
 				EA3B46E62AB04A5700BDF587 /* Tunexa.entitlements */,
 				EA3B46E72AB04A5700BDF587 /* Preview Content */,
 			);
@@ -536,11 +539,11 @@
 				9843890F2AB1B02F0059D3C8 /* Nunito-ExtraLight.ttf in Resources */,
 				EA3B46E52AB04A5700BDF587 /* Assets.xcassets in Resources */,
 				984389092AB1B02F0059D3C8 /* Nunito-Light.ttf in Resources */,
-				F3E8C7642AB1BFF100B99415 /* GoogleService-Info.plist in Resources */,
 				984389162AB1B02F0059D3C8 /* Nunito-Regular.ttf in Resources */,
 				984389182AB1B02F0059D3C8 /* Nunito-SemiBold.ttf in Resources */,
 				984389112AB1B02F0059D3C8 /* Nunito-Black.ttf in Resources */,
 				9843890B2AB1B02F0059D3C8 /* Nunito-MediumItalic.ttf in Resources */,
+				A7C396C82AB82B150050EB8F /* GoogleService-Info.plist in Resources */,
 				984389102AB1B02F0059D3C8 /* Nunito-ExtraBold.ttf in Resources */,
 				9843890A2AB1B02F0059D3C8 /* Nunito-BlackItalic.ttf in Resources */,
 				9843890C2AB1B02F0059D3C8 /* Nunito-ExtraBoldItalic.ttf in Resources */,
@@ -594,6 +597,7 @@
 				98B9761D2AB04F9900515EA4 /* PlaySound.swift in Sources */,
 				98B9761B2AB04F8B00515EA4 /* Modifiers.swift in Sources */,
 				98B9761F2AB04FA400515EA4 /* Utilities.swift in Sources */,
+				A7C396CB2AB82CA10050EB8F /* SongViewModel.swift in Sources */,
 				98B976362AB0555900515EA4 /* LogInView.swift in Sources */,
 				98B9762C2AB0501700515EA4 /* Icon.swift in Sources */,
 				98D4478A2AB73BF400C6BF77 /* AddSongView.swift in Sources */,

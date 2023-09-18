@@ -2,20 +2,17 @@
 //  Song.swift
 //  Tunexa
 //
-//  Created by Nguyễn Anh Duy on 13/09/2023.
+//  Created by SeongJoon, Hong  on 16/09/2023.
 //
 
 import Foundation
-import SwiftUI
+import FirebaseFirestoreSwift
 
-struct Song: Identifiable, Codable, Hashable {
-    var id: Int
-    var name: String
-    var author: String
+struct Song: Codable, Identifiable{
+    @DocumentID var id: String?
+    var author: String?
+    var name: String?
+    var songURL: String?
+    var avatarName: String?
     var categories: [String]
-    var songURL: String
-    var avatarName: String
-    var avatar: Image {
-        Image(avatarName)
-    }
 }

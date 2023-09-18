@@ -10,6 +10,7 @@ import SwiftUI
 
 struct DashBoardView: View {
     // MARK: ***** PROPERTIES *****
+    @ObservedObject var songViewModel: SongViewModel
     let colors : [Color] = [.red, .orange, .blue, .green, .cyan, .indigo, .pink, .yellow, .brown, .teal]
     let columns = 2
     @Binding var isDark: Bool
@@ -94,9 +95,9 @@ struct DashBoardView: View {
                         }
                         ScrollView(.horizontal) {
                             HStack(spacing: 15) {
-                                ForEach(songs, id: \.self) {song in
+                                ForEach(songViewModel.songs, id: \.id) {song in
                                     NavigationLink {
-                                        SongCard()
+                                        SongCard(song: song)
                                     } label: {
                                         SongColumn(song: song)
                                             .foregroundColor(Color("text-color"))
@@ -137,7 +138,7 @@ struct DashBoardView: View {
                         LazyVGrid(columns: Array(repeating: GridItem(), count: columns)) {
                             ForEach(categories, id: \.self) {category in
                                 NavigationLink {
-                                    CategoryCard(category: category, bgColor: colors[category.id-1])
+                                    CategoryCard(songViewModel: songViewModel, category: category, bgColor: colors[category.id-1])
                                 } label: {
                                     CategoryRow(category: category, bgColor: colors[category.id-1])
                                         .foregroundColor(Color("text-color"))
@@ -155,8 +156,8 @@ struct DashBoardView: View {
     }
 }
 
-struct DashBoardView_Previews: PreviewProvider {
-    static var previews: some View {
-        DashBoardView(isDark: .constant(false))
-    }
-}
+//struct DashBoardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DashBoardView(isDark: .constant(false))
+//    }
+//}

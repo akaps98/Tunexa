@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
+    @ObservedObject var songViewModel: SongViewModel
     @Binding var isDark: Bool
     @State private var name: String = ""
     
@@ -22,7 +23,7 @@ struct SearchView: View {
                 ScrollView {
                     // MARK: BODY
                     VStack {
-                        ForEach(songs, id: \.self) {song in
+                        ForEach(songViewModel.songs, id: \.id) { song in
                             SongRow(song: song)
                         }
                     }
@@ -59,8 +60,8 @@ struct SearchView: View {
     }
 }
 
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchView(isDark: .constant(false))
-    }
-}
+//struct SearchView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SearchView(isDark: .constant(false))
+//    }
+//}

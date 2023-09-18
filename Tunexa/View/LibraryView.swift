@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LibraryView: View {
+    @ObservedObject var songViewModel: SongViewModel
     @State var isPlaylistEmpty = true
     @State var showAddSongSheet = false
     @State var playlist: [Song] = []
@@ -137,12 +138,12 @@ struct LibraryView: View {
                                 }
                         }
                         .sheet(isPresented: $showAddSongSheet) {
-                            AddSongView()
+                            AddSongView(songViewModel: songViewModel)
                                 .presentationDetents([.large])
                                 .presentationDragIndicator(.visible)
                         }
                     } else {
-                        ForEach(playlist, id: \.self) { song in
+                        ForEach(playlist, id: \.id) { song in
                             SongRow(song: song)
                         }
                     }
@@ -161,8 +162,8 @@ struct LibraryView: View {
     }
 }
 
-struct LibraryView_Previews: PreviewProvider {
-    static var previews: some View {
-        LibraryView()
-    }
-}
+//struct LibraryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LibraryView()
+//    }
+//}

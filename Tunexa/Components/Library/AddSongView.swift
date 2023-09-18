@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddSongView: View {
+    @StateObject var songViewModel: SongViewModel
     var body: some View {
         ScrollView {
             VStack {
@@ -33,7 +34,7 @@ struct AddSongView: View {
                         }
                         .padding(.horizontal)
                         
-                        ForEach(songs, id: \.self) {song in
+                        ForEach(songViewModel.songs, id: \.id) {song in
                             AddSongRow(song: song)
                         }
                     }
@@ -48,8 +49,8 @@ struct AddSongView: View {
     }
 }
 
-struct AddSongView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddSongView()
-    }
-}
+//struct AddSongView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddSongView()
+//    }
+//}

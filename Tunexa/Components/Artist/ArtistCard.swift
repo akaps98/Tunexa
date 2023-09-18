@@ -12,13 +12,13 @@ struct ArtistCard: View {
     @State var artistList: [Song] = []
     
     // MARK: FILTER SONG BASED ON ARTIST
-    func filterSong() {
-        for song in songs {
-            if song.author.lowercased() == artist.name.lowercased() {
-                artistList.append(song)
-            }
-        }
-    }
+//    func filterSong() {
+//        for song in songs {
+//            if song.author!.lowercased() == artist.name.lowercased() {
+//                artistList.append(song)
+//            }
+//        }
+//    }
     
     var body: some View {
         NavigationStack {
@@ -43,9 +43,9 @@ struct ArtistCard: View {
                     }
                     .padding(.horizontal)
                     
-                    ForEach(artistList, id: \.self) {song in
-                        SongRow(song: song)
-                    }
+//                    ForEach(artistList, id: \.self) {song in
+//                        SongRow(song: song)
+//                    }
                     
                 }
                 
@@ -53,7 +53,7 @@ struct ArtistCard: View {
             .edgesIgnoringSafeArea(.all)
         }
         .onAppear {
-            filterSong()
+//            filterSong()
         }
     }
 }

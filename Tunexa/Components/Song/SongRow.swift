@@ -14,18 +14,30 @@ struct SongRow: View {
     var body: some View {
         HStack(alignment: .center) {
             // MARK: SONG IMAGE
-            song.avatar
-                .resizable()
-                .scaledToFit()
-                .frame(width: 80)
-                .padding(.trailing, 10)
+            AsyncImage(url: URL(string: song.avatarName ?? "")){ phase in
+                if let i = phase.image{
+                    i
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 80)
+                        .padding(.trailing, 10)
+                }else if phase.error != nil{
+                    Rectangle()
+                        .frame(width: 80)
+                        .padding(.trailing, 10)
+                }else{
+                    Rectangle()
+                        .frame(width: 80)
+                        .padding(.trailing, 10)
+                }
+            }
             VStack(alignment: .leading) {
                 // MARK: SONG INFO
                 VStack(alignment: .listRowSeparatorLeading) {
-                    Text(song.name)
+                    Text(song.name ?? "")
                         .font(.custom("Nunito-Bold", size: 18))
                         .lineLimit(1)
-                    Text(song.author)
+                    Text(song.author ?? "")
                         .font(.custom("Nunito-Regular", size: 14))
                 }
                 // MARK: SONG CATEGORIES
@@ -70,8 +82,3 @@ struct SongRow: View {
     }
 }
 
-struct SongRow_Previews: PreviewProvider {
-    static var previews: some View {
-        SongRow(song: songs[1])
-    }
-}
