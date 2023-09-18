@@ -6,49 +6,21 @@
 //
 
 import SwiftUI
-
-// MARK: - VALIDATION STATUS
-enum RegisterStatus {
-    case blankInfo, wrongFormat, duplicatedEmail, passwordLength, doublecheck, registerSuccess
-}
+import FirebaseAuth
+import FirebaseFirestore
 
 struct SignUpView: View {
     // MARK: - VARIABLES
     @Environment(\.presentationMode) var presentationMode
-    
+        
     @Binding var isDark: Bool
     
     @State private var showingAlert = false
-    @State private var status: RegisterStatus = .blankInfo
-    
+    @State private var message = ""
+        
     @State var email = ""
     @State var password = ""
     @State var checkPassword = ""
-    
-    // MARK: - FUNCTION; REGISTRATION
-    func registration(email: String, password: String, checkPassword: String) {
-        if(email == "" || password == "" || checkPassword == "") {
-            status = .blankInfo
-            return
-        }
-        if(email.contains("@")) {
-            if(email.lowercased() != "tony@gmail.com") {
-                if(password.count == 8) {
-                    if(password == checkPassword) {
-                        status = .registerSuccess
-                    } else {
-                        status = .doublecheck
-                    }
-                } else {
-                    status = .passwordLength
-                }
-            } else {
-                status = .duplicatedEmail
-            }
-        } else {
-            status = .wrongFormat
-        }
-    }
     
     var body: some View {
         NavigationView {
@@ -98,10 +70,49 @@ struct SignUpView: View {
                         }
                         // MARK: - REGISTER BUTTON
                         Button {
-                            registration(email: email, password: password, checkPassword: checkPassword)
-                            self.showingAlert.toggle()
-                            if(status == .registerSuccess) {                            print($email, $password)
-                                presentationMode.wrappedValue.dismiss()
+                            if (password == checkPassword) {
+                                Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                                    if let error = error as NSError? {
+                                        message = error.userInfo[NSLocalizedDescriptionKey] as? String ?? "Unknown Error"
+                                        showingAlert.toggle()
+                                        return
+                                    }
+                                    if let user = authResult?.user {
+                                        let uid = user.uid
+                                        
+                                        let db = Firestore.firestore()
+                                        let userInfoCollection = db.collection("UserInfo")
+                                        
+                                        let userInfoDocument = userInfoCollection.document(uid)
+                                        
+                                        let initialUserData: [String: Any] = [
+                                            "email": email,
+                                            "name": "",
+                                            "description": "",
+                                            "pictureName": "",
+                                            "playlist": [Any](),
+                                            "favorite": [Any]()
+                                            ]
+                                        
+                                        userInfoDocument.setData(initialUserData) { error in
+                                            if let error = error {
+                                                print("Error creating Firestore document: \(error.localizedDescription)")
+                                            } else {
+                                                print("Firestore document created successfully.")
+                                            }
+                                        }
+                                        
+                                        message = "Registered successfully!"
+                                        showingAlert.toggle()
+                                        email = ""
+                                        password = ""
+                                        checkPassword = ""
+                                    }
+                                }
+                            } else {
+                                message="Passwords do not match with each other."
+                                checkPassword=""
+                                showingAlert.toggle()
                             }
                         } label: {
                             Text("Register")
@@ -114,21 +125,17 @@ struct SignUpView: View {
                                 )
                                 .padding()
                                 .alert(isPresented: $showingAlert) {
-                                    // MARK: - VALIDATION
-                                    switch status {
-                                    case .blankInfo:
-                                        return Alert(title: Text("Wrong"), message: Text("Please fill in the blank!"))
-                                    case .wrongFormat:
-                                        return Alert(title: Text("Wrong"), message: Text("Wrong email format!"))
-                                    case .duplicatedEmail:
-                                        return Alert(title: Text("Wrong"), message: Text("This email address is already exists!"))
-                                    case .passwordLength:
-                                        return Alert(title: Text("Wrong"), message: Text("Password must be at least 8 characters long!"))
-                                    case .doublecheck:
-                                        return Alert(title: Text("Wrong"), message: Text("Double-check the password!"))
-                                    case .registerSuccess:
-                                        return Alert(title: Text("Success"), message: Text("Successfully registered!"))
-                                    }
+                                    Alert(title: Text((message=="Registered successfully!") ? "Success" : "Error"),
+                                        message: Text(message),
+                                        dismissButton: .default(Text((message=="Registered successfully!") ? "Okay" : "Retry")) {
+                                            if (message=="Registered successfully!") {
+                                                presentationMode.wrappedValue.dismiss()
+                                                showingAlert.toggle()
+                                            } else {
+                                                showingAlert.toggle()
+                                            }
+                                        }
+                                    )
                                 }
                         }.offset(y: 10)
                     }.offset(y: -60)
@@ -138,6 +145,7 @@ struct SignUpView: View {
          .environment(\.colorScheme, isDark ? .dark : .light) // modify the color sheme based on the state variable
     }
 }
+
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
