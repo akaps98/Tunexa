@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct ArtistCard: View {
+    @EnvironmentObject var songViewModel: SongViewModel
     let artist: Artist
     @State var artistList: [Song] = []
     
     // MARK: FILTER SONG BASED ON ARTIST
-//    func filterSong() {
-//        for song in songs {
-//            if song.author!.lowercased() == artist.name.lowercased() {
-//                artistList.append(song)
-//            }
-//        }
-//    }
+    func filterSong() {
+        artistList = []
+        for song in songViewModel.songs {
+            if song.author!.lowercased() == artist.name.lowercased() {
+                artistList.append(song)
+            }
+        }
+    }
     
     var body: some View {
         NavigationStack {
@@ -43,9 +45,9 @@ struct ArtistCard: View {
                     }
                     .padding(.horizontal)
                     
-//                    ForEach(artistList, id: \.self) {song in
-//                        SongRow(song: song)
-//                    }
+                    ForEach(artistList, id: \.id) {song in
+                        SongRow(song: song)
+                    }
                     
                 }
                 
@@ -53,7 +55,7 @@ struct ArtistCard: View {
             .edgesIgnoringSafeArea(.all)
         }
         .onAppear {
-//            filterSong()
+            filterSong()
         }
     }
 }
@@ -61,5 +63,6 @@ struct ArtistCard: View {
 struct ArtistCard_Previews: PreviewProvider {
     static var previews: some View {
         ArtistCard(artist: artists[5])
+            .environmentObject(SongViewModel())
     }
 }

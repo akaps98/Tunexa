@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddSongView: View {
-    @StateObject var songViewModel: SongViewModel
+    @EnvironmentObject var songViewModel: SongViewModel
     var body: some View {
         ScrollView {
             VStack {
@@ -49,8 +49,9 @@ struct AddSongView: View {
     }
 }
 
-//struct AddSongView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddSongView()
-//    }
-//}
+struct AddSongView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddSongView()
+            .environmentObject(SongViewModel())
+    }
+}

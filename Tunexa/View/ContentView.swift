@@ -8,21 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var songViewModel = SongViewModel()
     @State var isDark: Bool = false
     var body: some View {
         TabView {
-            DashBoardView(songViewModel: songViewModel, isDark: $isDark)
+            DashBoardView(isDark: $isDark)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
             
-            SearchView(songViewModel: songViewModel, isDark: $isDark)
+            SearchView(isDark: $isDark)
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")
                 }
             
-            LibraryView(songViewModel: songViewModel)
+            LibraryView()
                 .tabItem {
                     Label("Library", systemImage: "music.note.list")
                 }

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct LibraryView: View {
-    @ObservedObject var songViewModel: SongViewModel
     @State var isPlaylistEmpty = true
     @State var showAddSongSheet = false
     @State var playlist: [Song] = []
@@ -138,7 +137,7 @@ struct LibraryView: View {
                                 }
                         }
                         .sheet(isPresented: $showAddSongSheet) {
-                            AddSongView(songViewModel: songViewModel)
+                            AddSongView()
                                 .presentationDetents([.large])
                                 .presentationDragIndicator(.visible)
                         }
@@ -162,8 +161,8 @@ struct LibraryView: View {
     }
 }
 
-//struct LibraryView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LibraryView()
-//    }
-//}
+struct LibraryView_Previews: PreviewProvider {
+    static var previews: some View {
+        LibraryView()
+    }
+}

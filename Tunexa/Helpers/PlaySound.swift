@@ -1,3 +1,4 @@
+// IOS 8 Swift AVAudioPlayer play remote audio (wowza server) - https://stackoverflow.com/questions/25902916/ios-8-swift-avaudioplayer-play-remote-audio-wowza-server
 //
 //  PlaySound.swift
 //  Tunexa
@@ -15,9 +16,8 @@ class PlaySound: NSObject, ObservableObject {
     private var audioPlayer: AVAudioPlayer?
     private var timer: Timer?
     
-    init(fileName: String, fileType: String) {
+    init(fileName: String, fileType: String, fileURL: String) {
         super.init() // Add this line because we are now subclassing from NSObject
-
         if let path = Bundle.main.path(forResource: fileName, ofType: fileType) {
             let url = URL(fileURLWithPath: path)
             do {
@@ -27,8 +27,22 @@ class PlaySound: NSObject, ObservableObject {
             } catch {
                 print("Error loading audio file: \(error.localizedDescription)")
             }
-        } else {
-            print("Audio file \(fileName).\(fileType) not found.")
+        } else if let url = URL(string: fileURL){   // Get song url from the database if there is no local file for the song
+            do{
+                URLSession.shared.dataTask(with: url){ (data, response, error) in
+                    guard let soundData = data else {return}
+                    do{
+                        self.audioPlayer = try AVAudioPlayer(data: soundData)
+                        self.audioPlayer?.delegate = self  // Set the delegate here
+                        self.audioPlayer?.prepareToPlay()
+                    }catch{
+                        print("Error loading audio file: \(error.localizedDescription)")
+                    }
+                }.resume()
+            }
+        }
+        else{
+            print("Audio file for \(fileName) not found.")
         }
     }
     
@@ -71,16 +85,32 @@ class PlaySound: NSObject, ObservableObject {
         timer = nil
     }
     
-    func changeSong(fileName: String, fileType: String) {
+    func changeSong(fileName: String, fileType: String, fileURL: String) {
         if let path = Bundle.main.path(forResource: fileName, ofType: fileType) {
             let url = URL(fileURLWithPath: path)
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: url)
-                audioPlayer?.delegate = self // Make sure to set the delegate for new song as well
+                audioPlayer?.delegate = self  // Set the delegate here
                 audioPlayer?.prepareToPlay()
             } catch {
-                print("Error changing to new song: \(error.localizedDescription)")
+                print("Error loading audio file: \(error.localizedDescription)")
             }
+        } else if let url = URL(string: fileURL){   // Get song url from the database if there is no local file for the song
+            do{
+                URLSession.shared.dataTask(with: url){ (data, response, error) in
+                    guard let soundData = data else {return}
+                    do{
+                        self.audioPlayer = try AVAudioPlayer(data: soundData)
+                        self.audioPlayer?.delegate = self  // Set the delegate here
+                        self.audioPlayer?.prepareToPlay()
+                    }catch{
+                        print("Error loading audio file: \(error.localizedDescription)")
+                    }
+                }.resume()
+            }
+        }
+        else{
+            print("Audio file for \(fileName) not found.")
         }
     }
 }

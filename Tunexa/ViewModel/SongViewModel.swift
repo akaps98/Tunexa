@@ -6,11 +6,12 @@
   Author: Seongjoon Hong
   ID: 3726123
   Created  date: 13/09/2023
-  Last modified: dd/09/2023
-  Acknowledgement: https://firebase.google.com/docs/storage/ios/upload-files
- https://firebase.google.com/docs/storage/ios/delete-files
- https://firebase.google.com/docs/firestore/solutions/swift-codable-data-mapping
- https://stackoverflow.com/questions/75041939/using-imagepicker-in-swiftui
+  Last modified: 18/09/2023
+  Acknowledgement:
+ Upload files with Cloud Storage on Apple platforms - https://firebase.google.com/docs/storage/ios/upload-files
+ Delete files with Cloud Storage on Apple platforms - https://firebase.google.com/docs/storage/ios/delete-files
+ Map Cloud Firestore data with Swift Codable - https://firebase.google.com/docs/firestore/solutions/swift-codable-data-mapping
+ How can I retrieve local files with NSURL? - https://stackoverflow.com/questions/28419188/how-can-i-retrieve-local-files-with-nsurl
 */
 //
 //  SongViewModel.swift
@@ -57,8 +58,8 @@ class SongViewModel: ObservableObject{
     func addNewSongData(author: String, name: String, avatar: Data, categories: [String]) {
         let data = avatar
         let storageRef = Storage.storage().reference()
-        let songRef = storageRef.child("songs/\(name).mp3")
-        let avatarRef = storageRef.child("album_covers/\(name).png")
+        let songRef = storageRef.child("songs/\(name)-\(author).mp3")
+        let avatarRef = storageRef.child("album_covers/\(name)-\(author).png")
         var songUrl = ""
         if let path = Bundle.main.url(forResource: name, withExtension: "mp3"){
             _ = songRef.putFile(from: path, metadata: nil){ (metadata, error) in
@@ -89,10 +90,10 @@ class SongViewModel: ObservableObject{
     }
     
     // Delete a song
-    func deleteSongData(id: String, name: String){
+    func deleteSongData(id: String, name: String, author: String){
         let storageRef = Storage.storage().reference()
-        let avatarRef = storageRef.child("album_covers/\(name).png")
-        let songRef = storageRef.child("songs/\(name).mp3")
+        let avatarRef = storageRef.child("album_covers/\(name)-\(author).png")
+        let songRef = storageRef.child("songs/\(name)-\(author).mp3")
         songRef.delete{ err in
             if let err = err {
                 print("Error \(err)")

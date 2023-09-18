@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import Combine
-import AVFoundation
 
 struct SongColumn: View {
     let song: Song

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct DashBoardView: View {
     // MARK: ***** PROPERTIES *****
-    @ObservedObject var songViewModel: SongViewModel
+    @EnvironmentObject var songViewModel: SongViewModel
     let colors : [Color] = [.red, .orange, .blue, .green, .cyan, .indigo, .pink, .yellow, .brown, .teal]
     let columns = 2
     @Binding var isDark: Bool
@@ -97,7 +97,7 @@ struct DashBoardView: View {
                             HStack(spacing: 15) {
                                 ForEach(songViewModel.songs, id: \.id) {song in
                                     NavigationLink {
-                                        SongCard(song: song)
+                                        SongCard(song: song, songs: songViewModel.songs)
                                     } label: {
                                         SongColumn(song: song)
                                             .foregroundColor(Color("text-color"))
@@ -156,8 +156,9 @@ struct DashBoardView: View {
     }
 }
 
-//struct DashBoardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DashBoardView(isDark: .constant(false))
-//    }
-//}
+struct DashBoardView_Previews: PreviewProvider {
+    static var previews: some View {
+        DashBoardView(isDark: .constant(false))
+            .environmentObject(SongViewModel())
+    }
+}
