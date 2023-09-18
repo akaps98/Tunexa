@@ -19,9 +19,7 @@
 		98B976382AB0556000515EA4 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B976372AB0556000515EA4 /* SignUpView.swift */; };
 		A72B64D92AB59FA600A2A16A /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B64D82AB59FA600A2A16A /* Song.swift */; };
 		A72B64E62AB5A6E700A2A16A /* Cô Gái Bàn Bên.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A72B64E52AB5A6E700A2A16A /* Cô Gái Bàn Bên.mp3 */; };
-		A72B64E82AB5A71C00A2A16A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A72B64E72AB5A71C00A2A16A /* GoogleService-Info.plist */; };
 		A72B64EA2AB5ABE800A2A16A /* SongCardTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B64E92AB5ABE800A2A16A /* SongCardTestView.swift */; };
-		A72B64EC2AB5C59700A2A16A /* DocumentPickerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B64EB2AB5C59700A2A16A /* DocumentPickerTest.swift */; };
 		A7368FF92AB1701B0064C531 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A7368FF82AB1701B0064C531 /* FirebaseAuth */; };
 		A7368FFB2AB1701B0064C531 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A7368FFA2AB1701B0064C531 /* FirebaseFirestore */; };
 		A7368FFD2AB1701B0064C531 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = A7368FFC2AB1701B0064C531 /* FirebaseFirestoreCombine-Community */; };
@@ -31,6 +29,7 @@
 		A77D88EE2AB17E800028475C /* SongTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77D88ED2AB17E800028475C /* SongTestView.swift */; };
 		A77D88F82AB18EB30028475C /* SongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77D88F72AB18EB30028475C /* SongViewModel.swift */; };
 		A78EA2492AB3255200CE227D /* SongUpdateTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EA2482AB3255200CE227D /* SongUpdateTestView.swift */; };
+		A7C396C62AB828D40050EB8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7C396C52AB828D40050EB8F /* GoogleService-Info.plist */; };
 		EA3B46E12AB04A5500BDF587 /* TunexaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */; };
 		EA3B46E32AB04A5500BDF587 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46E22AB04A5500BDF587 /* ContentView.swift */; };
 		EA3B46E52AB04A5700BDF587 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA3B46E42AB04A5700BDF587 /* Assets.xcassets */; };
@@ -70,12 +69,11 @@
 		98B976372AB0556000515EA4 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		A72B64D82AB59FA600A2A16A /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		A72B64E52AB5A6E700A2A16A /* Cô Gái Bàn Bên.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Cô Gái Bàn Bên.mp3"; sourceTree = "<group>"; };
-		A72B64E72AB5A71C00A2A16A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/untitled folder/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A72B64E92AB5ABE800A2A16A /* SongCardTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCardTestView.swift; sourceTree = "<group>"; };
-		A72B64EB2AB5C59700A2A16A /* DocumentPickerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerTest.swift; sourceTree = "<group>"; };
 		A77D88ED2AB17E800028475C /* SongTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTestView.swift; sourceTree = "<group>"; };
 		A77D88F72AB18EB30028475C /* SongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewModel.swift; sourceTree = "<group>"; };
 		A78EA2482AB3255200CE227D /* SongUpdateTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongUpdateTestView.swift; sourceTree = "<group>"; };
+		A7C396C52AB828D40050EB8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA3B46DD2AB04A5500BDF587 /* Tunexa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tunexa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaApp.swift; sourceTree = "<group>"; };
 		EA3B46E22AB04A5500BDF587 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 				98B9761A2AB04F8B00515EA4 /* Modifiers.swift */,
 				98B9761C2AB04F9900515EA4 /* PlaySound.swift */,
 				98B9761E2AB04FA400515EA4 /* Utilities.swift */,
-				A72B64EB2AB5C59700A2A16A /* DocumentPickerTest.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -226,8 +223,8 @@
 		EA3B46DF2AB04A5500BDF587 /* Tunexa */ = {
 			isa = PBXGroup;
 			children = (
+				A7C396C52AB828D40050EB8F /* GoogleService-Info.plist */,
 				A72B64E42AB5A6D700A2A16A /* Sounds */,
-				A72B64E72AB5A71C00A2A16A /* GoogleService-Info.plist */,
 				A72B64D72AB59F9A00A2A16A /* Model */,
 				A77D88E82AB17B280028475C /* ViewModel */,
 				98B976162AB04F4C00515EA4 /* View */,
@@ -383,7 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA3B46E92AB04A5700BDF587 /* Preview Assets.xcassets in Resources */,
-				A72B64E82AB5A71C00A2A16A /* GoogleService-Info.plist in Resources */,
+				A7C396C62AB828D40050EB8F /* GoogleService-Info.plist in Resources */,
 				A72B64E62AB5A6E700A2A16A /* Cô Gái Bàn Bên.mp3 in Resources */,
 				EA3B46E52AB04A5700BDF587 /* Assets.xcassets in Resources */,
 			);
@@ -416,7 +413,6 @@
 				A72B64EA2AB5ABE800A2A16A /* SongCardTestView.swift in Sources */,
 				98B976272AB04FD800515EA4 /* DashBoardView.swift in Sources */,
 				98B976232AB04FC500515EA4 /* SongRow.swift in Sources */,
-				A72B64EC2AB5C59700A2A16A /* DocumentPickerTest.swift in Sources */,
 				98B976382AB0556000515EA4 /* SignUpView.swift in Sources */,
 				98B976252AB04FCC00515EA4 /* SongCard.swift in Sources */,
 				98B9761D2AB04F9900515EA4 /* PlaySound.swift in Sources */,

@@ -130,7 +130,7 @@ struct SongUpdateTestView: View {
                     let avatar = albumImage!.pngData()!
                     songViewModel.updateImage(id: song.id!, name: song.name!, avatar: avatar)
                 }
-                songViewModel.updateSongData(id: song.id!, author: artist, name: name, songURL: "", categories: songCategories)
+                songViewModel.updateSongData(id: song.id!, author: artist, name: name, categories: songCategories)
             }
         } label: {
            Text("Update")

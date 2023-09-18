@@ -28,11 +28,11 @@ struct SongTestView: View {
             // MARK: CREATE NEW SONG
             TextField("Name of the song", text: $name)
             TextField("Name of the artist", text: $artist)
-            Button{
-                isOpenDocumentPicker = true
-            }label: {
-                Text("File")
-            }
+//            Button{
+//                isOpenDocumentPicker = true
+//            }label: {
+//                Text("File")
+//            }
             HStack{
                 Picker(selection: $firstCategory, label: Text("Select a Category")) {
                     if(firstCategory == ""){
@@ -67,11 +67,11 @@ struct SongTestView: View {
                     }
                 }
             }
-            .sheet(isPresented: $isOpenDocumentPicker, onDismiss: {
-                self.isOpenDocumentPicker = false
-            }, content: {
-                DocumentPicker(fileContent: $songFile)
-            })
+//            .sheet(isPresented: $isOpenDocumentPicker, onDismiss: {
+//                self.isOpenDocumentPicker = false
+//            }, content: {
+//                DocumentPicker(fileContent: $songFile)
+//            })
             // MARK: IMAGE PICKER
             HStack{
                 PhotosPicker("Select Album Image", selection: $imageItem, matching: .images)
@@ -104,7 +104,7 @@ struct SongTestView: View {
                             }
                         }
                         let avatar = albumImage!.pngData()!
-                        songViewModel.addNewSongData(author: artist, name: name, songURL: "", avatar: avatar, categories: songCategories)
+                        songViewModel.addNewSongData(author: artist, name: name, avatar: avatar, categories: songCategories)
                     }
                 }
             } label: {
