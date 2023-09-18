@@ -34,28 +34,38 @@ struct SongCard: View {
             .store(in: &cancellables.cancellables)
     }
     
-    private func switchSong(to index: Int) {
+    private func switchSong(to index: Int, source: String? = nil) {
+        // If repeating is on and the function isn't called by user interaction (forward or backward tap)
+        if isRepeating && source == nil {
+            playSound.stop()
+            playSound.changeSong(fileName: currentSong.name, fileType: "mp3")
+            playSound.play()
+            return
+        }
+
         var newIndex = index
 
         if isShuffling {
             newIndex = Int.random(in: 0..<songs.count)
-        } else if isRepeating && index == songs.count {
+        } else if index == songs.count {
             newIndex = 0
         }
         
         guard newIndex >= 0 && newIndex < songs.count else { return }
         print("Switching song to index:", newIndex)
+        
         // Stop the current song
         playSound.stop()
 
         // Update the currentSongIndex
-        
         currentSongIndex = newIndex
 
         // Initialize the player with the new song
         playSound.changeSong(fileName: currentSong.name, fileType: "mp3")
         playSound.play()
     }
+
+
     
     // Since songs are loaded from the JSON file
     var songs: [Song] = decodeJsonFromJsonFile(jsonFileName: "songs.json")
@@ -169,7 +179,7 @@ struct SongCard: View {
                                 .foregroundColor(isRepeating ? .blue : Color("text-color"))
                         }
                         Button {
-                            switchSong(to: currentSongIndex - 1)
+                            switchSong(to: currentSongIndex - 1, source: "userInteraction")
                         } label: {
                             Image(systemName: "backward.end.fill")
                                 .font(.system(size: 22))
@@ -195,7 +205,7 @@ struct SongCard: View {
                     
                     HStack(spacing: 30) {
                         Button {
-                            switchSong(to: currentSongIndex + 1)
+                            switchSong(to: currentSongIndex + 1, source: "userInteraction")
                         } label: {
                             Image(systemName: "forward.end.fill")
                                 .font(.system(size: 22))
