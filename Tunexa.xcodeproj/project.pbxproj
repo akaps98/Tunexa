@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36E72DAA2AB833BB00CA1A87 /* 24K Magic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36E72DA92AB833BB00CA1A87 /* 24K Magic.mp3 */; };
 		984389092AB1B02F0059D3C8 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 984388F92AB1B02E0059D3C8 /* Nunito-Light.ttf */; };
 		9843890A2AB1B02F0059D3C8 /* Nunito-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 984388FA2AB1B02E0059D3C8 /* Nunito-BlackItalic.ttf */; };
 		9843890B2AB1B02F0059D3C8 /* Nunito-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 984388FB2AB1B02E0059D3C8 /* Nunito-MediumItalic.ttf */; };
@@ -84,6 +85,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36E72DA92AB833BB00CA1A87 /* 24K Magic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "24K Magic.mp3"; sourceTree = "<group>"; };
 		984388F92AB1B02E0059D3C8 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
 		984388FA2AB1B02E0059D3C8 /* Nunito-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-BlackItalic.ttf"; sourceTree = "<group>"; };
 		984388FB2AB1B02E0059D3C8 /* Nunito-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 		98B976302AB0531500515EA4 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				36E72DA92AB833BB00CA1A87 /* 24K Magic.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				984389112AB1B02F0059D3C8 /* Nunito-Black.ttf in Resources */,
 				9843890B2AB1B02F0059D3C8 /* Nunito-MediumItalic.ttf in Resources */,
 				984389102AB1B02F0059D3C8 /* Nunito-ExtraBold.ttf in Resources */,
+				36E72DAA2AB833BB00CA1A87 /* 24K Magic.mp3 in Resources */,
 				9843890A2AB1B02F0059D3C8 /* Nunito-BlackItalic.ttf in Resources */,
 				9843890C2AB1B02F0059D3C8 /* Nunito-ExtraBoldItalic.ttf in Resources */,
 			);
