@@ -5,6 +5,7 @@
         "author": "Charlie Puth",
         "categories": ["pop"],
         "rating": 3,
+        "isFavorite": false,
         "songURL": "",
         "avatarName": "light-switch"
     },
@@ -14,6 +15,7 @@
         "author": "Charlie Puth",
         "categories": ["pop","mood"],
         "rating": 4,
+        "isFavorite": false,
         "songURL": "",
         "avatarName": "puth-mtp"
     },
@@ -23,6 +25,7 @@
         "author": "Charlie Puth",
         "categories": ["pop"],
         "rating": 4,
+        "isFavorite": false,
         "songURL": "",
         "avatarName": "puth-mtp"
     },
@@ -32,6 +35,7 @@
         "author": "Charlie Puth",
         "categories": ["pop","chill"],
         "rating": 3,
+        "isFavorite": false,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -41,6 +45,7 @@
         "author": "Justin Bieber",
         "categories": ["pop"],
         "rating": 2,
+        "isFavorite": false,
         "songURL": "",
         "avatarName": "stay"
     },
@@ -50,6 +55,7 @@
         "author": "Justin Bieber",
         "categories": ["pop"],
         "rating": 3,
+        "isFavorite": false,
         "songURL": "",
         "avatarName": "bieber-purpose"
     },
@@ -59,6 +65,7 @@
         "author": "Justin Bieber",
         "categories": ["pop"],
         "rating": 5,
+        "isFavorite": true,
         "songURL": "",
         "avatarName": "bad-guy"
     },
@@ -68,6 +75,7 @@
         "author": "Justin Bieber",
         "categories": ["pop"],
         "rating": 2,
+        "isFavorite": false,
         "songURL": "",
         "avatarName": "bieber-purpose"
     },
@@ -77,6 +85,7 @@
         "author": "Đen Vâu",
         "categories": ["Hiphop"],
         "rating": 4,
+        "isFavorite": true,
         "songURL": "",
         "avatarName": "kobukovu"
     },
@@ -86,6 +95,7 @@
         "author": "Đen Vâu",
         "categories": ["pop"],
         "rating": 1,
+        "isFavorite": true,
         "songURL": "",
         "avatarName": "kobukovu"
     },
@@ -95,6 +105,7 @@
         "author": "Đen Vâu",
         "categories": ["hiphop"],
         "rating": 5,
+        "isFavorite": true,
         "songURL": "",
         "avatarName": "kobukovu"
     },
@@ -104,6 +115,7 @@
         "author": "Đen Vâu",
         "categories": ["hiphop"],
         "rating": 4,
+        "isFavorite": true,
         "songURL": "",
         "avatarName": "kobukovu"
     },
@@ -113,6 +125,7 @@
         "author": "Eminem",
         "categories": ["hiphop"],
         "rating": 3,
+        "isFavorite": true,
         "songURL": "",
         "avatarName": "curtain-call"
     },
@@ -122,6 +135,7 @@
         "author": "Eminem",
         "categories": ["hiphop"],
         "rating": 4,
+        "isFavorite": false,
         "songURL": "",
         "avatarName": "eminem-show"
     },
@@ -131,6 +145,7 @@
         "author": "Eminem",
         "categories": ["hiphop"],
         "rating": 2,
+        "isFavorite": false,
         "songURL": "",
         "avatarName": "curtain-call"
     },
@@ -140,6 +155,7 @@
         "author": "Eminem",
         "categories": ["hiphop"],
         "rating": 4,
+        "isFavorite": true,
         "songURL": "",
         "avatarName": "curtain-call"
     },
@@ -149,6 +165,7 @@
         "author": "Bruno Mars",
         "categories": ["pop", "jazz", "chill"],
         "rating": 1,
+        "isFavorite": false,
         "songURL": "",
         "avatarName": "door-open"
     },
@@ -158,6 +175,7 @@
         "author": "Bruno Mars",
         "categories": ["pop"],
         "rating": 5,
+        "isFavorite": false,
         "songURL": "",
         "avatarName": "24k-magic"
     },
@@ -167,6 +185,7 @@
         "author": "ITZY",
         "categories": ["kpop", "edm", "dance"],
         "rating": 4,
+        "isFavorite": false,
         "songURL": "",
         "avatarName": "itzy"
     },
@@ -176,6 +195,7 @@
         "author": "(G)-IDLE",
         "categories": ["kpop"],
         "rating": 3,
+        "isFavorite": false,
         "songURL": "",
         "avatarName": "latata"
     },
@@ -185,6 +205,7 @@
         "author": "(G)-IDLE",
         "categories": ["kpop"],
         "rating": 2,
+        "isFavorite": false,
         "songURL": "",
         "avatarName": "last-dance"
     },
@@ -194,6 +215,7 @@
         "author": "(G)-IDLE",
         "categories": ["kpop"],
         "rating": 3,
+        "isFavorite": false,
         "songURL": "",
         "avatarName": "omg"
     },
@@ -203,6 +225,7 @@
         "author": "Rhymastic",
         "categories": ["hiphop"],
         "rating": 3,
+        "isFavorite": false,
         "songURL": "",
         "avatarName": "rhymastic"
     },
@@ -212,6 +235,7 @@
         "author": "The Chainsmokers",
         "categories": ["pop", "edm", "dance"],
         "rating": 5,
+        "isFavorite": false,
         "songURL": "",
         "avatarName": "closer"
     },
@@ -221,6 +245,7 @@
         "author": "The Chainsmokers",
         "categories": ["pop", "edm", "dance"],
         "rating": 4,
+        "isFavorite": false,
         "songURL": "",
         "avatarName": "roses"
     }

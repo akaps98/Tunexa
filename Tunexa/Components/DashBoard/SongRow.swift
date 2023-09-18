@@ -9,7 +9,12 @@ import SwiftUI
 
 struct SongRow: View {
     let song: Song
-    @State var isFavourite = false
+    @State var isFavourite: Bool
+    
+    init(song: Song) {
+        self.song = song
+        self._isFavourite = State(initialValue: song.isFavorite)
+    }
     
     var body: some View {
         HStack(alignment: .center) {
