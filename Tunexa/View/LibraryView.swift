@@ -59,67 +59,62 @@ struct LibraryView: View {
                     }
                     .padding([.horizontal,.bottom])
                     
-                    HStack {
-                        HStack(spacing: 10) {
-                            Button {
-                                print("add")
-                            } label: {
-                                Image(systemName: "plus.circle")
-                                    .font(.system(size: 25))
-                                    .foregroundColor(Color("text-color"))
+                    if !isPlaylistEmpty {
+                        HStack {
+                            HStack(spacing: 10) {
+                                Button {
+                                    print("add")
+                                } label: {
+                                    Image(systemName: "plus.circle")
+                                        .font(.system(size: 25))
+                                        .foregroundColor(Color("text-color"))
+                                }
+                                
+                                Button {
+                                    print("edit")
+                                } label: {
+                                    Image(systemName: "pencil")
+                                        .font(.system(size: 25))
+                                        .foregroundColor(Color("text-color"))
+                                }
+                                
                             }
                             
-                            Button {
-                                print("delete")
-                            } label: {
-                                Image(systemName: "minus.circle")
-                                    .font(.system(size: 25))
-                                    .foregroundColor(Color("text-color"))
-                            }
+                            Spacer()
                             
-                            Button {
-                                print("edit")
-                            } label: {
-                                Image(systemName: "pencil")
-                                    .font(.system(size: 25))
-                                    .foregroundColor(Color("text-color"))
-                            }
+                            // MARK: SHUFFLE BUTTON
                             
-                        }
-                        
-                        Spacer()
-                        
-                        // MARK: SHUFFLE BUTTON
-                        
-                        HStack(spacing: 10) {
-                            Button {
-                                print("shuffle")
-                            } label: {
-                                Image(systemName: "shuffle")
-                                    .font(.system(size: 22))
-                                    .foregroundColor(Color("text-color"))
-                            }
-                            
-                            // MARK: PLAY BUTTON
-                            Button {
-                                print("play playlist")
-                            } label: {
-                                ZStack {
-                                    Circle()
-                                        .frame(width: 50)
-                                        .foregroundColor(Color("primary-color"))
-                                        .overlay {
-                                            Image(systemName: "triangle.fill")
-                                                .foregroundColor(Color("text-color"))
-                                                .rotationEffect(Angle(degrees: 90))
-                                                .offset(x: 2)
-                                        }
+                            HStack(spacing: 10) {
+                                Button {
+                                    print("shuffle")
+                                } label: {
+                                    Image(systemName: "shuffle")
+                                        .font(.system(size: 22))
+                                        .foregroundColor(Color("text-color"))
+                                }
+                                
+                                // MARK: PLAY BUTTON
+                                Button {
+                                    print("play playlist")
+                                } label: {
+                                    ZStack {
+                                        Circle()
+                                            .frame(width: 50)
+                                            .foregroundColor(Color("primary-color"))
+                                            .overlay {
+                                                Image(systemName: "triangle.fill")
+                                                    .foregroundColor(Color("text-color"))
+                                                    .rotationEffect(Angle(degrees: 90))
+                                                    .offset(x: 2)
+                                            }
+                                    }
                                 }
                             }
+                            
                         }
-                        
+                        .padding([.horizontal,.bottom])
                     }
-                    .padding([.horizontal,.bottom])
+                    
                     
                     if isPlaylistEmpty {
                         Text("There is nothing in your playlist yet! Ready to customize your own songs?")
