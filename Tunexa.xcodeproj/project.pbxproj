@@ -140,9 +140,9 @@
 		984389342AB5870B0059D3C8 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		984389362AB587190059D3C8 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		984389382AB587230059D3C8 /* SeachView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeachView.swift; sourceTree = "<group>"; };
-		9843893A2AB587460059D3C8 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Artist.swift; path = Tunexa/View/Artist.swift; sourceTree = SOURCE_ROOT; };
-		9843893C2AB5874B0059D3C8 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Song.swift; path = Tunexa/View/Song.swift; sourceTree = SOURCE_ROOT; };
-		9843893E2AB587580059D3C8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Tunexa/View/Category.swift; sourceTree = SOURCE_ROOT; };
+		9843893A2AB587460059D3C8 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Artist.swift; path = Tunexa/Model/Artist.swift; sourceTree = SOURCE_ROOT; };
+		9843893C2AB5874B0059D3C8 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Song.swift; path = Tunexa/Model/Song.swift; sourceTree = SOURCE_ROOT; };
+		9843893E2AB587580059D3C8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Tunexa/Model/Category.swift; sourceTree = SOURCE_ROOT; };
 		984389412AB587AE0059D3C8 /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
 		984389422AB587AE0059D3C8 /* songs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = songs.json; sourceTree = "<group>"; };
 		984389432AB587AE0059D3C8 /* artists.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artists.json; sourceTree = "<group>"; };
