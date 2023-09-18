@@ -11,6 +11,7 @@ struct SearchView: View {
     @Binding var isDark: Bool
     @State private var name: String = ""
     @State private var ratingValue = 1.0
+    @State private var filteredSongs: [Song] = songs
     var minimumValue = 1.0
     var maximumValue = 5.0
         
@@ -30,7 +31,7 @@ struct SearchView: View {
                         .offset(y: -10)
                     // MARK: BODY
                     VStack {
-                        ForEach(songs, id: \.self) {song in
+                        ForEach(filteredSongs, id: \.self) { song in
                             SongRow(song: song)
                         }
                     }
@@ -62,8 +63,24 @@ struct SearchView: View {
            
         }
         .searchable(text: $name)
+        .onChange(of: name) { newValue in
+            filterSongs(with: newValue)
+        }
+        .onAppear {
+            filteredSongs = songs
+        }
         .navigationBarTitleDisplayMode(.inline)
         .environment(\.colorScheme, isDark ? .dark : .light) // modify the color sheme based on the state variable
+    }
+    
+    func filterSongs(with term: String) {
+        if term.isEmpty {
+            filteredSongs = songs
+        } else {
+            filteredSongs = songs.filter { song in
+                song.name.lowercased().contains(term.lowercased())
+            }
+        }
     }
 }
 

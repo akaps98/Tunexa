@@ -141,6 +141,8 @@ struct SongCard: View {
                         .font(.custom("Nunito-Bold", size: 22))
                     Text(currentSong.author)
                         .font(.custom("Nunito-Light", size: 16))
+                        .padding(.bottom, 30)
+//                    Rating(rating: currentSong.rating)
                 }
                 
                 Spacer()
