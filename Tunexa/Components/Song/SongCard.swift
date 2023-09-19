@@ -12,6 +12,8 @@ import Combine
 struct SongCard: View {
     var cancellables: Set<AnyCancellable> = []
     @State private var currentSongIndex: Int = 9
+    // Since songs are loaded from the JSON file
+    var songs: [Song] = decodeJsonFromJsonFile(jsonFileName: "songs.json")
 
     // Computed property to get the current song
     var currentSong: Song {
