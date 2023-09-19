@@ -19,7 +19,6 @@ struct SongUpdateTestView: View {
     @State private var imageItem: PhotosPickerItem?
     @State private var firstCategory = ""
     @State private var secondCategory = ""
-    @State private var thirdCategory = ""
     let categories = ["Kpop", "Pop", "Jazz", "Hiphop", "Rock", "R&B", "Dance", "Soul", "Indie", "Punk", "Blues", "Reggae", "EDM", "Country", "Classical", "Latin"]
     @State private var songCategories: [String] = []
     var body: some View {
@@ -28,9 +27,9 @@ struct SongUpdateTestView: View {
             .onAppear{
                 name = song.name ?? ""
             }
-        TextField(song.author ?? "", text: $artist)
+        TextField(song.author[0] ?? "", text: $artist)
             .onAppear{
-                artist = song.author ?? ""
+                artist = song.author[0] ?? ""
             }
         HStack{
             Picker(selection: $firstCategory, label: Text("Select a Category")) {
@@ -58,23 +57,6 @@ struct SongUpdateTestView: View {
                 .onAppear{
                     if song.categories.count > 1{
                         secondCategory = song.categories[1]
-                    }
-                }
-            }
-            if secondCategory != ""{
-                Picker(selection: $thirdCategory, label: Text("Select a Category")) {
-                    if(thirdCategory == ""){
-                        Text("Select Category").tag("Placeholder")
-                    }
-                    ForEach(categories, id: \.self) { category in
-                        if category != firstCategory && category != secondCategory{
-                            Text(category).tag(category)
-                        }
-                    }
-                }
-                .onAppear{
-                    if song.categories.count > 2{
-                        thirdCategory = song.categories[2]
                     }
                 }
             }
@@ -118,19 +100,26 @@ struct SongUpdateTestView: View {
             }
         }
         Button{
+            songCategories = []
             if firstCategory != "" && name != "" && artist != ""{
                 songCategories.append(firstCategory)
                 if secondCategory != ""{
                     songCategories.append(secondCategory)
-                    if thirdCategory != ""{
-                        songCategories.append(thirdCategory)
-                    }
                 }
                 if albumImage != nil{
                     let avatar = albumImage!.pngData()!
-                    songViewModel.updateImage(id: song.id!, name: song.name!, avatar: avatar)
+//                    songViewModel.updateImage(id: song.id!, name: song.name!, avatar: avatar)
                 }
-                songViewModel.updateSongData(id: song.id!, author: artist, name: name, categories: songCategories)
+                if artist != "" && name != ""{
+                    let author = [artist, song.author[1] ?? ""]
+                    if songCategories.count > 1{
+                        let category = Array(songCategories[0..<2])
+                        songViewModel.updateSongData(id: song.id!, author: author, name: name, categories: category)
+                    }else{
+                        let category = Array(songCategories[0..<1])
+                        songViewModel.updateSongData(id: song.id!, author: author, name: name, categories: category)
+                    }
+                }
             }
         } label: {
            Text("Update")

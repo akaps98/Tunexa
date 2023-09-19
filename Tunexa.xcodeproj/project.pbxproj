@@ -31,7 +31,7 @@
 		A78F4DAB2AB8664700AB010B /* Bad Guy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4D922AB8664100AB010B /* Bad Guy.mp3 */; };
 		A78F4DAC2AB8664700AB010B /* Attention.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4D932AB8664100AB010B /* Attention.mp3 */; };
 		A78F4DAD2AB8664700AB010B /* The Real Slim Shady.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4D942AB8664100AB010B /* The Real Slim Shady.mp3 */; };
-		A78F4DAE2AB8664700AB010B /* Ghé-Thăm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4D952AB8664200AB010B /* Ghé-Thăm.mp3 */; };
+		A78F4DAE2AB8664700AB010B /* Ghé Thăm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4D952AB8664200AB010B /* Ghé Thăm.mp3 */; };
 		A78F4DAF2AB8664700AB010B /* Lose Yourself.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4D962AB8664200AB010B /* Lose Yourself.mp3 */; };
 		A78F4DB02AB8664700AB010B /* Light Switch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4D972AB8664200AB010B /* Light Switch.mp3 */; };
 		A78F4DB12AB8664700AB010B /* Without Me.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4D982AB8664300AB010B /* Without Me.mp3 */; };
@@ -99,7 +99,7 @@
 		A78F4D922AB8664100AB010B /* Bad Guy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bad Guy.mp3"; sourceTree = "<group>"; };
 		A78F4D932AB8664100AB010B /* Attention.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Attention.mp3; sourceTree = "<group>"; };
 		A78F4D942AB8664100AB010B /* The Real Slim Shady.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Real Slim Shady.mp3"; sourceTree = "<group>"; };
-		A78F4D952AB8664200AB010B /* Ghé-Thăm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ghé-Thăm.mp3"; sourceTree = "<group>"; };
+		A78F4D952AB8664200AB010B /* Ghé Thăm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ghé Thăm.mp3"; sourceTree = "<group>"; };
 		A78F4D962AB8664200AB010B /* Lose Yourself.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Lose Yourself.mp3"; sourceTree = "<group>"; };
 		A78F4D972AB8664200AB010B /* Light Switch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Light Switch.mp3"; sourceTree = "<group>"; };
 		A78F4D982AB8664300AB010B /* Without Me.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Without Me.mp3"; sourceTree = "<group>"; };
@@ -241,7 +241,7 @@
 				A78F4D9C2AB8664300AB010B /* Cho Tôi Lang Thang.mp3 */,
 				A78F4D9D2AB8664400AB010B /* Closer.mp3 */,
 				A78F4DA92AB8664600AB010B /* Cô Gái Bàn Bên.mp3 */,
-				A78F4D952AB8664200AB010B /* Ghé-Thăm.mp3 */,
+				A78F4D952AB8664200AB010B /* Ghé Thăm.mp3 */,
 				A78F4D9F2AB8664400AB010B /* Last Dance.mp3 */,
 				A78F4DA32AB8664500AB010B /* LATATA.mp3 */,
 				A78F4DA22AB8664500AB010B /* Leave the Door Open.mp3 */,
@@ -272,6 +272,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		A7DA656C2AB99AB7003B40DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EA3B46D42AB04A5500BDF587 = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +286,7 @@
 				EA3B46F12AB04A5700BDF587 /* TunexaTests */,
 				EA3B46FB2AB04A5700BDF587 /* TunexaUITests */,
 				EA3B46DE2AB04A5500BDF587 /* Products */,
+				A7DA656C2AB99AB7003B40DF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -468,7 +476,7 @@
 				A78F4DAC2AB8664700AB010B /* Attention.mp3 in Resources */,
 				A78F4DC12AB8664700AB010B /* Sorry.mp3 in Resources */,
 				A78F4DBC2AB8664700AB010B /* LATATA.mp3 in Resources */,
-				A78F4DAE2AB8664700AB010B /* Ghé-Thăm.mp3 in Resources */,
+				A78F4DAE2AB8664700AB010B /* Ghé Thăm.mp3 in Resources */,
 				A78F4DC32AB8664700AB010B /* Roses.mp3 in Resources */,
 				A78F4DB72AB8664700AB010B /* Mơ.mp3 in Resources */,
 				A78F4DBA2AB8664700AB010B /* Love Yourself.mp3 in Resources */,

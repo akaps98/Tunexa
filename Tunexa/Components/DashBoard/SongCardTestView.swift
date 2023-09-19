@@ -33,7 +33,7 @@ struct SongCardTestView: View {
                 }
             }
             Text(song.name ?? "")
-            Text(song.author ?? "")
+            Text(song.author[0] ?? "")
             Button{
                 playSound.stop()
             }label: {
