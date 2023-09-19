@@ -62,7 +62,7 @@ class PlaySound: NSObject, ObservableObject {
     func stop() {
         audioPlayer?.stop()
         isPlaying = false
-        audioPlayer?.currentTime = 0 // Reset playback to start
+        currentTime = 0 // Reset playback to start
         stopTimer()
     }
     
