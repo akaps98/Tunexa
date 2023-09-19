@@ -35,9 +35,6 @@
 		9843893B2AB587460059D3C8 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843893A2AB587460059D3C8 /* Artist.swift */; };
 		9843893D2AB5874B0059D3C8 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843893C2AB5874B0059D3C8 /* Song.swift */; };
 		9843893F2AB587580059D3C8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843893E2AB587580059D3C8 /* Category.swift */; };
-		984389442AB587AE0059D3C8 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 984389412AB587AE0059D3C8 /* categories.json */; };
-		984389452AB587AE0059D3C8 /* songs.json in Resources */ = {isa = PBXBuildFile; fileRef = 984389422AB587AE0059D3C8 /* songs.json */; };
-		984389462AB587AE0059D3C8 /* artists.json in Resources */ = {isa = PBXBuildFile; fileRef = 984389432AB587AE0059D3C8 /* artists.json */; };
 		984389492AB71B000059D3C8 /* ArtistCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984389482AB71B000059D3C8 /* ArtistCard.swift */; };
 		9843894B2AB71B110059D3C8 /* CategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843894A2AB71B110059D3C8 /* CategoryCard.swift */; };
 		98B9761B2AB04F8B00515EA4 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B9761A2AB04F8B00515EA4 /* Modifiers.swift */; };
@@ -56,7 +53,6 @@
 		98D4478C2AB73BFF00C6BF77 /* AddSongRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D4478B2AB73BFF00C6BF77 /* AddSongRow.swift */; };
 		A78F4DDD2AB8721700AB010B /* Mockingbird.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4DC42AB8721000AB010B /* Mockingbird.mp3 */; };
 		A78F4DDE2AB8721700AB010B /* See You Again.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4DC52AB8721000AB010B /* See You Again.mp3 */; };
-		A78F4DDF2AB8721700AB010B /* Cô Gái Bàn Bên.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4DC62AB8721000AB010B /* Cô Gái Bàn Bên.mp3 */; };
 		A78F4DE02AB8721700AB010B /* Sorry.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4DC72AB8721000AB010B /* Sorry.mp3 */; };
 		A78F4DE12AB8721700AB010B /* Closer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4DC82AB8721100AB010B /* Closer.mp3 */; };
 		A78F4DE22AB8721700AB010B /* Bad Guy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4DC92AB8721100AB010B /* Bad Guy.mp3 */; };
@@ -64,7 +60,7 @@
 		A78F4DE42AB8721700AB010B /* Without Me.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4DCB2AB8721100AB010B /* Without Me.mp3 */; };
 		A78F4DE52AB8721700AB010B /* Light Switch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4DCC2AB8721200AB010B /* Light Switch.mp3 */; };
 		A78F4DE62AB8721700AB010B /* Attention.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4DCD2AB8721200AB010B /* Attention.mp3 */; };
-		A78F4DE72AB8721700AB010B /* Ghé-Thăm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4DCE2AB8721200AB010B /* Ghé-Thăm.mp3 */; };
+		A78F4DE72AB8721700AB010B /* Ghé Thăm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4DCE2AB8721200AB010B /* Ghé Thăm.mp3 */; };
 		A78F4DE82AB8721700AB010B /* Leave the Door Open.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4DCF2AB8721300AB010B /* Leave the Door Open.mp3 */; };
 		A78F4DE92AB8721700AB010B /* Love Yourself.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4DD02AB8721300AB010B /* Love Yourself.mp3 */; };
 		A78F4DEA2AB8721700AB010B /* LATATA.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4DD12AB8721400AB010B /* LATATA.mp3 */; };
@@ -79,8 +75,9 @@
 		A78F4DF32AB8721700AB010B /* 24K Magic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4DDA2AB8721600AB010B /* 24K Magic.mp3 */; };
 		A78F4DF42AB8721700AB010B /* Vẽ Khói.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4DDB2AB8721700AB010B /* Vẽ Khói.mp3 */; };
 		A78F4DF52AB8721700AB010B /* Cho Tôi Lang Thang.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78F4DDC2AB8721700AB010B /* Cho Tôi Lang Thang.mp3 */; };
-		A7C396C82AB82B150050EB8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7C396C72AB82B150050EB8F /* GoogleService-Info.plist */; };
 		A7C396CB2AB82CA10050EB8F /* SongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C396CA2AB82CA10050EB8F /* SongViewModel.swift */; };
+		A7DA656E2AB9C770003B40DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7DA656D2AB9C76F003B40DF /* GoogleService-Info.plist */; };
+		A7DA65702AB9C78C003B40DF /* Cô Gái Bàn Bên.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A7DA656F2AB9C78C003B40DF /* Cô Gái Bàn Bên.mp3 */; };
 		EA3B46E12AB04A5500BDF587 /* TunexaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */; };
 		EA3B46E32AB04A5500BDF587 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46E22AB04A5500BDF587 /* ContentView.swift */; };
 		EA3B46E52AB04A5700BDF587 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA3B46E42AB04A5700BDF587 /* Assets.xcassets */; };
@@ -143,9 +140,6 @@
 		9843893A2AB587460059D3C8 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Artist.swift; path = Tunexa/Model/Artist.swift; sourceTree = SOURCE_ROOT; };
 		9843893C2AB5874B0059D3C8 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Song.swift; path = Tunexa/Model/Song.swift; sourceTree = SOURCE_ROOT; };
 		9843893E2AB587580059D3C8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Tunexa/Model/Category.swift; sourceTree = SOURCE_ROOT; };
-		984389412AB587AE0059D3C8 /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
-		984389422AB587AE0059D3C8 /* songs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = songs.json; sourceTree = "<group>"; };
-		984389432AB587AE0059D3C8 /* artists.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artists.json; sourceTree = "<group>"; };
 		984389482AB71B000059D3C8 /* ArtistCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCard.swift; sourceTree = "<group>"; };
 		9843894A2AB71B110059D3C8 /* CategoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCard.swift; sourceTree = "<group>"; };
 		98B9761A2AB04F8B00515EA4 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
@@ -164,7 +158,6 @@
 		98D4478B2AB73BFF00C6BF77 /* AddSongRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSongRow.swift; sourceTree = "<group>"; };
 		A78F4DC42AB8721000AB010B /* Mockingbird.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Mockingbird.mp3; sourceTree = "<group>"; };
 		A78F4DC52AB8721000AB010B /* See You Again.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "See You Again.mp3"; sourceTree = "<group>"; };
-		A78F4DC62AB8721000AB010B /* Cô Gái Bàn Bên.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Cô Gái Bàn Bên.mp3"; path = "../../../Tunexa-viet-frontend/Tunexa/Sounds/Cô Gái Bàn Bên.mp3"; sourceTree = "<group>"; };
 		A78F4DC72AB8721000AB010B /* Sorry.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Sorry.mp3; sourceTree = "<group>"; };
 		A78F4DC82AB8721100AB010B /* Closer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Closer.mp3; sourceTree = "<group>"; };
 		A78F4DC92AB8721100AB010B /* Bad Guy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bad Guy.mp3"; sourceTree = "<group>"; };
@@ -172,7 +165,7 @@
 		A78F4DCB2AB8721100AB010B /* Without Me.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Without Me.mp3"; sourceTree = "<group>"; };
 		A78F4DCC2AB8721200AB010B /* Light Switch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Light Switch.mp3"; sourceTree = "<group>"; };
 		A78F4DCD2AB8721200AB010B /* Attention.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Attention.mp3; sourceTree = "<group>"; };
-		A78F4DCE2AB8721200AB010B /* Ghé-Thăm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ghé-Thăm.mp3"; sourceTree = "<group>"; };
+		A78F4DCE2AB8721200AB010B /* Ghé Thăm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ghé Thăm.mp3"; sourceTree = "<group>"; };
 		A78F4DCF2AB8721300AB010B /* Leave the Door Open.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Leave the Door Open.mp3"; sourceTree = "<group>"; };
 		A78F4DD02AB8721300AB010B /* Love Yourself.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Love Yourself.mp3"; sourceTree = "<group>"; };
 		A78F4DD12AB8721400AB010B /* LATATA.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LATATA.mp3; sourceTree = "<group>"; };
@@ -187,8 +180,9 @@
 		A78F4DDA2AB8721600AB010B /* 24K Magic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "24K Magic.mp3"; sourceTree = "<group>"; };
 		A78F4DDB2AB8721700AB010B /* Vẽ Khói.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Vẽ Khói.mp3"; sourceTree = "<group>"; };
 		A78F4DDC2AB8721700AB010B /* Cho Tôi Lang Thang.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Cho Tôi Lang Thang.mp3"; sourceTree = "<group>"; };
-		A7C396C72AB82B150050EB8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A7C396CA2AB82CA10050EB8F /* SongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewModel.swift; sourceTree = "<group>"; };
+		A7DA656D2AB9C76F003B40DF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A7DA656F2AB9C78C003B40DF /* Cô Gái Bàn Bên.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Cô Gái Bàn Bên.mp3"; sourceTree = "<group>"; };
 		EA3B46DD2AB04A5500BDF587 /* Tunexa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tunexa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaApp.swift; sourceTree = "<group>"; };
 		EA3B46E22AB04A5500BDF587 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -233,16 +227,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		984389402AB587920059D3C8 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				984389432AB587AE0059D3C8 /* artists.json */,
-				984389412AB587AE0059D3C8 /* categories.json */,
-				984389422AB587AE0059D3C8 /* songs.json */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
 		984389472AB605600059D3C8 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,8 +340,8 @@
 				A78F4DC92AB8721100AB010B /* Bad Guy.mp3 */,
 				A78F4DDC2AB8721700AB010B /* Cho Tôi Lang Thang.mp3 */,
 				A78F4DC82AB8721100AB010B /* Closer.mp3 */,
-				A78F4DC62AB8721000AB010B /* Cô Gái Bàn Bên.mp3 */,
-				A78F4DCE2AB8721200AB010B /* Ghé-Thăm.mp3 */,
+				A7DA656F2AB9C78C003B40DF /* Cô Gái Bàn Bên.mp3 */,
+				A78F4DCE2AB8721200AB010B /* Ghé Thăm.mp3 */,
 				A78F4DD92AB8721600AB010B /* Last Dance.mp3 */,
 				A78F4DD12AB8721400AB010B /* LATATA.mp3 */,
 				A78F4DCF2AB8721300AB010B /* Leave the Door Open.mp3 */,
@@ -444,7 +428,6 @@
 			children = (
 				98B976302AB0531500515EA4 /* Sounds */,
 				98B9762F2AB052F900515EA4 /* Fonts */,
-				984389402AB587920059D3C8 /* Data */,
 				98B976182AB04F5A00515EA4 /* Model */,
 				98B976162AB04F4C00515EA4 /* View */,
 				98B976172AB04F5000515EA4 /* ViewModel */,
@@ -453,7 +436,7 @@
 				EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */,
 				EA3B46E42AB04A5700BDF587 /* Assets.xcassets */,
 				984389192AB1B0370059D3C8 /* Info.plist */,
-				A7C396C72AB82B150050EB8F /* GoogleService-Info.plist */,
+				A7DA656D2AB9C76F003B40DF /* GoogleService-Info.plist */,
 				EA3B46E62AB04A5700BDF587 /* Tunexa.entitlements */,
 				EA3B46E72AB04A5700BDF587 /* Preview Content */,
 			);
@@ -603,14 +586,12 @@
 				A78F4DF12AB8721700AB010B /* The Real Slim Shady.mp3 in Resources */,
 				A78F4DF52AB8721700AB010B /* Cho Tôi Lang Thang.mp3 in Resources */,
 				A78F4DEA2AB8721700AB010B /* LATATA.mp3 in Resources */,
-				A78F4DDF2AB8721700AB010B /* Cô Gái Bàn Bên.mp3 in Resources */,
 				984389132AB1B02F0059D3C8 /* Nunito-ExtraLightItalic.ttf in Resources */,
 				A78F4DE92AB8721700AB010B /* Love Yourself.mp3 in Resources */,
 				984389152AB1B02F0059D3C8 /* Nunito-Italic.ttf in Resources */,
 				A78F4DF02AB8721700AB010B /* We Don't Talk Anymore.mp3 in Resources */,
 				984389122AB1B02F0059D3C8 /* Nunito-SemiBoldItalic.ttf in Resources */,
 				A78F4DE12AB8721700AB010B /* Closer.mp3 in Resources */,
-				984389452AB587AE0059D3C8 /* songs.json in Resources */,
 				A78F4DF22AB8721700AB010B /* Last Dance.mp3 in Resources */,
 				A78F4DEE2AB8721700AB010B /* Oh my god.mp3 in Resources */,
 				9843890E2AB1B02F0059D3C8 /* Nunito-Medium.ttf in Resources */,
@@ -622,8 +603,6 @@
 				EA3B46E92AB04A5700BDF587 /* Preview Assets.xcassets in Resources */,
 				A78F4DE32AB8721700AB010B /* WANNABE.mp3 in Resources */,
 				A78F4DEB2AB8721700AB010B /* Stay.mp3 in Resources */,
-				984389462AB587AE0059D3C8 /* artists.json in Resources */,
-				984389442AB587AE0059D3C8 /* categories.json in Resources */,
 				984389172AB1B02F0059D3C8 /* Nunito-BoldItalic.ttf in Resources */,
 				A78F4DED2AB8721700AB010B /* Roses.mp3 in Resources */,
 				A78F4DDE2AB8721700AB010B /* See You Again.mp3 in Resources */,
@@ -634,14 +613,15 @@
 				A78F4DE62AB8721700AB010B /* Attention.mp3 in Resources */,
 				984389162AB1B02F0059D3C8 /* Nunito-Regular.ttf in Resources */,
 				984389182AB1B02F0059D3C8 /* Nunito-SemiBold.ttf in Resources */,
+				A7DA65702AB9C78C003B40DF /* Cô Gái Bàn Bên.mp3 in Resources */,
 				A78F4DEC2AB8721700AB010B /* Lose Yourself.mp3 in Resources */,
 				A78F4DE42AB8721700AB010B /* Without Me.mp3 in Resources */,
 				A78F4DE52AB8721700AB010B /* Light Switch.mp3 in Resources */,
 				984389112AB1B02F0059D3C8 /* Nunito-Black.ttf in Resources */,
 				9843890B2AB1B02F0059D3C8 /* Nunito-MediumItalic.ttf in Resources */,
-				A78F4DE72AB8721700AB010B /* Ghé-Thăm.mp3 in Resources */,
+				A78F4DE72AB8721700AB010B /* Ghé Thăm.mp3 in Resources */,
 				A78F4DEF2AB8721700AB010B /* Mơ.mp3 in Resources */,
-				A7C396C82AB82B150050EB8F /* GoogleService-Info.plist in Resources */,
+				A7DA656E2AB9C770003B40DF /* GoogleService-Info.plist in Resources */,
 				984389102AB1B02F0059D3C8 /* Nunito-ExtraBold.ttf in Resources */,
 				9843890A2AB1B02F0059D3C8 /* Nunito-BlackItalic.ttf in Resources */,
 				A78F4DF32AB8721700AB010B /* 24K Magic.mp3 in Resources */,

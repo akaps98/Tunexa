@@ -14,6 +14,20 @@ struct DashBoardView: View {
     let colors : [Color] = [.red, .orange, .blue, .green, .cyan, .indigo, .pink, .yellow, .brown, .teal]
     let columns = 2
     @Binding var isDark: Bool
+    @State private var authors: [String: String] = [:]
+    @State private var categories: [String] = []
+    
+    func getAttributes(){
+        categories = []
+        for song in songViewModel.songs{
+            authors[song.author[0]!] = song.author[1] ?? ""
+            for category in song.categories{
+                if !categories.contains(category){
+                    categories.append(category)
+                }
+            }
+        }
+    }
     
     var body: some View {
         NavigationStack {
@@ -116,11 +130,11 @@ struct DashBoardView: View {
                         }
                         ScrollView(.horizontal) {
                             HStack(spacing: 15) {
-                                ForEach(artists, id: \.self) {artist in
+                                ForEach(authors.sorted(by: {$0.0 < $1.0}), id: \.key) { name, image in
                                     NavigationLink {
-                                        ArtistCard(artist: artist)
+                                        ArtistCard(artist: name, artistImage: image)
                                     } label: {
-                                        ArtistColumn(artist: artist)
+                                        ArtistColumn(artist: name, artistImage: image)
                                             .foregroundColor(Color("text-color"))
                                     }
                                 }
@@ -138,9 +152,9 @@ struct DashBoardView: View {
                         LazyVGrid(columns: Array(repeating: GridItem(), count: columns)) {
                             ForEach(categories, id: \.self) {category in
                                 NavigationLink {
-                                    CategoryCard(songViewModel: songViewModel, category: category, bgColor: colors[category.id-1])
+                                    CategoryCard(category: category, bgColor: colors[categories.firstIndex(of: category) ?? 0])
                                 } label: {
-                                    CategoryRow(category: category, bgColor: colors[category.id-1])
+                                    CategoryRow(category: category, bgColor: colors[categories.firstIndex(of: category) ?? 0])
                                         .foregroundColor(Color("text-color"))
                                 }
                                 
@@ -149,6 +163,8 @@ struct DashBoardView: View {
                     } // VStack
                     .padding()
                 }
+            }.onAppear{
+                getAttributes()
             }
         }
         .navigationBarTitleDisplayMode(.inline)

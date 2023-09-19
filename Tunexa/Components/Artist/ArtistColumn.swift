@@ -8,19 +8,27 @@
 import SwiftUI
 
 struct ArtistColumn: View {
-    let artist: Artist
+    let artist: String
+    let artistImage: String
     var body: some View {
         VStack {
-            artist.avatar
-                .resizable()
-                .scaledToFit()
-                .clipShape(Circle())
-            
+            AsyncImage(url: URL(string: artistImage)){ phase in
+                if let image = phase.image{
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(Circle())
+                }else if phase.error != nil{
+                    Circle()
+                        .frame(width: 200)
+                }else{
+                    Circle()
+                        .frame(width: 200)
+                }
+            }
             VStack {
-                Text(artist.name)
+                Text(artist)
                     .font(.custom("Nunito-Bold", size: 20))
-                Text(artist.job)
-                    .font(.custom("Nunito-Regular", size: 16))
             }
         }
         .frame(width: 180)
@@ -29,8 +37,8 @@ struct ArtistColumn: View {
     }
 }
 
-struct ArtistColumn_Previews: PreviewProvider {
-    static var previews: some View {
-        ArtistColumn(artist: artists[2])
-    }
-}
+//struct ArtistColumn_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ArtistColumn(artist: artists[2])
+//    }
+//}

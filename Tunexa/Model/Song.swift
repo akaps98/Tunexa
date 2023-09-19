@@ -21,9 +21,10 @@ import FirebaseFirestoreSwift
 
 struct Song: Codable, Identifiable, Hashable{
     @DocumentID var id: String?
-    var author: String?
+    var author: [String?]
     var name: String?
     var songURL: String?
     var avatarName: String?
     var categories: [String]
+    var rating: Int?
 }

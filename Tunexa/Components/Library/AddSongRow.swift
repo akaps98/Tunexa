@@ -37,7 +37,7 @@ struct AddSongRow: View {
                     Text(song.name ?? "")
                         .font(.custom("Nunito-Bold", size: 18))
                         .lineLimit(1)
-                    Text(song.author ?? "")
+                    Text(song.author[0] ?? "")
                         .font(.custom("Nunito-Regular", size: 14))
                 }
                 // MARK: SONG CATEGORIES

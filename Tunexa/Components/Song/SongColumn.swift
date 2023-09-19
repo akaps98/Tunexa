@@ -36,7 +36,7 @@ struct SongColumn: View {
                     .font(.custom("Nunito-Bold", size: 15))
                     .fixedSize(horizontal: false, vertical: true)
                     .lineLimit(1)
-                Text(song.author ?? "")
+                Text(song.author[0] ?? "")
                     .font(.custom("Nunito-Regular", size: 12))
             }
         }

@@ -44,23 +44,27 @@ class SongViewModel: ObservableObject{
             self.songs = documents.map { (queryDocumentSnapshot) -> Song in
                 let data = queryDocumentSnapshot.data()
                 let id = queryDocumentSnapshot.documentID
-                let author = data["author"] as? String ?? ""
+                let author = data["author"] as? [String] ?? [""]
                 let name = data["name"] as? String ?? ""
                 let avatarName = data["avatarName"] as? String ?? ""
                 let songURL = data["songURL"] as? String ?? ""
                 let categories = data["categories"] as? [String] ?? [""]
-                return Song(id: id, author: author, name: name, songURL: songURL, avatarName: avatarName, categories: categories)
+                let rating = data["rating"] as? Int ?? 0
+                return Song(id: id, author: author, name: name, songURL: songURL, avatarName: avatarName, categories: categories, rating: rating)
             }
         }
     }
 
     // Add new song to the database
-    func addNewSongData(author: String, name: String, avatar: Data, categories: [String]) {
+    func addNewSongData(author: String, name: String, avatar: Data, categories: [String], artistPic: Data) {
         let data = avatar
+        let artistData = artistPic
         let storageRef = Storage.storage().reference()
         let songRef = storageRef.child("songs/\(name)-\(author).mp3")
         let avatarRef = storageRef.child("album_covers/\(name)-\(author).png")
+        let artistRef = storageRef.child("artists/\(author).png")
         var songUrl = ""
+        var avatarUrl = ""
         if let path = Bundle.main.url(forResource: name, withExtension: "mp3"){
             _ = songRef.putFile(from: path, metadata: nil){ (metadata, error) in
                 guard metadata != nil else {
@@ -79,8 +83,17 @@ class SongViewModel: ObservableObject{
                         guard let downloadURL = url else {
                           return
                         }
-                          print("URL: \(songUrl)")
-                          self.db.collection("songs").addDocument(data: ["author": author, "name": name, "songURL": songUrl, "avatarName": downloadURL.absoluteString, "categories": categories])
+                          avatarUrl = downloadURL.absoluteString
+                          _ = artistRef.putData(artistData, metadata: nil){ (metadata, error) in
+                              guard metadata != nil else{return}
+                              artistRef.downloadURL{ (url, error) in
+                                  guard let downloadURL = url else{
+                                      return
+                                  }
+                                  let artist = [author, downloadURL.absoluteString]
+                                  self.db.collection("songs").addDocument(data: ["author": artist, "name": name, "songURL": songUrl, "avatarName": avatarUrl, "categories": categories, "rating": 0])
+                              }
+                          }
                       }
                     }
                 }
@@ -118,7 +131,7 @@ class SongViewModel: ObservableObject{
     }
     
     // Update attributes of a song document except image
-    func updateSongData(id: String, author: String, name: String, categories: [String]){
+    func updateSongData(id: String, author: [String], name: String, categories: [String]){
         db.collection("songs").document(id).updateData(["author": author, "name": name, "categories": categories])
     }
     

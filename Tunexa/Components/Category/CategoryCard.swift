@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CategoryCard: View {
-    @ObservedObject var songViewModel: SongViewModel
-    let category: Category
+    @EnvironmentObject var songViewModel: SongViewModel
+    let category: String
     @State var categoryList: [Song] = []
     let bgColor: Color
     
@@ -18,7 +18,7 @@ struct CategoryCard: View {
         categoryList = []
         for song in songViewModel.songs {
             for categoryItem in song.categories {
-                if categoryItem.lowercased() == category.name.lowercased() {
+                if categoryItem.lowercased() == category.lowercased() {
                     categoryList.append(song)
                     break
                 }
@@ -33,7 +33,7 @@ struct CategoryCard: View {
                     ZStack {
                         LinearGradient(gradient: Gradient(colors: [bgColor, bgColor, bgColor, Color("dark-gray")]), startPoint: .top, endPoint: .bottom)
                             .frame(height: 250)
-                        Text(category.name)
+                        Text(category)
                             .foregroundColor(.white)
                             .font(.custom("Nunito-Black", size: 55))
                     }

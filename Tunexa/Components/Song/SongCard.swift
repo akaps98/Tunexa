@@ -126,7 +126,7 @@ struct SongCard: View {
                 VStack {
                     Text(currentSong.name ?? "")
                         .font(.custom("Nunito-Bold", size: 22))
-                    Text(currentSong.author ?? "")
+                    Text(currentSong.author[0] ?? "")
                         .font(.custom("Nunito-Light", size: 16))
                 }
                 

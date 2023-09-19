@@ -9,14 +9,15 @@ import SwiftUI
 
 struct ArtistCard: View {
     @EnvironmentObject var songViewModel: SongViewModel
-    let artist: Artist
+    let artist: String
+    let artistImage: String
     @State var artistList: [Song] = []
     
     // MARK: FILTER SONG BASED ON ARTIST
     func filterSong() {
         artistList = []
         for song in songViewModel.songs {
-            if song.author!.lowercased() == artist.name.lowercased() {
+            if song.author[0]!.lowercased() == artist.lowercased() {
                 artistList.append(song)
             }
         }
@@ -27,10 +28,20 @@ struct ArtistCard: View {
             ScrollView {
                 VStack {
                     ZStack {
-                        artist.avatar
-                            .resizable()
-                            .scaledToFit()
-                        Text(artist.name)
+                        AsyncImage(url: URL(string: artistImage)){ phase in
+                            if let image = phase.image{
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                            }else if phase.error != nil{
+                                Rectangle()
+                                    .scaledToFit()
+                            }else{
+                                Rectangle()
+                                    .scaledToFit()
+                            }
+                        }
+                        Text(artist)
                             .foregroundColor(.white)
                             .font(.custom("Nunito-Black", size: 40))
                             .multilineTextAlignment(.center)
@@ -60,9 +71,9 @@ struct ArtistCard: View {
     }
 }
 
-struct ArtistCard_Previews: PreviewProvider {
-    static var previews: some View {
-        ArtistCard(artist: artists[5])
-            .environmentObject(SongViewModel())
-    }
-}
+//struct ArtistCard_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ArtistCard(artist: artists[5])
+//            .environmentObject(SongViewModel())
+//    }
+//}
