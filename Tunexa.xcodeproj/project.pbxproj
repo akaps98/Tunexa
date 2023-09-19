@@ -245,9 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				98B9762A2AB0500C00515EA4 /* General */,
-				98D447822AB72EA900C6BF77 /* Category */,
-				98D447812AB72E9C00C6BF77 /* Artist */,
-				98D447802AB72E8B00C6BF77 /* Song */,
 				98B976212AB04FB800515EA4 /* DashBoard */,
 				984389472AB605600059D3C8 /* Search */,
 				98D447842AB73AEF00C6BF77 /* Library */,
@@ -258,6 +255,13 @@
 		98B976212AB04FB800515EA4 /* DashBoard */ = {
 			isa = PBXGroup;
 			children = (
+				984389272AB586AA0059D3C8 /* CategoryRow.swift */,
+				9843894A2AB71B110059D3C8 /* CategoryCard.swift */,
+				984389252AB5869D0059D3C8 /* ArtistColumn.swift */,
+				984389482AB71B000059D3C8 /* ArtistCard.swift */,
+				9843892C2AB586CC0059D3C8 /* SongColumn.swift */,
+				98B976222AB04FC500515EA4 /* SongRow.swift */,
+				98B976242AB04FCC00515EA4 /* SongCard.swift */,
 			);
 			path = DashBoard;
 			sourceTree = "<group>";
@@ -298,34 +302,6 @@
 			children = (
 			);
 			path = Sounds;
-			sourceTree = "<group>";
-		};
-		98D447802AB72E8B00C6BF77 /* Song */ = {
-			isa = PBXGroup;
-			children = (
-				9843892C2AB586CC0059D3C8 /* SongColumn.swift */,
-				98B976222AB04FC500515EA4 /* SongRow.swift */,
-				98B976242AB04FCC00515EA4 /* SongCard.swift */,
-			);
-			path = Song;
-			sourceTree = "<group>";
-		};
-		98D447812AB72E9C00C6BF77 /* Artist */ = {
-			isa = PBXGroup;
-			children = (
-				984389252AB5869D0059D3C8 /* ArtistColumn.swift */,
-				984389482AB71B000059D3C8 /* ArtistCard.swift */,
-			);
-			path = Artist;
-			sourceTree = "<group>";
-		};
-		98D447822AB72EA900C6BF77 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				984389272AB586AA0059D3C8 /* CategoryRow.swift */,
-				9843894A2AB71B110059D3C8 /* CategoryCard.swift */,
-			);
-			path = Category;
 			sourceTree = "<group>";
 		};
 		98D447842AB73AEF00C6BF77 /* Library */ = {
