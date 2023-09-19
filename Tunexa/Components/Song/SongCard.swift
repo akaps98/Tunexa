@@ -217,6 +217,9 @@ struct SongCard: View {
         .onAppear{
             currentSongIndex = songs.firstIndex(of: song) ?? 0
         }
+        .onDisappear{
+            playSound.pause()
+        }
     }
 }
 
