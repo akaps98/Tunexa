@@ -1,86 +1,72 @@
 [
     {
-        "id": 1,
-        "name": "Charlie Puth",
-        "job": "Singer & Song Writer",
-        "avatarName": "song-avatar-1"
+       "name": "Charlie Puth",
+       "job": "Singer & Song Writer",
+       "avatarName": "charlie-puth"
     },
     {
-        "id": 2,
-        "name": "Justin Bieber",
-        "job": "Singer & Song Writer",
-        "avatarName": "song-avatar-1"
+       "name": "Justin Bieber",
+       "job": "Singer & Song Writer",
+       "avatarName": "justin-bieber"
     },
     {
-        "id": 3,
-        "name": "Billie Eilish",
-        "job": "Singer & Song Writer",
-        "avatarName": "song-avatar-1"
+       "name": "Billie Eilish",
+       "job": "Singer & Song Writer",
+       "avatarName": "billie-eilish"
     },
     {
-        "id": 4,
-        "name": "Taylor Swift",
-        "job": "Singer",
-        "avatarName": "song-avatar-1"
+       "name": "Taylor Swift",
+       "job": "Singer",
+       "avatarName": "taylor-swift"
     },
     {
-       "id": 5,
        "name": "Ed Sheeran",
        "job": "Singer",
-       "avatarName": "song-avatar-1"
+       "avatarName": "ed"
     },
     {
-        "id": 6,
-        "name": "The Chainsmokers",
-        "job": "Song Writer",
-        "avatarName": "song-avatar-1"
+       "name": "The Chainsmokers",
+       "job": "Song Writer",
+       "avatarName": "chainsmokers"
     },
     {
-        "id": 7,
-        "name": "Bruno Mars",
-        "job": "Song Writer",
-        "avatarName": "song-avatar-1"
+       "name": "Bruno Mars",
+       "job": "Song Writer",
+       "avatarName": "bruno"
     },
     {
-        "id": 8,
-        "name": "Eminem",
-        "job": "Rapper",
-        "avatarName": "song-avatar-1"
+       "name": "Eminem",
+       "job": "Rapper",
+       "avatarName": "eminem"
     },
     {
-        "id": 7,
-        "name": "Đen Vâu",
-        "job": "Rapper",
-        "avatarName": "song-avatar-1"
+       "name": "Đen Vâu",
+       "job": "Rapper",
+       "avatarName": "den-vau"
     },
     {
-        "id": 8,
-        "name": "Rhymastic",
-        "job": "Rapper",
-        "avatarName": "song-avatar-1"
+       "name": "Rhymastic",
+       "job": "Rapper",
+       "avatarName": "rhym"
     },
     {
-        "id": 9,
-        "name": "ITZY",
-        "job": "Kpop Idol Group",
-        "avatarName": "song-avatar-1"
+       "name": "ITZY",
+       "job": "Kpop Idol Group",
+       "avatarName": "itzy-group"
     },
     {
-        "id": 10,
-        "name": "(G)-IDLE",
-        "job": "Kpop Idol Group",
-        "avatarName": "song-avatar-1"
+       "name": "(G)-IDLE",
+       "job": "Kpop Idol Group",
+       "avatarName": "g-idle"
     },
     {
-        "id": 11,
-        "name": "EXO",
-        "job": "Kpop Idol Group",
-        "avatarName": "song-avatar-1"
+       "name": "EXO",
+       "job": "Kpop Idol Group",
+       "avatarName": "exo"
     },
     {
-        "id": 12,
-        "name": "Masew",
-        "job": "Producer",
-        "avatarName": "song-avatar-1"
+       "name": "Masew",
+       "job": "Producer",
+       "avatarName": "masew"
     }
 ]

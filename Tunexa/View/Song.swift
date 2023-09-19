@@ -13,6 +13,8 @@ struct Song: Identifiable, Codable, Hashable {
     var name: String
     var author: String
     var categories: [String]
+    var rating: Int
+    var isFavorite: Bool
     var songURL: String
     var avatarName: String
     var avatar: Image {
