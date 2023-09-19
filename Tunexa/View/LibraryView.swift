@@ -110,30 +110,20 @@ struct LibraryView: View {
                     
                     HStack {
                         HStack(spacing: 10) {
-                            Button {
-                                print("add")
-                            } label: {
-                                Image(systemName: "plus.circle")
-                                    .font(.system(size: 25))
-                                    .foregroundColor(Color("text-color"))
+                            if !playlistSongs.isEmpty {
+                                Button {
+                                    showAddSongSheet.toggle()
+                                } label: {
+                                    Image(systemName: "plus.circle")
+                                        .font(.system(size: 25))
+                                        .foregroundColor(Color("text-color"))
+                                }
+                                .sheet(isPresented: $showAddSongSheet, onDismiss: { getSongs() }) {
+                                    AddSongView(songViewModel: songViewModel)
+                                        .presentationDetents([.large])
+                                        .presentationDragIndicator(.visible)
+                                }
                             }
-                            
-                            Button {
-                                print("delete")
-                            } label: {
-                                Image(systemName: "minus.circle")
-                                    .font(.system(size: 25))
-                                    .foregroundColor(Color("text-color"))
-                            }
-                            
-                            Button {
-                                print("edit")
-                            } label: {
-                                Image(systemName: "pencil")
-                                    .font(.system(size: 25))
-                                    .foregroundColor(Color("text-color"))
-                            }
-                            
                         }
                         
                         Spacer()
@@ -192,7 +182,7 @@ struct LibraryView: View {
                         }
                     } else {
                         ForEach(playlistSongs, id: \.id) { song in
-                            SongRow(song: song)
+                            LibrarySongRow(song: song)
                         }
                     }
                     

@@ -64,6 +64,7 @@
 		EA3B46FF2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46FE2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift */; };
 		F39424CA2AB8434B009EA3DE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F39424C92AB8434B009EA3DE /* GoogleService-Info.plist */; };
 		F39424CC2AB8436B009EA3DE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39424CB2AB8436B009EA3DE /* User.swift */; };
+		F39424CE2AB8678F009EA3DE /* LibrarySongRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39424CD2AB8678F009EA3DE /* LibrarySongRow.swift */; };
 		F3E8C7672AB1C1F400B99415 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F3E8C7662AB1C1F400B99415 /* FirebaseAuth */; };
 		F3E8C7692AB1C1F400B99415 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F3E8C7682AB1C1F400B99415 /* FirebaseFirestore */; };
 		F3E8C76B2AB1C1F400B99415 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F3E8C76A2AB1C1F400B99415 /* FirebaseFirestoreCombine-Community */; };
@@ -152,6 +153,7 @@
 		EA3B46FE2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F39424C92AB8434B009EA3DE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F39424CB2AB8436B009EA3DE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Tunexa/User.swift; sourceTree = SOURCE_ROOT; };
+		F39424CD2AB8678F009EA3DE /* LibrarySongRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySongRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +345,7 @@
 				98D447872AB73BD600C6BF77 /* EditRow.swift */,
 				98D447892AB73BF400C6BF77 /* AddSongView.swift */,
 				98D4478B2AB73BFF00C6BF77 /* AddSongRow.swift */,
+				F39424CD2AB8678F009EA3DE /* LibrarySongRow.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				9843892F2AB586E60059D3C8 /* ModelData.swift in Sources */,
 				984389332AB587010059D3C8 /* AccountEditView.swift in Sources */,
 				984389492AB71B000059D3C8 /* ArtistCard.swift in Sources */,
+				F39424CE2AB8678F009EA3DE /* LibrarySongRow.swift in Sources */,
 				98D4478C2AB73BFF00C6BF77 /* AddSongRow.swift in Sources */,
 				F39424CC2AB8436B009EA3DE /* User.swift in Sources */,
 				9843894B2AB71B110059D3C8 /* CategoryCard.swift in Sources */,
