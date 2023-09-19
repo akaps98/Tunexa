@@ -27,6 +27,7 @@ struct SongRow: View {
                         .lineLimit(1)
                     Text(song.author)
                         .font(.custom("Nunito-Regular", size: 14))
+                    Rating(rating: song.rating)
                 }
                 // MARK: SONG CATEGORIES
                 HStack {

@@ -4,6 +4,7 @@
         "name": "Light Switch",
         "author": "Charlie Puth",
         "categories": ["pop"],
+        "rating": 3,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -12,6 +13,7 @@
         "name": "See You Again",
         "author": "Charlie Puth",
         "categories": ["pop","mood"],
+        "rating": 4,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -20,6 +22,7 @@
         "name": "We Don't Talk Anymore",
         "author": "Charlie Puth",
         "categories": ["pop"],
+        "rating": 4,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -28,6 +31,7 @@
         "name": "Attention",
         "author": "Charlie Puth",
         "categories": ["pop","chill"],
+        "rating": 3,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -36,6 +40,7 @@
         "name": "Stay",
         "author": "Justin Bieber",
         "categories": ["pop"],
+        "rating": 2,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -44,6 +49,7 @@
         "name": "Love Yourself",
         "author": "Justin Bieber",
         "categories": ["pop"],
+        "rating": 3,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -52,6 +58,7 @@
         "name": "Bad Guy",
         "author": "Justin Bieber",
         "categories": ["pop"],
+        "rating": 5,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -60,6 +67,7 @@
         "name": "Sorry",
         "author": "Justin Bieber",
         "categories": ["pop"],
+        "rating": 2,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -68,6 +76,7 @@
         "name": "Mơ",
         "author": "Đen Vâu",
         "categories": ["Hiphop"],
+        "rating": 4,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -76,6 +85,7 @@
         "name": "Cô Gái Bàn Bên",
         "author": "Đen Vâu",
         "categories": ["pop"],
+        "rating": 1,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -84,6 +94,7 @@
         "name": "Cho Tôi Lang Thang",
         "author": "Đen Vâu",
         "categories": ["hiphop"],
+        "rating": 5,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -92,6 +103,7 @@
         "name": "Ghé Thăm",
         "author": "Đen Vâu",
         "categories": ["hiphop"],
+        "rating": 4,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -100,6 +112,7 @@
         "name": "Mockingbird",
         "author": "Eminem",
         "categories": ["hiphop"],
+        "rating": 3,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -108,6 +121,7 @@
         "name": "Without Me",
         "author": "Eminem",
         "categories": ["hiphop"],
+        "rating": 4,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -116,6 +130,7 @@
         "name": "The Real Slim Shady",
         "author": "Eminem",
         "categories": ["hiphop"],
+        "rating": 2,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -124,6 +139,7 @@
         "name": "Lose Yourself",
         "author": "Eminem",
         "categories": ["hiphop"],
+        "rating": 4,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -132,6 +148,7 @@
         "name": "Leave the Door Open",
         "author": "Bruno Mars",
         "categories": ["pop", "jazz", "chill"],
+        "rating": 1,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -140,6 +157,7 @@
         "name": "24K Magic",
         "author": "Bruno Mars",
         "categories": ["pop"],
+        "rating": 5,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -148,6 +166,7 @@
         "name": "WANNABE",
         "author": "ITZY",
         "categories": ["kpop", "edm", "dance"],
+        "rating": 4,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -156,6 +175,7 @@
         "name": "LATATA",
         "author": "(G)-IDLE",
         "categories": ["kpop"],
+        "rating": 3,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -164,6 +184,7 @@
         "name": "Last Dance",
         "author": "(G)-IDLE",
         "categories": ["kpop"],
+        "rating": 2,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -172,6 +193,7 @@
         "name": "Oh my god",
         "author": "(G)-IDLE",
         "categories": ["kpop"],
+        "rating": 3,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -180,6 +202,7 @@
         "name": "Vẽ Khói",
         "author": "Rhymastic",
         "categories": ["hiphop"],
+        "rating": 3,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -188,6 +211,7 @@
         "name": "Closer",
         "author": "The Chainsmokers",
         "categories": ["pop", "edm", "dance"],
+        "rating": 5,
         "songURL": "",
         "avatarName": "song-avatar-1"
     },
@@ -196,6 +220,7 @@
         "name": "Roses",
         "author": "The Chainsmokers",
         "categories": ["pop", "edm", "dance"],
+        "rating": 4,
         "songURL": "",
         "avatarName": "song-avatar-1"
     }

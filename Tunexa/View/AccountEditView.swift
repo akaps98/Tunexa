@@ -28,6 +28,7 @@ struct AccountEditView: View {
     
     @State var newPassword = ""
     @State var checkPassword = ""
+    @State var newUsername = ""
     @State var newDesc = ""
     
     // MARK: - FUNCTION; EDITION
@@ -54,21 +55,18 @@ struct AccountEditView: View {
                 .edgesIgnoringSafeArea(.all)
             ScrollView {
                 VStack {
-                    // MARK: - EDIT MY ACCOUNT TEXT
-                    Text("Edit my account")
-                        .font(.custom("Nunito-Bold", size: 37))
                     // MARK: - EDIT PROFILE PIC
                     pickedImage
                         .resizable()
                         .scaledToFit()
-                        .clipShape(Circle().inset(by: 50))
-                        .offset(y:-60)
+                        .clipShape(Circle().inset(by: 80))
+                        .offset(y:-40)
                     // MARK: - ALLOW TO SELECT IMAGE FROM LOCAL DEVICE
                     Button(action: {
                         self.showingImagePicker.toggle()
                     }, label: {
                         Text("Select image...")
-                    }).offset(y:-105)
+                    }).offset(y:-100)
                     Group {
                     Image(systemName: "info.circle")
                         .resizable()
@@ -90,6 +88,16 @@ struct AccountEditView: View {
                         .background(Color.black.opacity(0.07))
                         .cornerRadius(10)
                         .font(.custom("Nunito-Bold", size: 22))
+                        Text("New Username")
+                            .font(.custom("Nunito-Bold", size: 26))
+                            .offset(x: -53)
+                        // MARK: - NEW PASSWORD TEXTFIELD
+                        TextField("\(Image(systemName: "person"))  Username", text: $newUsername)
+                            .padding()
+                            .frame(width: 300, height: 50)
+                            .background(Color.black.opacity(0.07))
+                            .cornerRadius(10)
+                            .font(.custom("Nunito-Bold", size: 22))
                     Text("New Introduction")
                         .font(.custom("Nunito-Bold", size: 26))
                         .offset(x: -38)
@@ -111,7 +119,7 @@ struct AccountEditView: View {
                                     if(newDesc == "") { // there is any new introduction
                                         print($newPassword)
                                     } else {
-                                        print($newPassword, $newDesc)
+                                        print($newPassword, $newUsername, $newDesc)
                                     }
                                     presentationMode.wrappedValue.dismiss()
                                 }
