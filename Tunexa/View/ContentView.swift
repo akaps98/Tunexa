@@ -11,7 +11,7 @@ struct ContentView: View {
     @State var isDark: Bool = false
     var body: some View {
         TabView {
-            DashBoardView(isDark: $isDark)
+            HomeView(isDark: $isDark)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }

@@ -15,6 +15,7 @@ struct SongColumn: View {
             song.avatar
                 .resizable()
                 .scaledToFit()
+                .clipShape(RoundedRectangle(cornerRadius: 8))
             
             VStack(alignment: .listRowSeparatorLeading) {
                 Text(song.name)

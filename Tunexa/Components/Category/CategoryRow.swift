@@ -13,6 +13,7 @@
 import SwiftUI
 
 struct CategoryRow: View {
+    let category: Category
     let bgColor: Color
     
     var body: some View {
@@ -23,7 +24,7 @@ struct CategoryRow: View {
             
             HStack {
                 Spacer()
-                Image("song-avatar-1")
+                category.image
                     .resizable()
                     .scaledToFit()
                     .frame(width: 60, alignment: .leading)
@@ -34,7 +35,7 @@ struct CategoryRow: View {
             
             VStack(alignment: .leading) {
                 HStack {
-                    Text("Podcast")
+                    Text(category.name)
                         .font(.custom("Nunito-Bold", size: 20))
                     Spacer()
                     
@@ -50,6 +51,6 @@ struct CategoryRow: View {
 
 struct CategoryRow_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryRow(bgColor: .orange)
+        CategoryRow(category: categories[2], bgColor: .orange)
     }
 }

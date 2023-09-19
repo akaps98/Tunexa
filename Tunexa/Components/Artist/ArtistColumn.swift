@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct ArtistColumn: View {
+    let artist: Artist
     var body: some View {
         VStack {
-            Image("song-avatar-1")
+            artist.avatar
                 .resizable()
                 .scaledToFit()
                 .clipShape(Circle())
             
             VStack {
-                Text("Charlie Puth")
+                Text(artist.name)
                     .font(.custom("Nunito-Bold", size: 20))
-                Text("Song Writer")
+                Text(artist.job)
                     .font(.custom("Nunito-Regular", size: 16))
             }
         }
@@ -30,6 +31,6 @@ struct ArtistColumn: View {
 
 struct ArtistColumn_Previews: PreviewProvider {
     static var previews: some View {
-        ArtistColumn()
+        ArtistColumn(artist: artists[2])
     }
 }
