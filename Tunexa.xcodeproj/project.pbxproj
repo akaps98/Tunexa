@@ -78,6 +78,7 @@
 		98D448642AB9E2E600C6BF77 /* We Don't Talk Anymore.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98D4484D2AB9E2E600C6BF77 /* We Don't Talk Anymore.mp3 */; };
 		98D448652AB9E2E600C6BF77 /* Attention.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98D4484E2AB9E2E600C6BF77 /* Attention.mp3 */; };
 		98D448662AB9E2E600C6BF77 /* The Real Slim Shady.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98D4484F2AB9E2E600C6BF77 /* The Real Slim Shady.mp3 */; };
+		98D448682AB9E35200C6BF77 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D448672AB9E35200C6BF77 /* Rating.swift */; };
 		EA3B46E12AB04A5500BDF587 /* TunexaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */; };
 		EA3B46E32AB04A5500BDF587 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46E22AB04A5500BDF587 /* ContentView.swift */; };
 		EA3B46E52AB04A5700BDF587 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA3B46E42AB04A5700BDF587 /* Assets.xcassets */; };
@@ -184,6 +185,7 @@
 		98D4484D2AB9E2E600C6BF77 /* We Don't Talk Anymore.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "We Don't Talk Anymore.mp3"; sourceTree = "<group>"; };
 		98D4484E2AB9E2E600C6BF77 /* Attention.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Attention.mp3; sourceTree = "<group>"; };
 		98D4484F2AB9E2E600C6BF77 /* The Real Slim Shady.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Real Slim Shady.mp3"; sourceTree = "<group>"; };
+		98D448672AB9E35200C6BF77 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		EA3B46DD2AB04A5500BDF587 /* Tunexa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tunexa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaApp.swift; sourceTree = "<group>"; };
 		EA3B46E22AB04A5500BDF587 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				9843892C2AB586CC0059D3C8 /* SongColumn.swift */,
 				98B976222AB04FC500515EA4 /* SongRow.swift */,
 				98B976242AB04FCC00515EA4 /* SongCard.swift */,
+				98D448672AB9E35200C6BF77 /* Rating.swift */,
 			);
 			path = DashBoard;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				984389262AB5869D0059D3C8 /* ArtistColumn.swift in Sources */,
 				98B976292AB04FEE00515EA4 /* SplashView.swift in Sources */,
 				984389372AB587190059D3C8 /* LibraryView.swift in Sources */,
+				98D448682AB9E35200C6BF77 /* Rating.swift in Sources */,
 				EA3B46E32AB04A5500BDF587 /* ContentView.swift in Sources */,
 				98B976272AB04FD800515EA4 /* HomeView.swift in Sources */,
 				98D447862AB73B9D00C6BF77 /* EditPlaylist.swift in Sources */,

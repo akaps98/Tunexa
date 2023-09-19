@@ -14,8 +14,8 @@ struct Rating: View {
     var offImage: Image?
     var onImage = Image(systemName: "star.fill")
     
-    var offColor = Color.gray
-    var onColor = Color.yellow
+    var offColor = Color("light-gray")
+    var onColor = Color("primary-color")
     
     func image(for number: Int) -> Image {
         if number > rating {
@@ -29,6 +29,7 @@ struct Rating: View {
         HStack {
             ForEach(1..<maximum + 1, id: \.self) { number in
                 image(for: number)
+                    .font(.system(size: 12))
                     .foregroundColor(number > rating ? offColor : onColor)
                     .onTapGesture {
                         rating = number

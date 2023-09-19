@@ -10,6 +10,7 @@ import SwiftUI
 struct ArtistCard: View {
     let artist: Artist
     @State var artistList: [Song] = []
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode> // Store the presented value when the view is navigated
     
     // MARK: FILTER SONG BASED ON ARTIST
     func filterSong() {
@@ -43,14 +44,29 @@ struct ArtistCard: View {
                     }
                     .padding(.horizontal)
                     
-                    ForEach(artistList, id: \.self) {song in
-                        SongRow(song: song)
+                    VStack {
+                        ForEach(artistList, id: \.self) {song in
+                            SongRow(song: song)
+                        }
                     }
+                    .padding(.bottom, 100)
                     
                 }
                 
             }
             .edgesIgnoringSafeArea(.all)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        // Remove the current view and return to the previous view
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image(systemName: "chevron.left.circle.fill")
+                            .foregroundColor(Color("dark-gray"))
+                    }
+                }
+            }
+            .navigationBarBackButtonHidden(true)
         }
         .onAppear {
             filterSong()

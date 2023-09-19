@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SongColumn: View {
-    let song: Song
+    var song: Song
+    @State var isFavourite: Bool = false
     
     var body: some View {
         VStack(alignment: .listRowSeparatorLeading) {
@@ -27,6 +28,9 @@ struct SongColumn: View {
             }
         }
         .frame(width: 160)
+        .onAppear {
+            isFavourite = song.isFavorite
+        }
     }
 }
 

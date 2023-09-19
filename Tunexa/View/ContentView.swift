@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var isDark: Bool = false
+    
     var body: some View {
         TabView {
             HomeView(isDark: $isDark)
@@ -21,7 +22,7 @@ struct ContentView: View {
                     Label("Search", systemImage: "magnifyingglass")
                 }
             
-            LibraryView()
+            LibraryView(isDark: $isDark)
                 .tabItem {
                     Label("Library", systemImage: "music.note.list")
                 }
@@ -31,7 +32,6 @@ struct ContentView: View {
                 }
             
         }
-        
     }
 }
 

@@ -17,6 +17,8 @@ struct SongCard: View {
     @State private var isShuffling = false
     @State private var isRepeating = false
     
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode> // Store the presented value when the view is navigated
+    
     class CancellableManager: ObservableObject {
         var cancellables: Set<AnyCancellable> = []
     }
@@ -98,7 +100,11 @@ struct SongCard: View {
                 // MARK: HEADER
                 HStack(spacing: 10) {
                     Button {
-                        print("Back")
+                        // Remove the current view and return to the previous view
+                        presentationMode.wrappedValue.dismiss()
+                        
+                        // Stop sound
+                        playSound.stop()
                     } label: {
                         Image(systemName: "chevron.backward")
                             .font(.system(size: 25))
@@ -234,6 +240,8 @@ struct SongCard: View {
         .onAppear {
             setupPlayer()
         }
+        .navigationBarBackButtonHidden(true)
+        
     }
 }
 

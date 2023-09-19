@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LibraryView: View {
+    @Binding var isDark: Bool
     @State var isPlaylistEmpty = true
     @State var showAddSongSheet = false
     @State var playlist: [Song] = []
@@ -15,7 +16,7 @@ struct LibraryView: View {
     var body: some View {
         ZStack {
             // MARK: BACKGROUND
-            LinearGradient(gradient: Gradient(colors: [Color("dark-gray"), Color("bg-color"), Color("bg-color")]), startPoint: .top, endPoint: .bottom)
+            Color("bg-color")
                 .edgesIgnoringSafeArea(.all)
             
             // MARK: CONTENT
@@ -132,7 +133,7 @@ struct LibraryView: View {
                                 }
                         }
                         .sheet(isPresented: $showAddSongSheet) {
-                            AddSongView()
+                            AddSongView(isDark: $isDark)
                                 .presentationDetents([.large])
                                 .presentationDragIndicator(.visible)
                         }
@@ -152,12 +153,13 @@ struct LibraryView: View {
                 isPlaylistEmpty = false
             }
         }
+        .environment(\.colorScheme, isDark ? .dark : .light) // modify the color sheme based on the state variable
         
     }
 }
 
 struct LibraryView_Previews: PreviewProvider {
     static var previews: some View {
-        LibraryView()
+        LibraryView(isDark: .constant(false))
     }
 }

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "chainsmokers.jpeg",
+      "filename" : "chainsmoker.jpeg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "chainsmokers@2x.jpeg",
+      "filename" : "chainsmoker@2x.jpeg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "chainsmokers@3x.jpeg",
+      "filename" : "chainsmoker@3x.jpeg",
       "idiom" : "universal",
       "scale" : "3x"
     }

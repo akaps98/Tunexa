@@ -22,16 +22,21 @@ struct SongRow: View {
             song.avatar
                 .resizable()
                 .scaledToFit()
-                .frame(width: 80)
-                .padding(.trailing, 10)
+                .frame(height: 90)
+                .padding(.trailing, 15)
             VStack(alignment: .leading) {
                 // MARK: SONG INFO
                 VStack(alignment: .listRowSeparatorLeading) {
-                    Text(song.name)
-                        .font(.custom("Nunito-Bold", size: 18))
-                        .lineLimit(1)
-                    Text(song.author)
-                        .font(.custom("Nunito-Regular", size: 14))
+                    VStack(alignment: .listRowSeparatorLeading) {
+                        Text(song.name)
+                            .font(.custom("Nunito-Bold", size: 18))
+                            .lineLimit(1)
+                        Text(song.author)
+                            .font(.custom("Nunito-Regular", size: 14))
+                    }
+                    .padding(.bottom, 2)
+                    
+                    // MARK: RATING
                     Rating(rating: song.rating)
                 }
                 // MARK: SONG CATEGORIES
@@ -46,6 +51,7 @@ struct SongRow: View {
                     }
                     Spacer()
                 }
+                .padding(.top, 5)
             }
             Spacer()
             
@@ -65,10 +71,10 @@ struct SongRow: View {
             }
             .padding(.trailing, 5)
             
-            // MARK: OPTION BUTTON
-            Image(systemName: "ellipsis")
-                .font(.system(size: 25))
-                .foregroundColor(Color("text-color"))
+//            // MARK: OPTION BUTTON
+//            Image(systemName: "ellipsis")
+//                .font(.system(size: 25))
+//                .foregroundColor(Color("text-color"))
         }
         .padding(.horizontal)
         

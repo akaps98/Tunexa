@@ -27,9 +27,9 @@ struct CategoryRow: View {
                 category.image
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 60, alignment: .leading)
-                    .rotationEffect(Angle(degrees: 10))
-                    .offset(x: 22, y: 15)
+                    .frame(width: 50, alignment: .leading)
+                    .rotationEffect(Angle(degrees: 15))
+                    .offset(x: 22, y: 18)
             }
             .padding(.trailing)
             

@@ -22,17 +22,21 @@ struct SearchView: View {
                 // MARK: -----BACKGROUND-----
                 Color("bg-color")
                     .edgesIgnoringSafeArea(.all)
+                
                 // MARK: -----CONTENT-----
                 ScrollView {
-                    HStack(spacing: 20) {
-                        VStack {
+                    HStack(alignment: .center, spacing: 20) {
+                        VStack(alignment: .listRowSeparatorLeading) {
                             // MARK: -----STAR RATING SLIDER-----
                             Slider(value: $ratingValue, in: minimumValue...maximumValue)
                                 .frame(width: 250)
                             Text("Rating: \(Int(ratingValue))")
-                                .font(.custom("Nunito-Medium", size: 16))
-                                .offset(y: -10)
+                                .font(.custom("Nunito-Bold", size: 15))
+                                .offset(y: -5)
                         }
+                        
+                        Spacer()
+                        
                         Button(action: {
                             showOnlyFavorites.toggle()
                             filterSongs(with: name)
@@ -44,10 +48,11 @@ struct SearchView: View {
                                 .padding(10)
                                 .background(Color("bg-color"))
                                 .clipShape(Circle())
+                                .offset(y: -12)
                         }
-                        .padding(.bottom, 30)
+                        
                     }
-
+                    .padding(.horizontal)
                     
                     // MARK: BODY
                     VStack {

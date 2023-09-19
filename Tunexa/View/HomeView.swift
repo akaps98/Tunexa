@@ -34,153 +34,161 @@ struct HomeView: View {
                     .edgesIgnoringSafeArea(.all)
                 
                 // MARK: -----CONTENT-----
-                ScrollView {
-                    VStack {
-                        // MARK: HEADER
-                        HStack {
-                            Text("Good Morning")
-                                .font(.custom("Nunito-Bold", size: 25))
-                            
-                            Spacer()
-                            
-                            HStack(spacing: 10) {
-                                Button {
-                                    print("Setting View")
-                                } label: {
-                                    Image(systemName: "gearshape")
-                                        .font(.system(size: 25))
-                                        .foregroundColor(Color("text-color"))
-                                }
+                VStack {
+                    ScrollView {
+                        VStack {
+                            // MARK: HEADER
+                            HStack {
+                                Text("Good Morning")
+                                    .font(.custom("Nunito-Bold", size: 25))
                                 
-                                Button {
-                                    isDark.toggle()
-                                } label: {
-                                    // Display the icon accordingly based on the color scheme
-                                    if !isDark {
-                                        Image(systemName: "moon")
-                                            .font(.system(size: 25))
-                                            .foregroundColor(Color("text-color"))
-                                    } else {
-                                        Image(systemName: "sun.min")
+                                Spacer()
+                                
+                                HStack(spacing: 10) {
+                                    Button {
+                                        print("Setting View")
+                                    } label: {
+                                        Image(systemName: "gearshape")
                                             .font(.system(size: 25))
                                             .foregroundColor(Color("text-color"))
                                     }
+                                    
+                                    Button {
+                                        isDark.toggle()
+                                        UITabBar.appearance().backgroundColor = UIColor(Color("bg-color"))
+                                    } label: {
+                                        // Display the icon accordingly based on the color scheme
+                                        if !isDark {
+                                            Image(systemName: "moon")
+                                                .font(.system(size: 25))
+                                                .foregroundColor(Color("text-color"))
+                                        } else {
+                                            Image(systemName: "sun.min")
+                                                .font(.system(size: 25))
+                                                .foregroundColor(Color("text-color"))
+                                        }
+                                    }
                                 }
                             }
-                        }
-                        
-                        // MARK: FILTER OPTIONS
-                        HStack {
-                            Button {
-                                showMusicOnly.toggle()
-                                setShowAll()
-                            } label: {
-                                Text("Music")
-                                    .font(.custom("Nunito-Medium", size: 16))
-                                    .foregroundColor(showMusicOnly ? .white : Color("text-color"))
-                                    .padding(.horizontal, 25)
-                                    .padding([.top, .bottom], 5)
-                                    .background(Color(showMusicOnly ? "secondary-color" : "light-gray"), in: Capsule())
-                            }
                             
-                            Button {
-                                showArtistOnly.toggle()
-                                setShowAll()
-                            } label: {
-                                Text("Artists")
-                                    .font(.custom("Nunito-Medium", size: 16))
-                                    .foregroundColor(showArtistOnly ? .white : Color("text-color"))
-                                    .padding(.horizontal, 25)
-                                    .padding([.top, .bottom], 5)
-                                    .background(Color(showArtistOnly ? "secondary-color" : "light-gray"), in: Capsule())
-                                
-                            }
-                            
-                            Button {
-                                showCategoryOnly.toggle()
-                                setShowAll()
-                            } label: {
-                                Text("Categories")
-                                    .font(.custom("Nunito-Medium", size: 16))
-                                    .foregroundColor(showCategoryOnly ? .white : Color("text-color"))
-                                    .padding(.horizontal, 25)
-                                    .padding([.top, .bottom], 5)
-                                    .background(Color(showCategoryOnly ? "secondary-color" : "light-gray"), in: Capsule())
-                                
-                            }
-                            
-                            Spacer()
-                            
-                        }
-                        
-                        // MARK: ALL SONGS
-                        if showAll || showMusicOnly {
+                            // MARK: FILTER OPTIONS
                             HStack {
-                                Text("All Songs")
-                                    .font(.custom("Nunito-Bold", size: 22))
+                                Button {
+                                    showMusicOnly.toggle()
+                                    setShowAll()
+                                } label: {
+                                    Text("Music")
+                                        .font(.custom("Nunito-Medium", size: 16))
+                                        .foregroundColor(showMusicOnly ? .white : Color("text-color"))
+                                        .padding(.horizontal, 25)
+                                        .padding([.top, .bottom], 5)
+                                        .background(Color(showMusicOnly ? "secondary-color" : "light-gray"), in: Capsule())
+                                }
+                                
+                                Button {
+                                    showArtistOnly.toggle()
+                                    setShowAll()
+                                } label: {
+                                    Text("Artists")
+                                        .font(.custom("Nunito-Medium", size: 16))
+                                        .foregroundColor(showArtistOnly ? .white : Color("text-color"))
+                                        .padding(.horizontal, 25)
+                                        .padding([.top, .bottom], 5)
+                                        .background(Color(showArtistOnly ? "secondary-color" : "light-gray"), in: Capsule())
+                                    
+                                }
+                                
+                                Button {
+                                    showCategoryOnly.toggle()
+                                    setShowAll()
+                                } label: {
+                                    Text("Categories")
+                                        .font(.custom("Nunito-Medium", size: 16))
+                                        .foregroundColor(showCategoryOnly ? .white : Color("text-color"))
+                                        .padding(.horizontal, 25)
+                                        .padding([.top, .bottom], 5)
+                                        .background(Color(showCategoryOnly ? "secondary-color" : "light-gray"), in: Capsule())
+                                    
+                                }
+                                
                                 Spacer()
+                                
                             }
-                            ScrollView(.horizontal) {
-                                HStack(spacing: 15) {
-                                    ForEach(songs, id: \.self) {song in
+                            .offset(y: -8)
+                            
+                            // MARK: ALL SONGS
+                            if showAll || showMusicOnly {
+                                HStack {
+                                    Text("All Songs")
+                                        .font(.custom("Nunito-ExtraBold", size: 22))
+                                    Spacer()
+                                }
+                                ScrollView(.horizontal) {
+                                    HStack(spacing: 15) {
+                                        ForEach(songs, id: \.self) {song in
+                                            NavigationLink {
+                                                SongCard()
+                                            } label: {
+                                                SongColumn(song: song)
+                                                    .foregroundColor(Color("text-color"))
+                                            }
+                                            
+                                        }
+                                    }
+                                }
+                                .scrollIndicators(.hidden)
+                                .padding(.bottom)
+                            }
+                            
+                            
+                            // MARK: ALL ARTISTS
+                            if showAll || showArtistOnly {
+                                HStack {
+                                    Text("All Artists")
+                                        .font(.custom("Nunito-ExtraBold", size: 22))
+                                    Spacer()
+                                }
+                                ScrollView(.horizontal) {
+                                    HStack(spacing: 15) {
+                                        ForEach(artists, id: \.self) {artist in
+                                            NavigationLink {
+                                                ArtistCard(artist: artist)
+                                            } label: {
+                                                ArtistColumn(artist: artist)
+                                                    .foregroundColor(Color("text-color"))
+                                            }
+                                        }
+                                    }
+                                    
+                                }
+                                .scrollIndicators(.hidden)
+                                .padding(.bottom)
+                            }
+                            
+                            // MARK: ALL CATEGORIES
+                            if showAll || showCategoryOnly {
+                                HStack {
+                                    Text("Browse all")
+                                        .font(.custom("Nunito-Bold", size: 18))
+                                    Spacer()
+                                }
+                                LazyVGrid(columns: Array(repeating: GridItem(), count: columns)) {
+                                    ForEach(categories, id: \.self) {category in
+                                        let colorIndex = (category.id - 1) % 10
                                         NavigationLink {
-                                            SongCard()
+                                            CategoryCard(category: category, bgColor: colors[colorIndex])
                                         } label: {
-                                            SongColumn(song: song)
+                                            CategoryRow(category: category, bgColor: colors[colorIndex])
                                                 .foregroundColor(Color("text-color"))
                                         }
                                         
                                     }
                                 }
                             }
-                            .scrollIndicators(.hidden)
-                        }
                             
-                        
-                        // MARK: ALL ARTISTS
-                        if showAll || showArtistOnly {
-                            HStack {
-                                Text("All Artists")
-                                    .font(.custom("Nunito-Bold", size: 22))
-                                Spacer()
-                            }
-                            ScrollView(.horizontal) {
-                                HStack(spacing: 15) {
-                                    ForEach(artists, id: \.self) {artist in
-                                        NavigationLink {
-                                            ArtistCard(artist: artist)
-                                        } label: {
-                                            ArtistColumn(artist: artist)
-                                                .foregroundColor(Color("text-color"))
-                                        }
-                                    }
-                                }
-                                
-                            }
-                            .scrollIndicators(.hidden)
-                        }
-                        
-                        // MARK: ALL CATEGORIES
-                        if showAll || showCategoryOnly {
-                            HStack {
-                                Text("Browse all")
-                                    .font(.custom("Nunito-Bold", size: 20))
-                                Spacer()
-                            }
-                            LazyVGrid(columns: Array(repeating: GridItem(), count: columns)) {
-                                ForEach(categories, id: \.self) {category in
-                                    NavigationLink {
-                                        CategoryCard(category: category, bgColor: colors[category.id-1])
-                                    } label: {
-                                        CategoryRow(category: category, bgColor: colors[category.id-1])
-                                            .foregroundColor(Color("text-color"))
-                                    }
-                                    
-                                }
-                            }
-                        }
-                    } // VStack
-                    .padding()
+                        } // VStack
+                        .padding()
+                    }
                 }
             }
         }
