@@ -24,6 +24,10 @@ class PlaySound: NSObject, ObservableObject {
                 audioPlayer = try AVAudioPlayer(contentsOf: url)
                 audioPlayer?.delegate = self  // Set the delegate here
                 audioPlayer?.prepareToPlay()
+                DispatchQueue.main.async {
+                    self.stop()
+                    self.play()
+                }
             } catch {
                 print("Error loading audio file: \(error.localizedDescription)")
             }
@@ -35,6 +39,10 @@ class PlaySound: NSObject, ObservableObject {
                         self.audioPlayer = try AVAudioPlayer(data: soundData)
                         self.audioPlayer?.delegate = self  // Set the delegate here
                         self.audioPlayer?.prepareToPlay()
+                        DispatchQueue.main.async { // Play music when song is retrieved from the url
+                            self.stop()
+                            self.play()
+                        }
                     }catch{
                         print("Error loading audio file: \(error.localizedDescription)")
                     }
@@ -91,6 +99,10 @@ class PlaySound: NSObject, ObservableObject {
                 audioPlayer = try AVAudioPlayer(contentsOf: url)
                 audioPlayer?.delegate = self  // Make sure to set the delegate for new song as well
                 audioPlayer?.prepareToPlay()
+                DispatchQueue.main.async {
+                    self.stop()
+                    self.play()
+                }
             } catch {
                 print("Error loading audio file: \(error.localizedDescription)")
             }
@@ -102,6 +114,10 @@ class PlaySound: NSObject, ObservableObject {
                         self.audioPlayer = try AVAudioPlayer(data: soundData)
                         self.audioPlayer?.delegate = self  // Set the delegate here
                         self.audioPlayer?.prepareToPlay()
+                        DispatchQueue.main.async { // Play music when song is retrieved from the url
+                            self.stop()
+                            self.play()
+                        }
                     }catch{
                         print("Error loading audio file: \(error.localizedDescription)")
                     }

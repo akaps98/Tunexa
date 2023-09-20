@@ -29,7 +29,7 @@ struct SongCard: View {
     func setupPlayer() {
         currentSongIndex = songs.firstIndex(of: song) ?? 0
         playSound.changeSong(fileName: currentSong.name ?? "", fileType: "mp3", fileURL: currentSong.songURL ?? "")
-        playSound.play()
+//        playSound.play()
 
         NotificationCenter.default.publisher(for: .songDidFinishPlaying)
             .sink { [self] _ in
@@ -44,7 +44,7 @@ struct SongCard: View {
         if isRepeating && source == nil {
             playSound.stop()
             playSound.changeSong(fileName: currentSong.name ?? "", fileType: "mp3", fileURL: currentSong.songURL ?? "")
-            playSound.play()
+//            playSound.play()
             return
         }
 
@@ -67,7 +67,7 @@ struct SongCard: View {
 
         // Initialize the player with the new song
         playSound.changeSong(fileName: currentSong.name ?? "", fileType: "mp3", fileURL: currentSong.songURL ?? "")
-        playSound.play()
+//        playSound.play()
     }
 
     // Computed property to get the current song
@@ -102,7 +102,7 @@ struct SongCard: View {
                         presentationMode.wrappedValue.dismiss()
                         
                         // Stop sound
-                        playSound.stop()
+//                        playSound.stop()
                     } label: {
                         Image(systemName: "chevron.backward")
                             .font(.system(size: 25))
