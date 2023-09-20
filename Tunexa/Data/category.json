@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "name": "Pop",
+        "imageName": "pop"
+    },
+    {
+        "id": 2,
+        "name": "KPop",
+        "imageName": "kpop"
+    },
+    {
+        "id": 3,
+        "name": "Hiphop",
+        "imageName": "hiphop"
+    },
+    {
+        "id": 4,
+        "name": "Instrumental",
+        "imageName": "instrumental"
+    },
+    {
+        "id": 5,
+        "name": "Mood",
+        "imageName": "mood"
+    },
+    {
+        "id": 6,
+        "name": "Jazz",
+        "imageName": "jazz"
+    },
+    {
+        "id": 7,
+        "name": "Chill",
+        "imageName": "chill"
+    },
+    {
+        "id": 8,
+        "name": "Gaming",
+        "imageName": "gaming"
+    },
+    {
+        "id": 9,
+        "name": "Sleep",
+        "imageName": "sleep"
+    },
+    {
+        "id": 10,
+        "name": "Anime",
+        "imageName": "anime"
+    }
+]

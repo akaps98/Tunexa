@@ -6,11 +6,12 @@
   Author: Seongjoon Hong
   ID: 3726123
   Created  date: 13/09/2023
-  Last modified: dd/09/2023
-  Acknowledgement: https://firebase.google.com/docs/storage/ios/upload-files
- https://firebase.google.com/docs/storage/ios/delete-files
- https://firebase.google.com/docs/firestore/solutions/swift-codable-data-mapping
- https://stackoverflow.com/questions/75041939/using-imagepicker-in-swiftui
+  Last modified: 18/09/2023
+  Acknowledgement:
+ Upload files with Cloud Storage on Apple platforms - https://firebase.google.com/docs/storage/ios/upload-files
+ Delete files with Cloud Storage on Apple platforms - https://firebase.google.com/docs/storage/ios/delete-files
+ Map Cloud Firestore data with Swift Codable - https://firebase.google.com/docs/firestore/solutions/swift-codable-data-mapping
+ How can I retrieve local files with NSURL? - https://stackoverflow.com/questions/28419188/how-can-i-retrieve-local-files-with-nsurl
 */
 //
 //  SongViewModel.swift
@@ -48,7 +49,7 @@ class SongViewModel: ObservableObject{
                 let avatarName = data["avatarName"] as? String ?? ""
                 let songURL = data["songURL"] as? String ?? ""
                 let categories = data["categories"] as? [String] ?? [""]
-                let rating = data["rating"] as? Int ?? 0
+                let rating = data["rating"] as? Int ?? 1
                 return Song(id: id, author: author, name: name, songURL: songURL, avatarName: avatarName, categories: categories, rating: rating)
             }
         }
@@ -90,7 +91,8 @@ class SongViewModel: ObservableObject{
                                       return
                                   }
                                   let artist = [author, downloadURL.absoluteString]
-                                  self.db.collection("songs").addDocument(data: ["author": artist, "name": name, "songURL": songUrl, "avatarName": avatarUrl, "categories": categories, "rating": 0])
+                                  let rating = Int.random(in: 1...5)
+                                  self.db.collection("songs").addDocument(data: ["author": artist, "name": name, "songURL": songUrl, "avatarName": avatarUrl, "categories": categories, "rating": rating])
                               }
                           }
                       }
@@ -144,7 +146,6 @@ class SongViewModel: ObservableObject{
           }
           avatarRef.downloadURL { (url, error) in
             guard let downloadURL = url else {
-                print("asfasfas")
               return
             }
               self.db.collection("songs").document(id).updateData(["avatarName": downloadURL.absoluteString])

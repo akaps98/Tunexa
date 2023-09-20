@@ -19,10 +19,9 @@ struct SongUpdateTestView: View {
     @State private var imageItem: PhotosPickerItem?
     @State private var firstCategory = ""
     @State private var secondCategory = ""
-    let categories = ["Kpop", "Pop", "Jazz", "Hiphop", "Rock", "R&B", "Dance", "Soul", "Indie", "Punk", "Blues", "Reggae", "EDM", "Country", "Classical", "Latin"]
     @State private var songCategories: [String] = []
     var body: some View {
-        
+        // MARK: SONG UPDATE FORM
         TextField(song.name ?? "", text: $name)
             .onAppear{
                 name = song.name ?? ""
@@ -31,13 +30,14 @@ struct SongUpdateTestView: View {
             .onAppear{
                 artist = song.author[0] ?? ""
             }
+        // MARK: CATEGORY SELECTOR
         HStack{
             Picker(selection: $firstCategory, label: Text("Select a Category")) {
                 if(firstCategory == ""){
                     Text("Select Category").tag("Placeholder")
                 }
-                ForEach(categories, id: \.self) {
-                    Text($0).tag($0)
+                ForEach(categories, id: \.self) { category in
+                    Text(category.name).tag(category.name)
                 }
                 .onAppear{
                     firstCategory = song.categories[0]
@@ -49,8 +49,8 @@ struct SongUpdateTestView: View {
                         Text("Select Category").tag("Placeholder")
                     }
                     ForEach(categories, id: \.self) { category in
-                        if category != firstCategory{
-                            Text(category).tag(category)
+                        if category.name != firstCategory{
+                            Text(category.name).tag(category.name)
                         }
                     }
                 }
@@ -61,6 +61,7 @@ struct SongUpdateTestView: View {
                 }
             }
         }
+        // MARK: ALBUM IMAGE SELECTOR
         HStack{
             PhotosPicker("Select Album Image", selection: $imageItem, matching: .images)
             if let image{
@@ -108,17 +109,15 @@ struct SongUpdateTestView: View {
                 }
                 if albumImage != nil{
                     let avatar = albumImage!.pngData()!
-//                    songViewModel.updateImage(id: song.id!, name: song.name!, avatar: avatar)
+                    songViewModel.updateImage(id: song.id!, name: song.name!, avatar: avatar)
                 }
-                if artist != "" && name != ""{
-                    let author = [artist, song.author[1] ?? ""]
-                    if songCategories.count > 1{
-                        let category = Array(songCategories[0..<2])
-                        songViewModel.updateSongData(id: song.id!, author: author, name: name, categories: category)
-                    }else{
-                        let category = Array(songCategories[0..<1])
-                        songViewModel.updateSongData(id: song.id!, author: author, name: name, categories: category)
-                    }
+                let author = [artist, song.author[1] ?? ""]
+                if songCategories.count > 1{
+                    let category = Array(songCategories[0..<2])
+                    songViewModel.updateSongData(id: song.id!, author: author, name: name, categories: category)
+                }else{
+                    let category = Array(songCategories[0..<1])
+                    songViewModel.updateSongData(id: song.id!, author: author, name: name, categories: category)
                 }
             }
         } label: {
