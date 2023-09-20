@@ -245,13 +245,6 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		984389472AB605600059D3C8 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
 		98B976162AB04F4C00515EA4 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,7 +297,6 @@
 			children = (
 				98B9762A2AB0500C00515EA4 /* General */,
 				98B976212AB04FB800515EA4 /* DashBoard */,
-				984389472AB605600059D3C8 /* Search */,
 				98D447842AB73AEF00C6BF77 /* Library */,
 			);
 			path = Components;

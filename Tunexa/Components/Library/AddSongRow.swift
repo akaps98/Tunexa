@@ -59,7 +59,15 @@ struct AddSongRow: View {
             // MARK: ADD BUTTON
             if !isAdded {
                 Button {
-                    print("add")
+                    if let songId = song.id {
+                        User.addToPlaylist(songID: songId) { error in
+                            if let error = error {
+                                print("Error adding to playlist: \(error.localizedDescription)")
+                            } else {
+                                print("Added to playlist successfully.")
+                            }
+                        }
+                    }
                 } label: {
                     Image(systemName: "plus.circle")
                         .font(.system(size: 25))
@@ -69,7 +77,15 @@ struct AddSongRow: View {
             } else {
                 // MARK: DELETE BUTTON
                 Button {
-                    print("delete")
+                    if let songId = song.id {
+                        User.deleteFromPlaylist(songID: songId) { error in
+                            if let error = error {
+                                print("Error deleting from playlist: \(error.localizedDescription)")
+                            } else {
+                                print("Deleted from playlist successfully.")
+                            }
+                        }
+                    }
                 } label: {
                     Image(systemName: "minus.circle")
                         .font(.system(size: 25))
@@ -83,9 +99,3 @@ struct AddSongRow: View {
         
     }
 }
-
-//struct AddSongRow_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddSongRow(song: songs[2], isAdded: false)
-//    }
-//}

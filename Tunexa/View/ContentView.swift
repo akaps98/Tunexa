@@ -31,7 +31,7 @@ struct ContentView: View {
                     Label("Account", systemImage: "person")
                 }
             
-        }
+        }.environmentObject(SongViewModel())
     }
 }
 

@@ -9,13 +9,28 @@ import SwiftUI
 import FirebaseAuth
 
 struct LibraryView: View {
-    @Binding var isDark: Bool
-    @State var isPlaylistEmpty = true
-    @State var showAddSongSheet = false
-    @State var playlist: [Song] = []
-    
-    
     @AppStorage("uid") var isLoggedIn: Bool = Auth.auth().currentUser != nil
+    
+    @Binding var isDark: Bool
+    @State var showAddSongSheet = false
+    
+    @EnvironmentObject var songViewModel: SongViewModel
+    
+    @State var playlistSongs: [Song] = []
+    func getSongs() {
+        User.fetch { result in
+            switch result {
+            case .success(let fetchedUser):
+                let playlist = fetchedUser.playlist
+                playlistSongs = songViewModel.songs.filter { song in
+                    return playlist.contains(song.id ?? "")
+                }
+            case .failure(let error):
+                print("Error fetching user data: \(error)")
+            }
+        }
+        
+    }
     
     @State var pictureName = ""
     func getImage() {
@@ -91,15 +106,20 @@ struct LibraryView: View {
                         }
                         .padding([.horizontal,.bottom])
                         
-                        if !isPlaylistEmpty {
+                        if !playlistSongs.isEmpty {
                             HStack {
                                 HStack(spacing: 10) {
                                     Button {
-                                        print("add")
+                                        showAddSongSheet.toggle()
                                     } label: {
                                         Image(systemName: "plus.circle")
                                             .font(.system(size: 25))
                                             .foregroundColor(Color("text-color"))
+                                    }.sheet(isPresented: $showAddSongSheet, onDismiss: { getSongs() }) {
+                                        AddSongView(isDark: $isDark)
+                                            .presentationDetents([.large])
+                                            .presentationDragIndicator(.visible)
+                                            .environmentObject(SongViewModel())
                                     }
                                     
                                     Button {
@@ -148,10 +168,11 @@ struct LibraryView: View {
                         }
                         
                         
-                        if isPlaylistEmpty {
+                        if playlistSongs.isEmpty {
                             Text("There is nothing in your playlist yet! Ready to customize your own songs?")
                                 .font(.custom("Nunito-Regular", size: 18))
                             Button {
+                                print("Add Song clicked")
                                 showAddSongSheet.toggle()
                             } label: {
                                 Capsule()
@@ -163,13 +184,14 @@ struct LibraryView: View {
                                             .foregroundColor(Color("text-color"))
                                     }
                             }
-                            .sheet(isPresented: $showAddSongSheet) {
+                            .sheet(isPresented: $showAddSongSheet, onDismiss: { getSongs() }) {
                                 AddSongView(isDark: $isDark)
                                     .presentationDetents([.large])
                                     .presentationDragIndicator(.visible)
+                                    .environmentObject(SongViewModel())
                             }
                         } else {
-                            ForEach(playlist, id: \.self) { song in
+                            ForEach(playlistSongs, id: \.self) { song in
                                 SongRow(song: song)
                             }
                         }
@@ -178,12 +200,8 @@ struct LibraryView: View {
                 }
             }
             .onAppear {
+                getSongs()
                 getImage()
-                if playlist.isEmpty {
-                    isPlaylistEmpty = true
-                } else {
-                    isPlaylistEmpty = false
-                }
             }
             .environment(\.colorScheme, isDark ? .dark : .light) // modify the color sheme based on the state variable
         } else {
@@ -194,6 +212,6 @@ struct LibraryView: View {
 
 struct LibraryView_Previews: PreviewProvider {
     static var previews: some View {
-        LibraryView(isDark: .constant(false))
+        LibraryView(isDark: .constant(false)).environmentObject(SongViewModel())
     }
 }

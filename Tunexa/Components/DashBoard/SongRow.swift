@@ -9,12 +9,25 @@ import SwiftUI
 
 struct SongRow: View {
     let song: Song
-    @State var isFavourite: Bool = false
     
-//    init(song: Song) {
-//        self.song = song
-////        self._isFavourite = State(initialValue: song.isFavorite)
-//    }
+    @State var favorite: [String] = []
+    @State var isFavorite: Bool = false
+        
+    func fetch() {
+        User.fetch { result in
+            switch result {
+            case .success(let fetchedUser):
+                favorite = fetchedUser.favorite
+                if favorite.contains(song.id ?? "") {
+                    isFavorite = true
+                } else {
+                    isFavorite = false
+                }
+            case .failure(let error):
+                print("Error fetching user data: \(error)")
+            }
+        }
+    }
     
     var body: some View {
         HStack(alignment: .center) {
@@ -72,7 +85,27 @@ struct SongRow: View {
             
             // MARK: HEART BUTTON
             Button {
-                isFavourite.toggle()
+                if let songId = song.id {
+                    if favorite.contains(songId) {
+                        User.deleteFromFavorite(songID: songId) { error in
+                            if let error = error {
+                                print("Error removing from favorite: \(error.localizedDescription)")
+                            } else {
+                                print("Removed from favorite successfully.")
+                                fetch()
+                            }
+                        }
+                    } else {
+                        User.addToFavorite(songID: songId) { error in
+                            if let error = error {
+                                print("Error adding to favorite: \(error.localizedDescription)")
+                            } else {
+                                print("Added to favorite successfully.")
+                                fetch()
+                            }
+                        }
+                    }
+                }
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
@@ -81,24 +114,17 @@ struct SongRow: View {
                         .overlay(
                             RoundedRectangle(cornerRadius: 8).stroke(Color("primary-color"), lineWidth: 1)
                         )
-                    Image(systemName: isFavourite ? "heart.fill" : "heart")
+                    Image(systemName: isFavorite ? "heart.fill" : "heart")
                 }
             }
             .padding(.trailing, 5)
             
-//            // MARK: OPTION BUTTON
-//            Image(systemName: "ellipsis")
-//                .font(.system(size: 25))
-//                .foregroundColor(Color("text-color"))
         }
         .padding(.horizontal)
-        
+        .onAppear {
+            fetch()
+        }
         
     }
 }
 
-//struct SongRow_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SongRow(song: songs[1])
-//    }
-//}
