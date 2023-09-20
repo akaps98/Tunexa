@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddSongView: View {
+    @EnvironmentObject var songViewModel: SongViewModel
     @Binding var isDark: Bool
     
     var body: some View {
@@ -36,7 +37,7 @@ struct AddSongView: View {
                         }
                         .padding(.horizontal)
                         
-                        ForEach(songs, id: \.self) {song in
+                        ForEach(songViewModel.songs, id: \.id) {song in
                             AddSongRow(song: song, isAdded: false)
                         }
                     }

@@ -9,35 +9,50 @@ import SwiftUI
 
 struct SongRow: View {
     let song: Song
-    @State var isFavourite: Bool
+    @State var isFavourite: Bool = false
     
-    init(song: Song) {
-        self.song = song
-        self._isFavourite = State(initialValue: song.isFavorite)
-    }
+//    init(song: Song) {
+//        self.song = song
+////        self._isFavourite = State(initialValue: song.isFavorite)
+//    }
     
     var body: some View {
         HStack(alignment: .center) {
             // MARK: SONG IMAGE
-            song.avatar
-                .resizable()
-                .scaledToFit()
-                .frame(height: 90)
-                .padding(.trailing, 15)
+            AsyncImage(url: URL(string: song.avatarName ?? "")){ phase in
+                if let i = phase.image{
+                    i
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 90)
+                        .padding(.trailing, 15)
+                }else if phase.error != nil{
+                    Rectangle()
+                        .scaledToFit()
+                        .frame(height: 90)
+                        .padding(.trailing, 15)
+                }else{
+                    Rectangle()
+                        .scaledToFit()
+                        .frame(height: 90)
+                        .padding(.trailing, 15)
+                }
+            }
+                
             VStack(alignment: .leading) {
                 // MARK: SONG INFO
                 VStack(alignment: .listRowSeparatorLeading) {
                     VStack(alignment: .listRowSeparatorLeading) {
-                        Text(song.name)
+                        Text(song.name ?? "")
                             .font(.custom("Nunito-Bold", size: 18))
                             .lineLimit(1)
-                        Text(song.author)
+                        Text(song.author[0] ?? "")
                             .font(.custom("Nunito-Regular", size: 14))
                     }
                     .padding(.bottom, 2)
                     
                     // MARK: RATING
-                    Rating(rating: song.rating)
+                    Rating(rating: song.rating ?? 0)
                 }
                 // MARK: SONG CATEGORIES
                 HStack {
@@ -82,8 +97,8 @@ struct SongRow: View {
     }
 }
 
-struct SongRow_Previews: PreviewProvider {
-    static var previews: some View {
-        SongRow(song: songs[1])
-    }
-}
+//struct SongRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SongRow(song: songs[1])
+//    }
+//}

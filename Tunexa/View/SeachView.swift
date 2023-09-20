@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct SearchView: View {
+    @EnvironmentObject var songViewModel: SongViewModel
     @Binding var isDark: Bool
     @State private var name: String = ""
     @State private var ratingValue = 1.0
-    @State private var filteredSongs: [Song] = songs
+    @State private var filteredSongs: [Song] = []
     @State private var showOnlyFavorites: Bool = false
     var minimumValue = 1.0
     var maximumValue = 5.0
@@ -95,18 +96,18 @@ struct SearchView: View {
             filterSongs(with: name)
         }
         .onAppear {
-            filteredSongs = songs
+            filteredSongs = songViewModel.songs
         }
         .navigationBarTitleDisplayMode(.inline)
         .environment(\.colorScheme, isDark ? .dark : .light) // modify the color sheme based on the state variable
     }
     
     func filterSongs(with term: String) {
-        filteredSongs = songs.filter { song in
-            let matchesName = term.isEmpty || song.name.lowercased().contains(term.lowercased())
-            let matchesRating = song.rating >= Int(ratingValue)
-            let matchesFavorite = !showOnlyFavorites || song.isFavorite
-            return matchesName && matchesRating && matchesFavorite
+        filteredSongs = songViewModel.songs.filter { song in
+            let matchesName = term.isEmpty || song.name!.lowercased().contains(term.lowercased())
+            let matchesRating = song.rating ?? 1 >= Int(ratingValue)
+//            let matchesFavorite = !showOnlyFavorites || song.isFavorite
+            return matchesName && matchesRating
         }
     }
 }

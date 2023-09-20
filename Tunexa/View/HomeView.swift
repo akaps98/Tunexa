@@ -10,6 +10,7 @@ import SwiftUI
 
 struct HomeView: View {
     // MARK: ***** PROPERTIES *****
+    @EnvironmentObject var songViewModel: SongViewModel
     let colors : [Color] = [.red, .orange, .blue, .green, .cyan, .indigo, .pink, .yellow, .brown, .teal]
     let columns = 2
     @Binding var isDark: Bool
@@ -17,12 +18,19 @@ struct HomeView: View {
     @State var showMusicOnly = false
     @State var showCategoryOnly = false
     @State var showArtistOnly = false
+    @State private var artists: [String: String] = [:]
     
     func setShowAll() {
         if !showMusicOnly && !showArtistOnly && !showCategoryOnly {
             showAll = true
         } else {
             showAll = false
+        }
+    }
+    
+    func getAttributes(){
+        for song in songViewModel.songs{
+            artists[song.author[0]!] = song.author[1] ?? ""
         }
     }
     
@@ -125,9 +133,9 @@ struct HomeView: View {
                                 }
                                 ScrollView(.horizontal) {
                                     HStack(spacing: 15) {
-                                        ForEach(songs, id: \.self) {song in
+                                        ForEach(songViewModel.songs, id: \.id) {song in
                                             NavigationLink {
-                                                SongCard()
+                                                SongCard(song: song, songs: songViewModel.songs)
                                             } label: {
                                                 SongColumn(song: song)
                                                     .foregroundColor(Color("text-color"))
@@ -150,11 +158,11 @@ struct HomeView: View {
                                 }
                                 ScrollView(.horizontal) {
                                     HStack(spacing: 15) {
-                                        ForEach(artists, id: \.self) {artist in
+                                        ForEach(artists.sorted(by: {$0.0 < $1.0}), id: \.key) {name, image in
                                             NavigationLink {
-                                                ArtistCard(artist: artist)
+                                                ArtistCard(artist: name, artistImage: image)
                                             } label: {
-                                                ArtistColumn(artist: artist)
+                                                ArtistColumn(artist: name, artistImage: image)
                                                     .foregroundColor(Color("text-color"))
                                             }
                                         }
@@ -196,6 +204,7 @@ struct HomeView: View {
         .environment(\.colorScheme, isDark ? .dark : .light) // modify the color sheme based on the state variable
         .onAppear {
             setShowAll()
+            getAttributes()
         }
     }
 }
@@ -203,5 +212,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(isDark: .constant(false))
+            .environmentObject(SongViewModel())
     }
 }

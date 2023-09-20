@@ -10,6 +10,8 @@ import AVFoundation
 import Combine
 
 struct SongCard: View {
+    let song: Song
+    let songs: [Song]
     @StateObject private var cancellables = CancellableManager()
     @StateObject var playSound = PlaySound()
     
@@ -25,7 +27,8 @@ struct SongCard: View {
     
     // This initializes the player and sets up the notification listener
     func setupPlayer() {
-        playSound.changeSong(fileName: currentSong.name, fileType: "mp3")
+        currentSongIndex = songs.firstIndex(of: song) ?? 0
+        playSound.changeSong(fileName: currentSong.name ?? "", fileType: "mp3", fileURL: currentSong.songURL ?? "")
         playSound.play()
 
         NotificationCenter.default.publisher(for: .songDidFinishPlaying)
@@ -40,7 +43,7 @@ struct SongCard: View {
         // If repeating is on and the function isn't called by user interaction (forward or backward tap)
         if isRepeating && source == nil {
             playSound.stop()
-            playSound.changeSong(fileName: currentSong.name, fileType: "mp3")
+            playSound.changeSong(fileName: currentSong.name ?? "", fileType: "mp3", fileURL: currentSong.songURL ?? "")
             playSound.play()
             return
         }
@@ -63,14 +66,9 @@ struct SongCard: View {
         currentSongIndex = newIndex
 
         // Initialize the player with the new song
-        playSound.changeSong(fileName: currentSong.name, fileType: "mp3")
+        playSound.changeSong(fileName: currentSong.name ?? "", fileType: "mp3", fileURL: currentSong.songURL ?? "")
         playSound.play()
     }
-
-
-    
-    // Since songs are loaded from the JSON file
-    var songs: [Song] = decodeJsonFromJsonFile(jsonFileName: "songs.json")
 
     // Computed property to get the current song
     var currentSong: Song {
@@ -135,17 +133,29 @@ struct SongCard: View {
                 Spacer()
                 
                 // MARK: SONG COVER
-                Image(currentSong.avatarName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 250, height: 250)
-                    .cornerRadius(8)
+                AsyncImage(url: URL(string: currentSong.avatarName ?? "")){ phase in
+                    if let image = phase.image{
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 250, height: 250)
+                            .cornerRadius(8)
+                    }else if phase.error != nil{
+                        Rectangle()
+                            .frame(width: 250, height: 250)
+                            .cornerRadius(8)
+                    }else{
+                        Rectangle()
+                            .frame(width: 250, height: 250)
+                            .cornerRadius(8)
+                    }
+                }
                 
                 // MARK: SONG TITLE AND ARTIST
                 VStack {
-                    Text(currentSong.name)
+                    Text(currentSong.name ?? "")
                         .font(.custom("Nunito-Bold", size: 22))
-                    Text(currentSong.author)
+                    Text(currentSong.author[0] ?? "")
                         .font(.custom("Nunito-Light", size: 16))
                         .padding(.bottom, 30)
 //                    Rating(rating: currentSong.rating)
@@ -245,8 +255,8 @@ struct SongCard: View {
     }
 }
 
-struct SongCard_Previews: PreviewProvider {
-    static var previews: some View {
-        SongCard()
-    }
-}
+//struct SongCard_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SongCard()
+//    }
+//}

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CategoryCard: View {
+    @EnvironmentObject var songViewModel: SongViewModel
     let category: Category
     let bgColor: Color
     @State var categoryList: [Song] = []
@@ -15,7 +16,8 @@ struct CategoryCard: View {
     
     // MARK: FILTER SONG BASED ON CATEGORY
     func filterSong() {
-        for song in songs {
+        categoryList = []
+        for song in songViewModel.songs {
             for categoryItem in song.categories {
                 if categoryItem.lowercased() == category.name.lowercased() {
                     categoryList.append(song)
@@ -78,6 +80,7 @@ struct CategoryCard: View {
 
 struct CategoryCard_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryCard(category: categories[5], bgColor: .orange)
+        CategoryCard(category: categories[2], bgColor: .orange)
+            .environmentObject(SongViewModel())
     }
 }

@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct ArtistCard: View {
-    let artist: Artist
+    @EnvironmentObject var songViewModel: SongViewModel
+    let artist: String
+    let artistImage: String
     @State var artistList: [Song] = []
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode> // Store the presented value when the view is navigated
     
     // MARK: FILTER SONG BASED ON ARTIST
     func filterSong() {
-        for song in songs {
-            if song.author.lowercased() == artist.name.lowercased() {
+        for song in songViewModel.songs {
+            if song.author[0]!.lowercased() == artist.lowercased() {
                 artistList.append(song)
             }
         }
@@ -26,10 +28,20 @@ struct ArtistCard: View {
             ScrollView {
                 VStack {
                     ZStack {
-                        artist.avatar
-                            .resizable()
-                            .scaledToFit()
-                        Text(artist.name)
+                        AsyncImage(url: URL(string: artistImage)){ phase in
+                            if let image = phase.image{
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                            }else if phase.error != nil{
+                                Rectangle()
+                                    .scaledToFit()
+                            }else{
+                                Rectangle()
+                                    .scaledToFit()
+                            }
+                        }
+                        Text(artist)
                             .foregroundColor(.white)
                             .font(.custom("Nunito-Black", size: 40))
                             .multilineTextAlignment(.center)
@@ -76,6 +88,7 @@ struct ArtistCard: View {
 
 struct ArtistCard_Previews: PreviewProvider {
     static var previews: some View {
-        ArtistCard(artist: artists[5])
+        ArtistCard(artist: "Charlie Puth", artistImage: "")
+            .environmentObject(SongViewModel())
     }
 }
