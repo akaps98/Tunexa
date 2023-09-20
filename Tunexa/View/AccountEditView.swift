@@ -6,11 +6,8 @@
 //
 
 import SwiftUI
-
-// MARK: - VALIDATION STATUS
-enum PasswordStatus {
-    case blankInfo, passwordLength, doublecheck, editSuccess
-}
+import PhotosUI
+import FirebaseStorage
 
 struct AccountEditView: View {
     // MARK: - VARIABLES
@@ -18,35 +15,23 @@ struct AccountEditView: View {
     
     @Binding var isDark: Bool
     
-    @State private var showingAlert = false
-    @State private var status: PasswordStatus = .editSuccess
-    
     @State var isLoggedIn = false // check the user is logged in
     
-    @State private var showingImagePicker = false
-    @State var pickedImage = Image("testPic") // profile pic
+    @State private var user: User?
     
-    @State var newPassword = ""
-    @State var checkPassword = ""
+    @State var pickedImage = Image(systemName: "person.circle.fill")
     @State var newUsername = ""
     @State var newDesc = ""
     
-    // MARK: - FUNCTION; EDITION
-    func edit(newPassword: String, checkPassword: String) {
-        if(newPassword == "" && checkPassword == "") {
-            status = .editSuccess
-            return
-        }
-        if(newPassword.count == 8) {
-            if(newPassword == checkPassword) {
-                status = .editSuccess
-            } else {
-                status = .doublecheck
-            }
-        } else {
-            status = .passwordLength
-        }
-    }
+    @State private var albumImage: UIImage?
+    @State private var image: Image?
+    @State private var imageItem: PhotosPickerItem?
+    
+    @State var isImage = false
+    @State var isUploading = false
+    
+    @Binding var isEditViewPresented: Bool
+    var onDismiss: () -> Void
     
     var body: some View {
         ZStack {
@@ -55,52 +40,68 @@ struct AccountEditView: View {
                 .edgesIgnoringSafeArea(.all)
             ScrollView {
                 VStack {
-                    // MARK: - EDIT PROFILE PIC
-                    pickedImage
-                        .resizable()
-                        .scaledToFit()
-                        .clipShape(Circle().inset(by: 80))
-                        .offset(y:-40)
-                    // MARK: - ALLOW TO SELECT IMAGE FROM LOCAL DEVICE
-                    Button(action: {
-                        self.showingImagePicker.toggle()
-                    }, label: {
-                        Text("Select image...")
-                    }).offset(y:-100)
                     Group {
+                        // MARK: - EDIT PROFILE PIC
+                        VStack {
+                            if let image {
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .clipShape(Circle())
+                                    .frame(width:220)
+                            } else {
+                                if let user = user {
+                                    if user.pictureName == "" {
+                                        Image(systemName: "person.circle.fill").font(.system(size: 200))
+                                    } else {
+                                        AsyncImage(url: URL(string: user.pictureName)){ phase in
+                                            if let i = phase.image{
+                                                i
+                                                .resizable()
+                                                .scaledToFit()
+                                                .clipShape(Circle())
+                                                .frame(width:210)
+                                            } else if phase.error != nil{
+                                                Image(systemName: "person.circle.fill").font(.system(size: 200))
+                                            } else {
+                                                ProgressView()
+                                                    .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                                                    .frame(width: 210, height: 200)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            PhotosPicker("Select image...", selection: $imageItem, matching: .images)
+                        }.padding(.top,100)
+                        .onChange(of: imageItem){ _ in
+                            Task{
+                                if let data = try? await imageItem?.loadTransferable(type: Data.self){
+                                    if let uiImage = UIImage(data: data){
+                                        albumImage = uiImage
+                                        image = Image(uiImage: albumImage!)
+                                        isImage = true
+                                        return
+                                    }
+                                }
+                            }
+                        }
                     Image(systemName: "info.circle")
                         .resizable()
                         .frame(width: 40, height: 40)
-                    Text("New Password")
-                        .font(.custom("Nunito-Bold", size: 26))
-                        .offset(x: -53)
                     // MARK: - NEW PASSWORD TEXTFIELD
-                    SecureField("\(Image(systemName: "lock"))  New password", text: $newPassword)
-                        .padding()
-                        .frame(width: 300, height: 50)
-                        .background(Color.black.opacity(0.07))
-                        .cornerRadius(10)
-                        .font(.custom("Nunito-Bold", size: 22))
-                        // MARK: - CONFIRMATION TEXTFIELD
-                    SecureField("\(Image(systemName: "checkmark"))  Confirm", text: $checkPassword)
-                        .padding()
-                        .frame(width: 300, height: 50)
-                        .background(Color.black.opacity(0.07))
-                        .cornerRadius(10)
-                        .font(.custom("Nunito-Bold", size: 22))
-                        Text("New Username")
-                            .font(.custom("Nunito-Bold", size: 26))
-                            .offset(x: -53)
-                        // MARK: - NEW PASSWORD TEXTFIELD
-                        TextField("\(Image(systemName: "person"))  Username", text: $newUsername)
-                            .padding()
-                            .frame(width: 300, height: 50)
-                            .background(Color.black.opacity(0.07))
-                            .cornerRadius(10)
-                            .font(.custom("Nunito-Bold", size: 22))
-                    Text("New Introduction")
+                    Text("Username")
                         .font(.custom("Nunito-Bold", size: 26))
-                        .offset(x: -38)
+                        .offset(x: -85)
+                    TextField("\(Image(systemName: "person"))  Username", text: $newUsername)
+                        .padding()
+                        .frame(width: 300, height: 50)
+                        .background(Color.black.opacity(0.07))
+                        .cornerRadius(10)
+                        .font(.custom("Nunito-Bold", size: 22))
+                    Text("Introduction")
+                        .font(.custom("Nunito-Bold", size: 26))
+                        .offset(x: -70)
                         // MARK: - NEW INTRODUCTION TEXTFIELD
                     TextField("\(Image(systemName: "pencil.line")) Introduction", text: $newDesc, axis: .vertical)
                         .lineLimit(3, reservesSpace: true)
@@ -113,71 +114,105 @@ struct AccountEditView: View {
                         HStack(spacing: -20) {
                             Button {
                                 // MARK: - EDIT BUTTON
-                                edit(newPassword: newPassword, checkPassword: checkPassword)
-                                self.showingAlert.toggle()
-                                if(status == .editSuccess) {
-                                    if(newDesc == "") { // there is any new introduction
-                                        print($newPassword)
-                                    } else {
-                                        print($newPassword, $newUsername, $newDesc)
+                                isUploading = true
+                                if isImage {
+                                    if let imageData = albumImage?.pngData() {
+                                        User.updateImage(avatar: imageData) { result in
+                                            switch result {
+                                            case .success(_):
+                                                print("Picture uploaded and updated successfully.")
+                                                User.updateProfile(newDesc: newDesc, newName: newUsername) { error in
+                                                    if let error = error {
+                                                        print("Error updating information: \(error.localizedDescription)")
+                                                        isUploading = false
+                                                    } else {
+                                                        print("Information updated successfully.")
+                                                        isUploading = false
+                                                        presentationMode.wrappedValue.dismiss()
+                                                        isEditViewPresented = false // Dismiss the EditView
+                                                        onDismiss() // Call the onDismiss closure
+                                                    }
+                                                }
+                                            case .failure(let error):
+                                                print("Error updating image: \(error.localizedDescription)")
+                                                isUploading = false
+                                            }
+                                        }
+                                        isImage = false
                                     }
-                                    presentationMode.wrappedValue.dismiss()
-                                }
-                            } label: {
-                                Text("Edit")
-                                    .foregroundColor(.white)
-                                    .font(.custom("Nunito-Bold", size: 22))
-                                    .frame(width: 100, height: 20)
-                                    .padding()
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 10)
-                                    )
-                                    .padding()
-                                    .alert(isPresented: $showingAlert) {
-                                        // MARK: - VALIDATION
-                                        switch status {
-                                        case .blankInfo:
-                                            return Alert(title: Text("Wrong"), message: Text("Please fill in the blank!"))
-                                        case .passwordLength:
-                                            return Alert(title: Text("Wrong"), message: Text("Password must be at least 8 characters long!"))
-                                        case .doublecheck:
-                                            return Alert(title: Text("Wrong"), message: Text("Double-check the password!"))
-                                        case .editSuccess:
-                                            return Alert(title: Text("Success"), message: Text("Successfully edited!"))
+                                } else {
+                                    User.updateProfile(newDesc: newDesc, newName: newUsername) { error in
+                                        if let error = error {
+                                            print("Error updating information: \(error.localizedDescription)")
+                                            isUploading = false
+                                        } else {
+                                            print("Information updated successfully.")
+                                            isUploading = false
+                                            presentationMode.wrappedValue.dismiss()
+                                            isEditViewPresented = false // Dismiss the EditView
+                                            onDismiss() // Call the onDismiss closure
                                         }
                                     }
-                            }.offset(y: 10)
-                            Button {
-                                // MARK: - CANCEL BUTTON
-                                presentationMode.wrappedValue.dismiss()
+                                }
                             } label: {
-                                Text("Cancel")
-                                    .foregroundColor(.white)
-                                    .font(.custom("Nunito-Bold", size: 22))
-                                    .frame(width: 100, height: 20)
-                                    .padding()
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 10)
-                                    )
-                                    .padding()
+                                if isUploading {
+                                    Text("Uploading...")
+                                    ProgressView()
+                                        .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                                        .frame(width: 100, height: 20)
+                                } else {
+                                    Text("Edit")
+                                        .foregroundColor(.white)
+                                        .font(.custom("Nunito-Bold", size: 22))
+                                        .frame(width: 100, height: 20)
+                                        .padding()
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 10)
+                                        )
+                                        .padding()
+                                }
                             }.offset(y: 10)
+                            if !isUploading {
+                                Button {
+                                    // MARK: - CANCEL BUTTON
+                                    presentationMode.wrappedValue.dismiss()
+                                    isEditViewPresented = false // Dismiss the EditView
+                                    onDismiss() // Call the onDismiss closure
+                                } label: {
+                                    Text("Cancel")
+                                        .foregroundColor(.white)
+                                        .font(.custom("Nunito-Bold", size: 22))
+                                        .frame(width: 100, height: 20)
+                                        .padding()
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 10)
+                                        )
+                                        .padding()
+                                }.offset(y: 10)
+                            }
                         }
                     }.offset(y: -90)
-                    // MARK: - SELECT IMAGE
-                }.sheet(isPresented: $showingImagePicker) {
-                    PhotoPicker(sourceType: .photoLibrary) { (image) in
-                        self.pickedImage = Image(uiImage: image)
-                        print(image)
-                    }
                 }
             }.navigationBarBackButtonHidden(true)
                 .environment(\.colorScheme, isDark ? .dark : .light) // modify the color sheme based on the state variable
+        }
+        .onAppear {
+            User.fetch { result in
+                switch result {
+                case .success(let fetchedUser):
+                    self.user = fetchedUser
+                    newUsername = fetchedUser.name
+                    newDesc = fetchedUser.description
+                case .failure(let error):
+                    print("Error fetching user data: \(error)")
+                }
+            }
         }
     }
 }
 
 struct AccountEditView_Previews: PreviewProvider {
     static var previews: some View {
-        AccountEditView(isDark: .constant(false))
+        AccountEditView(isDark: .constant(false), isEditViewPresented: .constant(true), onDismiss: {})
     }
-}
+} 

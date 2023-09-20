@@ -6,38 +6,19 @@
 //
 
 import SwiftUI
-
-// MARK: - VALIDATION STATUS
-enum LogInStatus {
-    case blankInfo, wrongEmail, wrongPassword, logInSuccess
-}
+import FirebaseAuth
 
 struct LogInView: View {
+    @AppStorage("uid") var isLoggedIn: Bool = Auth.auth().currentUser != nil
+    
     // MARK: - VARIABLES
     @Binding var isDark: Bool
     
     @State private var showingAlert = false
-    @State private var status: LogInStatus = .wrongEmail
+    @State var message = ""
     
     @State var email = ""
     @State var password = ""
-    
-    // MARK: - FUNCTION; AUTHENTICATION
-    func authentication(email: String, password: String) {
-        if(email == "" || password == "") {
-            status = .blankInfo
-            return
-        }
-        if(email.lowercased() == "tony@gmail.com") {
-            if(password.lowercased() == "tony") {
-                status = .logInSuccess
-            } else {
-                status = .wrongPassword
-            }
-        } else {
-            status = .wrongEmail
-        }
-    }
     
     var body: some View {
         NavigationView {
@@ -76,10 +57,17 @@ struct LogInView: View {
                         NavigationLink(destination: SignUpView(isDark: $isDark)) { Text("Don't have account?") }
                         // MARK: - LOG IN BUTTON
                         Button {
-                            authentication(email: email, password: password)
-                            self.showingAlert = true
-                            if(status == .logInSuccess) {
-                                print($email, $password)
+                            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+                                if let error = error as NSError? {
+                                    message = error.localizedDescription
+                                    showingAlert.toggle()
+                                    return
+                                }
+                                if let authResult = authResult {
+                                    isLoggedIn = true
+                                    message = "Welcome to Tunexa!"
+                                    showingAlert.toggle()
+                                }
                             }
                         } label: {
                             Text("Log in")
@@ -92,17 +80,12 @@ struct LogInView: View {
                                 )
                                 .padding()
                                 .alert(isPresented: $showingAlert) {
-                                    // MARK: - VALIDATION
-                                    switch status {
-                                    case .blankInfo:
-                                        return Alert(title: Text("Wrong"), message: Text("Please fill in the blank!"))
-                                    case .wrongEmail:
-                                        return Alert(title: Text("Wrong"), message: Text("This email address is not registered!"))
-                                    case .wrongPassword:
-                                        return Alert(title: Text("Wrong"), message: Text("Password is incorrect!"))
-                                    case .logInSuccess:
-                                        return Alert(title: Text("Success"), message: Text("Welcome to Tunexa!"))
-                                    }
+                                    Alert(title: Text((message=="Welcome to Tunexa!") ? "Success" : "Error"),
+                                        message: Text(message),
+                                        dismissButton: .default(Text((message=="Welcome to Tunexa!") ? "Okay" : "Retry")) {
+                                            showingAlert.toggle()
+                                        }
+                                    )
                                 }
                         }.offset(y: 10)
                     }.offset(y: -60)

@@ -86,7 +86,8 @@
 		EA3B46F32AB04A5700BDF587 /* TunexaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46F22AB04A5700BDF587 /* TunexaTests.swift */; };
 		EA3B46FD2AB04A5700BDF587 /* TunexaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46FC2AB04A5700BDF587 /* TunexaUITests.swift */; };
 		EA3B46FF2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46FE2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift */; };
-		F3E8C7642AB1BFF100B99415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3E8C7632AB1BFF100B99415 /* GoogleService-Info.plist */; };
+		F34469F82ABA6C5D001ECA5B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F34469F72ABA6C5D001ECA5B /* GoogleService-Info.plist */; };
+		F34469FA2ABA6CCC001ECA5B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34469F92ABA6CCC001ECA5B /* User.swift */; };
 		F3E8C7672AB1C1F400B99415 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F3E8C7662AB1C1F400B99415 /* FirebaseAuth */; };
 		F3E8C7692AB1C1F400B99415 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F3E8C7682AB1C1F400B99415 /* FirebaseFirestore */; };
 		F3E8C76B2AB1C1F400B99415 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F3E8C76A2AB1C1F400B99415 /* FirebaseFirestoreCombine-Community */; };
@@ -197,7 +198,8 @@
 		EA3B46F82AB04A5700BDF587 /* TunexaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TunexaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA3B46FC2AB04A5700BDF587 /* TunexaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaUITests.swift; sourceTree = "<group>"; };
 		EA3B46FE2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F3E8C7632AB1BFF100B99415 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F34469F72ABA6C5D001ECA5B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F34469F92ABA6CCC001ECA5B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +279,7 @@
 				9843893C2AB5874B0059D3C8 /* Song.swift */,
 				9843893A2AB587460059D3C8 /* Artist.swift */,
 				9843893E2AB587580059D3C8 /* Category.swift */,
+				F34469F92ABA6CCC001ECA5B /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 		EA3B46DF2AB04A5500BDF587 /* Tunexa */ = {
 			isa = PBXGroup;
 			children = (
+				F34469F72ABA6C5D001ECA5B /* GoogleService-Info.plist */,
 				98B976302AB0531500515EA4 /* Sounds */,
 				98B9762F2AB052F900515EA4 /* Fonts */,
 				984389402AB587920059D3C8 /* Data */,
@@ -426,7 +430,6 @@
 				EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */,
 				EA3B46E42AB04A5700BDF587 /* Assets.xcassets */,
 				984389192AB1B0370059D3C8 /* Info.plist */,
-				F3E8C7632AB1BFF100B99415 /* GoogleService-Info.plist */,
 				EA3B46E62AB04A5700BDF587 /* Tunexa.entitlements */,
 				EA3B46E72AB04A5700BDF587 /* Preview Content */,
 			);
@@ -574,6 +577,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				984389132AB1B02F0059D3C8 /* Nunito-ExtraLightItalic.ttf in Resources */,
+				F34469F82ABA6C5D001ECA5B /* GoogleService-Info.plist in Resources */,
 				984389152AB1B02F0059D3C8 /* Nunito-Italic.ttf in Resources */,
 				984389122AB1B02F0059D3C8 /* Nunito-SemiBoldItalic.ttf in Resources */,
 				984389452AB587AE0059D3C8 /* songs.json in Resources */,
@@ -604,7 +608,6 @@
 				98D4485D2AB9E2E600C6BF77 /* Love Yourself.mp3 in Resources */,
 				984389092AB1B02F0059D3C8 /* Nunito-Light.ttf in Resources */,
 				98D448632AB9E2E600C6BF77 /* Last Dance.mp3 in Resources */,
-				F3E8C7642AB1BFF100B99415 /* GoogleService-Info.plist in Resources */,
 				984389162AB1B02F0059D3C8 /* Nunito-Regular.ttf in Resources */,
 				984389182AB1B02F0059D3C8 /* Nunito-SemiBold.ttf in Resources */,
 				36E72DDA2AB8436D00CA1A87 /* Cô Gái Bàn Bên.mp3 in Resources */,
@@ -648,6 +651,7 @@
 				984389332AB587010059D3C8 /* AccountEditView.swift in Sources */,
 				984389492AB71B000059D3C8 /* ArtistCard.swift in Sources */,
 				98D4478C2AB73BFF00C6BF77 /* AddSongRow.swift in Sources */,
+				F34469FA2ABA6CCC001ECA5B /* User.swift in Sources */,
 				9843894B2AB71B110059D3C8 /* CategoryCard.swift in Sources */,
 				9843892D2AB586CC0059D3C8 /* SongColumn.swift in Sources */,
 				984389392AB587230059D3C8 /* SeachView.swift in Sources */,
