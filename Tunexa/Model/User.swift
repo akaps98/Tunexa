@@ -20,6 +20,7 @@ struct User: Identifiable, Codable {
     var playlist: [String]
     var favorite: [String]
     
+    // fetch user's information from firebase
     static func fetch(completion: @escaping (Result<User, Error>) -> Void) {
         guard let currentUserUID = Auth.auth().currentUser?.uid else {
             completion(.failure(NSError(domain: "", code: 401, userInfo: nil)))
@@ -56,6 +57,7 @@ struct User: Identifiable, Codable {
         }
     }
     
+    // update description and username of the user
     static func updateProfile(newDesc: String, newName: String, completion: @escaping (Error?) -> Void) {
         
         guard let currentUserUID = Auth.auth().currentUser?.uid else {
@@ -83,6 +85,7 @@ struct User: Identifiable, Codable {
     }
     
     
+    // upload profile image to storage and update user's pictureName field accordingly
     static func updateImage(avatar: Data, completion: @escaping (Result<URL, Error>) -> Void) {
         guard let currentUserUID = Auth.auth().currentUser?.uid else {
             print("error 1")
@@ -126,6 +129,7 @@ struct User: Identifiable, Codable {
         }
     }
 
+    // add the song's id to user's favorite array field
     static func addToFavorite(songID: String, completion: @escaping (Error?) -> Void) {
         guard let currentUserUID = Auth.auth().currentUser?.uid else {
             completion(NSError(domain: "", code: 401, userInfo: nil))
@@ -148,6 +152,7 @@ struct User: Identifiable, Codable {
         }
     }
     
+    // delete the song's id from user's favorite array field
     static func deleteFromFavorite(songID: String, completion: @escaping (Error?) -> Void) {
         guard let currentUserUID = Auth.auth().currentUser?.uid else {
             completion(NSError(domain: "", code: 401, userInfo: nil))
@@ -170,6 +175,7 @@ struct User: Identifiable, Codable {
         }
     }
     
+    // add the song's id to user's playlist array field
     static func addToPlaylist(songID: String, completion: @escaping (Error?) -> Void) {
         guard let currentUserUID = Auth.auth().currentUser?.uid else {
             completion(NSError(domain: "", code: 401, userInfo: nil))
@@ -192,6 +198,7 @@ struct User: Identifiable, Codable {
         }
     }
     
+    // delete the song's id from user's playlist array field
     static func deleteFromPlaylist(songID: String, completion: @escaping (Error?) -> Void) {
         guard let currentUserUID = Auth.auth().currentUser?.uid else {
             completion(NSError(domain: "", code: 401, userInfo: nil))

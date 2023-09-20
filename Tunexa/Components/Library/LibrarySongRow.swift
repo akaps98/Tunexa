@@ -10,6 +10,8 @@ import SwiftUI
 struct LibrarySongRow: View {
     let song: Song
     @Binding var editMode: Bool
+    
+    // for updating the library view upon delete button click
     var onDelete: (() -> Void)?
     
     var body: some View {
@@ -64,6 +66,7 @@ struct LibrarySongRow: View {
             }
             Spacer()
             // MARK: DELETE BUTTON
+            // if in edit mode, display the delete button to delete the song from the playlist
             if editMode {
                 Button {
                     if let songId = song.id {
@@ -72,6 +75,7 @@ struct LibrarySongRow: View {
                                 print("Error deleting from playlist: \(error.localizedDescription)")
                             } else {
                                 print("Deleted from playlist successfully.")
+                                // trigger update in the library view
                                 onDelete?()
                             }
                         }
@@ -85,8 +89,6 @@ struct LibrarySongRow: View {
             }
         }
         .padding(.horizontal)
-        .onAppear {
-        }
         
     }
 }

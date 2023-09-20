@@ -17,6 +17,7 @@ struct LibraryView: View {
     @EnvironmentObject var songViewModel: SongViewModel
     
     @State var playlistSongs: [Song] = []
+    //fetch user's saved playlist from firebase
     func getSongs() {
         editMode = false
         User.fetch { result in
@@ -34,6 +35,7 @@ struct LibraryView: View {
     }
     
     @State var pictureName = ""
+    //fetch user's profile image from firebase
     func getImage() {
         User.fetch { result in
             switch result {
@@ -59,8 +61,10 @@ struct LibraryView: View {
                     HStack {
                         HStack {
                             if pictureName == "" {
+                                // if no profile image yet, display default
                                 Image(systemName: "person.circle.fill").font(.system(size: 50))
                             } else {
+                                // if profile image, display the saved image from firebase storage
                                 AsyncImage(url: URL(string: pictureName)){ phase in
                                     if let i = phase.image{
                                         i
@@ -112,6 +116,7 @@ struct LibraryView: View {
                         if !playlistSongs.isEmpty {
                             HStack {
                                 HStack(spacing: 10) {
+                                    // present AddSongView to add songs to the playlist
                                     Button {
                                         editMode = false
                                         showAddSongSheet.toggle()
@@ -126,6 +131,7 @@ struct LibraryView: View {
                                             .environmentObject(SongViewModel())
                                     }
                                     
+                                    // toggle the edit mode to display the delete button in the song row
                                     Button {
                                         editMode.toggle()
                                     } label: {
@@ -197,6 +203,7 @@ struct LibraryView: View {
                                     .environmentObject(SongViewModel())
                             }
                         } else {
+                            // when delete button is tapped (onDelete), the list is updated by getSongs()
                             ForEach(playlistSongs, id: \.self) { song in
                                 LibrarySongRow(song: song, editMode: $editMode, onDelete: {getSongs()})
                             }

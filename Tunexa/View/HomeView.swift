@@ -47,7 +47,7 @@ struct HomeView: View {
                         VStack {
                             // MARK: HEADER
                             HStack {
-                                Text("Good Morning")
+                                Text("Welcome to Tunexa")
                                     .font(.custom("Nunito-Bold", size: 25))
                                 
                                 Spacer()

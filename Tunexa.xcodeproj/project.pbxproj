@@ -52,7 +52,6 @@
 		98B9762C2AB0501700515EA4 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B9762B2AB0501700515EA4 /* Icon.swift */; };
 		98B976362AB0555900515EA4 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B976352AB0555900515EA4 /* LogInView.swift */; };
 		98B976382AB0556000515EA4 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B976372AB0556000515EA4 /* SignUpView.swift */; };
-		98D447862AB73B9D00C6BF77 /* EditPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D447852AB73B9D00C6BF77 /* EditPlaylist.swift */; };
 		98D4478A2AB73BF400C6BF77 /* AddSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D447892AB73BF400C6BF77 /* AddSongView.swift */; };
 		98D4478C2AB73BFF00C6BF77 /* AddSongRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D4478B2AB73BFF00C6BF77 /* AddSongRow.swift */; };
 		98D448502AB9E2E600C6BF77 /* Mockingbird.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98D448392AB9E2E600C6BF77 /* Mockingbird.mp3 */; };
@@ -162,7 +161,6 @@
 		98B9762B2AB0501700515EA4 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		98B976352AB0555900515EA4 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		98B976372AB0556000515EA4 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		98D447852AB73B9D00C6BF77 /* EditPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlaylist.swift; sourceTree = "<group>"; };
 		98D447892AB73BF400C6BF77 /* AddSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSongView.swift; sourceTree = "<group>"; };
 		98D4478B2AB73BFF00C6BF77 /* AddSongRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSongRow.swift; sourceTree = "<group>"; };
 		98D448392AB9E2E600C6BF77 /* Mockingbird.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Mockingbird.mp3; sourceTree = "<group>"; };
@@ -385,7 +383,6 @@
 		98D447842AB73AEF00C6BF77 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				98D447852AB73B9D00C6BF77 /* EditPlaylist.swift */,
 				98D447892AB73BF400C6BF77 /* AddSongView.swift */,
 				98D4478B2AB73BFF00C6BF77 /* AddSongRow.swift */,
 				F3CAFC502ABB97FA00DAEA99 /* LibrarySongRow.swift */,
@@ -662,7 +659,6 @@
 				98D448682AB9E35200C6BF77 /* Rating.swift in Sources */,
 				EA3B46E32AB04A5500BDF587 /* ContentView.swift in Sources */,
 				98B976272AB04FD800515EA4 /* HomeView.swift in Sources */,
-				98D447862AB73B9D00C6BF77 /* EditPlaylist.swift in Sources */,
 				A7F3099B2ABAA97C00AFA486 /* SongViewModel.swift in Sources */,
 				9843893D2AB5874B0059D3C8 /* Song.swift in Sources */,
 				984389282AB586AA0059D3C8 /* CategoryRow.swift in Sources */,

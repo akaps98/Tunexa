@@ -10,12 +10,12 @@ import FirebaseAuth
 
 struct SongRow: View {
     let song: Song
-    
-    @State var favorite: [String] = []
-    @State var isFavorite: Bool = false
         
     @AppStorage("uid") var isLoggedIn: Bool = Auth.auth().currentUser != nil
     
+    // fetch user's saved favorite list from firebase
+    @State var favorite: [String] = []
+    @State var isFavorite: Bool = false
     func fetch() {
         User.fetch { result in
             switch result {
@@ -86,6 +86,7 @@ struct SongRow: View {
             }
             Spacer()
             
+            // if user is logged in, display the heart button for users to add or delete from their favorite list
             if isLoggedIn {
                 // MARK: HEART BUTTON
                 Button {
@@ -126,6 +127,7 @@ struct SongRow: View {
         }
         .padding(.horizontal)
         .onAppear {
+            // if user is logged in, fetch the favorite list on view appear
             if isLoggedIn {
                 fetch()
             }

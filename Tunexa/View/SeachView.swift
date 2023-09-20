@@ -19,7 +19,8 @@ struct SearchView: View {
     @State private var showOnlyFavorites: Bool = false
     var minimumValue = 1.0
     var maximumValue = 5.0
-        
+    
+    // fetch user's saved favorites from firebase
     @State var favoriteList: [String] = []
     func fetchFavorites() {
         User.fetch { result in
@@ -54,6 +55,7 @@ struct SearchView: View {
                         Spacer()
                         
                         if isLoggedIn {
+                            // if user is logged in, display the heart filtering option
                             Button(action: {
                                 showOnlyFavorites.toggle()
                                 if showOnlyFavorites {
@@ -133,6 +135,8 @@ struct SearchView: View {
             return matchesName && matchesRating
         }
     }
+    
+    // filter the songs by the fetched favorite list
     func favoiteSongs() {
         filteredSongs = songViewModel.songs.filter { song in
             return favoriteList.contains(song.id ?? "")

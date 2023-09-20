@@ -9,8 +9,8 @@ import SwiftUI
 
 struct AddSongRow: View {
     let song: Song
-    let isAdded : Bool
     
+    // fetch the user's saved playlist from firebase
     @State var playlist: [String] = []
     func getPlaylist() {
         User.fetch { result in
@@ -69,6 +69,7 @@ struct AddSongRow: View {
             
             // MARK: ADD BUTTON
             if let songId = song.id {
+                // if playlist does not contain the song, display the add button to add the song to the user's playlist
                 if !playlist.contains(songId) {
                     Button {
                         User.addToPlaylist(songID: songId) { error in
@@ -76,6 +77,7 @@ struct AddSongRow: View {
                                 print("Error adding to playlist: \(error.localizedDescription)")
                             } else {
                                 print("Added to playlist successfully.")
+                                // update the playlist
                                 getPlaylist()
                             }
                         }
@@ -87,6 +89,7 @@ struct AddSongRow: View {
                     .padding(.trailing, 5)
                 } else {
                     // MARK: DELETE BUTTON
+                    // if playlist contains the song, display the delete button to delete the song from the user's playlist
                     Button {
                         if let songId = song.id {
                             User.deleteFromPlaylist(songID: songId) { error in
@@ -94,6 +97,7 @@ struct AddSongRow: View {
                                     print("Error deleting from playlist: \(error.localizedDescription)")
                                 } else {
                                     print("Deleted from playlist successfully.")
+                                    // update the playlist
                                     getPlaylist()
                                 }
                             }

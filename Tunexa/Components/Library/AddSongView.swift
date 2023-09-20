@@ -38,7 +38,7 @@ struct AddSongView: View {
                         .padding(.horizontal)
                         
                         ForEach(songViewModel.songs, id: \.id) {song in
-                            AddSongRow(song: song, isAdded: false)
+                            AddSongRow(song: song)
                         }
                     }
                         
