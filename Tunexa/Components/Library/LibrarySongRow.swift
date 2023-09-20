@@ -6,31 +6,11 @@
 //
 
 import SwiftUI
-import FirebaseAuth
 
-struct SongRow: View {
+struct LibrarySongRow: View {
     let song: Song
-    
-    @State var favorite: [String] = []
-    @State var isFavorite: Bool = false
-        
-    @AppStorage("uid") var isLoggedIn: Bool = Auth.auth().currentUser != nil
-    
-    func fetch() {
-        User.fetch { result in
-            switch result {
-            case .success(let fetchedUser):
-                favorite = fetchedUser.favorite
-                if favorite.contains(song.id ?? "") {
-                    isFavorite = true
-                } else {
-                    isFavorite = false
-                }
-            case .failure(let error):
-                print("Error fetching user data: \(error)")
-            }
-        }
-    }
+    @Binding var editMode: Bool
+    var onDelete: (() -> Void)?
     
     var body: some View {
         HStack(alignment: .center) {
@@ -67,8 +47,6 @@ struct SongRow: View {
                     }
                     .padding(.bottom, 2)
                     
-                    // MARK: RATING
-                    Rating(rating: song.rating ?? 0)
                 }
                 // MARK: SONG CATEGORIES
                 HStack {
@@ -85,50 +63,29 @@ struct SongRow: View {
                 .padding(.top, 5)
             }
             Spacer()
-            
-            if isLoggedIn {
-                // MARK: HEART BUTTON
+            // MARK: DELETE BUTTON
+            if editMode {
                 Button {
                     if let songId = song.id {
-                        if favorite.contains(songId) {
-                            User.deleteFromFavorite(songID: songId) { error in
-                                if let error = error {
-                                    print("Error removing from favorite: \(error.localizedDescription)")
-                                } else {
-                                    print("Removed from favorite successfully.")
-                                    fetch()
-                                }
-                            }
-                        } else {
-                            User.addToFavorite(songID: songId) { error in
-                                if let error = error {
-                                    print("Error adding to favorite: \(error.localizedDescription)")
-                                } else {
-                                    print("Added to favorite successfully.")
-                                    fetch()
-                                }
+                        User.deleteFromPlaylist(songID: songId) { error in
+                            if let error = error {
+                                print("Error deleting from playlist: \(error.localizedDescription)")
+                            } else {
+                                print("Deleted from playlist successfully.")
+                                onDelete?()
                             }
                         }
                     }
                 } label: {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(width: 30, height: 30)
-                            .foregroundColor(.clear)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 8).stroke(Color("primary-color"), lineWidth: 1)
-                            )
-                        Image(systemName: isFavorite ? "heart.fill" : "heart")
-                    }
+                    Image(systemName: "minus.circle")
+                        .font(.system(size: 25))
+                        .foregroundColor(Color("primary-color"))
                 }
                 .padding(.trailing, 5)
             }
         }
         .padding(.horizontal)
         .onAppear {
-            if isLoggedIn {
-                fetch()
-            }
         }
         
     }

@@ -89,6 +89,7 @@
 		EA3B46FD2AB04A5700BDF587 /* TunexaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46FC2AB04A5700BDF587 /* TunexaUITests.swift */; };
 		EA3B46FF2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B46FE2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift */; };
 		F34469FA2ABA6CCC001ECA5B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34469F92ABA6CCC001ECA5B /* User.swift */; };
+		F3CAFC512ABB97FA00DAEA99 /* LibrarySongRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CAFC502ABB97FA00DAEA99 /* LibrarySongRow.swift */; };
 		F3E8C7672AB1C1F400B99415 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F3E8C7662AB1C1F400B99415 /* FirebaseAuth */; };
 		F3E8C7692AB1C1F400B99415 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F3E8C7682AB1C1F400B99415 /* FirebaseFirestore */; };
 		F3E8C76B2AB1C1F400B99415 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F3E8C76A2AB1C1F400B99415 /* FirebaseFirestoreCombine-Community */; };
@@ -202,6 +203,7 @@
 		EA3B46FC2AB04A5700BDF587 /* TunexaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaUITests.swift; sourceTree = "<group>"; };
 		EA3B46FE2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunexaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F34469F92ABA6CCC001ECA5B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F3CAFC502ABB97FA00DAEA99 /* LibrarySongRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySongRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +388,7 @@
 				98D447852AB73B9D00C6BF77 /* EditPlaylist.swift */,
 				98D447892AB73BF400C6BF77 /* AddSongView.swift */,
 				98D4478B2AB73BFF00C6BF77 /* AddSongRow.swift */,
+				F3CAFC502ABB97FA00DAEA99 /* LibrarySongRow.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -645,6 +648,7 @@
 				9843892F2AB586E60059D3C8 /* ModelData.swift in Sources */,
 				984389332AB587010059D3C8 /* AccountEditView.swift in Sources */,
 				984389492AB71B000059D3C8 /* ArtistCard.swift in Sources */,
+				F3CAFC512ABB97FA00DAEA99 /* LibrarySongRow.swift in Sources */,
 				98D4478C2AB73BFF00C6BF77 /* AddSongRow.swift in Sources */,
 				F34469FA2ABA6CCC001ECA5B /* User.swift in Sources */,
 				9843894B2AB71B110059D3C8 /* CategoryCard.swift in Sources */,

@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct SearchView: View {
+    @AppStorage("uid") var isLoggedIn: Bool = Auth.auth().currentUser != nil
+    
     @EnvironmentObject var songViewModel: SongViewModel
     @Binding var isDark: Bool
     @State private var name: String = ""
@@ -17,6 +20,18 @@ struct SearchView: View {
     var minimumValue = 1.0
     var maximumValue = 5.0
         
+    @State var favoriteList: [String] = []
+    func fetchFavorites() {
+        User.fetch { result in
+            switch result {
+            case .success(let fetchedUser):
+                favoriteList = fetchedUser.favorite
+            case .failure(let error):
+                print("Error fetching user data: \(error)")
+            }
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -38,18 +53,25 @@ struct SearchView: View {
                         
                         Spacer()
                         
-                        Button(action: {
-                            showOnlyFavorites.toggle()
-                            filterSongs(with: name)
-                        }) {
-                            Image(systemName: showOnlyFavorites ? "heart.fill" : "heart")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 20, height: 20)
-                                .padding(10)
-                                .background(Color("bg-color"))
-                                .clipShape(Circle())
-                                .offset(y: -12)
+                        if isLoggedIn {
+                            Button(action: {
+                                showOnlyFavorites.toggle()
+                                if showOnlyFavorites {
+                                    fetchFavorites()
+                                    favoiteSongs()
+                                } else {
+                                    filterSongs(with: name)
+                                }
+                            }) {
+                                Image(systemName: showOnlyFavorites ? "heart.fill" : "heart")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 20, height: 20)
+                                    .padding(10)
+                                    .background(Color("bg-color"))
+                                    .clipShape(Circle())
+                                    .offset(y: -12)
+                            }
                         }
                         
                     }
@@ -97,6 +119,7 @@ struct SearchView: View {
         }
         .onAppear {
             filteredSongs = songViewModel.songs
+            fetchFavorites()
         }
         .navigationBarTitleDisplayMode(.inline)
         .environment(\.colorScheme, isDark ? .dark : .light) // modify the color sheme based on the state variable
@@ -108,6 +131,11 @@ struct SearchView: View {
             let matchesRating = song.rating ?? 1 >= Int(ratingValue)
 //            let matchesFavorite = !showOnlyFavorites || song.isFavorite
             return matchesName && matchesRating
+        }
+    }
+    func favoiteSongs() {
+        filteredSongs = songViewModel.songs.filter { song in
+            return favoriteList.contains(song.id ?? "")
         }
     }
 }

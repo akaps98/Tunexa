@@ -31,9 +31,6 @@ struct Rating: View {
                 image(for: number)
                     .font(.system(size: 12))
                     .foregroundColor(number > rating ? offColor : onColor)
-                    .onTapGesture {
-                        rating = number
-                    }
             }
         }
     }

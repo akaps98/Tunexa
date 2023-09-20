@@ -18,6 +18,7 @@ struct LibraryView: View {
     
     @State var playlistSongs: [Song] = []
     func getSongs() {
+        editMode = false
         User.fetch { result in
             switch result {
             case .success(let fetchedUser):
@@ -43,6 +44,8 @@ struct LibraryView: View {
             }
         }
     }
+    
+    @State var editMode = false
     
     var body: some View {
         if (isLoggedIn) {
@@ -110,6 +113,7 @@ struct LibraryView: View {
                             HStack {
                                 HStack(spacing: 10) {
                                     Button {
+                                        editMode = false
                                         showAddSongSheet.toggle()
                                     } label: {
                                         Image(systemName: "plus.circle")
@@ -123,11 +127,11 @@ struct LibraryView: View {
                                     }
                                     
                                     Button {
-                                        print("edit")
+                                        editMode.toggle()
                                     } label: {
                                         Image(systemName: "pencil")
                                             .font(.system(size: 25))
-                                            .foregroundColor(Color("text-color"))
+                                            .foregroundColor(Color(!editMode ? "text-color" : "AccentColor"))
                                     }
                                     
                                 }
@@ -138,6 +142,7 @@ struct LibraryView: View {
                                 
                                 HStack(spacing: 10) {
                                     Button {
+                                        editMode = false
                                         print("shuffle")
                                     } label: {
                                         Image(systemName: "shuffle")
@@ -147,6 +152,7 @@ struct LibraryView: View {
                                     
                                     // MARK: PLAY BUTTON
                                     Button {
+                                        editMode = false
                                         print("play playlist")
                                     } label: {
                                         ZStack {
@@ -192,10 +198,10 @@ struct LibraryView: View {
                             }
                         } else {
                             ForEach(playlistSongs, id: \.self) { song in
-                                SongRow(song: song)
+                                LibrarySongRow(song: song, editMode: $editMode, onDelete: {getSongs()})
                             }
                         }
-                        
+
                     }
                 }
             }

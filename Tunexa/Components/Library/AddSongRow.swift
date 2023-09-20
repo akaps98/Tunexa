@@ -10,7 +10,18 @@ import SwiftUI
 struct AddSongRow: View {
     let song: Song
     let isAdded : Bool
-    @State var isFavourite = false
+    
+    @State var playlist: [String] = []
+    func getPlaylist() {
+        User.fetch { result in
+            switch result {
+            case .success(let fetchedUser):
+                playlist = fetchedUser.playlist
+            case .failure(let error):
+                print("Error fetching user data: \(error)")
+            }
+        }
+    }
     
     var body: some View {
         HStack(alignment: .center) {
@@ -57,45 +68,49 @@ struct AddSongRow: View {
             Spacer()
             
             // MARK: ADD BUTTON
-            if !isAdded {
-                Button {
-                    if let songId = song.id {
+            if let songId = song.id {
+                if !playlist.contains(songId) {
+                    Button {
                         User.addToPlaylist(songID: songId) { error in
                             if let error = error {
                                 print("Error adding to playlist: \(error.localizedDescription)")
                             } else {
                                 print("Added to playlist successfully.")
+                                getPlaylist()
                             }
                         }
+                    } label: {
+                        Image(systemName: "plus.circle")
+                            .font(.system(size: 25))
+                            .foregroundColor(Color("third-color"))
                     }
-                } label: {
-                    Image(systemName: "plus.circle")
-                        .font(.system(size: 25))
-                        .foregroundColor(Color("primary-color"))
-                }
-                .padding(.trailing, 5)
-            } else {
-                // MARK: DELETE BUTTON
-                Button {
-                    if let songId = song.id {
-                        User.deleteFromPlaylist(songID: songId) { error in
-                            if let error = error {
-                                print("Error deleting from playlist: \(error.localizedDescription)")
-                            } else {
-                                print("Deleted from playlist successfully.")
+                    .padding(.trailing, 5)
+                } else {
+                    // MARK: DELETE BUTTON
+                    Button {
+                        if let songId = song.id {
+                            User.deleteFromPlaylist(songID: songId) { error in
+                                if let error = error {
+                                    print("Error deleting from playlist: \(error.localizedDescription)")
+                                } else {
+                                    print("Deleted from playlist successfully.")
+                                    getPlaylist()
+                                }
                             }
                         }
+                    } label: {
+                        Image(systemName: "minus.circle")
+                            .font(.system(size: 25))
+                            .foregroundColor(Color("primary-color"))
                     }
-                } label: {
-                    Image(systemName: "minus.circle")
-                        .font(.system(size: 25))
-                        .foregroundColor(Color("primary-color"))
+                    .padding(.trailing, 5)
                 }
-                .padding(.trailing, 5)
             }
         }
         .padding(.horizontal)
-        
+        .onAppear {
+            getPlaylist()
+        }
         
     }
 }
