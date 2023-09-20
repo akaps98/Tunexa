@@ -36,7 +36,6 @@
 		9843893D2AB5874B0059D3C8 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843893C2AB5874B0059D3C8 /* Song.swift */; };
 		9843893F2AB587580059D3C8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843893E2AB587580059D3C8 /* Category.swift */; };
 		984389442AB587AE0059D3C8 /* category.json in Resources */ = {isa = PBXBuildFile; fileRef = 984389412AB587AE0059D3C8 /* category.json */; };
-		984389462AB587AE0059D3C8 /* artist.json in Resources */ = {isa = PBXBuildFile; fileRef = 984389432AB587AE0059D3C8 /* artist.json */; };
 		984389492AB71B000059D3C8 /* ArtistCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984389482AB71B000059D3C8 /* ArtistCard.swift */; };
 		9843894B2AB71B110059D3C8 /* CategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843894A2AB71B110059D3C8 /* CategoryCard.swift */; };
 		98B9761B2AB04F8B00515EA4 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B9761A2AB04F8B00515EA4 /* Modifiers.swift */; };
@@ -119,7 +118,6 @@
 		9843893C2AB5874B0059D3C8 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Song.swift; path = Tunexa/View/Song.swift; sourceTree = SOURCE_ROOT; };
 		9843893E2AB587580059D3C8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Tunexa/Model/Category.swift; sourceTree = SOURCE_ROOT; };
 		984389412AB587AE0059D3C8 /* category.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = category.json; sourceTree = "<group>"; };
-		984389432AB587AE0059D3C8 /* artist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artist.json; sourceTree = "<group>"; };
 		984389482AB71B000059D3C8 /* ArtistCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCard.swift; sourceTree = "<group>"; };
 		9843894A2AB71B110059D3C8 /* CategoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCard.swift; sourceTree = "<group>"; };
 		98B9761A2AB04F8B00515EA4 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 		984389402AB587920059D3C8 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				984389432AB587AE0059D3C8 /* artist.json */,
 				984389412AB587AE0059D3C8 /* category.json */,
 			);
 			path = Data;
@@ -492,7 +489,6 @@
 				9843890D2AB1B02F0059D3C8 /* Nunito-Bold.ttf in Resources */,
 				984389142AB1B02F0059D3C8 /* Nunito-LightItalic.ttf in Resources */,
 				EA3B46E92AB04A5700BDF587 /* Preview Assets.xcassets in Resources */,
-				984389462AB587AE0059D3C8 /* artist.json in Resources */,
 				984389442AB587AE0059D3C8 /* category.json in Resources */,
 				984389172AB1B02F0059D3C8 /* Nunito-BoldItalic.ttf in Resources */,
 				9843890F2AB1B02F0059D3C8 /* Nunito-ExtraLight.ttf in Resources */,

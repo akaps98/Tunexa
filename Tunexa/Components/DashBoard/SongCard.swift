@@ -25,10 +25,14 @@ struct SongCard: View {
         var cancellables: Set<AnyCancellable> = []
     }
     
+    @State private var isLoading = true
+
     // This initializes the player and sets up the notification listener
     func setupPlayer() {
         currentSongIndex = songs.firstIndex(of: song) ?? 0
-        playSound.changeSong(fileName: currentSong.name ?? "", fileType: "mp3", fileURL: currentSong.songURL ?? "")
+        playSound.changeSong(fileName: currentSong.name ?? "", fileType: "mp3", fileURL: currentSong.songURL ?? "") {
+            isLoading = false
+        }
 //        playSound.play()
 
         NotificationCenter.default.publisher(for: .songDidFinishPlaying)
@@ -40,10 +44,13 @@ struct SongCard: View {
     }
     
     private func switchSong(to index: Int, source: String? = nil) {
+        isLoading = true
         // If repeating is on and the function isn't called by user interaction (forward or backward tap)
         if isRepeating && source == nil {
             playSound.stop()
-            playSound.changeSong(fileName: currentSong.name ?? "", fileType: "mp3", fileURL: currentSong.songURL ?? "")
+            playSound.changeSong(fileName: currentSong.name ?? "", fileType: "mp3", fileURL: currentSong.songURL ?? "") {
+                isLoading = false
+            }
 //            playSound.play()
             return
         }
@@ -66,7 +73,9 @@ struct SongCard: View {
         currentSongIndex = newIndex
 
         // Initialize the player with the new song
-        playSound.changeSong(fileName: currentSong.name ?? "", fileType: "mp3", fileURL: currentSong.songURL ?? "")
+        playSound.changeSong(fileName: currentSong.name ?? "", fileType: "mp3", fileURL: currentSong.songURL ?? "") {
+            isLoading = false
+        }
 //        playSound.play()
     }
 
@@ -94,15 +103,30 @@ struct SongCard: View {
         ZStack {
             Color("bg-color")
                 .edgesIgnoringSafeArea(.all)
+            
+            if isLoading {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                    .frame(width: 200, height: 80)
+                    .foregroundColor(.blue)
+                    .overlay(
+                        Text("Loading song...")
+                            .font(.custom("Nunito", size: 20))
+                            .foregroundColor(.blue)
+                            .offset(y:27)
+                    )
+                    .offset(y:80)
+            }
+            
             VStack {
                 // MARK: HEADER
                 HStack(spacing: 10) {
                     Button {
+                        // Stop sound
+                        playSound.stop()
+                        
                         // Remove the current view and return to the previous view
                         presentationMode.wrappedValue.dismiss()
-                        
-                        // Stop sound
-//                        playSound.stop()
                     } label: {
                         Image(systemName: "chevron.backward")
                             .font(.system(size: 25))

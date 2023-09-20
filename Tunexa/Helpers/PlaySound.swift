@@ -92,41 +92,38 @@ class PlaySound: NSObject, ObservableObject {
         timer = nil
     }
     
-    func changeSong(fileName: String, fileType: String, fileURL: String) {
-        if let path = Bundle.main.path(forResource: fileName, ofType: fileType) {
-            let url = URL(fileURLWithPath: path)
+    func changeSong(fileName: String, fileType: String, fileURL: String, completion: @escaping () -> Void) {
+        guard let url = URL(string: fileURL) else {
+                print("Invalid URL: \(fileURL)")
+                return
+            }
+
+        URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
+            guard let self = self else { return }
+            
+            if let error = error {
+                print("Error fetching audio data: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let soundData = data else {
+                print("No audio data received.")
+                return
+            }
+            
             do {
-                audioPlayer = try AVAudioPlayer(contentsOf: url)
-                audioPlayer?.delegate = self  // Make sure to set the delegate for new song as well
-                audioPlayer?.prepareToPlay()
+                self.audioPlayer = try AVAudioPlayer(data: soundData)
+                self.audioPlayer?.delegate = self
+                self.audioPlayer?.prepareToPlay()
                 DispatchQueue.main.async {
                     self.stop()
                     self.play()
+                    completion()
                 }
             } catch {
                 print("Error loading audio file: \(error.localizedDescription)")
             }
-        } else if let url = URL(string: fileURL){   // Get song url from the database if there is no local file for the song
-            do{
-                URLSession.shared.dataTask(with: url){ (data, response, error) in
-                    guard let soundData = data else {return}
-                    do{
-                        self.audioPlayer = try AVAudioPlayer(data: soundData)
-                        self.audioPlayer?.delegate = self  // Set the delegate here
-                        self.audioPlayer?.prepareToPlay()
-                        DispatchQueue.main.async { // Play music when song is retrieved from the url
-                            self.stop()
-                            self.play()
-                        }
-                    }catch{
-                        print("Error loading audio file: \(error.localizedDescription)")
-                    }
-                }.resume()
-            }
-        }
-        else{
-            print("Audio file for \(fileName) not found.")
-        }
+        }.resume()
     }
 }
 
