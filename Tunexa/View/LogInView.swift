@@ -19,7 +19,6 @@ struct LogInView: View {
     // for Iphone faceID usage check
     func getBioMetricStatus()->Bool{
         let scanner = LAContext()
-        print(scanner.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: .none))
         return scanner.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: .none)
     }
 
