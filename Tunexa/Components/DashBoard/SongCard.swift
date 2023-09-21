@@ -44,6 +44,7 @@ struct SongCard: View {
     }
     
     private func switchSong(to index: Int, source: String? = nil) {
+        // set isLoading for the fetching song file time
         isLoading = true
         // If repeating is on and the function isn't called by user interaction (forward or backward tap)
         if isRepeating && source == nil {
@@ -104,6 +105,7 @@ struct SongCard: View {
             Color("bg-color")
                 .edgesIgnoringSafeArea(.all)
             
+            // When the song file is being fetched, a progress view is displayed with buttons disabled
             if isLoading {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle(tint: .blue))

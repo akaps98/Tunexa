@@ -15,46 +15,6 @@ class PlaySound: NSObject, ObservableObject {
     private var audioPlayer: AVAudioPlayer?
     private var timer: Timer?
     
-//    init(fileName: String = "", fileType: String = "", fileURL: String = "") {
-//        super.init() // Add this line because we are now subclassing from NSObject
-//        print("local")
-//        if let path = Bundle.main.path(forResource: fileName, ofType: fileType) {
-//            let url = URL(fileURLWithPath: path)
-//            do {
-//                audioPlayer = try AVAudioPlayer(contentsOf: url)
-//                audioPlayer?.delegate = self  // Set the delegate here
-//                audioPlayer?.prepareToPlay()
-//                DispatchQueue.main.async {
-//                    self.stop()
-//                    self.play()
-//                }
-//            } catch {
-//                print("Error loading audio file: \(error.localizedDescription)")
-//            }
-//        } else if let url = URL(string: fileURL){   // Get song url from the database if there is no local file for the song
-//            do{
-//                print("fetching")
-//                URLSession.shared.dataTask(with: url){ (data, response, error) in
-//                    guard let soundData = data else {return}
-//                    do{
-//                        self.audioPlayer = try AVAudioPlayer(data: soundData)
-//                        self.audioPlayer?.delegate = self  // Set the delegate here
-//                        self.audioPlayer?.prepareToPlay()
-//                        DispatchQueue.main.async { // Play music when song is retrieved from the url
-//                            self.stop()
-//                            self.play()
-//                        }
-//                    }catch{
-//                        print("Error loading audio file: \(error.localizedDescription)")
-//                    }
-//                }.resume()
-//            }
-//        }
-//        else{
-//            print("Audio file for \(fileName) not found.")
-//        }
-//    }
-    
     func play() {
         audioPlayer?.play()
         isPlaying = true
