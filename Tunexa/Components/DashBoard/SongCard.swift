@@ -132,6 +132,7 @@ struct SongCard: View {
                             .font(.system(size: 25))
                             .foregroundColor(Color("text-color"))
                     }
+                    .disabled(isLoading)
                     
                     Spacer()
                     
@@ -220,6 +221,7 @@ struct SongCard: View {
                                 .font(.system(size: 22))
                                 .foregroundColor(isRepeating ? .blue : Color("text-color"))
                         }
+                        .disabled(isLoading)
                         Button {
                             switchSong(to: currentSongIndex - 1, source: "userInteraction")
                         } label: {
@@ -227,6 +229,7 @@ struct SongCard: View {
                                 .font(.system(size: 22))
                                 .foregroundColor(Color("text-color"))
                         }
+                        .disabled(isLoading)
                     }
                     
                     Spacer()
@@ -242,6 +245,7 @@ struct SongCard: View {
                             .font(.system(size: 50))
                             .foregroundColor(Color("text-color"))
                     }
+                    .disabled(isLoading)
                     
                     Spacer()
                     
@@ -253,6 +257,7 @@ struct SongCard: View {
                                 .font(.system(size: 22))
                                 .foregroundColor(Color("text-color"))
                         }
+                        .disabled(isLoading)
                         Button {
                             print("Shuffle tapped")
                             isShuffling.toggle()
@@ -261,6 +266,7 @@ struct SongCard: View {
                                 .font(.system(size: 22))
                                 .foregroundColor(isShuffling ? .blue : Color("text-color"))
                         }
+                        .disabled(isLoading)
                     }
                     
                     Spacer()
