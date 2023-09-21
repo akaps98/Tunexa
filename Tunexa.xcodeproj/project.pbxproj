@@ -325,6 +325,7 @@
 		EA3B46DF2AB04A5500BDF587 /* Tunexa */ = {
 			isa = PBXGroup;
 			children = (
+				F3DE6BD52ABC0A4500C9A072 /* Sounds */,
 				A7F309982ABAA96200AFA486 /* GoogleService-Info.plist */,
 				98B9762F2AB052F900515EA4 /* Fonts */,
 				984389402AB587920059D3C8 /* Data */,
@@ -365,6 +366,13 @@
 				EA3B46FE2AB04A5700BDF587 /* TunexaUITestsLaunchTests.swift */,
 			);
 			path = TunexaUITests;
+			sourceTree = "<group>";
+		};
+		F3DE6BD52ABC0A4500C9A072 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
