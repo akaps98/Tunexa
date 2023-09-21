@@ -32,7 +32,7 @@ struct ContentView: View {
                 }
             
         }
-        //.environmentObject(SongViewModel())
+        .environmentObject(SongViewModel())
     }
 }
 

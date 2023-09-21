@@ -59,7 +59,6 @@ struct SearchView: View {
                             Button(action: {
                                 showOnlyFavorites.toggle()
                                 if showOnlyFavorites {
-                                    fetchFavorites()
                                     favoiteSongs()
                                 } else {
                                     filterSongs(with: name)
@@ -82,7 +81,7 @@ struct SearchView: View {
                     // MARK: BODY
                     VStack {
                         ForEach(filteredSongs, id: \.self) { song in
-                            SongRow(song: song)
+                            SongRow(song: song, onEdit: {fetchFavorites()})
                         }
                     }
                 }

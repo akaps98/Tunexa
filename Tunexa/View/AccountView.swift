@@ -8,10 +8,20 @@
 import SwiftUI
 import PhotosUI
 import FirebaseAuth
+import LocalAuthentication
 
 struct AccountView: View {
     // MARK: - VARIABLES
     @AppStorage("uid") var isLoggedIn: Bool = Auth.auth().currentUser != nil
+    @AppStorage("useFaceId") var useFaceId = false
+    @AppStorage("faceIdEmail") var faceIdEmail = ""
+    @AppStorage("faceIdPassword") var faceIdPassword = ""
+    
+    // for iPhone faceID usage check
+    func getBioMetricStatus()->Bool{
+        let scanner = LAContext()
+        return scanner.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: .none)
+    }
     
     @Binding var isDark: Bool
     
@@ -83,20 +93,48 @@ struct AccountView: View {
                                 Group {
                                     Image(systemName: "info.circle")
                                         .resizable()
-                                        .frame(width: 40, height: 40)
+                                        .frame(width: 30, height: 30)
                                     // MARK: - INTRODUCTION
                                     
                                     GroupBox(label:
                                                 Label("\(Image(systemName: "pencil.line"))  Introduction", systemImage: "")
-                                        .font(.custom("Nunito-SemiBold", size: 26))
+                                        .font(.custom("Nunito-SemiBold", size: 25))
                                     ) {
                                         ScrollView(.vertical, showsIndicators: true) {
                                             Text(user.description)
-                                                .font(.custom("Nunito-Light", size: 28))
+                                                .font(.custom("Nunito-Light", size: 25))
                                                 .multilineTextAlignment(.center)
                                         }
-                                        .frame(height: 140)
+                                        //.frame(height: 90)
+                                        .frame(height: (useFaceId && faceIdEmail == user.email && getBioMetricStatus()) ? 90 : 145)
                                     }
+                                    // MARK: - FACE ID
+                                    // show only if the iphone's faceID usage is allowed
+                                    if getBioMetricStatus() {
+                                        // if user using the faceID to logged in is logged in
+                                        if useFaceId && faceIdEmail == user.email {
+                                            // When toggled to false, reset the faceID account info to empty string
+                                            Toggle(isOn: Binding(get: { useFaceId }, set: { newValue in
+                                                useFaceId = newValue
+                                                if !newValue {
+                                                    print("reset")
+                                                    faceIdEmail = ""
+                                                    faceIdPassword = ""
+                                                }
+                                            })) {
+                                                Text("Use FaceID to login to this account")
+                                                    .foregroundColor(Color("light-gray"))
+                                                    .font(.custom("Nunito-Bold", size: 17))
+                                            }
+                                            .frame(width: 290)
+                                        }
+                                    }
+                                    
+                                    // delete this when faceID is applied successfully
+//                                    Toggle(isOn: $useFaceId) {
+//                                        Text("faceID (temporary)")
+//                                    }.frame(width:290).padding(7)
+                                    
                                     // MARK: - LOGOUT BUTTON
                                     Button {
                                         let firebaseAuth = Auth.auth()
@@ -115,8 +153,8 @@ struct AccountView: View {
                                             .background(
                                                 RoundedRectangle(cornerRadius: 10)
                                             )
-                                            .padding()
-                                    }.offset(y: 10)
+                                            .padding(10)
+                                    }
                                 }.offset(y: -80)
                             }
                         }

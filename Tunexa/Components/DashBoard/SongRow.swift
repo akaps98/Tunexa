@@ -32,6 +32,9 @@ struct SongRow: View {
         }
     }
     
+    // for updating the search view upon favorite list edit
+    var onEdit: (() -> Void)?
+    
     var body: some View {
         HStack(alignment: .center) {
             // MARK: SONG IMAGE
@@ -98,6 +101,8 @@ struct SongRow: View {
                                 } else {
                                     print("Removed from favorite successfully.")
                                     fetch()
+                                    // trigger update in the search view
+                                    onEdit?()
                                 }
                             }
                         } else {
@@ -107,6 +112,8 @@ struct SongRow: View {
                                 } else {
                                     print("Added to favorite successfully.")
                                     fetch()
+                                    // trigger update in the search view
+                                    onEdit?()
                                 }
                             }
                         }
@@ -135,4 +142,3 @@ struct SongRow: View {
         
     }
 }
-

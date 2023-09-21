@@ -88,7 +88,7 @@ struct AccountEditView: View {
                         }
                     Image(systemName: "info.circle")
                         .resizable()
-                        .frame(width: 40, height: 40)
+                        .frame(width: 30, height: 30)
                     // MARK: - NEW PASSWORD TEXTFIELD
                     Text("Username")
                         .font(.custom("Nunito-Bold", size: 26))
@@ -107,7 +107,7 @@ struct AccountEditView: View {
                         .lineLimit(3, reservesSpace: true)
                         .multilineTextAlignment(.leading)
                         .padding()
-                        .frame(width: 300, height: 150)
+                        .frame(width: 300, height: 125)
                         .background(Color.black.opacity(0.07))
                         .cornerRadius(10)
                         .font(.custom("Nunito-Bold", size: 22))

@@ -62,12 +62,6 @@ struct SignUpView: View {
                             .background(Color.black.opacity(0.07))
                             .cornerRadius(10)
                             .font(.custom("Nunito-Bold", size: 22))
-                        // MARK: - LINK TO LOGIN VIEW
-                        Button {
-                            presentationMode.wrappedValue.dismiss()
-                        } label: {
-                            Text("I have an account!")
-                        }
                         // MARK: - REGISTER BUTTON
                         Button {
                             if (password == checkPassword) {
@@ -138,10 +132,17 @@ struct SignUpView: View {
                                     )
                                 }
                         }.offset(y: 10)
+                        // MARK: - LINK TO LOGIN VIEW
+                        Button {
+                            presentationMode.wrappedValue.dismiss()
+                        } label: {
+                            Text("I have an account!")
+                        }
                     }.offset(y: -60)
                 }
-            }
-        }.navigationBarBackButtonHidden(true)
+            }.offset(y:60)
+        }
+        .navigationBarBackButtonHidden(true)
          .environment(\.colorScheme, isDark ? .dark : .light) // modify the color sheme based on the state variable
     }
 }
