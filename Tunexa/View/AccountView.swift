@@ -13,6 +13,7 @@ import LocalAuthentication
 struct AccountView: View {
     // MARK: - VARIABLES
     @AppStorage("uid") var isLoggedIn: Bool = Auth.auth().currentUser != nil
+    @AppStorage("isAdmin") var isAdmin: Bool = false
     @AppStorage("useFaceId") var useFaceId = false
     @AppStorage("faceIdEmail") var faceIdEmail = ""
     @AppStorage("faceIdPassword") var faceIdPassword = ""
@@ -139,6 +140,7 @@ struct AccountView: View {
                                     do {
                                         try firebaseAuth.signOut()
                                         isLoggedIn = false
+                                        isAdmin = false
                                     } catch let signOutError as NSError {
                                         print("Error signing out: %@", signOutError)
                                     }

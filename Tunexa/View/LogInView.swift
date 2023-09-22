@@ -23,6 +23,7 @@ import LocalAuthentication
 struct LogInView: View {
     // MARK: ***** PROPERTIES *****
     @AppStorage("uid") var isLoggedIn: Bool = Auth.auth().currentUser != nil
+    @AppStorage("isAdmin") var isAdmin: Bool = false
     
     @AppStorage("useFaceId") var useFaceId = false
     @AppStorage("faceIdEmail") var faceIdEmail = ""
@@ -96,6 +97,11 @@ struct LogInView: View {
                                                     _ = try await Auth.auth().signIn(withEmail: faceIdEmail, password: faceIdPassword)
                                                     isLoggedIn = true
                                                     message = "Welcome to Tunexa!"
+                                                    if (faceIdEmail == "Admin@email.com") {
+                                                        isAdmin = true
+                                                    } else {
+                                                        isAdmin = false
+                                                    }
                                                 } catch {
                                                     // Firebase authentication error
                                                     message = error.localizedDescription
@@ -159,7 +165,6 @@ struct LogInView: View {
                             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                                 if let error = error as NSError? {
                                     message = error.localizedDescription
-                                    showingAlert.toggle()
                                     return
                                 }
                                 if authResult != nil {
@@ -170,8 +175,13 @@ struct LogInView: View {
                                     }
                                     isLoggedIn = true
                                     message = "Welcome to Tunexa!"
-                                    showingAlert.toggle()
+                                    if (email == "Admin@email.com") {
+                                        isAdmin = true
+                                    } else {
+                                        isAdmin = false
+                                    }
                                 }
+                                showingAlert.toggle()
                             }
                         } label: {
                             Text("Log in")

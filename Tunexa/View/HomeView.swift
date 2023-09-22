@@ -25,6 +25,7 @@ struct HomeView: View {
     let colors : [Color] = [.red, .orange, .blue, .green, .cyan, .indigo, .pink, .yellow, .brown, .teal] // Colors for category cards
     let columns = 2 // # columns for category alignment in vertical grid
     @Binding var isDark: Bool // dark theme indicator
+    @AppStorage("isAdmin") var isAdmin: Bool = false // check if user is admin
     
     // Checking filter status to display songs, artists, and categories accordingly
     @State var showAll = true
@@ -185,14 +186,16 @@ struct HomeView: View {
                         ToolbarItem(placement: .navigationBarTrailing){
                             HStack(spacing: 10) {
                                 // MARK: ADMIN DASHBOARD BUTTON
-                                NavigationLink {
-                                    AdminDashboardView()
-                                } label: {
-                                    Image(systemName: "gearshape")
-                                        .font(.system(size: 20))
-                                        .foregroundColor(Color("text-color"))
+                                // display the gear button only if the user is Admin
+                                if isAdmin {
+                                    NavigationLink {
+                                        AdminDashboardView()
+                                    } label: {
+                                        Image(systemName: "gearshape")
+                                            .font(.system(size: 20))
+                                            .foregroundColor(Color("text-color"))
+                                    }
                                 }
-                                
                                 // MARK: DARK THEME TOGGLE BUTTON
                                 Button {
                                     isDark.toggle()
