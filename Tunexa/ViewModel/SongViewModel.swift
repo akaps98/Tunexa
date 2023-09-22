@@ -3,22 +3,21 @@
   Course: COSC2659 iOS Development
   Semester: 2023B
   Assessment: Assignment 3
-  Author: Seongjoon Hong
-  ID: 3726123
+  Team: Squad 21 (Group 21)
+  Members:
+  1. Nguyen Anh Duy (s3878141)
+  2. Seoungjoon Hong (s3726123) - Main Contributor
+  3. Junsik Kang (s3916884)
+  4. Christina Yoo (s3938331) - Sub Contributor
+  5. Nguyen Hoang Viet (s3926104)
   Created  date: 13/09/2023
   Last modified: 18/09/2023
   Acknowledgement:
- Upload files with Cloud Storage on Apple platforms - https://firebase.google.com/docs/storage/ios/upload-files
- Delete files with Cloud Storage on Apple platforms - https://firebase.google.com/docs/storage/ios/delete-files
- Map Cloud Firestore data with Swift Codable - https://firebase.google.com/docs/firestore/solutions/swift-codable-data-mapping
- How can I retrieve local files with NSURL? - https://stackoverflow.com/questions/28419188/how-can-i-retrieve-local-files-with-nsurl
+  - Upload files with Cloud Storage on Apple platforms - https://firebase.google.com/docs/storage/ios/upload-files
+  - Delete files with Cloud Storage on Apple platforms - https://firebase.google.com/docs/storage/ios/delete-files
+  - Map Cloud Firestore data with Swift Codable - https://firebase.google.com/docs/firestore/solutions/swift-codable-data-mapping
+  - How can I retrieve local files with NSURL? - https://stackoverflow.com/questions/28419188/how-can-i-retrieve-local-files-with-nsurl
 */
-//
-//  SongViewModel.swift
-//  Tunexa
-//
-//  Created by SeongJoon, Hong  on 13/09/2023.
-//
 
 import CoreData
 import FirebaseFirestore

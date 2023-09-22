@@ -1,10 +1,19 @@
-//
-//  User.swift
-//  Tunexa
-//
-//  Created by Christina Yoo on 15/09/2023.
-//
-
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 3
+  Team: Squad 21 (Group 21)
+  Members:
+  1. Nguyen Anh Duy (s3878141)
+  2. Seoungjoon Hong (s3726123)
+  3. Junsik Kang (s3916884)
+  4. Christina Yoo (s3938331) - Main Contributor
+  5. Nguyen Hoang Viet (s3926104)
+  Created date: 15/09/2023
+  Last modified: 20/09/2023
+  Acknowledgement: None
+*/
 import Foundation
 import SwiftUI
 import FirebaseAuth
@@ -20,7 +29,9 @@ struct User: Identifiable, Codable {
     var playlist: [String]
     var favorite: [String]
     
-    // fetch user's information from firebase
+    /**
+     Function: fetch user's information from firebase
+     */
     static func fetch(completion: @escaping (Result<User, Error>) -> Void) {
         guard let currentUserUID = Auth.auth().currentUser?.uid else {
             completion(.failure(NSError(domain: "", code: 401, userInfo: nil)))
@@ -57,7 +68,9 @@ struct User: Identifiable, Codable {
         }
     }
     
-    // update description and username of the user
+    /**
+     Function: update user's information to the database (description and username)
+     */
     static func updateProfile(newDesc: String, newName: String, completion: @escaping (Error?) -> Void) {
         
         guard let currentUserUID = Auth.auth().currentUser?.uid else {
@@ -84,8 +97,9 @@ struct User: Identifiable, Codable {
         }
     }
     
-    
-    // upload profile image to storage and update user's pictureName field accordingly
+    /**
+     Function: upload profile image to storage and update user's pictureName field accordingly
+     */
     static func updateImage(avatar: Data, completion: @escaping (Result<URL, Error>) -> Void) {
         guard let currentUserUID = Auth.auth().currentUser?.uid else {
             print("error 1")
@@ -129,7 +143,9 @@ struct User: Identifiable, Codable {
         }
     }
 
-    // add the song's id to user's favorite array field
+    /**
+     Function: add the song's id to user's favorite array field
+     */
     static func addToFavorite(songID: String, completion: @escaping (Error?) -> Void) {
         guard let currentUserUID = Auth.auth().currentUser?.uid else {
             completion(NSError(domain: "", code: 401, userInfo: nil))
@@ -152,7 +168,9 @@ struct User: Identifiable, Codable {
         }
     }
     
-    // delete the song's id from user's favorite array field
+    /**
+     Function: delete the song's id from user's favorite array field
+     */
     static func deleteFromFavorite(songID: String, completion: @escaping (Error?) -> Void) {
         guard let currentUserUID = Auth.auth().currentUser?.uid else {
             completion(NSError(domain: "", code: 401, userInfo: nil))
@@ -175,7 +193,9 @@ struct User: Identifiable, Codable {
         }
     }
     
-    // add the song's id to user's playlist array field
+    /**
+     Function: add the song's id from user's playlist array field
+     */
     static func addToPlaylist(songID: String, completion: @escaping (Error?) -> Void) {
         guard let currentUserUID = Auth.auth().currentUser?.uid else {
             completion(NSError(domain: "", code: 401, userInfo: nil))
@@ -198,6 +218,9 @@ struct User: Identifiable, Codable {
         }
     }
     
+    /**
+     Function: delete the song's id from user's playlist array field
+     */
     // delete the song's id from user's playlist array field
     static func deleteFromPlaylist(songID: String, completion: @escaping (Error?) -> Void) {
         guard let currentUserUID = Auth.auth().currentUser?.uid else {

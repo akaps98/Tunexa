@@ -1,13 +1,27 @@
-//
-//  ContentView.swift
-//  Tunexa
-//
-//  Created by Tony on 2023/09/12.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 3
+  Team: Squad 21 (Group 21)
+  Members:
+  1. Nguyen Anh Duy (s3878141)
+  2. Seoungjoon Hong (s3726123)
+  3. Junsik Kang (s3916884)
+  4. Christina Yoo (s3938331)
+  5. Nguyen Hoang Viet (s3926104)
+  [Equal Contribution]
+  Created date: 12/09/2023
+  Last modified: 22/09/2023
+  Acknowledgement:
+  - TabView:
+  - Customized background color for Tabbar: 
+*/
 
 import SwiftUI
 
 struct ContentView: View {
+    // MARK: ***** PROPERTIES *****
     @State var isDark: Bool = false
     @EnvironmentObject var songViewModel: SongViewModel
     
@@ -17,7 +31,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
-                .toolbarBackground(.visible, for: .tabBar)
+                .toolbarBackground(.visible, for: .tabBar) // Customize static background color for TabView
             
             SearchView(isDark: $isDark)
                 .tabItem {

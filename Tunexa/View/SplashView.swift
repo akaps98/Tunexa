@@ -1,9 +1,21 @@
-//
-//  SplashScreen.swift
-//  Tunexa
-//
-//  Created by Nguyễn Anh Duy on 12/09/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 3
+  Team: Squad 21 (Group 21)
+  Members:
+  1. Nguyen Anh Duy (s3878141) - Main Contributor
+  2. Seoungjoon Hong (s3726123)
+  3. Junsik Kang (s3916884)
+  4. Christina Yoo (s3938331)
+  5. Nguyen Hoang Viet (s3926104)
+  Created date: 12/09/2023
+  Last modified: 12/09/2023
+  Acknowledgement:
+ - Custom Splash Screen: https://www.youtube.com/watch?v=0ytO3wCRKZU&ab_channel=Indently
+ - How to run code after a delay using asyncafter and perform: https://www.hackingwithswift.com/example-code/system/how-to-run-code-after-a-delay-using-asyncafter-and-perform
+*/
 
 import SwiftUI
 

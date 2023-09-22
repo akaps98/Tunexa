@@ -1,25 +1,43 @@
-//
-//  DashBoardView.swift
-//  Tunexa
-//
-//  Created by Nguyễn Anh Duy on 12/09/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 3
+  Team: Squad 21 (Group 21)
+  Members:
+  1. Nguyen Anh Duy (s3878141) - Main Contributor
+  2. Seoungjoon Hong (s3726123) - Main Contributor
+  3. Junsik Kang (s3916884)
+  4. Christina Yoo (s3938331)
+  5. Nguyen Hoang Viet (s3926104)
+  Created date: 12/09/2023
+  Last modified: 22/09/2023
+  Acknowledgement:
+  - Horizontal Scroll View:
+  - LazyVGrid: 
+*/
 
 
 import SwiftUI
 
 struct HomeView: View {
     // MARK: ***** PROPERTIES *****
-    @EnvironmentObject var songViewModel: SongViewModel
-    let colors : [Color] = [.red, .orange, .blue, .green, .cyan, .indigo, .pink, .yellow, .brown, .teal]
-    let columns = 2
-    @Binding var isDark: Bool
+    let colors : [Color] = [.red, .orange, .blue, .green, .cyan, .indigo, .pink, .yellow, .brown, .teal] // Colors for category cards
+    let columns = 2 // # columns for category alignment in vertical grid
+    @Binding var isDark: Bool // dark theme indicator
+    
+    // Checking filter status to display songs, artists, and categories accordingly
     @State var showAll = true
     @State var showMusicOnly = false
     @State var showCategoryOnly = false
     @State var showArtistOnly = false
-    @State private var artists: [String: String] = [:]
     
+    @EnvironmentObject var songViewModel: SongViewModel
+    @State private var artists: [String: String] = [:] // Fetch artist dictionary from database
+    
+    /**
+     Function: Set showing status for all songs, artists, and categories
+     */
     func setShowAll() {
         if !showMusicOnly && !showArtistOnly && !showCategoryOnly {
             showAll = true
@@ -28,6 +46,9 @@ struct HomeView: View {
         }
     }
     
+    /**
+     Function: Get the artist data
+     */
     func getAttributes(){
         for song in songViewModel.songs{
             artists[song.author[0]!] = song.author[1] ?? ""
@@ -37,56 +58,43 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                // MARK: -----BACKGROUND-----
+                // MARK: ----- BACKGROUND -----
                 Color("bg-color")
                     .edgesIgnoringSafeArea(.all)
                 
-                // MARK: -----CONTENT-----
+                // MARK: ----- CONTENT -----
                 ScrollView {
                     VStack {
-                        // MARK: FILTER OPTIONS
+                        // MARK: FILTER BUTTONS
                         HStack {
+                            // SONG BUTTON
                             Button {
-                                showMusicOnly.toggle()
+                                showMusicOnly.toggle() // Show song data only
                                 showArtistOnly = false
                                 showCategoryOnly = false
                                 setShowAll()
                             } label: {
-                                Text("Music")
-                                    .font(.custom("Nunito-Medium", size: 16))
-                                    .foregroundColor(showMusicOnly ? .white : Color("text-color"))
-                                    .padding(.horizontal, 25)
-                                    .padding([.top, .bottom], 5)
-                                    .background(Color(showMusicOnly ? "secondary-color" : "light-gray"), in: Capsule())
+                                FilterCapsule(buttonName: "Music", show: showMusicOnly)
                             }
                             
+                            // ARTIST BUTTON
                             Button {
-                                showArtistOnly.toggle()
+                                showArtistOnly.toggle() // Show artist data only
                                 showMusicOnly = false
                                 showCategoryOnly = false
                                 setShowAll()
                             } label: {
-                                Text("Artists")
-                                    .font(.custom("Nunito-Medium", size: 16))
-                                    .foregroundColor(showArtistOnly ? .white : Color("text-color"))
-                                    .padding(.horizontal, 25)
-                                    .padding([.top, .bottom], 5)
-                                    .background(Color(showArtistOnly ? "secondary-color" : "light-gray"), in: Capsule())
-                                
+                                FilterCapsule(buttonName: "Artist", show: showArtistOnly)
                             }
                             
+                            // CATEGORY BUTTON
                             Button {
-                                showCategoryOnly.toggle()
+                                showCategoryOnly.toggle() // Show category data only
                                 showArtistOnly = false
                                 showMusicOnly = false
                                 setShowAll()
                             } label: {
-                                Text("Categories")
-                                    .font(.custom("Nunito-Medium", size: 16))
-                                    .foregroundColor(showCategoryOnly ? .white : Color("text-color"))
-                                    .padding(.horizontal, 25)
-                                    .padding([.top, .bottom], 5)
-                                    .background(Color(showCategoryOnly ? "secondary-color" : "light-gray"), in: Capsule())
+                                FilterCapsule(buttonName: "Categories", show: showCategoryOnly)
                                 
                             }
                             
@@ -99,7 +107,7 @@ struct HomeView: View {
                         if showAll || showMusicOnly {
                             HStack {
                                 Text("All Songs")
-                                    .font(.custom("Nunito-ExtraBold", size: 22))
+                                    .modifier(TextHeaderModifier())
                                 Spacer()
                             }
                             ScrollView(.horizontal) {
@@ -115,7 +123,7 @@ struct HomeView: View {
                                     }
                                 }
                             }
-                            .scrollIndicators(.hidden)
+                            .scrollIndicators(.hidden) // hide scroll bar
                             .padding(.bottom)
                         }
                         
@@ -124,7 +132,7 @@ struct HomeView: View {
                         if showAll || showArtistOnly {
                             HStack {
                                 Text("All Artists")
-                                    .font(.custom("Nunito-ExtraBold", size: 22))
+                                    .modifier(TextHeaderModifier())
                                 Spacer()
                             }
                             ScrollView(.horizontal) {
@@ -140,15 +148,15 @@ struct HomeView: View {
                                 }
                                 
                             }
-                            .scrollIndicators(.hidden)
+                            .scrollIndicators(.hidden) // hide scroll bar
                             .padding(.bottom)
                         }
                         
                         // MARK: ALL CATEGORIES
                         if showAll || showCategoryOnly {
                             HStack {
-                                Text("Browse all")
-                                    .font(.custom("Nunito-Bold", size: 18))
+                                Text("Browse Categories")
+                                    .modifier(TextHeaderModifier())
                                 Spacer()
                             }
                             LazyVGrid(columns: Array(repeating: GridItem(), count: columns)) {
@@ -167,16 +175,16 @@ struct HomeView: View {
                     } // ScrollView
                     .padding()
                     .toolbar {
-                        // MARK: HEADER
+                        // MARK: HEADER TEXT
                         ToolbarItem(placement: .navigationBarLeading) {
                             Text("Welcome to Tunexa")
                                 .font(.custom("Nunito-Bold", size: 25))
                             
                         }
-                        
+                        // MARK: HEADER BUTTONS
                         ToolbarItem(placement: .navigationBarTrailing){
-                            // MARK: HEADER BUTTONS
                             HStack(spacing: 10) {
+                                // MARK: ADMIN DASHBOARD BUTTON
                                 NavigationLink {
                                     AdminDashboardView()
                                 } label: {
@@ -185,6 +193,7 @@ struct HomeView: View {
                                         .foregroundColor(Color("text-color"))
                                 }
                                 
+                                // MARK: DARK THEME TOGGLE BUTTON
                                 Button {
                                     isDark.toggle()
                                     UITabBar.appearance().backgroundColor = UIColor(Color("bg-color"))
@@ -210,6 +219,7 @@ struct HomeView: View {
         .navigationBarTitleDisplayMode(.inline)
         .environment(\.colorScheme, isDark ? .dark : .light) // modify the color sheme based on the state variable
         .onAppear {
+            // Show all song data retrieved from database and get artists information
             setShowAll()
             getAttributes()
         }

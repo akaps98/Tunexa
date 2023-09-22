@@ -117,7 +117,6 @@ struct SongUpdateRow: View {
                     Color(.white)
                         .opacity(0.1)
                         .edgesIgnoringSafeArea(.all)
-                        .frame(width: .infinity, height: .infinity)
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 8)
