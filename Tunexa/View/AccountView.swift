@@ -105,7 +105,7 @@ struct AccountView: View {
                                             .multilineTextAlignment(.leading)
                                     }
                                     //.frame(height: 90)
-                                    .frame(height: (useFaceId && faceIdEmail == user.email && getBioMetricStatus()) ? 90 : 165)
+                                    .frame(height: (useFaceId && faceIdEmail == user.email && getBioMetricStatus()) ? 130 : 165)
                                 }
                                 // MARK: - FACE ID
                                 // show only if the iphone's faceID usage is allowed
@@ -125,14 +125,9 @@ struct AccountView: View {
                                                 .foregroundColor(Color("light-gray"))
                                                 .font(.custom("Nunito-Bold", size: 17))
                                         }
-                                        .frame(width: 290)
+                                        .frame(width: 350)
                                     }
                                 }
-                                
-                                // delete this when faceID is applied successfully
-//                                    Toggle(isOn: $useFaceId) {
-//                                        Text("faceID (temporary)")
-//                                    }.frame(width:290).padding(7)
                                 
                                 // MARK: - LOGOUT BUTTON
                                 Button {

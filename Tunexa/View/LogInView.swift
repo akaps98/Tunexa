@@ -117,7 +117,7 @@ struct LogInView: View {
                                 } label: {
                                     VStack {
                                         Label {
-                                            Text("Use FaceID to login into the set account")
+                                            Text("Use FaceID to login")
                                         } icon: {
                                             Image(systemName: "faceid").font(.system(size: 25))
                                         }
@@ -144,7 +144,7 @@ struct LogInView: View {
                                 }.frame(width:290).padding(7)
                                 VStack {
                                     Label {
-                                        Text("Login first to use the FaceID next time")
+                                        Text("Login first to use the FaceID")
                                     } icon: {
                                         Image(systemName: "faceid").font(.system(size: 25))
                                     }
