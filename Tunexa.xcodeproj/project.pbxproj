@@ -38,6 +38,9 @@
 		984389442AB587AE0059D3C8 /* category.json in Resources */ = {isa = PBXBuildFile; fileRef = 984389412AB587AE0059D3C8 /* category.json */; };
 		984389492AB71B000059D3C8 /* ArtistCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984389482AB71B000059D3C8 /* ArtistCard.swift */; };
 		9843894B2AB71B110059D3C8 /* CategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843894A2AB71B110059D3C8 /* CategoryCard.swift */; };
+		989251E02ABD523E00B27FA3 /* SongUpdateRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989251DF2ABD523E00B27FA3 /* SongUpdateRow.swift */; };
+		989251E22ABD524600B27FA3 /* SongUpdateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989251E12ABD524600B27FA3 /* SongUpdateCard.swift */; };
+		989251E42ABD75B100B27FA3 /* AdminDashBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989251E32ABD75B100B27FA3 /* AdminDashBoardView.swift */; };
 		98B9761B2AB04F8B00515EA4 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B9761A2AB04F8B00515EA4 /* Modifiers.swift */; };
 		98B9761D2AB04F9900515EA4 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B9761C2AB04F9900515EA4 /* PlaySound.swift */; };
 		98B9761F2AB04FA400515EA4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B9761E2AB04FA400515EA4 /* Utilities.swift */; };
@@ -120,6 +123,9 @@
 		984389412AB587AE0059D3C8 /* category.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = category.json; sourceTree = "<group>"; };
 		984389482AB71B000059D3C8 /* ArtistCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCard.swift; sourceTree = "<group>"; };
 		9843894A2AB71B110059D3C8 /* CategoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCard.swift; sourceTree = "<group>"; };
+		989251DF2ABD523E00B27FA3 /* SongUpdateRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongUpdateRow.swift; sourceTree = "<group>"; };
+		989251E12ABD524600B27FA3 /* SongUpdateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongUpdateCard.swift; sourceTree = "<group>"; };
+		989251E32ABD75B100B27FA3 /* AdminDashBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDashBoardView.swift; sourceTree = "<group>"; };
 		98B9761A2AB04F8B00515EA4 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		98B9761C2AB04F9900515EA4 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 		98B9761E2AB04FA400515EA4 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -189,6 +195,15 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		989251DE2ABD523300B27FA3 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				989251DF2ABD523E00B27FA3 /* SongUpdateRow.swift */,
+				989251E12ABD524600B27FA3 /* SongUpdateCard.swift */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
 		98B976162AB04F4C00515EA4 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +216,7 @@
 				98B976352AB0555900515EA4 /* LogInView.swift */,
 				984389322AB587010059D3C8 /* AccountEditView.swift */,
 				984389342AB5870B0059D3C8 /* AccountView.swift */,
+				989251E32ABD75B100B27FA3 /* AdminDashBoardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -242,6 +258,7 @@
 				98B9762A2AB0500C00515EA4 /* General */,
 				98B976212AB04FB800515EA4 /* DashBoard */,
 				98D447842AB73AEF00C6BF77 /* Library */,
+				989251DE2ABD523300B27FA3 /* Admin */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -326,7 +343,6 @@
 			isa = PBXGroup;
 			children = (
 				F3DE6BD52ABC0A4500C9A072 /* Sounds */,
-				A7F309982ABAA96200AFA486 /* GoogleService-Info.plist */,
 				98B9762F2AB052F900515EA4 /* Fonts */,
 				984389402AB587920059D3C8 /* Data */,
 				98B976182AB04F5A00515EA4 /* Model */,
@@ -337,6 +353,7 @@
 				EA3B46E02AB04A5500BDF587 /* TunexaApp.swift */,
 				EA3B46E42AB04A5700BDF587 /* Assets.xcassets */,
 				984389192AB1B0370059D3C8 /* Info.plist */,
+				A7F309982ABAA96200AFA486 /* GoogleService-Info.plist */,
 				EA3B46E62AB04A5700BDF587 /* Tunexa.entitlements */,
 				EA3B46E72AB04A5700BDF587 /* Preview Content */,
 			);
@@ -540,6 +557,7 @@
 				F3CAFC512ABB97FA00DAEA99 /* LibrarySongRow.swift in Sources */,
 				98D4478C2AB73BFF00C6BF77 /* AddSongRow.swift in Sources */,
 				F34469FA2ABA6CCC001ECA5B /* User.swift in Sources */,
+				989251E42ABD75B100B27FA3 /* AdminDashBoardView.swift in Sources */,
 				9843894B2AB71B110059D3C8 /* CategoryCard.swift in Sources */,
 				9843892D2AB586CC0059D3C8 /* SongColumn.swift in Sources */,
 				984389392AB587230059D3C8 /* SeachView.swift in Sources */,
@@ -561,7 +579,9 @@
 				98B976252AB04FCC00515EA4 /* SongCard.swift in Sources */,
 				98B9761D2AB04F9900515EA4 /* PlaySound.swift in Sources */,
 				98B9761B2AB04F8B00515EA4 /* Modifiers.swift in Sources */,
+				989251E02ABD523E00B27FA3 /* SongUpdateRow.swift in Sources */,
 				98B9761F2AB04FA400515EA4 /* Utilities.swift in Sources */,
+				989251E22ABD524600B27FA3 /* SongUpdateCard.swift in Sources */,
 				98B976362AB0555900515EA4 /* LogInView.swift in Sources */,
 				98B9762C2AB0501700515EA4 /* Icon.swift in Sources */,
 				98D4478A2AB73BF400C6BF77 /* AddSongView.swift in Sources */,

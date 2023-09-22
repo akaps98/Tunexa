@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var isDark: Bool = false
+    @EnvironmentObject var songViewModel: SongViewModel
     
     var body: some View {
         TabView {
@@ -16,28 +17,33 @@ struct ContentView: View {
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
+                .toolbarBackground(.visible, for: .tabBar)
             
             SearchView(isDark: $isDark)
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")
                 }
+                .toolbarBackground(.visible, for: .tabBar)
             
             LibraryView(isDark: $isDark)
                 .tabItem {
                     Label("Library", systemImage: "music.note.list")
                 }
+                .toolbarBackground(.visible, for: .tabBar)
+            
             AccountView(isDark: $isDark)
                 .tabItem {
                     Label("Account", systemImage: "person")
                 }
+                .toolbarBackground(.visible, for: .tabBar)
             
         }
-        //.environmentObject(SongViewModel())
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(SongViewModel())
     }
 }

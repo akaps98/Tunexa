@@ -62,7 +62,7 @@ struct LibraryView: View {
                         HStack {
                             if pictureName == "" {
                                 // if no profile image yet, display default
-                                Image(systemName: "person.circle.fill").font(.system(size: 50))
+                                Image(systemName: "person.circle.fill").font(.system(size: 35))
                             } else {
                                 // if profile image, display the saved image from firebase storage
                                 AsyncImage(url: URL(string: pictureName)){ phase in
@@ -87,13 +87,6 @@ struct LibraryView: View {
                         }
                         
                         Spacer()
-                        
-                        HStack {
-                            Image(systemName: "gearshape")
-                                .font(.system(size: 25))
-                                .foregroundColor(Color("text-color"))
-                        }
-                        
                     }
                     .padding(.horizontal)
                     

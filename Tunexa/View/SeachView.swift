@@ -10,7 +10,6 @@ import FirebaseAuth
 
 struct SearchView: View {
     @AppStorage("uid") var isLoggedIn: Bool = Auth.auth().currentUser != nil
-    
     @EnvironmentObject var songViewModel: SongViewModel
     @Binding var isDark: Bool
     @State private var name: String = ""
@@ -48,7 +47,7 @@ struct SearchView: View {
                             Slider(value: $ratingValue, in: minimumValue...maximumValue)
                                 .frame(width: 250)
                             Text("Rating: \(Int(ratingValue))")
-                                .font(.custom("Nunito-Bold", size: 15))
+                                .font(.custom("Nunito-Bold", size: 18))
                                 .offset(y: -5)
                         }
                         
@@ -76,14 +75,24 @@ struct SearchView: View {
                         }
                         
                     }
-                    .padding(.horizontal)
+                    .padding()
+                    .frame(width: 360)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8).stroke(Color("secondary-color"), lineWidth: 2)
+                    )
                     
                     // MARK: BODY
                     VStack {
                         ForEach(filteredSongs, id: \.self) { song in
-                            SongRow(song: song, onEdit: {fetchFavorites()})
+                            NavigationLink {
+                                SongCard(song: song, songs: songViewModel.songs)
+                            } label: {
+                                SongRow(song: song, onEdit: {fetchFavorites()})
+                            }
                         }
                     }
+                    .padding(.top)
                 }
             }
             // MARK: HEADER
@@ -92,22 +101,6 @@ struct SearchView: View {
                     Text("Search")
                         .font(.custom("Nunito-Bold", size: 25))
                 }
-                
-                // Dark Mode toggle button on the right-handed side of navigation bar
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    HStack(spacing: 5) {
-                        Button {
-                            print("Setting View")
-                        } label: {
-                            Image(systemName: "gearshape")
-                                .font(.system(size: 20))
-                                .foregroundColor(Color("text-color"))
-                        }
-                        
-                    }
-                    
-                }
-                
             }
            
         }

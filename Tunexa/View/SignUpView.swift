@@ -36,32 +36,34 @@ struct SignUpView: View {
                         .clipShape(Circle())
                         .frame(width: 120)
                         .padding()
-                        .offset(y:-80)
-                    Group {
+                    VStack {
                         // MARK: - REGISTER TEXT
                         Text("Register")
-                            .font(.custom("Nunito-Bold", size: 37))
+                            .font(.custom("Nunito-ExtraBold", size: 40))
                         // MARK: - EMAIL TEXTFIELD
-                        TextField("\(Image(systemName: "envelope")) Email", text: $email)
+                        TextField("\(Image(systemName: "envelope.fill")) Email", text: $email)
                             .padding()
                             .frame(width: 300, height: 50)
                             .background(Color.black.opacity(0.07))
                             .cornerRadius(10)
-                            .font(.custom("Nunito-Bold", size: 22))
+                            .font(.custom("Nunito-Regular", size: 22))
+                            .textInputAutocapitalization(.never)
                         // MARK: - PASSWORD TEXTFIELD
-                        SecureField("\(Image(systemName: "lock"))  Password", text: $password)
+                        SecureField("\(Image(systemName: "lock.fill"))  Password", text: $password)
                             .padding()
                             .frame(width: 300, height: 50)
                             .background(Color.black.opacity(0.07))
                             .cornerRadius(10)
-                            .font(.custom("Nunito-Bold", size: 22))
+                            .font(.custom("Nunito-Regular", size: 22))
+                            .textInputAutocapitalization(.never)
                         // MARK: - CONFIRMATION TEXTFIELD
-                        SecureField("\(Image(systemName: "checkmark"))  Confirm", text: $checkPassword)
+                        SecureField("\(Image(systemName: "checkmark.circle.fill"))  Confirm", text: $checkPassword)
                             .padding()
                             .frame(width: 300, height: 50)
                             .background(Color.black.opacity(0.07))
                             .cornerRadius(10)
-                            .font(.custom("Nunito-Bold", size: 22))
+                            .font(.custom("Nunito-Regular", size: 22))
+                            .textInputAutocapitalization(.never)
                         // MARK: - REGISTER BUTTON
                         Button {
                             if (password == checkPassword) {
@@ -131,16 +133,18 @@ struct SignUpView: View {
                                         }
                                     )
                                 }
-                        }.offset(y: 10)
+                                .offset(y: 5)
+                        }
                         // MARK: - LINK TO LOGIN VIEW
                         Button {
                             presentationMode.wrappedValue.dismiss()
                         } label: {
                             Text("I have an account!")
                         }
-                    }.offset(y: -60)
+                        .offset(y: -10)
+                    }
                 }
-            }.offset(y:60)
+            }
         }
         .navigationBarBackButtonHidden(true)
          .environment(\.colorScheme, isDark ? .dark : .light) // modify the color sheme based on the state variable

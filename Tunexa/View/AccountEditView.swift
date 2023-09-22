@@ -38,8 +38,7 @@ struct AccountEditView: View {
             // MARK: - BACKGROUND COLOR
             Color("bg-color")
                 .edgesIgnoringSafeArea(.all)
-            ScrollView {
-                VStack {
+            VStack {
                     Group {
                         // MARK: - EDIT PROFILE PIC
                         VStack {
@@ -73,7 +72,7 @@ struct AccountEditView: View {
                                 }
                             }
                             PhotosPicker("Select image...", selection: $imageItem, matching: .images)
-                        }.padding(.top,100)
+                        }
                         .onChange(of: imageItem){ _ in
                             Task{
                                 if let data = try? await imageItem?.loadTransferable(type: Data.self){
@@ -86,32 +85,34 @@ struct AccountEditView: View {
                                 }
                             }
                         }
-                    Image(systemName: "info.circle")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                    // MARK: - NEW PASSWORD TEXTFIELD
-                    Text("Username")
-                        .font(.custom("Nunito-Bold", size: 26))
-                        .offset(x: -85)
-                    TextField("\(Image(systemName: "person"))  Username", text: $newUsername)
-                        .padding()
-                        .frame(width: 300, height: 50)
-                        .background(Color.black.opacity(0.07))
-                        .cornerRadius(10)
-                        .font(.custom("Nunito-Bold", size: 22))
-                    Text("Introduction")
-                        .font(.custom("Nunito-Bold", size: 26))
-                        .offset(x: -70)
-                        // MARK: - NEW INTRODUCTION TEXTFIELD
-                    TextField("\(Image(systemName: "pencil.line")) Introduction", text: $newDesc, axis: .vertical)
-                        .lineLimit(3, reservesSpace: true)
-                        .multilineTextAlignment(.leading)
-                        .padding()
-                        .frame(width: 300, height: 125)
-                        .background(Color.black.opacity(0.07))
-                        .cornerRadius(10)
-                        .font(.custom("Nunito-Bold", size: 22))
-                        HStack(spacing: -20) {
+                        
+                        VStack(alignment: .listRowSeparatorLeading) {
+                            // MARK: - NEW PASSWORD TEXTFIELD
+                            Text("Username")
+                                .font(.custom("Nunito-Bold", size: 25))
+                            TextField("\(Image(systemName: "person"))  Username", text: $newUsername)
+                                .padding()
+                                .frame(width: 300, height: 50)
+                                .background(Color.black.opacity(0.07))
+                                .cornerRadius(10)
+                                .font(.custom("Nunito-Regular", size: 22))
+                                .offset(y: -10)
+                            Text("Introduction")
+                                .font(.custom("Nunito-Bold", size: 26))
+                                // MARK: - NEW INTRODUCTION TEXTFIELD
+                            TextField("\(Image(systemName: "rectangle.and.pencil.and.ellipsis")) Your Bio", text: $newDesc, axis: .vertical)
+                                .lineLimit(4, reservesSpace: true)
+                                .multilineTextAlignment(.leading)
+                                .padding()
+                                .frame(width: 300, height: 125)
+                                .background(Color.black.opacity(0.07))
+                                .cornerRadius(10)
+                                .font(.custom("Nunito-Light", size: 20))
+                                .offset(y: -10)
+                        }
+                        .padding(.top)
+                    
+                        HStack(spacing: -1) {
                             Button {
                                 // MARK: - EDIT BUTTON
                                 isUploading = true
@@ -171,7 +172,7 @@ struct AccountEditView: View {
                                         )
                                         .padding()
                                 }
-                            }.offset(y: 10)
+                            }
                             if !isUploading {
                                 Button {
                                     // MARK: - CANCEL BUTTON
@@ -188,10 +189,10 @@ struct AccountEditView: View {
                                             RoundedRectangle(cornerRadius: 10)
                                         )
                                         .padding()
-                                }.offset(y: 10)
+                                }
                             }
                         }
-                    }.offset(y: -90)
+                    
                 }
             }.navigationBarBackButtonHidden(true)
                 .environment(\.colorScheme, isDark ? .dark : .light) // modify the color sheme based on the state variable

@@ -33,7 +33,7 @@ struct CategoryCard: View {
                 ScrollView {
                     VStack {
                         ZStack {
-                            LinearGradient(gradient: Gradient(colors: [bgColor, bgColor, bgColor, Color("dark-gray")]), startPoint: .top, endPoint: .bottom)
+                            LinearGradient(gradient: Gradient(colors: [bgColor, bgColor, bgColor, Color("light-gray")]), startPoint: .top, endPoint: .bottom)
                                 .frame(height: 250)
                             Text(category.name)
                                 .foregroundColor(.white)
@@ -66,7 +66,7 @@ struct CategoryCard: View {
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Image(systemName: "chevron.left.circle.fill")
-                            .foregroundColor(Color("dark-gray"))
+                            .foregroundColor(Color("text-color"))
                     }
                 }
             }

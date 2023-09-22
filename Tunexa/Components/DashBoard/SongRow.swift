@@ -64,9 +64,11 @@ struct SongRow: View {
                     VStack(alignment: .listRowSeparatorLeading) {
                         Text(song.name ?? "")
                             .font(.custom("Nunito-Bold", size: 18))
+                            .foregroundColor(Color("text-color"))
                             .lineLimit(1)
                         Text(song.author[0] ?? "")
-                            .font(.custom("Nunito-Regular", size: 14))
+                            .font(.custom("Nunito-Regular", size: 15))
+                            .foregroundColor(Color("text-color"))
                     }
                     .padding(.bottom, 2)
                     
