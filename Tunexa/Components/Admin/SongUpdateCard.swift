@@ -25,7 +25,7 @@ struct SongUpdateCard: View {
     var body: some View {
         VStack(alignment: .center) {
             // MARK: TITLE
-            Text("Create a new song")
+            Text("Update this song")
                 .font(.custom("Nunito-ExtraBold", size: 24))
             
             // MARK: SONG UPDATE FORM

@@ -22,6 +22,8 @@ struct AdminDashboardView: View {
     @State private var secondCategory = ""
     @State private var isOpenDocumentPicker = false
     @State private var songCategories: [String] = []
+    @State private var showingAlert = false
+    @State private var message = ""
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode> // Store the presented value when the view is navigated
     @EnvironmentObject var songViewModel: SongViewModel
     
@@ -141,8 +143,14 @@ struct AdminDashboardView: View {
                                     let avatar = albumImage!.pngData()!
                                     let artistPic = artistImage!.pngData()!
                                     songViewModel.addNewSongData(author: artist, name: name, avatar: avatar, categories: songCategories, artistPic: artistPic)
+                                    message = "Add song successfully!"
+                                } else {
+                                    message = "Please select at least 1 category for this song!"
                                 }
+                            } else {
+                                message = "Please include both the song image and the artist image!"
                             }
+                            showingAlert.toggle()
                         } label: {
                            Text("Add Song")
                                 .foregroundColor(.white)
@@ -152,6 +160,14 @@ struct AdminDashboardView: View {
                                 .background(
                                     RoundedRectangle(cornerRadius: 10)
                                 )
+                                .alert(isPresented: $showingAlert) {
+                                    Alert(title: Text((message=="Add song successfully!") ? "Success" : "Error"),
+                                          message: Text(message),
+                                          dismissButton: .default(Text((message=="Add song successfully!") ? "Continue" : "Retry")) {
+                                        showingAlert.toggle()
+                                    }
+                                    )
+                                }
                         }
                     } // VStack
                     .padding()

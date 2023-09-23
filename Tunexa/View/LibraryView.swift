@@ -61,8 +61,8 @@ struct LibraryView: View {
     @State var editMode = false
     
     var body: some View {
-        NavigationStack {
-            if (isLoggedIn) {
+        if (isLoggedIn) {
+            NavigationStack {
                 ZStack {
                     // MARK: BACKGROUND
                     Color("bg-color")
@@ -173,13 +173,13 @@ struct LibraryView: View {
                                             .resizable()
                                             .scaledToFit()
                                             .clipShape(Circle())
-                                            .frame(width: 30)
+                                            .frame(width: 55, height: 55)
                                     } else if phase.error != nil{
                                         Image(systemName: "person.circle.fill").font(.system(size: 30))
                                     } else {
                                         ProgressView()
                                             .progressViewStyle(CircularProgressViewStyle(tint: .blue))
-                                            .frame(width: 30, height: 30)
+                                            .frame(width: 55, height: 55)
                                     }
                                 }
                             }
@@ -190,11 +190,11 @@ struct LibraryView: View {
                         .padding(.bottom)
                     }
                 }
+            }
             } else {
                 LogInView(isDark: $isDark)
-            }
         }
-        
+    
     }
 }
 
