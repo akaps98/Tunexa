@@ -140,19 +140,9 @@ struct SongCard: View {
                     
                     Text("Now Playing")
                         .font(.custom("Nunito-Bold", size: 20))
-                    
+                        .offset(x: -10)
                     Spacer()
-                    
-                    HStack(spacing: 10) {
-                        Button {
-                            print("Settings View")
-                        } label: {
-                            Image(systemName: "gearshape")
-                                .font(.system(size: 25))
-                                .foregroundColor(Color("text-color"))
-                        }
-                        
-                    }
+    
                     
                 }
                 .padding(.horizontal)
