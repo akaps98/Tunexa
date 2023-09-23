@@ -25,6 +25,9 @@ struct AdminDashboardView: View {
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode> // Store the presented value when the view is navigated
     @EnvironmentObject var songViewModel: SongViewModel
     
+    // for updating home view
+    var onEdit: (() -> Void)?
+    
     @State var isShowingAlert = false
     var body: some View {
         NavigationStack {
@@ -176,6 +179,7 @@ struct AdminDashboardView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         // Remove the current view and return to the previous view
+                        onEdit?()
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Image(systemName: "chevron.left.circle.fill")
@@ -191,12 +195,5 @@ struct AdminDashboardView: View {
             }
             .navigationBarBackButtonHidden(true)
         }
-    }
-}
-
-struct AdminDashboardView_Previews: PreviewProvider {
-    static var previews: some View {
-        AdminDashboardView()
-            .environmentObject(SongViewModel())
     }
 }

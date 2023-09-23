@@ -51,9 +51,18 @@ struct HomeView: View {
      Function: Get the artist data
      */
     func getAttributes(){
+        artists = [:]
         for song in songViewModel.songs{
             artists[song.author[0]!] = song.author[1] ?? ""
         }
+    }
+    
+    /**
+     Function: refresh function
+     */
+    func refreshData(){
+        setShowAll()
+        getAttributes()
     }
     
     var body: some View {
@@ -66,6 +75,42 @@ struct HomeView: View {
                 // MARK: ----- CONTENT -----
                 ScrollView {
                     VStack {
+                        HStack {
+                            // MARK: HEADER TEXT
+                            Text("Welcome to Tunexa")
+                                .font(.custom("Nunito-Bold", size: 25))
+                            Spacer()
+                            // MARK: HEADER BUTTONS
+                            HStack(spacing: 10) {
+                                // MARK: ADMIN DASHBOARD BUTTON
+                                // display the gear button only if the user is Admin
+                                if isAdmin {
+                                    NavigationLink {
+                                        AdminDashboardView(onEdit: {refreshData()})
+                                    } label: {
+                                        Image(systemName: "gearshape")
+                                            .font(.system(size: 20))
+                                            .foregroundColor(Color("text-color"))
+                                    }
+                                }
+                                // MARK: DARK THEME TOGGLE BUTTON
+                                Button {
+                                    isDark.toggle()
+                                    UITabBar.appearance().backgroundColor = UIColor(Color("bg-color"))
+                                } label: {
+                                    // Display the icon accordingly based on the color scheme
+                                    if !isDark {
+                                        Image(systemName: "moon")
+                                            .font(.system(size: 20))
+                                            .foregroundColor(Color("text-color"))
+                                    } else {
+                                        Image(systemName: "sun.min")
+                                            .font(.system(size: 20))
+                                            .foregroundColor(Color("text-color"))
+                                    }
+                                }
+                            }
+                        }
                         // MARK: FILTER BUTTONS
                         HStack {
                             // SONG BUTTON
@@ -175,47 +220,6 @@ struct HomeView: View {
                         }
                     } // ScrollView
                     .padding()
-                    .toolbar {
-                        // MARK: HEADER TEXT
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Text("Welcome to Tunexa")
-                                .font(.custom("Nunito-Bold", size: 25))
-                            
-                        }
-                        // MARK: HEADER BUTTONS
-                        ToolbarItem(placement: .navigationBarTrailing){
-                            HStack(spacing: 10) {
-                                // MARK: ADMIN DASHBOARD BUTTON
-                                // display the gear button only if the user is Admin
-                                if isAdmin {
-                                    NavigationLink {
-                                        AdminDashboardView()
-                                    } label: {
-                                        Image(systemName: "gearshape")
-                                            .font(.system(size: 20))
-                                            .foregroundColor(Color("text-color"))
-                                    }
-                                }
-                                // MARK: DARK THEME TOGGLE BUTTON
-                                Button {
-                                    isDark.toggle()
-                                    UITabBar.appearance().backgroundColor = UIColor(Color("bg-color"))
-                                } label: {
-                                    // Display the icon accordingly based on the color scheme
-                                    if !isDark {
-                                        Image(systemName: "moon")
-                                            .font(.system(size: 20))
-                                            .foregroundColor(Color("text-color"))
-                                    } else {
-                                        Image(systemName: "sun.min")
-                                            .font(.system(size: 20))
-                                            .foregroundColor(Color("text-color"))
-                                    }
-                                }
-                            }
-                        }
-                        
-                    }
                 }
             }
         }
