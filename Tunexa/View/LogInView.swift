@@ -165,6 +165,7 @@ struct LogInView: View {
                             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                                 if let error = error as NSError? {
                                     message = error.localizedDescription
+                                    showingAlert.toggle()
                                     return
                                 }
                                 if authResult != nil {
