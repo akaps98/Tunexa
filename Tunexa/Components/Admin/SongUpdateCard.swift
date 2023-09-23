@@ -22,6 +22,9 @@ struct SongUpdateCard: View {
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode> // Store the presented value when the view is navigated
     @EnvironmentObject var songViewModel: SongViewModel
     
+    @State private var showingAlert = false
+    @State private var message = ""
+    
     var body: some View {
         VStack(alignment: .center) {
             // MARK: TITLE
@@ -144,6 +147,8 @@ struct SongUpdateCard: View {
                             songViewModel.updateSongData(id: song.id!, author: author, name: name, categories: category)
                         }
                     }
+                    message = "Updated information successfully!"
+                    showingAlert.toggle()
                 } label: {
                    Text("Update")
                         .foregroundColor(.white)
@@ -154,7 +159,12 @@ struct SongUpdateCard: View {
                             RoundedRectangle(cornerRadius: 10)
                         )
                 }
-                
+                .alert(isPresented: $showingAlert) {
+                    Alert(title: Text("Success"), message: Text(message), dismissButton: .default(Text("Continue")) {
+                        showingAlert.toggle()
+                        presentationMode.wrappedValue.dismiss()
+                    })
+                }
                 Button{
                     // Remove the current view and return to the previous view
                     presentationMode.wrappedValue.dismiss()
