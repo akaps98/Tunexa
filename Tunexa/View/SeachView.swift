@@ -99,7 +99,7 @@ struct SearchView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Text("Search")
-                        .font(.custom("Nunito-Bold", size: 25))
+                        .font(.custom("Nunito-ExtraBold", size: 25))
                 }
             }
            

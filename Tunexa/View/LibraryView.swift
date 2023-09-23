@@ -69,54 +69,17 @@ struct LibraryView: View {
                         .edgesIgnoringSafeArea(.all)
                     
                     // MARK: CONTENT
-                    VStack {
-                        HStack {
-                            HStack {
-                                if pictureName == "" {
-                                    // if no profile image yet, display default
-                                    Image(systemName: "person.circle.fill").font(.system(size: 35))
-                                } else {
-                                    // if profile image, display the saved image from firebase storage
-                                    AsyncImage(url: URL(string: pictureName)){ phase in
-                                        if let i = phase.image{
-                                            i
-                                                .resizable()
-                                                .scaledToFit()
-                                                .clipShape(Circle())
-                                                .frame(width: 45)
-                                        } else if phase.error != nil{
-                                            Image(systemName: "person.circle.fill").font(.system(size: 35))
-                                        } else {
-                                            ProgressView()
-                                                .progressViewStyle(CircularProgressViewStyle(tint: .blue))
-                                                .frame(width: 35, height: 35)
-                                        }
-                                    }
-                                }
-                                Text("Your Library")
-                                    .font(.custom("Nunito-ExtraBold", size: 30))
-                                    .foregroundColor(Color("text-color"))
-                            }
-                            
-                            Spacer()
-                        }
-                        .padding(.horizontal)
-                        
                         ScrollView {
                             VStack {
-                                RoundedRectangle(cornerRadius: 5)
+                                Image("library-cover")
+                                    .resizable()
+                                    .scaledToFit()
                                     .frame(width: 250, height: 250)
-                                    .foregroundColor(Color("secondary-color"))
-                                    .overlay {
-                                        Image(systemName: "music.note")
-                                            .font(.system(size: 80))
-                                            .foregroundColor(Color("text-color"))
-                                    }
                                 
                                 Text("Your Playlist")
-                                    .font(.custom("Nunito-Bold", size: 25))
+                                    .font(.custom("Nunito-ExtraBold", size: 25))
                             }
-                            .padding([.horizontal,.bottom])
+                            .padding()
                             
                             if !playlistSongs.isEmpty {
                                 HStack {
@@ -140,7 +103,7 @@ struct LibraryView: View {
                                         Button {
                                             editMode.toggle()
                                         } label: {
-                                            Image(systemName: "pencil")
+                                            Image(systemName: "slider.horizontal.3")
                                                 .font(.system(size: 25))
                                                 .foregroundColor(Color(!editMode ? "text-color" : "AccentColor"))
                                         }
@@ -148,38 +111,6 @@ struct LibraryView: View {
                                     }
                                     
                                     Spacer()
-                                    
-                                    // MARK: SHUFFLE BUTTON
-                                    
-                                    HStack(spacing: 10) {
-                                        Button {
-                                            editMode = false
-                                            print("shuffle")
-                                        } label: {
-                                            Image(systemName: "shuffle")
-                                                .font(.system(size: 22))
-                                                .foregroundColor(Color("text-color"))
-                                        }
-                                        
-                                        // MARK: PLAY BUTTON
-                                        Button {
-                                            editMode = false
-                                            print("play playlist")
-                                        } label: {
-                                            ZStack {
-                                                Circle()
-                                                    .frame(width: 40)
-                                                    .foregroundColor(Color("primary-color"))
-                                                    .overlay {
-                                                        Image(systemName: "triangle.fill")
-                                                            .foregroundColor(Color("text-color"))
-                                                            .rotationEffect(Angle(degrees: 90))
-                                                            .offset(x: 2)
-                                                    }
-                                            }
-                                        }
-                                    }
-                                    
                                 }
                                 .padding([.horizontal,.bottom])
                             }
@@ -220,12 +151,45 @@ struct LibraryView: View {
 
                         }
                     }
-                }
+                
                 .onAppear {
                     getSongs()
                     getImage()
                 }
                 .environment(\.colorScheme, isDark ? .dark : .light) // modify the color sheme based on the state variable
+                .toolbar {
+                    ToolbarItemGroup(placement: .navigationBarLeading) {
+                        HStack {
+                            if pictureName == "" {
+                                // if no profile image yet, display default
+                                Image(systemName: "person.circle.fill")
+                                    .font(.system(size: 30))
+                                    .foregroundColor(Color("text-color"))
+                            } else {
+                                // if profile image, display the saved image from firebase storage
+                                AsyncImage(url: URL(string: pictureName)){ phase in
+                                    if let i = phase.image{
+                                        i
+                                            .resizable()
+                                            .scaledToFit()
+                                            .clipShape(Circle())
+                                            .frame(width: 30)
+                                    } else if phase.error != nil{
+                                        Image(systemName: "person.circle.fill").font(.system(size: 30))
+                                    } else {
+                                        ProgressView()
+                                            .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                                            .frame(width: 30, height: 30)
+                                    }
+                                }
+                            }
+                            Text("Your Library")
+                                .font(.custom("Nunito-Bold", size: 25))
+                                .foregroundColor(Color("text-color"))
+                        }
+                        .padding(.bottom)
+                    }
+                }
             } else {
                 LogInView(isDark: $isDark)
             }
