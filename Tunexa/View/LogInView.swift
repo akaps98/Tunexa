@@ -33,6 +33,7 @@ struct LogInView: View {
      */
     func getBioMetricStatus()->Bool{
         let scanner = LAContext()
+        // this function checks if the iphone user enrolled the faceID
         return scanner.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: .none)
     }
 
@@ -79,6 +80,7 @@ struct LogInView: View {
                         // MARK: - FACE ID
                         // show only if the Iphone's faceID usage is possible
                         if getBioMetricStatus() {
+                            // if FaceID is already set to an account
                             if useFaceId && faceIdEmail != "" {
                                 Button {
                                     print("do FaceID")
@@ -130,7 +132,7 @@ struct LogInView: View {
                                           dismissButton: .default(Text((message=="Welcome to Tunexa!") ? "Okay" : "Retry")) { showingAlert.toggle() }
                                     )
                                 }
-                            } else if useFaceId && faceIdEmail == "" {
+                            } else if useFaceId && faceIdEmail == "" { // if the face ID is not set to an account yet
                                 Toggle(isOn: $useFaceId) {
                                     Text("Use Face ID to login")
                                         .foregroundColor(Color("light-gray"))
@@ -163,14 +165,14 @@ struct LogInView: View {
                                     return
                                 }
                                 if authResult != nil {
-                                    if useFaceId  && faceIdEmail == "" {
+                                    if useFaceId  && faceIdEmail == "" { // When user is using faceID, set the faceID account information
                                         print("faceID info set")
                                         faceIdEmail = email
                                         faceIdPassword = password
                                     }
                                     isLoggedIn = true
                                     message = "Welcome to Tunexa!"
-                                    if (email == "Admin@email.com") {
+                                    if (email == "Admin@email.com") { // When user is admin, update isAdmin AppStorage variable
                                         isAdmin = true
                                     } else {
                                         isAdmin = false
