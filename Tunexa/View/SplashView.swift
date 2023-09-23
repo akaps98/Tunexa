@@ -45,7 +45,7 @@ struct SplashView: View {
                         .aspectRatio(contentMode: .fit)
                         .clipShape(Circle())
                         .frame(width: 120)
-                    // Set Animation Effects for logo
+                        // Set Animation Effects for logo
                         .scaleEffect(size)
                         .rotationEffect(Angle(degrees: angle))
                         .opacity(opacity)
@@ -63,7 +63,7 @@ struct SplashView: View {
                         .offset(y: textYOffset)
                         .opacity(textOpacity)
                         .onAppear{
-                            // Perform the series of animated action by adjusting the self-defined variables
+                            // Perform the series of animated action by adjusting the self-defined variables (delay 2 seconds)
                             withAnimation(.easeIn(duration: 1.0).delay(2.0)) {
                                 self.textOpacity = 1.0
                                 self.textYOffset = -10
@@ -73,7 +73,7 @@ struct SplashView: View {
                 
             }
             .onAppear {
-                //
+                // Wait for splashscreen animation to finish and load the content view
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                     withAnimation {
                         self.isSplashActive = true

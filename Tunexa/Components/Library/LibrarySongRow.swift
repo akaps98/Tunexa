@@ -1,13 +1,24 @@
-//
-//  SongRow.swift
-//  Tunexa
-//
-//  Created by Nguyễn Anh Duy on 12/09/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 3
+  Team: Squad 21 (Group 21)
+  Members:
+  1. Nguyen Anh Duy (s3878141) - Main Contributor
+  2. Seoungjoon Hong (s3726123)
+  3. Junsik Kang (s3916884)
+  4. Christina Yoo (s3938331) - Main Contributor
+  5. Nguyen Hoang Viet (s3926104)
+  Created date: 17/09/2023
+  Last modified: 20/09/2023
+  Acknowledgement:
+*/
 
 import SwiftUI
 
 struct LibrarySongRow: View {
+    // MARK: ***** PROPERTIES *****
     let song: Song
     @Binding var editMode: Bool
     
@@ -55,18 +66,14 @@ struct LibrarySongRow: View {
                 // MARK: SONG CATEGORIES
                 HStack {
                     ForEach(song.categories, id: \.self) {category in
-                        Text(category).textCase(.uppercase)
-                            .foregroundColor(.white)
-                            .font(.custom("Nunito-Medium", size: 12))
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 2)
-                            .background(Color("secondary-color"), in: Capsule())
+                        CategoryCapsule(categoryName: category)
                     }
                     Spacer()
                 }
                 .padding(.top, 5)
             }
             Spacer()
+            
             // MARK: DELETE BUTTON
             // if in edit mode, display the delete button to delete the song from the playlist
             if editMode {

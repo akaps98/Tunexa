@@ -13,7 +13,7 @@
   Created date: 13/09/2023
   Last modified: 22/09/2023
   Acknowledgement:
-  - SwiftUI Sheet:
+  - SwiftUI Sheet: https://www.hackingwithswift.com/quick-start/swiftui/how-to-present-a-new-view-using-sheets
 */
 
 import SwiftUI
@@ -70,6 +70,7 @@ struct LibraryView: View {
                     
                     // MARK: CONTENT
                         ScrollView {
+                            // MARK: LIBRARY BANNER
                             VStack {
                                 Image("library-cover")
                                     .resizable()
@@ -173,13 +174,13 @@ struct LibraryView: View {
                                             .resizable()
                                             .scaledToFit()
                                             .clipShape(Circle())
-                                            .frame(width: 55, height: 55)
+                                            .frame(width: 45, height: 45)
                                     } else if phase.error != nil{
                                         Image(systemName: "person.circle.fill").font(.system(size: 30))
                                     } else {
                                         ProgressView()
                                             .progressViewStyle(CircularProgressViewStyle(tint: .blue))
-                                            .frame(width: 55, height: 55)
+                                            .frame(width: 45, height: 45)
                                     }
                                 }
                             }

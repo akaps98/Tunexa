@@ -1,17 +1,28 @@
-//
-//  SongRow.swift
-//  Tunexa
-//
-//  Created by Nguyễn Anh Duy on 12/09/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 3
+  Team: Squad 21 (Group 21)
+  Members:
+  1. Nguyen Anh Duy (s3878141) - Main Contributor
+  2. Seoungjoon Hong (s3726123) - Main Contributor
+  3. Junsik Kang (s3916884)
+  4. Christina Yoo (s3938331) 
+  5. Nguyen Hoang Viet (s3926104)
+  Created date: 13/09/2023
+  Last modified: 20/09/2023
+  Acknowledgement: None
+*/
 
 import SwiftUI
 import FirebaseAuth
 
 struct SongRow: View {
+    // MARK: ***** PROPERTIES *****
     let song: Song
         
-    @AppStorage("uid") var isLoggedIn: Bool = Auth.auth().currentUser != nil
+    @AppStorage("uid") var isLoggedIn: Bool = Auth.auth().currentUser != nil // check if user has logged in to the app
     
     // fetch user's saved favorite list from firebase
     @State var favorite: [String] = []
@@ -78,12 +89,7 @@ struct SongRow: View {
                 // MARK: SONG CATEGORIES
                 HStack {
                     ForEach(song.categories, id: \.self) {category in
-                        Text(category).textCase(.uppercase)
-                            .foregroundColor(.white)
-                            .font(.custom("Nunito-Medium", size: 12))
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 2)
-                            .background(Color("secondary-color"), in: Capsule())
+                        CategoryCapsule(categoryName: category)
                     }
                     Spacer()
                 }

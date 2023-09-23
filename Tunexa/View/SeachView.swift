@@ -1,21 +1,37 @@
-//
-//  SearchView.swift
-//  Tunexa
-//
-//  Created by Nguyễn Anh Duy on 13/09/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 3
+  Team: Squad 21 (Group 21)
+  Members:
+  1. Nguyen Anh Duy (s3878141) - Main Contributor
+  2. Seoungjoon Hong (s3726123) - Main Contributor
+  3. Junsik Kang (s3916884)
+  4. Christina Yoo (s3938331)
+  5. Nguyen Hoang Viet (s3926104)
+  Created date: 13/09/2023
+  Last modified: 22/09/2023
+  Acknowledgement:
+  - Search bar and filter data using searchable modifier: https://www.hackingwithswift.com/quick-start/swiftui/how-to-add-a-search-bar-to-filter-your-data
+*/
 
 import SwiftUI
 import FirebaseAuth
 
 struct SearchView: View {
-    @AppStorage("uid") var isLoggedIn: Bool = Auth.auth().currentUser != nil
-    @EnvironmentObject var songViewModel: SongViewModel
+    // MARK: ***** PROPERTIES *****
     @Binding var isDark: Bool
+    @AppStorage("uid") var isLoggedIn: Bool = Auth.auth().currentUser != nil // check if user has logged in to the app
+    
+    // SONG LIST PROPERTIES
+    @EnvironmentObject var songViewModel: SongViewModel
     @State private var name: String = ""
     @State private var ratingValue = 1.0
     @State private var filteredSongs: [Song] = []
     @State private var showOnlyFavorites: Bool = false
+    
+    // RATING PROPERTIES
     var minimumValue = 1.0
     var maximumValue = 5.0
     
@@ -58,7 +74,7 @@ struct SearchView: View {
                             Button(action: {
                                 showOnlyFavorites.toggle()
                                 if showOnlyFavorites {
-                                    favoiteSongs()
+                                    favoriteSongs()
                                 } else {
                                     filterSongs(with: name)
                                 }
@@ -77,10 +93,7 @@ struct SearchView: View {
                     }
                     .padding()
                     .frame(width: 360)
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8).stroke(Color("secondary-color"), lineWidth: 2)
-                    )
+                    .modifier(RoundedBorderModifier())
                     
                     // MARK: BODY
                     VStack {
@@ -99,12 +112,12 @@ struct SearchView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Text("Search")
-                        .font(.custom("Nunito-ExtraBold", size: 25))
+                        .modifier(NavigationHeaderModifier())
                 }
             }
            
         }
-        .searchable(text: $name)
+        .searchable(text: $name) // Search Bar
         .onChange(of: name) { newValue in
             filterSongs(with: newValue)
         }
@@ -123,13 +136,12 @@ struct SearchView: View {
         filteredSongs = songViewModel.songs.filter { song in
             let matchesName = term.isEmpty || song.name!.lowercased().contains(term.lowercased())
             let matchesRating = song.rating ?? 1 >= Int(ratingValue)
-//            let matchesFavorite = !showOnlyFavorites || song.isFavorite
             return matchesName && matchesRating
         }
     }
     
     // filter the songs by the fetched favorite list
-    func favoiteSongs() {
+    func favoriteSongs() {
         filteredSongs = songViewModel.songs.filter { song in
             return favoriteList.contains(song.id ?? "")
         }

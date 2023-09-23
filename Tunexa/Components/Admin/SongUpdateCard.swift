@@ -1,15 +1,25 @@
-// https://wwdcbysundell.com/2021/using-swiftui-async-image/
-//
-//  SongUpdateCard.swift
-//  Tunexa
-//
-//  Created by SeongJoon, Hong  on 14/09/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 3
+  Team: Squad 21 (Group 21)
+  Members:
+  1. Nguyen Anh Duy (s3878141) - Sub Contributor
+  2. Seoungjoon Hong (s3726123) - Main Contributor
+  3. Junsik Kang (s3916884)
+  4. Christina Yoo (s3938331) - Main Contributor
+  5. Nguyen Hoang Viet (s3926104)
+  Created date: 14/09/2023
+  Last modified: 22/09/2023
+  Acknowledgement:
+*/
 
 import SwiftUI
 import PhotosUI
 
 struct SongUpdateCard: View {
+    // MARK: ***** PROPERTIES *****
     let song: Song
     @State private var name = ""
     @State private var artist = ""
@@ -30,22 +40,17 @@ struct SongUpdateCard: View {
             
             // MARK: SONG UPDATE FORM
             TextField(song.name ?? "", text: $name)
-                .padding()
+                .modifier(TextFieldModifier())
                 .frame(width: 350, height: 50)
-                .background(Color.black.opacity(0.07))
-                .cornerRadius(10)
-                .font(.custom("Nunito-Regular", size: 20))
-                .textInputAutocapitalization(.never)
+                .padding(.bottom)
                 .onAppear{
                     name = song.name ?? ""
                 }
+                
             TextField(song.author[0] ?? "", text: $artist)
-                .padding()
+                .modifier(TextFieldModifier())
                 .frame(width: 350, height: 50)
-                .background(Color.black.opacity(0.07))
-                .cornerRadius(10)
-                .font(.custom("Nunito-Regular", size: 20))
-                .textInputAutocapitalization(.never)
+                .padding(.bottom)
                 .onAppear{
                     artist = song.author[0] ?? ""
                 }
@@ -123,6 +128,7 @@ struct SongUpdateCard: View {
                 }
             }
             
+            // MARK: UPDATE BUTTON
             HStack {
                 Button{
                     songCategories = []
@@ -146,27 +152,18 @@ struct SongUpdateCard: View {
                     }
                 } label: {
                    Text("Update")
-                        .foregroundColor(.white)
-                        .font(.custom("Nunito-Bold", size: 22))
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 10)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                        )
+                        .frame(width: 100, height: 20)
+                        .modifier(ButtonModifier())
                 }
                 
+                // MARK: CANCEL BUTTON
                 Button{
                     // Remove the current view and return to the previous view
                     presentationMode.wrappedValue.dismiss()
                 } label: {
                    Text("Cancel")
-                        .foregroundColor(.white)
-                        .font(.custom("Nunito-Bold", size: 22))
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 10)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                        )
+                        .frame(width: 100, height: 20)
+                        .modifier(ButtonModifier())
                 }
             }
         }

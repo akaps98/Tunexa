@@ -1,9 +1,19 @@
-//
-//  AccountView.swift
-//  Tunexa
-//
-//  Created by Nguyễn Anh Duy on 13/09/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 3
+  Team: Squad 21 (Group 21)
+  Members:
+  1. Nguyen Anh Duy (s3878141) - Main Contributor
+  2. Seoungjoon Hong (s3726123)
+  3. Junsik Kang (s3916884) - Main Contributor
+  4. Christina Yoo (s3938331) - Main Contributor
+  5. Nguyen Hoang Viet (s3926104)
+  Created date: 13/09/2023
+  Last modified: 22/09/2023
+  Acknowledgement: None
+*/
 
 import SwiftUI
 import PhotosUI
@@ -11,7 +21,7 @@ import FirebaseAuth
 import LocalAuthentication
 
 struct AccountView: View {
-    // MARK: - VARIABLES
+    // MARK: ***** PROPERTIES *****
     @AppStorage("uid") var isLoggedIn: Bool = Auth.auth().currentUser != nil
     @AppStorage("isAdmin") var isAdmin: Bool = false
     @AppStorage("useFaceId") var useFaceId = false
@@ -25,13 +35,13 @@ struct AccountView: View {
     }
     
     @Binding var isDark: Bool
-    
     @State var showingAlert = false
-    
     @State private var user: User?
-    
     @State private var isEditViewPresented = false
     
+    /**
+     Function: get user data from Firebase
+     */
     func getData() {
         User.fetch { result in
             switch result {
@@ -43,7 +53,8 @@ struct AccountView: View {
         }
     }
     
-    var body: some View { // MARK: - WHEN THE USER IS LOGGED IN
+    var body: some View {
+        // MARK: - ACCOUNT VIEW APPEAR WHEN THE USER IS LOGGED IN
         if (isLoggedIn) {
             NavigationStack {
                 ZStack {
@@ -141,14 +152,9 @@ struct AccountView: View {
                                     }
                                 } label: {
                                     Text("Log out")
-                                        .foregroundColor(.white)
-                                        .font(.custom("Nunito-Bold", size: 22))
                                         .frame(width: 100, height: 20)
+                                        .modifier(ButtonModifier())
                                         .padding()
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 10)
-                                        )
-                                        .padding(10)
                                 }
                             }
                         }
@@ -160,7 +166,8 @@ struct AccountView: View {
             .onAppear {
                 getData()
             }
-        } else { // MARK: - WHEN THE USER IS NOT LOGGED IN
+        } else {
+            // MARK: - LOGGIN VIEW APPEAR WHEN THE USER IS NOT LOGGED IN
             LogInView(isDark: $isDark)
         }
     }

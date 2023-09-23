@@ -10,7 +10,6 @@
   3. Junsik Kang (s3916884)
   4. Christina Yoo (s3938331)
   5. Nguyen Hoang Viet (s3926104)
-  [Equal Contribution]
   Created date: 13/09/2023
   Last modified: 13/09/2023
   Acknowledgement: None
@@ -18,21 +17,22 @@
 
 import SwiftUI
 
-struct FilterCapsule: View {
+struct CategoryCapsule: View {
     // MARK: ***** PROPERTIES *****
-    let buttonName: String
-    let show: Bool
+    let categoryName: String
     
     var body: some View {
-        Text(buttonName)
-            .modifier(FilterCapsuleModifier())
-            .foregroundColor(show ? .white : Color("text-color"))
-            .background(Color(show ? "secondary-color" : "light-gray"), in: Capsule())
+        Text(categoryName).textCase(.uppercase)
+            .foregroundColor(.white)
+            .font(.custom("Nunito-Medium", size: 12))
+            .padding(.horizontal, 10)
+            .padding(.vertical, 2)
+            .background(Color("secondary-color"), in: Capsule())
     }
 }
 
-struct FilterCapsule_Previews: PreviewProvider {
+struct CategoryCapsule_Previews: PreviewProvider {
     static var previews: some View {
-        FilterCapsule(buttonName: "Music", show: false)
+        CategoryCapsule(categoryName: "Pop")
     }
 }

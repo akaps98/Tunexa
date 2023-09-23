@@ -1,9 +1,20 @@
-//
-//  PhotoPicker.swift
-//  Tunexa
-//
-//  Created by Tony on 2023/09/13.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 3
+  Team: Squad 21 (Group 21)
+  Members:
+  1. Nguyen Anh Duy (s3878141)
+  2. Seoungjoon Hong (s3726123)
+  3. Junsik Kang (s3916884)  - Main Contributor
+  4. Christina Yoo (s3938331)
+  5. Nguyen Hoang Viet (s3926104)
+  Created date: 13/09/2023
+  Last modified: 13/09/2023
+  Acknowledgement:
+  - Photo Picker helper function: https://stackoverflow.com/questions/75041939/using-imagepicker-in-swiftui
+*/
 
 import SwiftUI
 import PhotosUI

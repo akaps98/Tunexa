@@ -1,15 +1,26 @@
-//
-//  SongTestView.swift
-//  Tunexa
-//
-//  Created by SeongJoon, Hong  on 13/09/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 3
+  Team: Squad 21 (Group 21)
+  Members:
+  1. Nguyen Anh Duy (s3878141) - Main Contributor
+  2. Seoungjoon Hong (s3726123) - Main Contributor
+  3. Junsik Kang (s3916884)
+  4. Christina Yoo (s3938331) - Main Contributor
+  5. Nguyen Hoang Viet (s3926104)
+  Created date: 13/09/2023
+  Last modified: 22/09/2023
+  Acknowledgement: None
+*/
 
 
 import SwiftUI
 import PhotosUI
 
 struct AdminDashboardView: View {
+    // MARK: ***** PROPERTIES *****
     @State private var name = ""
     @State private var artist = ""
     @State private var albumImage: UIImage?
@@ -41,26 +52,23 @@ struct AdminDashboardView: View {
                 // MARK: CONTENT
                 ScrollView {
                     
-                    // MARK: CREATE NEW SONG
+                    // MARK: CREATE NEW SONG SECTION
                     VStack {
                         Text("Create a new song")
                             .font(.custom("Nunito-ExtraBold", size: 24))
                         
+                        // MARK: TEXTFIELD AREAS
                         TextField("Name of the song", text: $name)
-                            .padding()
+                            .modifier(TextFieldModifier())
                             .frame(width: 350, height: 50)
-                            .background(Color.black.opacity(0.07))
-                            .cornerRadius(10)
-                            .font(.custom("Nunito-Regular", size: 20))
-                            .textInputAutocapitalization(.never)
-                        TextField("Name of the artist", text: $artist)
-                            .padding()
-                            .frame(width: 350, height: 50)
-                            .background(Color.black.opacity(0.07))
-                            .cornerRadius(10)
-                            .font(.custom("Nunito-Regular", size: 20))
-                            .textInputAutocapitalization(.never)
+                            .padding(.bottom)
                         
+                        TextField("Name of the artist", text: $artist)
+                            .modifier(TextFieldModifier())
+                            .frame(width: 350, height: 50)
+                            .padding(.bottom)
+                        
+                        // MARK: CATEGORIES PICKERS
                         HStack{
                             Picker(selection: $firstCategory, label: Text("Select a Category")) {
                                 if(firstCategory == ""){
@@ -132,14 +140,16 @@ struct AdminDashboardView: View {
                         }
                         .padding(.horizontal)
                         
+                        // MARK: ADD SONG BUTTON
                         Button{
-                            if albumImage != nil && artistImage != nil{
+                            if albumImage != nil && artistImage != nil { // check for empty artist image and song image
                                 songCategories = []
-                                if firstCategory != "" && name != "" && artist != ""{
+                                if firstCategory != "" && name != "" && artist != ""{ // check if all the input fields have data
                                     songCategories.append(firstCategory)
                                     if secondCategory != ""{
                                         songCategories.append(secondCategory)
                                     }
+                                    // Create and add the new song info to the database
                                     let avatar = albumImage!.pngData()!
                                     let artistPic = artistImage!.pngData()!
                                     songViewModel.addNewSongData(author: artist, name: name, avatar: avatar, categories: songCategories, artistPic: artistPic)
@@ -153,13 +163,9 @@ struct AdminDashboardView: View {
                             showingAlert.toggle()
                         } label: {
                            Text("Add Song")
-                                .foregroundColor(.white)
-                                .font(.custom("Nunito-Bold", size: 22))
-                                .padding(.horizontal, 20)
-                                .padding(.vertical, 10)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 10)
-                                )
+                                .frame(width: 150, height: 20)
+                                .modifier(ButtonModifier())
+                                // Display alert message
                                 .alert(isPresented: $showingAlert) {
                                     Alert(title: Text((message=="Add song successfully!") ? "Success" : "Error"),
                                           message: Text(message),
@@ -192,6 +198,7 @@ struct AdminDashboardView: View {
                 }
             }
             .toolbar {
+                // MARK: BACK BUTTON
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         // Remove the current view and return to the previous view
@@ -203,10 +210,10 @@ struct AdminDashboardView: View {
                     }
                 }
                 
+                // MARK: HEADER TEXT
                 ToolbarItem(placement: .principal) {
                     Text("Admin Dashboard")
-                        .font(.custom("Nunito-ExtraBold", size: 20))
-                        .foregroundColor(Color("text-color"))
+                        .modifier(NavigationHeaderModifier())
                 }
             }
             .navigationBarBackButtonHidden(true)

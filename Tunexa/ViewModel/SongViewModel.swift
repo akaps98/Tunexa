@@ -13,6 +13,7 @@
   Created  date: 13/09/2023
   Last modified: 18/09/2023
   Acknowledgement:
+  - Model View View Model design pattern: Lecture W10 Example provided by the lecturer (Mr. Tom Huynh)
   - Upload files with Cloud Storage on Apple platforms - https://firebase.google.com/docs/storage/ios/upload-files
   - Delete files with Cloud Storage on Apple platforms - https://firebase.google.com/docs/storage/ios/delete-files
   - Map Cloud Firestore data with Swift Codable - https://firebase.google.com/docs/firestore/solutions/swift-codable-data-mapping

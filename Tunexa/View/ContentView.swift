@@ -10,12 +10,11 @@
   3. Junsik Kang (s3916884)
   4. Christina Yoo (s3938331)
   5. Nguyen Hoang Viet (s3926104)
-  [Equal Contribution]
   Created date: 12/09/2023
   Last modified: 22/09/2023
   Acknowledgement:
-  - TabView: 
-  - Customized background color for Tabbar: 
+  - TabView: Swift Playgrounds - About Me
+  - Customized background color for Tabbar using toolbar background: https://developer.apple.com/documentation/swiftui/view/toolbarbackground(_:for:)-5ybst
 */
 
 import SwiftUI

@@ -12,8 +12,7 @@
   5. Nguyen Hoang Viet (s3926104)
   Created date: 12/09/2023
   Last modified: 22/09/2023
-  Acknowledgement:
-  - SwiftUI Sheet:
+  Acknowledgement: None
 */
 
 import SwiftUI
@@ -29,7 +28,9 @@ struct LogInView: View {
     @AppStorage("faceIdEmail") var faceIdEmail = ""
     @AppStorage("faceIdPassword") var faceIdPassword = ""
     
-    // for Iphone faceID usage check
+    /**
+     Function: for faceID usage checking
+     */
     func getBioMetricStatus()->Bool{
         let scanner = LAContext()
         return scanner.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: .none)
@@ -55,9 +56,7 @@ struct LogInView: View {
                     // MARK: - APP LOGO
                     Image("logo-icon-transparent")
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .clipShape(Circle())
-                        .frame(width: 120)
+                        .modifier(LogoModifier())
                     
                     // MARK: - SIGN IN TEXT
                     Text("Sign in")
@@ -67,20 +66,15 @@ struct LogInView: View {
                     VStack(spacing: 10) {
                         // MARK: - EMAIL TEXTFIELD
                         TextField("\(Image(systemName: "envelope.fill")) Email", text: $email)
-                            .padding()
+                            .modifier(TextFieldModifier())
                             .frame(width: 300, height: 50)
-                            .background(Color.black.opacity(0.07))
-                            .cornerRadius(10)
-                            .font(.custom("Nunito-Regular", size: 22))
-                            .textInputAutocapitalization(.never)
+                            .padding(.bottom)
+                            
                         // MARK: - PASSWORD TEXTFIELD
                         SecureField("\(Image(systemName: "lock.fill"))  Password", text: $password)
-                            .padding()
+                            .modifier(TextFieldModifier())
                             .frame(width: 300, height: 50)
-                            .background(Color.black.opacity(0.07))
-                            .cornerRadius(10)
-                            .font(.custom("Nunito-Regular", size: 22))
-                            .textInputAutocapitalization(.never)
+                            .padding(.bottom)
                         
                         // MARK: - FACE ID
                         // show only if the Iphone's faceID usage is possible
@@ -122,10 +116,10 @@ struct LogInView: View {
                                             Image(systemName: "faceid").font(.system(size: 25))
                                         }
                                         .foregroundColor(Color("dark-gray"))
-                                        .font(.custom("Nunito", size: 20))
+                                        .font(.custom("Nunito-Bold", size: 20))
                                         
                                         Text("Note: you can turn off in the account view")
-                                            .font(.custom("Nunito", size: 15))
+                                            .font(.custom("Nunito-Regular", size: 15))
                                             .foregroundColor(Color("dark-gray"))
                                     }
                                 }
@@ -149,7 +143,7 @@ struct LogInView: View {
                                         Image(systemName: "faceid").font(.system(size: 25))
                                     }
                                     .foregroundColor(Color("dark-gray"))
-                                    .font(.custom("Nunito", size: 20))
+                                    .font(.custom("Nunito-Bold", size: 20))
                                 }.frame(width:300).padding()
                             } else {
                                 Toggle(isOn: $useFaceId) {
@@ -186,13 +180,8 @@ struct LogInView: View {
                             }
                         } label: {
                             Text("Log in")
-                                .foregroundColor(.white)
-                                .font(.custom("Nunito-Bold", size: 22))
                                 .frame(width: 270, height: 30)
-                                .padding()
-                                .background(
-                                    RoundedRectangle(cornerRadius: 10)
-                                )
+                                .modifier(ButtonModifier())
                                 .alert(isPresented: $showingAlert) {
                                     Alert(title: Text((message=="Welcome to Tunexa!") ? "Success" : "Error"),
                                           message: Text(message),
@@ -201,7 +190,7 @@ struct LogInView: View {
                                     }
                                     )
                                 }
-                                .offset(y: 15)
+                                .padding(.top)
                         }
                         
                         // MARK: - LINK TO SIGNUP VIEW
@@ -209,7 +198,6 @@ struct LogInView: View {
                             Text("Don't have account?")
                             
                         }
-                        .padding()
                     }
                 }
             }

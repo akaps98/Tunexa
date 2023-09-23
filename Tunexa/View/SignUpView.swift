@@ -1,9 +1,19 @@
-//
-//  SignUpView.swift
-//  Tunexa
-//
-//  Created by Nguyễn Anh Duy on 12/09/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 3
+  Team: Squad 21 (Group 21)
+  Members:
+  1. Nguyen Anh Duy (s3878141) - Sub Contributor
+  2. Seoungjoon Hong (s3726123)
+  3. Junsik Kang (s3916884) - Main Contributor
+  4. Christina Yoo (s3938331) - Main Contributor
+  5. Nguyen Hoang Viet (s3926104)
+  Created date: 12/09/2023
+  Last modified: 22/09/2023
+  Acknowledgement:
+*/
 
 import SwiftUI
 import FirebaseAuth
@@ -32,38 +42,30 @@ struct SignUpView: View {
                     // MARK: - APP LOGO
                     Image("logo-icon-transparent")
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .clipShape(Circle())
-                        .frame(width: 120)
-                        .padding()
+                        .modifier(LogoModifier())
+                    
                     VStack {
                         // MARK: - REGISTER TEXT
                         Text("Register")
                             .font(.custom("Nunito-ExtraBold", size: 40))
                         // MARK: - EMAIL TEXTFIELD
                         TextField("\(Image(systemName: "envelope.fill")) Email", text: $email)
-                            .padding()
+                            .modifier(TextFieldModifier())
                             .frame(width: 300, height: 50)
-                            .background(Color.black.opacity(0.07))
-                            .cornerRadius(10)
-                            .font(.custom("Nunito-Regular", size: 22))
-                            .textInputAutocapitalization(.never)
+                            .padding(.bottom)
+                            
                         // MARK: - PASSWORD TEXTFIELD
                         SecureField("\(Image(systemName: "lock.fill"))  Password", text: $password)
-                            .padding()
+                            .modifier(TextFieldModifier())
                             .frame(width: 300, height: 50)
-                            .background(Color.black.opacity(0.07))
-                            .cornerRadius(10)
-                            .font(.custom("Nunito-Regular", size: 22))
-                            .textInputAutocapitalization(.never)
+                            .padding(.bottom)
+                        
                         // MARK: - CONFIRMATION TEXTFIELD
                         SecureField("\(Image(systemName: "checkmark.circle.fill"))  Confirm", text: $checkPassword)
-                            .padding()
+                            .modifier(TextFieldModifier())
                             .frame(width: 300, height: 50)
-                            .background(Color.black.opacity(0.07))
-                            .cornerRadius(10)
-                            .font(.custom("Nunito-Regular", size: 22))
-                            .textInputAutocapitalization(.never)
+                            .padding(.bottom)
+                        
                         // MARK: - REGISTER BUTTON
                         Button {
                             if (password == checkPassword) {
@@ -112,14 +114,9 @@ struct SignUpView: View {
                             }
                         } label: {
                             Text("Register")
-                                .foregroundColor(.white)
-                                .font(.custom("Nunito-Bold", size: 22))
-                                .frame(width: 270)
-                                .padding()
-                                .background(
-                                    RoundedRectangle(cornerRadius: 10)
-                                )
-                                .padding()
+                                .frame(width: 270, height: 30)
+                                .modifier(ButtonModifier())
+                                .padding(.top)
                                 .alert(isPresented: $showingAlert) {
                                     Alert(title: Text((message=="Registered successfully!") ? "Success" : "Error"),
                                         message: Text(message),
@@ -133,7 +130,6 @@ struct SignUpView: View {
                                         }
                                     )
                                 }
-                                .offset(y: 5)
                         }
                         // MARK: - LINK TO LOGIN VIEW
                         Button {
@@ -141,7 +137,6 @@ struct SignUpView: View {
                         } label: {
                             Text("I have an account!")
                         }
-                        .offset(y: -10)
                     }
                 }
             }

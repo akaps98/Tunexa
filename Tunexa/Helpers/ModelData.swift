@@ -1,9 +1,20 @@
-//
-//  ModelData.swift
-//  Tunexa
-//
-//  Created by Nguyễn Anh Duy on 13/09/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 3
+  Team: Squad 21 (Group 21)
+  Members:
+  1. Nguyen Anh Duy (s3878141) - Main Contributor
+  2. Seoungjoon Hong (s3726123)
+  3. Junsik Kang (s3916884)
+  4. Christina Yoo (s3938331)
+  5. Nguyen Hoang Viet (s3926104)
+  Created date: 13/09/2023
+  Last modified: 13/09/2023
+  Acknowledgement:
+  - Parsing data from JSON file into struct: RMIT Contact List - Lab Tutorial W5 example from the lecturer (Mr. Tom Huynh)
+*/
 
 import Foundation
 

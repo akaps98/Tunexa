@@ -1,24 +1,31 @@
-//
-//  AccountEditView.swift
-//  Tunexa
-//
-//  Created by Tony on 2023/09/13.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 3
+  Team: Squad 21 (Group 21)
+  Members:
+  1. Nguyen Anh Duy (s3878141) - Main Contributor
+  2. Seoungjoon Hong (s3726123)
+  3. Junsik Kang (s3916884) - Main Contributor
+  4. Christina Yoo (s3938331) - Main Contributor
+  5. Nguyen Hoang Viet (s3926104)
+  Created date: 13/09/2023
+  Last modified: 22/09/2023
+  Acknowledgement: None
+*/
 
 import SwiftUI
 import PhotosUI
 import FirebaseStorage
 
 struct AccountEditView: View {
-    // MARK: - VARIABLES
+    // MARK: ***** PROPERTIES *****
     @Environment(\.presentationMode) var presentationMode
-    
     @Binding var isDark: Bool
     
     @State var isLoggedIn = false // check the user is logged in
-    
     @State private var user: User?
-    
     @State var pickedImage = Image(systemName: "person.circle.fill")
     @State var newUsername = ""
     @State var newDesc = ""
@@ -91,11 +98,8 @@ struct AccountEditView: View {
                             Text("Username")
                                 .font(.custom("Nunito-Bold", size: 25))
                             TextField("\(Image(systemName: "person"))  Username", text: $newUsername)
-                                .padding()
+                                .modifier(TextFieldModifier())
                                 .frame(width: 300, height: 50)
-                                .background(Color.black.opacity(0.07))
-                                .cornerRadius(10)
-                                .font(.custom("Nunito-Regular", size: 22))
                                 .offset(y: -10)
                             Text("Introduction")
                                 .font(.custom("Nunito-Bold", size: 26))
@@ -103,11 +107,8 @@ struct AccountEditView: View {
                             TextField("\(Image(systemName: "rectangle.and.pencil.and.ellipsis")) Your Bio", text: $newDesc, axis: .vertical)
                                 .lineLimit(4, reservesSpace: true)
                                 .multilineTextAlignment(.leading)
-                                .padding()
+                                .modifier(TextFieldModifier())
                                 .frame(width: 300, height: 125)
-                                .background(Color.black.opacity(0.07))
-                                .cornerRadius(10)
-                                .font(.custom("Nunito-Light", size: 20))
                                 .offset(y: -10)
                         }
                         .padding(.top)
@@ -163,13 +164,8 @@ struct AccountEditView: View {
                                         .frame(width: 100, height: 20)
                                 } else {
                                     Text("Edit")
-                                        .foregroundColor(.white)
-                                        .font(.custom("Nunito-Bold", size: 22))
                                         .frame(width: 100, height: 20)
-                                        .padding()
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 10)
-                                        )
+                                        .modifier(ButtonModifier())
                                         .padding()
                                 }
                             }
@@ -181,13 +177,8 @@ struct AccountEditView: View {
                                     onDismiss() // Call the onDismiss closure
                                 } label: {
                                     Text("Cancel")
-                                        .foregroundColor(.white)
-                                        .font(.custom("Nunito-Bold", size: 22))
                                         .frame(width: 100, height: 20)
-                                        .padding()
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 10)
-                                        )
+                                        .modifier(ButtonModifier())
                                         .padding()
                                 }
                             }

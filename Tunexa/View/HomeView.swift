@@ -13,8 +13,8 @@
   Created date: 12/09/2023
   Last modified: 22/09/2023
   Acknowledgement:
-  - Horizontal Scroll View:
-  - LazyVGrid: 
+  - Horizontal Scroll View: https://www.hackingwithswift.com/quick-start/swiftui/how-to-add-horizontal-and-vertical-scrolling-using-scrollview
+  - LazyVGrid: Swift Playgrounds - Organize with Grid
 */
 
 
@@ -76,9 +76,9 @@ struct HomeView: View {
                 ScrollView {
                     VStack {
                         HStack {
-                            // MARK: HEADER TEXT
+                            // MARK: HEADER
                             Text("Welcome to Tunexa")
-                                .font(.custom("Nunito-Bold", size: 25))
+                                .modifier(NavigationHeaderModifier())
                             Spacer()
                             // MARK: HEADER BUTTONS
                             HStack(spacing: 10) {
