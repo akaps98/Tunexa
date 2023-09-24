@@ -41,6 +41,7 @@ struct SongUpdateCard: View {
             Color("bg-color")
                 .edgesIgnoringSafeArea(.all)
             
+            // MARK: CONTENT
             VStack(alignment: .center) {
                 // MARK: TITLE
                 Text("Update this song")
