@@ -8,7 +8,7 @@
   1. Nguyen Anh Duy (s3878141) - Main Contributor
   2. Seoungjoon Hong (s3726123) - Main Contributor
   3. Junsik Kang (s3916884)
-  4. Christina Yoo (s3938331) 
+  4. Christina Yoo (s3938331) - Sub Contributor
   5. Nguyen Hoang Viet (s3926104)
   Created date: 13/09/2023
   Last modified: 20/09/2023

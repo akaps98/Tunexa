@@ -6,7 +6,7 @@
   Team: Squad 21 (Group 21)
   Members:
   1. Nguyen Anh Duy (s3878141)
-  2. Seoungjoon Hong (s3726123)
+  2. Seoungjoon Hong (s3726123) - Sub Contributor
   3. Junsik Kang (s3916884)
   4. Christina Yoo (s3938331)
   5. Nguyen Hoang Viet (s3926104) - Main Contributor
